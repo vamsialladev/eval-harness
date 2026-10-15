@@ -16,7 +16,7 @@ flowchart LR
     ADP[Adapters<br/>one output record]
     MET[Deterministic metrics<br/>projects' own code at the pins]
     JUD[LLM judge<br/>completeness, tone, clarity]
-    CAL[Calibration<br/>40 human labels, kappa]
+    CAL[Calibration<br/>70 human labels in 2 rounds, kappa]
     STA[Statistics<br/>Wilson, runs, flaky, categories]
     GAT[Gates<br/>hard 100%, floors,<br/>interval, stable flips]
     OUT[Reports + index<br/>CI checks<br/>dashboard]

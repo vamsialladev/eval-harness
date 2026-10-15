@@ -3,6 +3,23 @@
 All notable changes to this project. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions
 follow [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-10-15
+
+### Added
+- Calibration round 2: 30 blind items enriched with failures (15 real replies the judge failed, 15 hand-written
+  degraded variants), `scripts/build_round2.py`, the labeling page's `--round 2`, `hoteleval judge --round 2`.
+- `hoteleval calibrate` reports each round and all labels together, per quality; trust is decided on all labels.
+- Rubric v3 (higher bar for "fail"); the calibration page shows every round, confusion matrices and rubric versions.
+
+### Changed
+- Untrusted judge numbers are no longer shown as scores anywhere (the run pass-rate table is gone until a metric is
+  trusted).
+- Dependencies: ruff 0.17.0 (CI pinned to it), actions/checkout v7, actions/setup-python v7.
+
+### Measured
+- 70 owner labels (round 1: 40, all pass; round 2: 30, 6 fail). Kappa on all 70: v1 0.22, v2 0.20, v3 0.29 (tone 0.51,
+  clarity 0.23, completeness 0.00); round 2 alone (enriched): 0.04, 0.00, 0.13. No judge metric trusted.
+
 ## [1.0.0] - 2026-10-15
 
 First release. A simulated client engagement for a fictional hotel group, with synthetic data.

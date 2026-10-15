@@ -32,7 +32,7 @@ prompt, model or retrieval change can't lower quality without a red check.**
 | **Problem** | Two AI assistants, each with its own eval scripts and report format. A cheaper model, a new prompt or a retrieval setting can lower quality, and nothing would say so before staff notice. |
 | **Solution** | An installable harness (`hoteleval`): 181 labelled cases in one schema, the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
 | **Projected value** | ~$26K/yr net for the two assistants (range $1.5K–$68K), mostly engineer time per change ([assumptions](docs/BUSINESS_CASE.md)) |
-| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 40 hand labels: 95% agreement but **kappa 0.00**, so **no judge metric is trusted** or gated. 86 tests, 93% coverage. Whole project's API spend: **$0.38**. |
+| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 70 hand labels in two blind rounds (round 2 enriched with failures): best **kappa 0.29** overall (tone 0.51, clarity 0.23, completeness 0.00), so **no judge metric is trusted**, reported as a score or gated. 87 tests, 93% coverage. Whole project's API spend: **$0.41**. |
 
 ## Where to start
 
@@ -93,7 +93,7 @@ flowchart LR
     R --> A[Adapters<br/>one output record]
     A --> M[Deterministic metrics<br/>projects' own code]
     A --> J[LLM judge<br/>completeness, tone, clarity]
-    J --> K[Calibration<br/>40 human labels, kappa]
+    J --> K[Calibration<br/>70 human labels, kappa]
     M --> S[Statistics<br/>Wilson, runs, flaky]
     S --> G[Gates<br/>hard, floors, interval, flips]
     G --> O[Reports, CI, dashboard]
@@ -183,15 +183,26 @@ numeric grounding, naming q13 and q35. The branch was deleted and never pushed o
 <img src="docs/images/gate-pass.png" alt="hoteleval gate on the fresh Project 2 re-run: PASS, every gated check ok" width="760">
 </details>
 
-**Judge calibration.** 40 stratified items labelled by hand by the owner: **all 40 pass**. Rubric v1 agreed on 38
-(95%) and failed two clarity items; kappa **0.00**, undefined for completeness and tone. One revision (v2) fixed the
-item it targeted; agreement stayed 95%, kappa 0.00. Three identical v2 passes agreed on 39 of 40 items. **No judge
-metric is trusted, so none is a gate.** On the full re-runs the judge fails 13–17% of replies on clarity: stricter
-than the labels, and only labels with real failures can say who is right ([decision 17](docs/DECISIONS.md)).
+**Judge calibration (two blind rounds, 70 labels by the owner).** Round 1: 40 stratified items, **all passed** by
+the owner, so kappa was 0.00 or undefined. Round 2: 30 items **enriched with failures on purpose** (15 real replies the
+judge had failed + 15 hand-written degraded variants); the owner failed 6 of 30, the v2 judge failed all 30. Trust is
+decided per quality on all 70 labels (rule: kappa ≥ 0.6); round 2's kappa is not what random traffic would give.
+
+| Rubric | Kappa, all 70 | Kappa, round 2 (enriched) | Completeness / tone / clarity (all 70) | Precision / recall for "fail" | Trusted |
+|---|---|---|---|---|---|
+| v1 | 0.22 (66% agreement) | 0.04 | 0.00 / 0.30 / 0.19 | 20% / 100% | none |
+| v2 | 0.20 (63%) | 0.00 | 0.00 / 0.30 / 0.14 | 19% / 100% | none |
+| v3 (in use) | **0.29** (81%) | 0.13 | 0.00 / **0.51** / 0.23 | 27% / 67% | **none** |
+
+v3 raised the bar for "fail" to "the reader would be confused, misled, left unanswered or put off". It was revised on
+the same labels, so its numbers are optimistic; I stopped there rather than nudge tone over 0.6 on those labels.
+**No judge metric is trusted, so none is reported as a score or used as a gate; the hard gates stay deterministic.**
+The judge catches what the owner fails but fails much more; the owner passed 11 of 15 deliberately degraded replies, so
+the standard itself needs written examples and a second labeler ([decisions 17, 20, 21](docs/DECISIONS.md)).
 
 <details><summary>Calibration output (real)</summary>
 
-<img src="docs/images/calibrate.png" alt="hoteleval calibrate: v1 and v2 both at 40 items, agreement 95%, kappa 0.00, trusted: none" width="760">
+<img src="docs/images/calibrate.png" alt="hoteleval calibrate: v1, v2 and v3 on round 1, round 2 and all 70 labels; best kappa 0.29 with v3, trusted: none" width="760">
 </details>
 
 <details><summary>Metric definitions</summary>
@@ -211,7 +222,8 @@ than the labels, and only labels with real failures can say who is right ([decis
 ### What the eval taught me
 
 - **Agreement isn't evidence.** 95% agreement looked good; kappa 0.00 said the 40 labels held no failures to agree
-  on. Sampling outputs that a deterministic metric flagged gave me wrong facts, not badly written replies.
+  on. A second round enriched with failures gave kappa 0.20–0.29: the judge is far stricter than I am, and I passed
+  most of the replies I had degraded on purpose. The standard needs examples before the judge can match it.
 - **An interval alone missed a real regression.** Two lost cases out of 45 stay inside the interval; "always passed,
   now always fails" is what caught it.
 - **Re-running unchanged code failed the gate.** One model miss on a 3-case group broke a 90% floor. Floors now need
@@ -244,9 +256,9 @@ eval-harness/
 ├── runs/                   # recorded outputs (one record per output)
 ├── reports/                # markdown + JSON per run, index.json
 ├── judge/                  # judge cache, verdicts, calibration.json
-├── labels/                 # 40 calibration items and the owner's labels
+├── labels/                 # calibration items (2 rounds, 70) and the owner's labels
 ├── scripts/                # import, vendor sync, added cases, rescore, business case, video
-├── tests/                  # 86 tests
+├── tests/                  # 87 tests
 └── docs/                   # plan, architecture, decisions, business case, demo script, checklists
 ```
 
@@ -280,7 +292,7 @@ hoteleval gate --project guest-request-agent --recorded eval/recorded/main-final
 | `ANTHROPIC_API_KEY` | `.env` | – | Only for `judge --live` and `run-live` |
 | Pins | `src/hoteleval/pins.py` | P1 `5f9cd91`, P2 `575a19f` | The commits evaluated |
 | Gates | `src/hoteleval/data/gates.toml` | hard + floors | What fails a build |
-| Rubric | `src/hoteleval/data/rubrics/judge-v*.toml` | v2 | Judge wording; never edited after use |
+| Rubric | `src/hoteleval/data/rubrics/judge-v*.toml` | v3 | Judge wording; never edited after use |
 | Prices | `--price-in` / `--price-out` | – | USD per million tokens for cost per 1,000 |
 
 ## Commands reference
@@ -292,8 +304,8 @@ hoteleval gate --project guest-request-agent --recorded eval/recorded/main-final
 | `hoteleval score --run-id ID --baseline BASE` | Report + gate | No |
 | `hoteleval run-live --project P --repo PATH --ref REF --runs 3 --run-id ID` | Real pipeline at a ref | Yes |
 | `hoteleval import-run --project P --native FILE --run-id ID` | Convert a project's recording | No |
-| `hoteleval judge --rubric v2 [--run ID] [--repeat N] --live` | Judge items or a run | Yes |
-| `hoteleval calibrate` | Judge vs labels, every rubric version | No |
+| `hoteleval judge --rubric v3 [--round 2] [--run ID] [--repeat N] --live` | Judge calibration items or a run | Yes |
+| `hoteleval calibrate` | Judge vs labels: each round and all labels, every rubric version | No |
 | `python scripts/rescore_all.py` · `check_reports.py` | Re-score everything / prove reports match | No |
 
 ## Troubleshooting
@@ -312,13 +324,13 @@ secrets. Every push redeploys it.
 
 ## Testing and quality
 
-86 tests at 93% coverage: the schema, every metric passing and failing, statistics, kappa, gates, adapters, the
+87 tests at 93% coverage: the schema, every metric passing and failing, statistics, kappa, gates, adapters, the
 runner, reports, the judge with a fake client, the CLI and every dashboard page (Streamlit AppTest). CI: ruff lint
 and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of every saved report.
 
 <details><summary>Test run (real)</summary>
 
-<img src="docs/images/tests.png" alt="pytest: 86 passed, total coverage 93%" width="760">
+<img src="docs/images/tests.png" alt="pytest: 87 passed, total coverage 93%" width="760">
 </details>
 
 ## Security and privacy
@@ -329,7 +341,8 @@ secret scanning and push protection on. [SECURITY.md](SECURITY.md)
 
 ## Limitations and roadmap
 
-- The calibration sample held no human failures; the judge is untrusted until labels with real failures exist.
+- The judge is untrusted (best kappa 0.29 on 70 labels); next: written pass/fail examples per quality, a second
+  labeler and fresh labels.
 - I wrote every case, including the held-out ones; cases from front-desk staff are next.
 - Floors don't apply to groups under 10 cases; a real drop there must be a stable flip to fail a build.
 - Project 4: persistent run history, monitoring, sign-in and redaction.

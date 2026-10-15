@@ -8,7 +8,8 @@ documents, guests, bookings and emails. The harness evaluates the hotel group's 
   Project 3. Fictional names and `@example.com` addresses only.
 - **Recorded outputs (`runs/`):** the assistants' answers and drafts to those synthetic cases, with tool results
   and timings. No visitor data: nothing typed into the live apps is ever recorded here.
-- **Human labels (`labels/human-labels.jsonl`):** the owner's pass/fail clicks and optional reasons on 40 items.
+- **Human labels (`labels/human-labels.jsonl`, `labels/human-labels-round2.jsonl`):** the owner's pass/fail clicks and optional
+  reasons on 70 items in two blind rounds.
 - **Sent to the Claude API (judge and live runs only):** the case text, the reply being judged and the rubric. The
   dashboard and CI never call the API.
 

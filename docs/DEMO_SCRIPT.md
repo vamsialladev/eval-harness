@@ -11,5 +11,5 @@ Narration: an AI voice (Piper `en_US-lessac-high`, open source, offline), labell
 | 0:28 | Runs over time, demo marked | Then I made a realistic bad change on a throwaway branch: two passages instead of five, to save tokens. Retrieval only fell from ninety-eight to ninety-three percent, inside the interval. |
 | 0:42 | Run list, failure reasons | The gate still failed, because two questions that always passed now always fail. The message names them. The branch was never merged. |
 | 0:52 | Cases, q13 drill-down | Here is one: the spa age question. The right passage dropped out, and every metric shows it. |
-| 1:02 | Judge calibration | An AI judge rates tone and clarity. I labelled forty replies by hand. It agreed ninety-five percent of the time, but kappa was zero: my labels had no failures, so agreement proved nothing. No judge score is trusted, and none is a gate. |
+| 1:02 | Judge calibration | An AI judge rates tone and clarity. I labelled seventy replies by hand, in two blind rounds, the second one full of failures on purpose. Its best kappa was point two nine, well under the bar of point six. So no judge score is trusted, and none is a gate. |
 | 1:20 | End card | The code, the reports and every decision are linked on screen. |

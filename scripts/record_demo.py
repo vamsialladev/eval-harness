@@ -66,9 +66,9 @@ NARRATION = {
     "them. The branch was never merged.",
     "case": "Here is one: a spa question about a sixteen-year-old. The right passage dropped out, and every metric "
     "shows it.",
-    "judge": "An AI judge rates tone and clarity. I labelled forty replies by hand. It agreed ninety-five percent of "
-    "the time, but kappa was zero: my labels had no failures, so agreement proved nothing. No judge score is "
-    "trusted, and none is a gate.",
+    "judge": "An AI judge rates tone and clarity. I labelled seventy replies by hand, in two blind rounds, the second "
+    "one full of failures on purpose. Its best kappa was point two nine, well under the bar of point six. So no "
+    "judge score is trusted, and none is a gate.",
     "end": "The code, the reports and every decision are linked on screen.",
 }
 CAPTIONS = {
@@ -77,7 +77,7 @@ CAPTIONS = {
     "demo": "Bad change on a throwaway branch: top-k 5 → 2.",
     "caught": "Caught: q13 and q35 always passed, now always fail. Never merged.",
     "case": "Drill-down: the expected passage, the answers, every verdict.",
-    "judge": "Judge vs 40 hand labels: 95% agreement, kappa 0.00. Not trusted.",
+    "judge": "Judge vs 70 blind hand labels: best kappa 0.29. Not trusted, never a gate.",
 }
 
 

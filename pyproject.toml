@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hoteleval"
-version = "1.0.0"
+version = "1.1.0"
 description = "One evaluation harness for the hotel group's AI projects: shared case schema, deterministic metrics, an LLM judge checked against human labels, statistics and regression gates."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -42,6 +42,7 @@ select = ["E", "F", "I", "B", "UP"]
 [tool.ruff.lint.per-file-ignores]
 "src/hoteleval/metrics.py" = ["E501"]  # the registry reads best as one metric per line
 "scripts/write_added_cases.py" = ["E501"]  # case text reads best unbroken
+"scripts/build_round2.py" = ["E501"]  # the degraded replies read best unbroken
 "tests/test_metrics.py" = ["E501"]  # the exact sentences a metric got wrong, unbroken
 
 [tool.pytest.ini_options]

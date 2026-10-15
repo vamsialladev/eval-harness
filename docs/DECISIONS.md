@@ -188,8 +188,8 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
   11) produced replies with wrong facts, not badly written ones, so the sample held no quality failures.
 - **Result.** v2 fixed the item it targeted, kept the stable disagreement (p2-clarity-06, failed in every pass) and
   failed one new item (p1-clarity-04) that then flipped between identical passes (decision 19). Agreement 95%,
-  kappa 0.00 for both versions. On the full re-runs the judge fails 13–17% of replies on clarity, so it is stricter
-  than the human labels; which of the two is right needs labels that contain real failures. Next: seed the sample
+  kappa 0.00 for both versions. On the full re-runs the judge failed more replies on clarity than the human
+  labels did; which of the two is right needed labels that contain real failures (round 2, decisions 20 and 21). Next: seed the sample
   with known-bad replies (the regression demo's answers, deliberately degraded drafts) and add a second labeler.
 
 ## 18. A rubric note in the wrong TOML table
@@ -208,3 +208,34 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
   reports how many items got the same verdict in every pass.
 - **Result.** Three v2 passes: 39 of 40 identical; p1-clarity-04 flipped (fail, fail, pass). A one-item change after
   a rubric edit is within the judge's own noise. API cost of the three passes: about $0.03.
+
+## 20. Calibration round 2: a blind set enriched with failures
+
+- **Context.** Round 1 held no human failures (decision 17), so kappa could not say whether the judge was useful.
+- **Decision.** A second blind set of 30 items (`scripts/build_round2.py`): 15 real replies the v2 judge failed on the
+  harness re-runs (cases not in round 1) and 15 synthetic degraded variants of other real replies, written by hand,
+  not by a model (3 robotic and 3 cold for tone, 3 rambling and 3 internal-jargon for clarity, 3 with one request
+  dropped for completeness). Shuffled with a fixed seed; which items are degraded is recorded only in hidden metadata
+  the labeling page never shows; nothing round-2 related was pushed until the labels were in. Trust is decided per
+  quality on all 70 labels together; round 2 alone is reported next to it and always marked as enriched with failures.
+- **Tradeoff.** Half the round was chosen because the judge failed it, so precision and recall for "fail" describe
+  this enriched sample, not real traffic.
+- **Result.** The owner failed 6 of 30 (2 of 15 real, 4 of 15 degraded: one robotic, one cold, one rambling, one
+  jargon). The judge (v2) failed all 30.
+
+## 21. Kappa after both rounds: 0.20–0.29, nothing trusted; stopped at rubric v3
+
+- **Context.** Results on all 70 labels: v1 agreement 66%, kappa 0.22; v2 63%, 0.20. Round 2 alone (enriched): v1
+  0.04, v2 0.00. The judge caught every reply the owner failed (recall 100%) but failed far more (precision about 20%):
+  it is much stricter than the owner.
+- **Decision.** One revision (v3): fail only when a reader would be confused, misled, left without an answer they
+  asked for, or put off; style imperfections pass. v3 on all 70: agreement 81%, kappa 0.29 (tone 0.51, clarity 0.23,
+  completeness 0.00), precision 27%, recall 67%; round 2 alone 0.13; round 1 perfect agreement (kappa undefined). No
+  second revision: tone was the only quality near 0.6, and pushing it over on the same 70 labels would be fitting the
+  rubric to the labels. Untrusted judge numbers are no longer shown as scores anywhere; the hard gates stay
+  deterministic.
+- **Tradeoff.** No automated completeness, tone or clarity score. v3's numbers are optimistic (revised on the labels
+  it is scored against).
+- **Result.** The open question is the standard itself: the owner passed 11 of 15 deliberately degraded replies. A
+  second labeler, written pass/fail examples for each quality, and fresh labels come before any judge metric gates
+  or reports.
