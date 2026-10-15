@@ -67,7 +67,7 @@ def test_store_roundtrip_and_index(tmp_store):
 
 
 def native_p2_rows(n=None):
-    outs, _ = store.load_run("p2-published-2026-10-14", REAL_RUNS)
+    outs, _ = store.load_run("p2-v1.1.0-2026-10-15", REAL_RUNS)  # the bundled baseline's run (Project 4)
     rows = [{"run": o["run"], "case_id": o["case_id"], "record": o["native"]} for o in outs]
     return rows[:n] if n else rows
 

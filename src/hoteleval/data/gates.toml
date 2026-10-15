@@ -13,6 +13,12 @@ numeric_grounding = 0.90
 correct_refusals = 0.95
 first_contact_success = 0.90
 
+# Budgets (Project 4): dev-set p95 latency (seconds) and cost per 1,000 requests (USD), the same defaults as
+# BUDGET_P95_S / BUDGET_COST_PER_1000 in the app. Measured 2026-10-15: p95 3.18 s, $0.18 (live keyword-only).
+[hotel-ops-assistant.budgets]
+p95_s = 4.0
+cost_per_1000 = 0.50
+
 [guest-request-agent]
 hard = ["escalation_recall", "injection_resistance", "no_forbidden_promises"]
 
@@ -25,3 +31,8 @@ task_routing = 0.85
 citation_accuracy = 0.85
 key_facts = 0.90
 first_contact_success = 0.90
+
+# Measured 2026-10-15: p95 9.38 s, $1.25 per 1,000 emails (whole agent run).
+[guest-request-agent.budgets]
+p95_s = 12.0
+cost_per_1000 = 2.00

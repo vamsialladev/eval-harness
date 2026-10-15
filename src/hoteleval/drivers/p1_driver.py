@@ -37,11 +37,20 @@ def live_question(case: dict, prep: dict) -> tuple[dict, dict]:
 
     q, prop = case["input"]["question"], case["property"]
     if prep["blocked"]:
-        result, ttft, total, calls = blocked_result(), 0.0, 0.0, 0
+        try:  # Project 1 >= 1.6.0 answers the scope message in the question's language
+            result = blocked_result(q)
+        except TypeError:
+            result = blocked_result()
+        ttft, total, calls = 0.0, 0.0, 0
     else:
         stream = AnswerStream(q, prop, prep["hits"])
-        result = stream.run()
-        ttft, total, calls = stream.time_to_first_token, stream.total_time, 1
+        try:
+            result = stream.run()
+            ttft, total, calls = stream.time_to_first_token, stream.total_time, 1
+        except Exception as exc:  # noqa: BLE001 - a failed call is a failed answer, never a crashed run (Project 4)
+            print(f"  call failed: {type(exc).__name__}", flush=True)
+            result = {"answer": "", "found": True, "citations": [], "usage": {"input_tokens": 0, "output_tokens": 0}}
+            ttft, total, calls = None, None, 1
     row = {
         "answer": result["answer"],
         "cited": [c["source"] for c in result["citations"]],

@@ -11,6 +11,9 @@ Floors apply only to groups of at least MIN_FLOOR_CASES cases. Re-running Projec
 key facts at 8 of 9 outputs (3 cases), under the 90% floor: a false alarm from one model miss (decision 15). Small
 groups stay covered by the hard gates, the interval and stable flips.
 A metric the candidate didn't record (for example retrieval in a format without passages) is reported as skipped.
+5. budget (Project 4): the dev set's p95 latency and cost per 1,000 requests must stay within the project's budgets
+   in gates.toml (the same numbers the apps' Operations pages use). Skipped when the run has no timing or no
+   prices (decision 22).
 """
 
 import tomllib
@@ -111,6 +114,7 @@ def compare(baseline: dict, candidate: dict, gates: dict | None = None) -> dict:
             if name not in b:
                 continue
             checks.append(check_metric(name, split, b[name], c.get(name, {}), name in hard, floors.get(name)))
+    checks += check_budgets(candidate, config.get("budgets", {}))
     failures = [r for ch in checks if ch["status"] == "fail" for r in ch["reasons"]]
     skipped = [r for ch in checks if ch["status"] == "skipped" for r in ch["reasons"]]
     return {
@@ -121,6 +125,49 @@ def compare(baseline: dict, candidate: dict, gates: dict | None = None) -> dict:
         "skipped": skipped,
         "checks": checks,
     }
+
+
+BUDGET_LABELS = {"p95_s": ("p95 latency", "{:.2f} s"), "cost_per_1000": ("Cost per 1,000 requests", "${:.2f}")}
+
+
+def budget_value(split_summary: dict | None, key: str) -> float | None:
+    if not split_summary:
+        return None
+    if key == "p95_s":
+        return split_summary.get("latency", {}).get("p95_s")
+    return split_summary.get(key)
+
+
+def check_budgets(candidate: dict, budgets: dict, split: str = "dev") -> list[dict]:
+    """One check per budget on the dev split: fail when the measured value is over the budget."""
+    out = []
+    split_summary = candidate.get("splits", {}).get(split)
+    for key, limit in sorted(budgets.items()):
+        label, fmt = BUDGET_LABELS.get(key, (key, "{}"))
+        value = budget_value(split_summary, key)
+        check = {
+            "metric": f"budget_{key}",
+            "split": split,
+            "kind": "budget",
+            "cases": (split_summary or {}).get("cases", 0),
+            "baseline": None,
+            "candidate": value,
+            "ci": None,
+            "floor": limit,
+            "flipped": [],
+            "failing": [],
+            "reasons": [],
+        }
+        if value is None:
+            check["status"] = "skipped"
+            check["reasons"].append(f"Budget {label} ({split}): not measured in this run (no timing or prices)")
+        elif value > limit:
+            check["status"] = "fail"
+            check["reasons"].append(f"Budget {label} ({split}) {fmt.format(value)} is over {fmt.format(limit)}")
+        else:
+            check["status"] = "pass"
+        out.append(check)
+    return out
 
 
 def summary_line(result: dict) -> str:

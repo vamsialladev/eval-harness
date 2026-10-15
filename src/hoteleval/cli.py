@@ -147,6 +147,12 @@ def cmd_score(args) -> int:
 def cmd_baseline(args) -> int:
     summary = store.read_json(store.REPORTS / f"{args.run_id}.json")
     summary.pop("gate", None)
+    if args.exclude_added:  # cases added after a project shipped are reported, not gated (decisions 14, 22)
+        from hoteleval.cases import load_cases
+
+        added = {c.id for c in load_cases(summary["meta"]["project"]) if c.added}
+        summary["verdicts"] = [v for v in summary["verdicts"] if v["case_id"] not in added]
+        summary["meta"]["baseline_excludes"] = "cases added in Project 3 and 4"
     store.write_json(store.BASELINES / f"{summary['meta']['project']}.json", summary)
     print(f"baseline for {summary['meta']['project']}: {args.run_id}")
     return 0
@@ -155,7 +161,12 @@ def cmd_baseline(args) -> int:
 def cmd_gate(args) -> int:
     """One shot for a project's CI: recorded outputs (the project's own format, or a run saved in this repo) ->
     score -> compare with the bundled baseline."""
-    if args.saved:
+    if args.run_file:  # a saved run copied into a project repo (Project 4: gates budgets in the project's CI)
+        path = Path(args.run_file)
+        outputs, meta = store.load_run(path.name.removesuffix(".jsonl"), path.parent)
+        args.project = meta["project"]
+        summary = score_run(outputs, meta)
+    elif args.saved:
         outputs, meta = store.load_run(args.saved)
         args.project = meta["project"]
         summary = score_run(outputs, meta)
@@ -166,13 +177,18 @@ def cmd_gate(args) -> int:
         meta = {"run_id": run_id, "project": args.project, "mode": "replay", "date": date.today().isoformat()}
         summary = score_run(outputs, {**meta, "settings": settings})
     else:
-        print("gate needs --saved RUN_ID, or --project with --recorded FILE")
+        print("gate needs --saved RUN_ID, --run-file FILE, or --project with --recorded FILE")
         return 2
     result = gates.compare(baseline_for(args.project), summary)
     print(f"hoteleval gate · {args.project} · {len(outputs)} recorded outputs")
     for ch in result["checks"]:
         mark = {"pass": "ok  ", "fail": "FAIL", "skipped": "skip"}[ch["status"]]
-        cand = "–" if ch["candidate"] is None else f"{ch['candidate']:.0%}"
+        if ch["candidate"] is None:
+            cand = "–"
+        elif ch.get("kind") == "budget":
+            cand = f"{ch['candidate']:.2f}"
+        else:
+            cand = f"{ch['candidate']:.0%}"
         print(f"  {mark} {ch['split']:<8} {ch['metric']:<22} {cand:>5}  ({ch['cases']} cases)")
     print(gates.summary_line(result))
     for f in result["failures"]:
@@ -229,12 +245,14 @@ def main(argv=None) -> int:
 
     p = sub.add_parser("baseline", help="bundle a scored run as its project's baseline")
     p.add_argument("--run-id", required=True)
+    p.add_argument("--exclude-added", action="store_true", help="leave added cases out of the gate (reported only)")
     p.set_defaults(fn=cmd_baseline)
 
     p = sub.add_parser("gate", help="score recorded outputs and gate them against the bundled baseline")
     p.add_argument("--project", choices=PROJECTS)
     p.add_argument("--recorded", nargs="+", help="the project's own recorded outputs (JSONL)")
     p.add_argument("--saved", help="a run saved in this repo's runs/ folder")
+    p.add_argument("--run-file", help="a saved run (.jsonl next to its .meta.json), e.g. copied into a project repo")
     p.add_argument("--project-root", help="Project 1 tree: recompute retrieval and escalation (no API)")
     p.add_argument("--run-id")
     p.set_defaults(fn=cmd_gate)
