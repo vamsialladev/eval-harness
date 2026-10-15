@@ -11,6 +11,8 @@
 
 - skipped: Escalation rules (dev): not recorded in the candidate run
 - skipped: Strict retrieval (dev): not recorded in the candidate run
+- skipped: Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)
+- skipped: Budget p95 latency (dev): not measured in this run (no timing or prices)
 
 ## Dev set: 54 cases × 3 run(s)
 

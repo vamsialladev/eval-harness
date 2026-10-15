@@ -7115,6 +7115,34 @@
     ],
     "reasons": [],
     "status": "pass"
+   },
+   {
+    "metric": "budget_cost_per_1000",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 54,
+    "baseline": null,
+    "candidate": 0.17178395061728396,
+    "ci": null,
+    "floor": 0.5,
+    "flipped": [],
+    "failing": [],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "budget_p95_s",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 54,
+    "baseline": null,
+    "candidate": 3.3079429599805734,
+    "ci": null,
+    "floor": 4.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [],
+    "status": "pass"
    }
   ]
  }

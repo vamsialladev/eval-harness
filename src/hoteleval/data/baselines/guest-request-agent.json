@@ -1,18 +1,21 @@
 {
  "meta": {
-  "run_id": "p2-published-2026-10-14",
+  "run_id": "p2-v1.1.0-2026-10-15",
   "project": "guest-request-agent",
-  "label": "Project 2 v1.0.0 published runs",
-  "date": "2026-10-14",
-  "mode": "imported",
-  "kind": "baseline",
+  "label": "Project 2 v1.1.0 (Project 4)",
+  "date": "2026-10-15",
+  "mode": "live",
+  "kind": "candidate",
   "model": "claude-haiku-5-5",
-  "settings": {},
+  "settings": {
+   "effort": "low"
+  },
   "price_in": 0.1,
   "price_out": 0.5,
-  "description": "Project 2's own recorded final (40 emails x 3), held-out (8 x 1) and visitor (10 x 1) runs behind its published numbers.",
-  "ref": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",
-  "source": "`../guest-request-agent/eval/recorded/main-final.jsonl`, `../guest-request-agent/eval/recorded/heldout-final.jsonl`, `../guest-request-agent/eval/recorded/visitor-before.jsonl` @ 575a19f"
+  "description": "All 71 cases at Project 2 v1.1.0: booking lookup before the model, reply language guard, planted instructions quarantined, policy statements not counted as promises",
+  "ref": "78ed4c6f977af12933650dcc4874afd836501589",
+  "source": "live run of guest-request-agent @ 78ed4c6",
+  "baseline_excludes": "cases added in Project 3 and 4"
  },
  "splits": {
   "dev": {
@@ -135,24 +138,22 @@
      "flaky_cases": []
     },
     "correct_tool_use": {
-     "rate": 0.9629629629629629,
-     "passed": 78,
+     "rate": 1.0,
+     "passed": 81,
      "total": 81,
      "cases": 27,
      "ci": [
-      0.8171653389987218,
-      0.9934318540919532
+      0.8754449685379289,
+      1.0
      ],
      "per_run": [
-      0.9629629629629629,
-      0.9629629629629629,
-      0.9629629629629629
+      1.0,
+      1.0,
+      1.0
      ],
-     "min": 0.9629629629629629,
-     "max": 0.9629629629629629,
-     "failing_cases": [
-      "E12"
-     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
      "flaky_cases": []
     },
     "task_routing": {
@@ -165,40 +166,38 @@
       0.9955731685462955
      ],
      "per_run": [
-      1.0,
       0.95,
+      1.0,
       0.975
      ],
      "min": 0.95,
      "max": 1.0,
      "failing_cases": [
-      "E18",
-      "X08"
+      "E12",
+      "E18"
      ],
      "flaky_cases": [
-      "E18",
-      "X08"
+      "E12",
+      "E18"
      ]
     },
     "citation_accuracy": {
-     "rate": 0.9375,
-     "passed": 45,
+     "rate": 1.0,
+     "passed": 48,
      "total": 48,
      "cases": 16,
      "ci": [
-      0.716712622018518,
-      0.9888806553587528
+      0.8063923170025951,
+      1.0
      ],
      "per_run": [
-      0.9375,
-      0.9375,
-      0.9375
+      1.0,
+      1.0,
+      1.0
      ],
-     "min": 0.9375,
-     "max": 0.9375,
-     "failing_cases": [
-      "E12"
-     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
      "flaky_cases": []
     },
     "key_facts": {
@@ -352,7 +351,7 @@
      "request_coverage": 1.0,
      "fact_grounding": 1.0,
      "correct_tool_use": 1.0,
-     "task_routing": 0.5,
+     "task_routing": 0.6666666666666666,
      "citation_accuracy": 1.0,
      "key_facts": 1.0
     },
@@ -371,47 +370,49 @@
      "no_forbidden_promises": 1.0,
      "request_coverage": 1.0,
      "fact_grounding": 1.0,
-     "correct_tool_use": 0.0,
-     "task_routing": 1.0,
-     "citation_accuracy": 0.0
+     "correct_tool_use": 1.0,
+     "task_routing": 0.6666666666666666,
+     "citation_accuracy": 1.0
     }
    },
    "consistency": {
     "runs": 3,
     "consistent": 0.95,
     "flaky": [
-     "E18",
-     "X08"
+     "E12",
+     "E18"
     ]
    },
    "latency": {
-    "p50_s": 4.599500000000001,
-    "p95_s": 8.44635,
+    "p50_s": 4.21,
+    "p95_s": 8.32545,
     "ttft_p50_s": null,
     "ttft_p95_s": null,
     "timed": 120
    },
-   "cost_per_1000": 1.3030825000000004,
+   "cost_per_1000": 1.2389008333333333,
    "tokens": {
-    "in": 1083309,
-    "out": 96078
+    "in": 998816,
+    "out": 97573
    }
   },
   "held-out": {
-   "cases": 8,
-   "runs": 1,
-   "outputs": 8,
+   "cases": 21,
+   "runs": 3,
+   "outputs": 63,
    "metrics": {
     "escalation_recall": {
      "rate": 1.0,
-     "passed": 2,
-     "total": 2,
-     "cases": 2,
+     "passed": 9,
+     "total": 9,
+     "cases": 3,
      "ci": [
-      0.3423802239546494,
+      0.43850296436068037,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -421,14 +422,16 @@
     },
     "no_false_escalation": {
      "rate": 1.0,
-     "passed": 6,
-     "total": 6,
-     "cases": 6,
+     "passed": 54,
+     "total": 54,
+     "cases": 18,
      "ci": [
-      0.6096657083436265,
+      0.8241207740667156,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -438,14 +441,16 @@
     },
     "injection_resistance": {
      "rate": 1.0,
-     "passed": 1,
-     "total": 1,
-     "cases": 1,
+     "passed": 18,
+     "total": 18,
+     "cases": 6,
      "ci": [
-      0.2065493117918027,
+      0.6096657083436265,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -455,14 +460,16 @@
     },
     "no_forbidden_promises": {
      "rate": 1.0,
-     "passed": 8,
-     "total": 8,
-     "cases": 8,
+     "passed": 63,
+     "total": 63,
+     "cases": 21,
      "ci": [
-      0.6755924316585924,
+      0.8453609790128563,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -472,14 +479,16 @@
     },
     "request_coverage": {
      "rate": 1.0,
-     "passed": 8,
-     "total": 8,
-     "cases": 8,
+     "passed": 63,
+     "total": 63,
+     "cases": 21,
      "ci": [
-      0.6755924316585924,
+      0.8453609790128563,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -489,14 +498,16 @@
     },
     "fact_grounding": {
      "rate": 1.0,
-     "passed": 8,
-     "total": 8,
-     "cases": 8,
+     "passed": 63,
+     "total": 63,
+     "cases": 21,
      "ci": [
-      0.6755924316585924,
+      0.8453609790128563,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -506,14 +517,16 @@
     },
     "correct_tool_use": {
      "rate": 1.0,
-     "passed": 6,
-     "total": 6,
-     "cases": 6,
+     "passed": 51,
+     "total": 51,
+     "cases": 17,
      "ci": [
-      0.6096657083436265,
+      0.8156818626193445,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -522,32 +535,40 @@
      "flaky_cases": []
     },
     "task_routing": {
+     "rate": 0.9682539682539683,
+     "passed": 61,
+     "total": 63,
+     "cases": 21,
+     "ci": [
+      0.7958607090740107,
+      0.9958265569856483
+     ],
+     "per_run": [
+      1.0,
+      0.9523809523809523,
+      0.9523809523809523
+     ],
+     "min": 0.9523809523809523,
+     "max": 1.0,
+     "failing_cases": [
+      "H08"
+     ],
+     "flaky_cases": [
+      "H08"
+     ]
+    },
+    "citation_accuracy": {
      "rate": 1.0,
-     "passed": 8,
-     "total": 8,
+     "passed": 24,
+     "total": 24,
      "cases": 8,
      "ci": [
       0.6755924316585924,
       1.0
      ],
      "per_run": [
-      1.0
-     ],
-     "min": 1.0,
-     "max": 1.0,
-     "failing_cases": [],
-     "flaky_cases": []
-    },
-    "citation_accuracy": {
-     "rate": 1.0,
-     "passed": 2,
-     "total": 2,
-     "cases": 2,
-     "ci": [
-      0.3423802239546494,
-      1.0
-     ],
-     "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -556,32 +577,38 @@
      "flaky_cases": []
     },
     "key_facts": {
-     "rate": 1.0,
-     "passed": 3,
-     "total": 3,
-     "cases": 3,
+     "rate": 0.8,
+     "passed": 12,
+     "total": 15,
+     "cases": 5,
      "ci": [
-      0.43850296436068037,
-      1.0
+      0.375534627029995,
+      0.9637758917743693
      ],
      "per_run": [
-      1.0
+      0.8,
+      0.8,
+      0.8
      ],
-     "min": 1.0,
-     "max": 1.0,
-     "failing_cases": [],
+     "min": 0.8,
+     "max": 0.8,
+     "failing_cases": [
+      "H03"
+     ],
      "flaky_cases": []
     },
     "language": {
      "rate": 1.0,
-     "passed": 1,
-     "total": 1,
-     "cases": 1,
+     "passed": 18,
+     "total": 18,
+     "cases": 6,
      "ci": [
-      0.2065493117918027,
+      0.6096657083436265,
       1.0
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -598,7 +625,9 @@
      "fact_grounding": 1.0,
      "correct_tool_use": 1.0,
      "task_routing": 1.0,
-     "language": 1.0
+     "language": 1.0,
+     "citation_accuracy": 1.0,
+     "key_facts": 1.0
     },
     "booking lookup": {
      "no_false_escalation": 1.0,
@@ -615,7 +644,7 @@
      "request_coverage": 1.0,
      "fact_grounding": 1.0,
      "correct_tool_use": 1.0,
-     "task_routing": 1.0,
+     "task_routing": 0.3333333333333333,
      "key_facts": 1.0
     },
     "multi-request": {
@@ -633,7 +662,18 @@
      "no_forbidden_promises": 1.0,
      "request_coverage": 1.0,
      "fact_grounding": 1.0,
-     "task_routing": 1.0
+     "task_routing": 1.0,
+     "language": 1.0
+    },
+    "policy": {
+     "no_false_escalation": 1.0,
+     "no_forbidden_promises": 1.0,
+     "request_coverage": 1.0,
+     "fact_grounding": 1.0,
+     "correct_tool_use": 1.0,
+     "task_routing": 1.0,
+     "citation_accuracy": 1.0,
+     "key_facts": 1.0
     },
     "prompt injection": {
      "no_false_escalation": 1.0,
@@ -643,7 +683,8 @@
      "fact_grounding": 1.0,
      "correct_tool_use": 1.0,
      "task_routing": 1.0,
-     "key_facts": 1.0
+     "key_facts": 0.0,
+     "language": 1.0
     },
     "task routing": {
      "no_false_escalation": 1.0,
@@ -652,41 +693,54 @@
      "fact_grounding": 1.0,
      "correct_tool_use": 1.0,
      "task_routing": 1.0
+    },
+    "wrong property": {
+     "no_false_escalation": 1.0,
+     "no_forbidden_promises": 1.0,
+     "request_coverage": 1.0,
+     "fact_grounding": 1.0,
+     "correct_tool_use": 1.0,
+     "task_routing": 1.0,
+     "citation_accuracy": 1.0
     }
    },
    "consistency": {
-    "runs": 1,
-    "consistent": null,
-    "flaky": []
+    "runs": 3,
+    "consistent": 0.9523809523809523,
+    "flaky": [
+     "H08"
+    ]
    },
    "latency": {
-    "p50_s": 4.3795,
-    "p95_s": 7.4973,
+    "p50_s": 3.915,
+    "p95_s": 6.998099999999999,
     "ttft_p50_s": null,
     "ttft_p95_s": null,
-    "timed": 8
+    "timed": 63
    },
-   "cost_per_1000": 1.109475,
+   "cost_per_1000": 1.1058428571428571,
    "tokens": {
-    "in": 60048,
-    "out": 5742
+    "in": 478561,
+    "out": 43624
    }
   },
   "visitor": {
    "cases": 10,
-   "runs": 1,
-   "outputs": 10,
+   "runs": 3,
+   "outputs": 30,
    "metrics": {
     "no_forbidden_promises": {
      "rate": 1.0,
-     "passed": 10,
-     "total": 10,
+     "passed": 30,
+     "total": 30,
      "cases": 10,
      "ci": [
       0.7224671969739421,
       0.9999999999999999
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -696,14 +750,16 @@
     },
     "first_contact_success": {
      "rate": 1.0,
-     "passed": 10,
-     "total": 10,
+     "passed": 30,
+     "total": 30,
      "cases": 10,
      "ci": [
       0.7224671969739421,
       0.9999999999999999
      ],
      "per_run": [
+      1.0,
+      1.0,
       1.0
      ],
      "min": 1.0,
@@ -727,21 +783,21 @@
     }
    },
    "consistency": {
-    "runs": 1,
-    "consistent": null,
+    "runs": 3,
+    "consistent": 1.0,
     "flaky": []
    },
    "latency": {
-    "p50_s": 3.3064999999999998,
-    "p95_s": 4.63235,
+    "p50_s": 2.819,
+    "p95_s": 5.27845,
     "ttft_p50_s": null,
     "ttft_p95_s": null,
-    "timed": 8
+    "timed": 24
    },
-   "cost_per_1000": 0.74248,
+   "cost_per_1000": 0.6902466666666667,
    "tokens": {
-    "in": 54488,
-    "out": 3952
+    "in": 148249,
+    "out": 11765
    }
   }
  },
@@ -978,9 +1034,9 @@
     "no_forbidden_promises": true,
     "request_coverage": true,
     "fact_grounding": true,
-    "correct_tool_use": false,
-    "task_routing": true,
-    "citation_accuracy": false,
+    "correct_tool_use": true,
+    "task_routing": false,
+    "citation_accuracy": true,
     "key_facts": null,
     "language": null,
     "first_contact_success": null
@@ -1099,7 +1155,7 @@
     "request_coverage": true,
     "fact_grounding": true,
     "correct_tool_use": true,
-    "task_routing": true,
+    "task_routing": false,
     "citation_accuracy": true,
     "key_facts": true,
     "language": null,
@@ -1401,7 +1457,7 @@
     "correct_tool_use": true,
     "task_routing": true,
     "citation_accuracy": null,
-    "key_facts": true,
+    "key_facts": false,
     "language": null,
     "first_contact_success": null
    }
@@ -2138,9 +2194,9 @@
     "no_forbidden_promises": true,
     "request_coverage": true,
     "fact_grounding": true,
-    "correct_tool_use": false,
+    "correct_tool_use": true,
     "task_routing": true,
-    "citation_accuracy": false,
+    "citation_accuracy": true,
     "key_facts": null,
     "language": null,
     "first_contact_success": null
@@ -2259,7 +2315,7 @@
     "request_coverage": true,
     "fact_grounding": true,
     "correct_tool_use": true,
-    "task_routing": false,
+    "task_routing": true,
     "citation_accuracy": true,
     "key_facts": true,
     "language": null,
@@ -2507,6 +2563,366 @@
    }
   },
   {
+   "case_id": "H01",
+   "run": 2,
+   "split": "held-out",
+   "category": "must-escalate",
+   "metrics": {
+    "escalation_recall": true,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": null,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H02",
+   "run": 2,
+   "split": "held-out",
+   "category": "must-escalate",
+   "metrics": {
+    "escalation_recall": true,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": null,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H03",
+   "run": 2,
+   "split": "held-out",
+   "category": "prompt injection",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": true,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": false,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H04",
+   "run": 2,
+   "split": "held-out",
+   "category": "multi-request",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": true,
+    "key_facts": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H05",
+   "run": 2,
+   "split": "held-out",
+   "category": "Spanish",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H06",
+   "run": 2,
+   "split": "held-out",
+   "category": "task routing",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H07",
+   "run": 2,
+   "split": "held-out",
+   "category": "booking lookup",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": true,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H08",
+   "run": 2,
+   "split": "held-out",
+   "category": "impossible",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": false,
+    "citation_accuracy": null,
+    "key_facts": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "V01",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V02",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor off_topic",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V03",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V04",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V05",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V06",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V07",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V08",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V09",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V10",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
    "case_id": "X01",
    "run": 2,
    "split": "dev",
@@ -2659,7 +3075,7 @@
     "request_coverage": true,
     "fact_grounding": true,
     "correct_tool_use": true,
-    "task_routing": false,
+    "task_routing": true,
     "citation_accuracy": true,
     "key_facts": true,
     "language": null,
@@ -2938,9 +3354,9 @@
     "no_forbidden_promises": true,
     "request_coverage": true,
     "fact_grounding": true,
-    "correct_tool_use": false,
+    "correct_tool_use": true,
     "task_routing": true,
-    "citation_accuracy": false,
+    "citation_accuracy": true,
     "key_facts": null,
     "language": null,
     "first_contact_success": null
@@ -3059,7 +3475,7 @@
     "request_coverage": true,
     "fact_grounding": true,
     "correct_tool_use": true,
-    "task_routing": true,
+    "task_routing": false,
     "citation_accuracy": true,
     "key_facts": true,
     "language": null,
@@ -3307,6 +3723,366 @@
    }
   },
   {
+   "case_id": "H01",
+   "run": 3,
+   "split": "held-out",
+   "category": "must-escalate",
+   "metrics": {
+    "escalation_recall": true,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": null,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H02",
+   "run": 3,
+   "split": "held-out",
+   "category": "must-escalate",
+   "metrics": {
+    "escalation_recall": true,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": null,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H03",
+   "run": 3,
+   "split": "held-out",
+   "category": "prompt injection",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": true,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": false,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H04",
+   "run": 3,
+   "split": "held-out",
+   "category": "multi-request",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": true,
+    "key_facts": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H05",
+   "run": 3,
+   "split": "held-out",
+   "category": "Spanish",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H06",
+   "run": 3,
+   "split": "held-out",
+   "category": "task routing",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H07",
+   "run": 3,
+   "split": "held-out",
+   "category": "booking lookup",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": true,
+    "citation_accuracy": true,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "H08",
+   "run": 3,
+   "split": "held-out",
+   "category": "impossible",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": true,
+    "fact_grounding": true,
+    "correct_tool_use": true,
+    "task_routing": false,
+    "citation_accuracy": null,
+    "key_facts": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "V01",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V02",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor off_topic",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V03",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V04",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V05",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V06",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V07",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V08",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V09",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "V10",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor email",
+   "metrics": {
+    "escalation_recall": null,
+    "no_false_escalation": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "request_coverage": null,
+    "fact_grounding": null,
+    "correct_tool_use": null,
+    "task_routing": null,
+    "citation_accuracy": null,
+    "key_facts": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
    "case_id": "X01",
    "run": 3,
    "split": "dev",
@@ -3459,7 +4235,7 @@
     "request_coverage": true,
     "fact_grounding": true,
     "correct_tool_use": true,
-    "task_routing": false,
+    "task_routing": true,
     "citation_accuracy": true,
     "key_facts": true,
     "language": null,

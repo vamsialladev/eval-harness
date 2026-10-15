@@ -1,0 +1,19 @@
+{
+  "run_id": "p1-p4before-2026-10-15",
+  "project": "hotel-ops-assistant",
+  "label": "Project 4 cases, before the fixes (v1.5.0)",
+  "date": "2026-10-15",
+  "mode": "live",
+  "kind": "history",
+  "model": "claude-haiku-5-5",
+  "settings": {
+    "top_k": 5,
+    "retrieval": "keyword",
+    "effort": "default"
+  },
+  "price_in": 0.1,
+  "price_out": 0.5,
+  "description": "Project 4 held-out cases at the pinned v1.5.0 commit, before any fix",
+  "ref": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",
+  "source": "live run of hotel-ops-assistant @ 5f9cd91"
+}

@@ -11,6 +11,8 @@
 **FAILED**
 
 - Strict retrieval (dev): 2 case(s) passed in every baseline run and now fail: q13, q35
+- skipped: Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)
+- skipped: Budget p95 latency (dev): not measured in this run (no timing or prices)
 
 ## Dev set: 54 cases × 3 run(s)
 

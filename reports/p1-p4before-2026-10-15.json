@@ -1,0 +1,956 @@
+{
+ "meta": {
+  "run_id": "p1-p4before-2026-10-15",
+  "project": "hotel-ops-assistant",
+  "label": "Project 4 cases, before the fixes (v1.5.0)",
+  "date": "2026-10-15",
+  "mode": "live",
+  "kind": "history",
+  "model": "claude-haiku-5-5",
+  "settings": {
+   "top_k": 5,
+   "retrieval": "keyword",
+   "effort": "default"
+  },
+  "price_in": 0.1,
+  "price_out": 0.5,
+  "description": "Project 4 held-out cases at the pinned v1.5.0 commit, before any fix",
+  "ref": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",
+  "source": "live run of hotel-ops-assistant @ 5f9cd91"
+ },
+ "splits": {
+  "held-out": {
+   "cases": 12,
+   "runs": 3,
+   "outputs": 36,
+   "metrics": {
+    "answer_accuracy": {
+     "rate": 0.5277777777777778,
+     "passed": 19,
+     "total": 36,
+     "cases": 12,
+     "ci": [
+      0.2751114246916656,
+      0.7669722414442733
+     ],
+     "per_run": [
+      0.5,
+      0.5833333333333334,
+      0.5
+     ],
+     "min": 0.5,
+     "max": 0.5833333333333334,
+     "failing_cases": [
+      "a06",
+      "a07",
+      "a12",
+      "a14",
+      "a15",
+      "a21"
+     ],
+     "flaky_cases": [
+      "a12"
+     ]
+    },
+    "retrieval_strict": {
+     "rate": 0.2857142857142857,
+     "passed": 6,
+     "total": 21,
+     "cases": 7,
+     "ci": [
+      0.08221892324928332,
+      0.6410655504689458
+     ],
+     "per_run": [
+      0.2857142857142857,
+      0.2857142857142857,
+      0.2857142857142857
+     ],
+     "min": 0.2857142857142857,
+     "max": 0.2857142857142857,
+     "failing_cases": [
+      "a06",
+      "a07",
+      "a14",
+      "a15",
+      "a21"
+     ],
+     "flaky_cases": []
+    },
+    "citation_accuracy": {
+     "rate": 0.2857142857142857,
+     "passed": 6,
+     "total": 21,
+     "cases": 7,
+     "ci": [
+      0.08221892324928332,
+      0.6410655504689458
+     ],
+     "per_run": [
+      0.2857142857142857,
+      0.2857142857142857,
+      0.2857142857142857
+     ],
+     "min": 0.2857142857142857,
+     "max": 0.2857142857142857,
+     "failing_cases": [
+      "a06",
+      "a07",
+      "a14",
+      "a15",
+      "a21"
+     ],
+     "flaky_cases": []
+    },
+    "numeric_grounding": {
+     "rate": 0.2857142857142857,
+     "passed": 6,
+     "total": 21,
+     "cases": 7,
+     "ci": [
+      0.08221892324928332,
+      0.6410655504689458
+     ],
+     "per_run": [
+      0.2857142857142857,
+      0.2857142857142857,
+      0.2857142857142857
+     ],
+     "min": 0.2857142857142857,
+     "max": 0.2857142857142857,
+     "failing_cases": [
+      "a06",
+      "a07",
+      "a14",
+      "a15",
+      "a21"
+     ],
+     "flaky_cases": []
+    },
+    "correct_refusals": {
+     "rate": 0.8666666666666667,
+     "passed": 13,
+     "total": 15,
+     "cases": 5,
+     "ci": [
+      0.4324262276732583,
+      0.982286628643187
+     ],
+     "per_run": [
+      0.8,
+      1.0,
+      0.8
+     ],
+     "min": 0.8,
+     "max": 1.0,
+     "failing_cases": [
+      "a12"
+     ],
+     "flaky_cases": [
+      "a12"
+     ]
+    },
+    "escalation_rules": {
+     "rate": 0.5833333333333334,
+     "passed": 21,
+     "total": 36,
+     "cases": 12,
+     "ci": [
+      0.31951131084242423,
+      0.8067396875653928
+     ],
+     "per_run": [
+      0.5833333333333334,
+      0.5833333333333334,
+      0.5833333333333334
+     ],
+     "min": 0.5833333333333334,
+     "max": 0.5833333333333334,
+     "failing_cases": [
+      "a12",
+      "a13",
+      "a18",
+      "a19",
+      "a20"
+     ],
+     "flaky_cases": []
+    },
+    "no_forbidden_promises": {
+     "rate": 1.0,
+     "passed": 12,
+     "total": 12,
+     "cases": 4,
+     "ci": [
+      0.5101091596030786,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "language": {
+     "rate": 0.2857142857142857,
+     "passed": 6,
+     "total": 21,
+     "cases": 7,
+     "ci": [
+      0.08221892324928332,
+      0.6410655504689458
+     ],
+     "per_run": [
+      0.2857142857142857,
+      0.2857142857142857,
+      0.2857142857142857
+     ],
+     "min": 0.2857142857142857,
+     "max": 0.2857142857142857,
+     "failing_cases": [
+      "a06",
+      "a07",
+      "a14",
+      "a15",
+      "a21"
+     ],
+     "flaky_cases": []
+    }
+   },
+   "categories": {
+    "escalation": {
+     "answer_accuracy": 0.8666666666666667,
+     "correct_refusals": 0.8666666666666667,
+     "escalation_rules": 0.0,
+     "no_forbidden_promises": 1.0
+    },
+    "multilingual": {
+     "answer_accuracy": 0.2857142857142857,
+     "retrieval_strict": 0.2857142857142857,
+     "citation_accuracy": 0.2857142857142857,
+     "numeric_grounding": 0.2857142857142857,
+     "escalation_rules": 1.0,
+     "language": 0.2857142857142857,
+     "no_forbidden_promises": 1.0
+    }
+   },
+   "consistency": {
+    "runs": 3,
+    "consistent": 0.9166666666666666,
+    "flaky": [
+     "a12"
+    ]
+   },
+   "latency": {
+    "p50_s": 2.1193414500157814,
+    "p95_s": 4.274979345008615,
+    "ttft_p50_s": 1.7060545999847818,
+    "ttft_p95_s": 3.7810446050163593,
+    "timed": 12
+   },
+   "cost_per_1000": 0.08750277777777779,
+   "tokens": {
+    "in": 10806,
+    "out": 4139
+   }
+  }
+ },
+ "verdicts": [
+  {
+   "case_id": "a06",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a07",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a12",
+   "run": 1,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": false,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a13",
+   "run": 1,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a14",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a15",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a16",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a17",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a18",
+   "run": 1,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a19",
+   "run": 1,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a20",
+   "run": 1,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a21",
+   "run": 1,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a06",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a07",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a12",
+   "run": 2,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a13",
+   "run": 2,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a14",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a15",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a16",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a17",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a18",
+   "run": 2,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a19",
+   "run": 2,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a20",
+   "run": 2,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a21",
+   "run": 2,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a06",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a07",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a12",
+   "run": 3,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": false,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a13",
+   "run": 3,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a14",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a15",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a16",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a17",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": true,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a18",
+   "run": 3,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a19",
+   "run": 3,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a20",
+   "run": 3,
+   "split": "held-out",
+   "category": "escalation",
+   "metrics": {
+    "answer_accuracy": true,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": true,
+    "escalation_rules": false,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "a21",
+   "run": 3,
+   "split": "held-out",
+   "category": "multilingual",
+   "metrics": {
+    "answer_accuracy": false,
+    "retrieval_strict": false,
+    "citation_accuracy": false,
+    "numeric_grounding": false,
+    "correct_refusals": null,
+    "escalation_rules": true,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": false,
+    "first_contact_success": null
+   }
+  }
+ ],
+ "unknown_cases": [],
+ "gate": {
+  "baseline": "p1-published-2026-10-10",
+  "candidate": "p1-p4before-2026-10-15",
+  "passed": true,
+  "failures": [],
+  "skipped": [
+   "Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)",
+   "Budget p95 latency (dev): not measured in this run (no timing or prices)"
+  ],
+  "checks": [
+   {
+    "metric": "budget_cost_per_1000",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 0,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 0.5,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)"
+    ],
+    "status": "skipped"
+   },
+   {
+    "metric": "budget_p95_s",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 0,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 4.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Budget p95 latency (dev): not measured in this run (no timing or prices)"
+    ],
+    "status": "skipped"
+   }
+  ]
+ }
+}

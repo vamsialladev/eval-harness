@@ -1,0 +1,19 @@
+{
+ "run_id": "p1-v1.6.0-2026-10-15",
+ "project": "hotel-ops-assistant",
+ "label": "Project 1 v1.6.0 (Project 4)",
+ "date": "2026-10-15",
+ "mode": "live",
+ "kind": "candidate",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "top_k": 5,
+  "retrieval": "keyword",
+  "effort": "default"
+ },
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "All 124 cases at Project 1 v1.6.0: Spanish answers, broader safety rule, emergencies without a model call; keyword-only like the live demo",
+ "ref": "e837f2d2042dea6d2a3aa384cdb4225afd75269d",
+ "source": "live run of hotel-ops-assistant @ e837f2d"
+}

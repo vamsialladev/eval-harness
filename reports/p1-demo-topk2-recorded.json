@@ -3259,7 +3259,10 @@
   "failures": [
    "Strict retrieval (dev): 2 case(s) passed in every baseline run and now fail: q13, q35"
   ],
-  "skipped": [],
+  "skipped": [
+   "Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)",
+   "Budget p95 latency (dev): not measured in this run (no timing or prices)"
+  ],
   "checks": [
    {
     "metric": "answer_accuracy",
@@ -3411,6 +3414,38 @@
      "Strict retrieval (dev): 2 case(s) passed in every baseline run and now fail: q13, q35"
     ],
     "status": "fail"
+   },
+   {
+    "metric": "budget_cost_per_1000",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 54,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 0.5,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)"
+    ],
+    "status": "skipped"
+   },
+   {
+    "metric": "budget_p95_s",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 54,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 4.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Budget p95 latency (dev): not measured in this run (no timing or prices)"
+    ],
+    "status": "skipped"
    }
   ]
  }

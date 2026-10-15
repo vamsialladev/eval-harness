@@ -3189,7 +3189,9 @@
   "failures": [],
   "skipped": [
    "Escalation rules (dev): not recorded in the candidate run",
-   "Strict retrieval (dev): not recorded in the candidate run"
+   "Strict retrieval (dev): not recorded in the candidate run",
+   "Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)",
+   "Budget p95 latency (dev): not measured in this run (no timing or prices)"
   ],
   "checks": [
    {
@@ -3330,6 +3332,38 @@
     "failing": [],
     "reasons": [
      "Strict retrieval (dev): not recorded in the candidate run"
+    ],
+    "status": "skipped"
+   },
+   {
+    "metric": "budget_cost_per_1000",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 54,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 0.5,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Budget Cost per 1,000 requests (dev): not measured in this run (no timing or prices)"
+    ],
+    "status": "skipped"
+   },
+   {
+    "metric": "budget_p95_s",
+    "split": "dev",
+    "kind": "budget",
+    "cases": 54,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 4.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Budget p95 latency (dev): not measured in this run (no timing or prices)"
     ],
     "status": "skipped"
    }

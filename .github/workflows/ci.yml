@@ -26,9 +26,14 @@ jobs:
         run: pip-audit -r requirements-judge.txt --progress-spinner off
       - name: Unit tests with coverage (gate 90%)
         run: python -m pytest -q --cov --cov-report=term-missing --cov-fail-under=90
-      - name: "Gates, recorded mode (no API): both projects' saved runs against their baselines"
+      - name: "Gates, recorded mode (no API): both projects' release runs against their baselines, budgets included"
         run: |
-          hoteleval gate --saved p1-published-2026-10-10
-          hoteleval gate --saved p2-published-2026-10-14
+          hoteleval gate --saved p1-v1.6.0-2026-10-15
+          hoteleval gate --saved p2-v1.1.0-2026-10-15
+      - name: "The gate catches a rollback: the previous releases fail against the new baselines (no API)"
+        run: |
+          for run in p1-published-2026-10-10 p2-published-2026-10-14; do
+            if hoteleval gate --saved "$run"; then echo "expected $run to fail against the new baseline"; exit 1; fi
+          done
       - name: "Every saved report re-scores to the same numbers (no API)"
         run: python scripts/check_reports.py

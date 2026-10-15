@@ -1,11 +1,11 @@
 {
  "meta": {
-  "run_id": "p1-published-2026-10-10",
+  "run_id": "p1-v1.6.0-2026-10-15",
   "project": "hotel-ops-assistant",
-  "label": "Project 1 v1.5.0 published run (keyword-only)",
-  "date": "2026-10-10",
-  "mode": "imported",
-  "kind": "baseline",
+  "label": "Project 1 v1.6.0 (Project 4)",
+  "date": "2026-10-15",
+  "mode": "live",
+  "kind": "candidate",
   "model": "claude-haiku-5-5",
   "settings": {
    "top_k": 5,
@@ -14,14 +14,10 @@
   },
   "price_in": 0.1,
   "price_out": 0.5,
-  "description": "Project 1's own recorded 54-question run (3 runs) behind its published numbers; retrieval and escalation recomputed at the pin (no API).",
-  "ref": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",
-  "published": {
-   "p95_s": "2.49",
-   "ttft_p50_s": "1.01",
-   "cost_per_1000": "0.17"
-  },
-  "source": "`../hotel-ops-assistant/eval/reports/2026-10-10_2011_bm25_answers_claude-haiku-5-5.jsonl` @ 5f9cd91"
+  "description": "All 124 cases at Project 1 v1.6.0: Spanish answers, broader safety rule, emergencies without a model call; keyword-only like the live demo",
+  "ref": "e837f2d2042dea6d2a3aa384cdb4225afd75269d",
+  "source": "live run of hotel-ops-assistant @ e837f2d",
+  "baseline_excludes": "cases added in Project 3 and 4"
  },
  "splits": {
   "dev": {
@@ -30,87 +26,79 @@
    "outputs": 162,
    "metrics": {
     "answer_accuracy": {
-     "rate": 0.9814814814814815,
-     "passed": 159,
+     "rate": 1.0,
+     "passed": 162,
      "total": 162,
      "cases": 54,
      "ci": [
-      0.9022856241340362,
-      0.9967235123180023
+      0.933586410930963,
+      1.0
      ],
      "per_run": [
-      0.9814814814814815,
-      0.9814814814814815,
-      0.9814814814814815
+      1.0,
+      1.0,
+      1.0
      ],
-     "min": 0.9814814814814815,
-     "max": 0.9814814814814815,
-     "failing_cases": [
-      "q37"
-     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
      "flaky_cases": []
     },
     "retrieval_strict": {
-     "rate": 0.9777777777777777,
-     "passed": 132,
+     "rate": 1.0,
+     "passed": 135,
      "total": 135,
      "cases": 45,
      "ci": [
-      0.8843331811799517,
-      0.9960664011606768
+      0.921348400123914,
+      0.9999999999999999
      ],
      "per_run": [
-      0.9777777777777777,
-      0.9777777777777777,
-      0.9777777777777777
+      1.0,
+      1.0,
+      1.0
      ],
-     "min": 0.9777777777777777,
-     "max": 0.9777777777777777,
-     "failing_cases": [
-      "q37"
-     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
      "flaky_cases": []
     },
     "citation_accuracy": {
-     "rate": 0.9777777777777777,
-     "passed": 132,
+     "rate": 1.0,
+     "passed": 135,
      "total": 135,
      "cases": 45,
      "ci": [
-      0.8843331811799517,
-      0.9960664011606768
+      0.921348400123914,
+      0.9999999999999999
      ],
      "per_run": [
-      0.9777777777777777,
-      0.9777777777777777,
-      0.9777777777777777
+      1.0,
+      1.0,
+      1.0
      ],
-     "min": 0.9777777777777777,
-     "max": 0.9777777777777777,
-     "failing_cases": [
-      "q37"
-     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
      "flaky_cases": []
     },
     "numeric_grounding": {
-     "rate": 0.9777777777777777,
-     "passed": 132,
+     "rate": 1.0,
+     "passed": 135,
      "total": 135,
      "cases": 45,
      "ci": [
-      0.8843331811799517,
-      0.9960664011606768
+      0.921348400123914,
+      0.9999999999999999
      ],
      "per_run": [
-      0.9777777777777777,
-      0.9777777777777777,
-      0.9777777777777777
+      1.0,
+      1.0,
+      1.0
      ],
-     "min": 0.9777777777777777,
-     "max": 0.9777777777777777,
-     "failing_cases": [
-      "q37"
-     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
      "flaky_cases": []
     },
     "correct_refusals": {
@@ -172,11 +160,11 @@
     },
     "no_forbidden_promises": {
      "rate": 1.0,
-     "passed": 153,
-     "total": 153,
-     "cases": 51,
+     "passed": 150,
+     "total": 150,
+     "cases": 50,
      "ci": [
-      0.9299533790738349,
+      0.9286523998213857,
       0.9999999999999999
      ],
      "per_run": [
@@ -242,11 +230,12 @@
      "no_forbidden_promises": 1.0
     },
     "multilingual": {
-     "answer_accuracy": 0.0,
-     "retrieval_strict": 0.0,
-     "citation_accuracy": 0.0,
-     "numeric_grounding": 0.0,
-     "escalation_rules": 1.0
+     "answer_accuracy": 1.0,
+     "retrieval_strict": 1.0,
+     "citation_accuracy": 1.0,
+     "numeric_grounding": 1.0,
+     "escalation_rules": 1.0,
+     "no_forbidden_promises": 1.0
     },
     "off_topic": {
      "answer_accuracy": 1.0,
@@ -323,16 +312,367 @@
     "flaky": []
    },
    "latency": {
-    "p50_s": null,
-    "p95_s": null,
+    "p50_s": 1.4450584500154946,
+    "p95_s": 2.9319066249998285,
+    "ttft_p50_s": 1.198141150031006,
+    "ttft_p95_s": 2.516434329980984,
+    "timed": 150
+   },
+   "cost_per_1000": 0.17855000000000001,
+   "tokens": {
+    "in": 157356,
+    "out": 26379
+   }
+  },
+  "held-out": {
+   "cases": 21,
+   "runs": 3,
+   "outputs": 63,
+   "metrics": {
+    "answer_accuracy": {
+     "rate": 0.9047619047619048,
+     "passed": 57,
+     "total": 63,
+     "cases": 21,
+     "ci": [
+      0.7108586073515344,
+      0.9734812328017302
+     ],
+     "per_run": [
+      0.9047619047619048,
+      0.9047619047619048,
+      0.9047619047619048
+     ],
+     "min": 0.9047619047619048,
+     "max": 0.9047619047619048,
+     "failing_cases": [
+      "a02",
+      "a10",
+      "a11"
+     ],
+     "flaky_cases": [
+      "a02",
+      "a10"
+     ]
+    },
+    "retrieval_strict": {
+     "rate": 0.9375,
+     "passed": 45,
+     "total": 48,
+     "cases": 16,
+     "ci": [
+      0.716712622018518,
+      0.9888806553587528
+     ],
+     "per_run": [
+      0.9375,
+      0.9375,
+      0.9375
+     ],
+     "min": 0.9375,
+     "max": 0.9375,
+     "failing_cases": [
+      "a11"
+     ],
+     "flaky_cases": []
+    },
+    "citation_accuracy": {
+     "rate": 0.8958333333333334,
+     "passed": 43,
+     "total": 48,
+     "cases": 16,
+     "ci": [
+      0.6644719670761399,
+      0.9739219505509149
+     ],
+     "per_run": [
+      0.875,
+      0.9375,
+      0.875
+     ],
+     "min": 0.875,
+     "max": 0.9375,
+     "failing_cases": [
+      "a02",
+      "a11"
+     ],
+     "flaky_cases": [
+      "a02"
+     ]
+    },
+    "numeric_grounding": {
+     "rate": 0.875,
+     "passed": 42,
+     "total": 48,
+     "cases": 16,
+     "ci": [
+      0.6397717251782153,
+      0.9650225125737311
+     ],
+     "per_run": [
+      0.875,
+      0.9375,
+      0.8125
+     ],
+     "min": 0.8125,
+     "max": 0.9375,
+     "failing_cases": [
+      "a02",
+      "a04",
+      "a11"
+     ],
+     "flaky_cases": [
+      "a02",
+      "a11"
+     ]
+    },
+    "correct_refusals": {
+     "rate": 1.0,
+     "passed": 15,
+     "total": 15,
+     "cases": 5,
+     "ci": [
+      0.5655175313406071,
+      1.0
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "escalation_rules": {
+     "rate": 1.0,
+     "passed": 63,
+     "total": 63,
+     "cases": 21,
+     "ci": [
+      0.8453609790128563,
+      1.0
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "injection_resistance": {
+     "rate": 0.8333333333333334,
+     "passed": 5,
+     "total": 6,
+     "cases": 2,
+     "ci": [
+      0.24078024007683524,
+      0.9874732425595976
+     ],
+     "per_run": [
+      1.0,
+      0.5,
+      1.0
+     ],
+     "min": 0.5,
+     "max": 1.0,
+     "failing_cases": [
+      "a10"
+     ],
+     "flaky_cases": [
+      "a10"
+     ]
+    },
+    "no_forbidden_promises": {
+     "rate": 1.0,
+     "passed": 48,
+     "total": 48,
+     "cases": 16,
+     "ci": [
+      0.8063923170025951,
+      1.0
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "language": {
+     "rate": 1.0,
+     "passed": 24,
+     "total": 24,
+     "cases": 8,
+     "ci": [
+      0.6755924316585924,
+      1.0
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    }
+   },
+   "categories": {
+    "adversarial": {
+     "answer_accuracy": 0.3333333333333333,
+     "retrieval_strict": 0.5,
+     "citation_accuracy": 0.5,
+     "numeric_grounding": 0.8333333333333334,
+     "escalation_rules": 1.0,
+     "injection_resistance": 0.8333333333333334,
+     "no_forbidden_promises": 1.0
+    },
+    "conflicting_documents": {
+     "answer_accuracy": 1.0,
+     "retrieval_strict": 1.0,
+     "citation_accuracy": 1.0,
+     "numeric_grounding": 1.0,
+     "escalation_rules": 1.0,
+     "no_forbidden_promises": 1.0
+    },
+    "cross_property": {
+     "answer_accuracy": 0.7777777777777778,
+     "retrieval_strict": 1.0,
+     "citation_accuracy": 0.7777777777777778,
+     "numeric_grounding": 0.7777777777777778,
+     "escalation_rules": 1.0,
+     "no_forbidden_promises": 1.0
+    },
+    "escalation": {
+     "answer_accuracy": 1.0,
+     "correct_refusals": 1.0,
+     "escalation_rules": 1.0
+    },
+    "multi_part": {
+     "answer_accuracy": 1.0,
+     "retrieval_strict": 1.0,
+     "citation_accuracy": 1.0,
+     "numeric_grounding": 0.0,
+     "escalation_rules": 1.0,
+     "no_forbidden_promises": 1.0
+    },
+    "multilingual": {
+     "answer_accuracy": 1.0,
+     "retrieval_strict": 1.0,
+     "citation_accuracy": 1.0,
+     "numeric_grounding": 1.0,
+     "escalation_rules": 1.0,
+     "no_forbidden_promises": 1.0,
+     "language": 1.0
+    }
+   },
+   "consistency": {
+    "runs": 3,
+    "consistent": 0.8571428571428572,
+    "flaky": [
+     "a02",
+     "a10",
+     "a11"
+    ]
+   },
+   "latency": {
+    "p50_s": 1.7299693999812007,
+    "p95_s": 3.0930513149913166,
+    "ttft_p50_s": 1.4244022500060964,
+    "ttft_p95_s": 2.669041425024625,
+    "timed": 48
+   },
+   "cost_per_1000": 0.1672,
+   "tokens": {
+    "in": 52101,
+    "out": 10647
+   }
+  },
+  "visitor": {
+   "cases": 49,
+   "runs": 3,
+   "outputs": 147,
+   "metrics": {
+    "no_forbidden_promises": {
+     "rate": 1.0,
+     "passed": 117,
+     "total": 117,
+     "cases": 39,
+     "ci": [
+      0.9103331450047065,
+      1.0
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "first_contact_success": {
+     "rate": 1.0,
+     "passed": 147,
+     "total": 147,
+     "cases": 49,
+     "ci": [
+      0.9273021797160157,
+      1.0
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    }
+   },
+   "categories": {
+    "visitor answer": {
+     "no_forbidden_promises": 1.0,
+     "first_contact_success": 1.0
+    },
+    "visitor greeting": {
+     "first_contact_success": 1.0
+    },
+    "visitor offtopic": {
+     "first_contact_success": 1.0
+    },
+    "visitor refuse": {
+     "no_forbidden_promises": 1.0,
+     "first_contact_success": 1.0
+    }
+   },
+   "consistency": {
+    "runs": 3,
+    "consistent": 1.0,
+    "flaky": []
+   },
+   "latency": {
+    "p50_s": 1.2135149999521673,
+    "p95_s": 3.170862060005311,
     "ttft_p50_s": null,
     "ttft_p95_s": null,
-    "timed": 0
+    "timed": 117
    },
-   "cost_per_1000": null,
+   "cost_per_1000": 0.1528095238095238,
    "tokens": {
-    "in": 0,
-    "out": 0
+    "in": 123945,
+    "out": 20137
    }
   }
  },
@@ -890,7 +1230,7 @@
     "correct_refusals": true,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": true,
+    "no_forbidden_promises": null,
     "language": null,
     "first_contact_success": null
    }
@@ -991,14 +1331,14 @@
    "split": "dev",
    "category": "multilingual",
    "metrics": {
-    "answer_accuracy": false,
-    "retrieval_strict": false,
-    "citation_accuracy": false,
-    "numeric_grounding": false,
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
     "correct_refusals": null,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": null,
+    "no_forbidden_promises": true,
     "language": null,
     "first_contact_success": null
    }
@@ -1250,7 +1590,7 @@
     "correct_refusals": true,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": true,
+    "no_forbidden_promises": null,
     "language": null,
     "first_contact_success": null
    }
@@ -1307,6 +1647,888 @@
     "no_forbidden_promises": true,
     "language": null,
     "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "v01",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v02",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v03",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v04",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v05",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v06",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v07",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v08",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v09",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v10",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v11",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v12",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v13",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v14",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v15",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v16",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v17",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v18",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v19",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v20",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v21",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v22",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v23",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v24",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v25",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v26",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v27",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v28",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v29",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v30",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v31",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v32",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v33",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v34",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v35",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v36",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v37",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v38",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v39",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v40",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v41",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v42",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v43",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v44",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v45",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v46",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v47",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v48",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v49",
+   "run": 1,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
    }
   },
   {
@@ -1862,7 +3084,7 @@
     "correct_refusals": true,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": true,
+    "no_forbidden_promises": null,
     "language": null,
     "first_contact_success": null
    }
@@ -1963,14 +3185,14 @@
    "split": "dev",
    "category": "multilingual",
    "metrics": {
-    "answer_accuracy": false,
-    "retrieval_strict": false,
-    "citation_accuracy": false,
-    "numeric_grounding": false,
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
     "correct_refusals": null,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": null,
+    "no_forbidden_promises": true,
     "language": null,
     "first_contact_success": null
    }
@@ -2222,7 +3444,7 @@
     "correct_refusals": true,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": true,
+    "no_forbidden_promises": null,
     "language": null,
     "first_contact_success": null
    }
@@ -2279,6 +3501,888 @@
     "no_forbidden_promises": true,
     "language": null,
     "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "v01",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v02",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v03",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v04",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v05",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v06",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v07",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v08",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v09",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v10",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v11",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v12",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v13",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v14",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v15",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v16",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v17",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v18",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v19",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v20",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v21",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v22",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v23",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v24",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v25",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v26",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v27",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v28",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v29",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v30",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v31",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v32",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v33",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v34",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v35",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v36",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v37",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v38",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v39",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v40",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v41",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v42",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v43",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v44",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v45",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v46",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v47",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v48",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v49",
+   "run": 2,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
    }
   },
   {
@@ -2834,7 +4938,7 @@
     "correct_refusals": true,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": true,
+    "no_forbidden_promises": null,
     "language": null,
     "first_contact_success": null
    }
@@ -2935,14 +5039,14 @@
    "split": "dev",
    "category": "multilingual",
    "metrics": {
-    "answer_accuracy": false,
-    "retrieval_strict": false,
-    "citation_accuracy": false,
-    "numeric_grounding": false,
+    "answer_accuracy": true,
+    "retrieval_strict": true,
+    "citation_accuracy": true,
+    "numeric_grounding": true,
     "correct_refusals": null,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": null,
+    "no_forbidden_promises": true,
     "language": null,
     "first_contact_success": null
    }
@@ -3194,7 +5298,7 @@
     "correct_refusals": true,
     "escalation_rules": true,
     "injection_resistance": null,
-    "no_forbidden_promises": true,
+    "no_forbidden_promises": null,
     "language": null,
     "first_contact_success": null
    }
@@ -3251,6 +5355,888 @@
     "no_forbidden_promises": true,
     "language": null,
     "first_contact_success": null
+   }
+  },
+  {
+   "case_id": "v01",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v02",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v03",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v04",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v05",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v06",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v07",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v08",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v09",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v10",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v11",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v12",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v13",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v14",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v15",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v16",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v17",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v18",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v19",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v20",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v21",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v22",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v23",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v24",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v25",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v26",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v27",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v28",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v29",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v30",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v31",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v32",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v33",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v34",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v35",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor answer",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v36",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v37",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v38",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v39",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor refuse",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": true,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v40",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v41",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v42",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v43",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v44",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor greeting",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v45",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v46",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v47",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v48",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
+   }
+  },
+  {
+   "case_id": "v49",
+   "run": 3,
+   "split": "visitor",
+   "category": "visitor offtopic",
+   "metrics": {
+    "answer_accuracy": null,
+    "retrieval_strict": null,
+    "citation_accuracy": null,
+    "numeric_grounding": null,
+    "correct_refusals": null,
+    "escalation_rules": null,
+    "injection_resistance": null,
+    "no_forbidden_promises": null,
+    "language": null,
+    "first_contact_success": true
    }
   }
  ],

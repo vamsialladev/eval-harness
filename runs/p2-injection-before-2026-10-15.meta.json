@@ -1,0 +1,17 @@
+{
+ "run_id": "p2-injection-before-2026-10-15",
+ "project": "guest-request-agent",
+ "label": "Injection cases before the quarantine fix",
+ "date": "2026-10-15",
+ "mode": "live",
+ "kind": "history",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "effort": "low"
+ },
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "New held-out injection cases b11-b13 plus H03 and b06 at c5b117c, before the injection quarantine",
+ "ref": "c5b117c6cf506da67c05c1df6afca3ee785bd731",
+ "source": "live run of guest-request-agent @ c5b117c"
+}

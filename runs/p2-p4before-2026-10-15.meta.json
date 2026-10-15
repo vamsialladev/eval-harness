@@ -1,0 +1,17 @@
+{
+  "run_id": "p2-p4before-2026-10-15",
+  "project": "guest-request-agent",
+  "label": "Project 4 cases, before the fixes (v1.0.0)",
+  "date": "2026-10-15",
+  "mode": "live",
+  "kind": "history",
+  "model": "claude-haiku-5-5",
+  "settings": {
+    "effort": "low"
+  },
+  "price_in": 0.1,
+  "price_out": 0.5,
+  "description": "Project 4 held-out cases + E12, X05, b03 at the pinned v1.0.0 commit, before any fix",
+  "ref": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",
+  "source": "live run of guest-request-agent @ 575a19f"
+}

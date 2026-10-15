@@ -1,8 +1,8 @@
 """The project commits the harness evaluates. Moving a pin is a deliberate, reviewed change."""
 
 PINS = {
-    "hotel-ops-assistant": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",  # v1.5.0 content, live demo config
-    "guest-request-agent": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",  # v1.0.0
+    "hotel-ops-assistant": "b1114800a637e3f8b13227c16f723e4409bdb39f",  # v1.6.0 (Project 4)
+    "guest-request-agent": "a953829b9aa318da9ae4f8f9ead1081a4ef10ccc",  # v1.1.0 (Project 4)
 }
 REPOS = {
     "hotel-ops-assistant": "https://github.com/vamsialladev/hotel-ops-assistant",

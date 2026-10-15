@@ -1,0 +1,17 @@
+{
+ "run_id": "p2-p4-2026-10-15",
+ "project": "guest-request-agent",
+ "label": "Project 4 fixes (hotel pin, reply language)",
+ "date": "2026-10-15",
+ "mode": "live",
+ "kind": "candidate",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "effort": "low"
+ },
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "All 68 cases at the Project 4 commit (booking lookup before the model, reply language guard)",
+ "ref": "8a57e689239f260bcdb17ff8f49f9e0bb88ebc76",
+ "source": "live run of guest-request-agent @ 8a57e68"
+}
