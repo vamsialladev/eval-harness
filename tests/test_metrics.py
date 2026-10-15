@@ -177,3 +177,15 @@ def test_score_applies_metrics_by_split():
         "retrieval_strict" in names
         and metric_info("hotel-ops-assistant", "retrieval_strict").label == "Strict retrieval"
     )
+
+
+def test_p2_spanish_trailing_dollar_is_read():
+    es = p2_case(expected={**p2_case().expected, "expected_facts": ["$50"]})
+    draft = "La tarifa de mascotas es de 50 $ por noche, con un máximo de 200 $ por estancia [P1]."
+    rec = p2_record(draft=draft, sources=["Pet fee is $50 per night per room, capped at $200 per stay."])
+    assert M.p2_key_facts(es, p2_out(rec)) is True  # decision 15: added case b03
+    assert M.p2_fact_grounding(es, p2_out(rec)) is True
+    wrong = p2_record(draft="La tarifa es de 60 $ por noche.", sources=["Pet fee is $50 per night."])
+    assert M.p2_fact_grounding(es, p2_out(wrong)) is False  # a wrong amount no longer slips past grounding
+    assert M.p2_key_facts(es, p2_out(wrong)) is False
+    assert M.dollars_first("1,200 $ y 12.50 $") == "$1,200 y $12.50"

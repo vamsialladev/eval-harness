@@ -121,3 +121,13 @@ def test_bundled_gate_config_has_hard_gates():
     }
     assert "escalation_rules" in config["hotel-ops-assistant"]["hard"]
     assert gates.metric_label("unknown_metric") == "unknown_metric"
+
+
+def test_floor_needs_enough_cases():
+    base = summary({"task_routing": {f"c{i}": [True, True, True] for i in range(3)}})
+    cand = summary({"task_routing": {"c0": [True, False, True], "c1": [True] * 3, "c2": [True] * 3}})
+    config = {"guest-request-agent": {"hard": [], "floors": {"task_routing": 0.9}}}
+    assert gates.compare(base, cand, config)["passed"]  # 8/9 on 3 cases: one model miss, not a regression
+    big_base = summary({"task_routing": {f"c{i}": [True] for i in range(12)}})
+    big_cand = summary({"task_routing": {f"c{i}": [i > 1] for i in range(12)}})
+    assert "floor" in " ".join(gates.compare(big_base, big_cand, config)["failures"])

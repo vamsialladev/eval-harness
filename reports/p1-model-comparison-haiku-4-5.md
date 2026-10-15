@@ -5,6 +5,13 @@
 - Project 1's recorded model-comparison run (Haiku 4.5, hybrid retrieval, 3 runs). Retrieval not recomputed: hybrid needs embeddings.
 - Synthetic data: a simulated hotel group and fictional guests. Intervals are 95% Wilson intervals over distinct cases.
 
+## Gate against `p1-published-2026-10-10`
+
+**PASSED**
+
+- skipped: Escalation rules (dev): not recorded in the candidate run
+- skipped: Strict retrieval (dev): not recorded in the candidate run
+
 ## Dev set: 54 cases × 3 run(s)
 
 | Metric | Rate | 95% interval | Range over runs | Passed | Failing cases |

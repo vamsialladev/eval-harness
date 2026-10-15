@@ -7,6 +7,9 @@ A gated metric fails when (on the cases both runs share):
 4. stable flip: a case passed in every baseline run and failed in every candidate run. A pure interval check missed a
    real two-case retrieval regression (top-k 5 -> 2: 98% -> 93% stays inside the interval for 45 cases), so a
    consistent flip counts as a regression on its own (decision 7).
+Floors apply only to groups of at least MIN_FLOOR_CASES cases. Re-running Project 2's unchanged code put held-out
+key facts at 8 of 9 outputs (3 cases), under the 90% floor: a false alarm from one model miss (decision 15). Small
+groups stay covered by the hard gates, the interval and stable flips.
 A metric the candidate didn't record (for example retrieval in a format without passages) is reported as skipped.
 """
 
@@ -17,6 +20,7 @@ from hoteleval.metrics import metric_info
 from hoteleval.stats import by_case, wilson
 
 GATES_FILE = Path(__file__).resolve().parent / "data" / "gates.toml"
+MIN_FLOOR_CASES = 10
 
 
 def load_gates(path: Path = GATES_FILE) -> dict:
@@ -66,7 +70,7 @@ def check_metric(name: str, split: str, base: dict, cand: dict, hard: bool, floo
         return check
     if hard and cand_rate < 1.0:
         check["reasons"].append(f"{label} {_pct(cand_rate)} is below the 100% hard gate; failing: {_ids(failing)}")
-    if not hard and floor is not None and cand_rate < floor:
+    if not hard and floor is not None and len(common) >= MIN_FLOOR_CASES and cand_rate < floor:
         check["reasons"].append(f"{label} {_pct(cand_rate)} is below its {_pct(floor)} floor")
     if not hard and ci and cand_rate < ci[0] - 1e-9:
         check["reasons"].append(

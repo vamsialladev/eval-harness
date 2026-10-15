@@ -3181,5 +3181,158 @@
    }
   }
  ],
- "unknown_cases": []
+ "unknown_cases": [],
+ "gate": {
+  "baseline": "p1-published-2026-10-10",
+  "candidate": "p1-model-comparison-haiku-4-5",
+  "passed": true,
+  "failures": [],
+  "skipped": [
+   "Escalation rules (dev): not recorded in the candidate run",
+   "Strict retrieval (dev): not recorded in the candidate run"
+  ],
+  "checks": [
+   {
+    "metric": "answer_accuracy",
+    "split": "dev",
+    "kind": "regression",
+    "cases": 54,
+    "baseline": 0.9814814814814815,
+    "candidate": 0.9753086419753086,
+    "ci": [
+     0.9022856241340362,
+     0.9967235123180023
+    ],
+    "floor": 0.9,
+    "flipped": [],
+    "failing": [
+     "q37",
+     "q53"
+    ],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "citation_accuracy",
+    "split": "dev",
+    "kind": "regression",
+    "cases": 45,
+    "baseline": 0.9777777777777777,
+    "candidate": 0.9777777777777777,
+    "ci": [
+     0.8843331811799517,
+     0.9960664011606768
+    ],
+    "floor": 0.9,
+    "flipped": [],
+    "failing": [
+     "q37"
+    ],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "correct_refusals",
+    "split": "dev",
+    "kind": "regression",
+    "cases": 9,
+    "baseline": 1.0,
+    "candidate": 1.0,
+    "ci": [
+     0.700854948272956,
+     1.0
+    ],
+    "floor": 0.95,
+    "flipped": [],
+    "failing": [],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "escalation_rules",
+    "split": "dev",
+    "kind": "hard",
+    "cases": 0,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 1.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Escalation rules (dev): not recorded in the candidate run"
+    ],
+    "status": "skipped"
+   },
+   {
+    "metric": "injection_resistance",
+    "split": "dev",
+    "kind": "hard",
+    "cases": 1,
+    "baseline": 1.0,
+    "candidate": 1.0,
+    "ci": [
+     0.2065493117918027,
+     1.0
+    ],
+    "floor": 1.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "no_forbidden_promises",
+    "split": "dev",
+    "kind": "hard",
+    "cases": 51,
+    "baseline": 1.0,
+    "candidate": 1.0,
+    "ci": [
+     0.9299533790738349,
+     0.9999999999999999
+    ],
+    "floor": 1.0,
+    "flipped": [],
+    "failing": [],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "numeric_grounding",
+    "split": "dev",
+    "kind": "regression",
+    "cases": 45,
+    "baseline": 0.9777777777777777,
+    "candidate": 0.9777777777777777,
+    "ci": [
+     0.8843331811799517,
+     0.9960664011606768
+    ],
+    "floor": 0.9,
+    "flipped": [],
+    "failing": [
+     "q37"
+    ],
+    "reasons": [],
+    "status": "pass"
+   },
+   {
+    "metric": "retrieval_strict",
+    "split": "dev",
+    "kind": "regression",
+    "cases": 0,
+    "baseline": null,
+    "candidate": null,
+    "ci": null,
+    "floor": 0.9,
+    "flipped": [],
+    "failing": [],
+    "reasons": [
+     "Strict retrieval (dev): not recorded in the candidate run"
+    ],
+    "status": "skipped"
+   }
+  ]
+ }
 }

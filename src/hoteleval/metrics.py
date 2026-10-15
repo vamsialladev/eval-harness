@@ -172,6 +172,32 @@ def p2_language(case: Case, out: dict) -> bool | None:
     return p2_metrics.language_ok(case.native(), out["native"])
 
 
+# Spanish puts the sign after the amount ("50 $ por noche"). Project 2's fact extractor only reads "$50", so a
+# Spanish draft that stated the fee failed key facts (added case b03, decision 15), and a wrong "60 $" would slip past
+# grounding. The harness normalises the draft before Project 2's own checks.
+TRAILING_DOLLAR = re.compile(r"(?<![\w$])(\d{1,3}(?:,\d{3})+|\d+)(?:[.,](\d{2}))?\s?\$")
+
+
+def dollars_first(text: str) -> str:
+    return TRAILING_DOLLAR.sub(lambda m: "$" + m.group(1) + (f".{m.group(2)}" if m.group(2) else ""), text or "")
+
+
+def _p2_normalised(out: dict) -> dict:
+    rec = dict(out["native"])
+    for key in ("raw_draft", "draft"):
+        if rec.get(key):
+            rec[key] = dollars_first(rec[key])
+    return rec
+
+
+def p2_key_facts(case: Case, out: dict) -> bool | None:
+    return p2_metrics.key_facts(case.native(), _p2_normalised(out))
+
+
+def p2_fact_grounding(case: Case, out: dict) -> bool:
+    return p2_metrics.fact_grounding(case.native(), _p2_normalised(out))
+
+
 REGISTRY: dict[str, list[tuple[Metric, object]]] = {
     P1: [
         (
@@ -250,7 +276,7 @@ REGISTRY: dict[str, list[tuple[Metric, object]]] = {
             Metric(
                 "fact_grounding", "Fact grounding", "Every date, price, time and room in the draft is in a tool result"
             ),
-            _p2(p2_metrics.fact_grounding),
+            p2_fact_grounding,
         ),
         (
             Metric("correct_tool_use", "Correct tool use", "The expected tools were called"),
@@ -265,7 +291,7 @@ REGISTRY: dict[str, list[tuple[Metric, object]]] = {
             ),
             _p2(p2_metrics.citation_accuracy),
         ),
-        (Metric("key_facts", "Key facts", "The labelled facts appear in the draft"), _p2(p2_metrics.key_facts)),
+        (Metric("key_facts", "Key facts", "The labelled facts appear in the draft"), p2_key_facts),
         (Metric("language", "Reply language", "Replies in the guest's language"), p2_language),
         (
             Metric(

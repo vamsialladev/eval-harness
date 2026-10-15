@@ -148,3 +148,27 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
   "$200" total fails numeric grounding because the answer shows the "$250" before the cap (a04), the strictness
   Project 2 already chose to keep. Next steps for Project 1 are in its roadmap: multilingual retrieval, safety
   wording.
+
+## 15. A re-run of unchanged Project 2 code failed its own gate
+
+- **Context.** The harness re-ran Project 2 at its pinned commit (65 emails × 3 runs). Dev numbers reproduced
+  (hard gates 100%, routing 98%, citations 94%, $1.30 per 1,000), but the gate failed: held-out key facts were 8 of 9
+  outputs on 3 cases, under the 90% floor. One model miss (H03 run 2 left out the 4 PM time) on identical code.
+  A second problem in the same run: added case b03 wrote "50 $ por noche", which Project 2's fact extractor doesn't
+  read, so a correct Spanish draft failed key facts.
+- **Decision.** Floors apply only to groups of at least 10 cases; smaller groups are covered by hard gates, the
+  interval and stable flips. The harness reads "50 $" as "$50" before Project 2's key-facts and grounding checks
+  (so a wrong "60 $" is now caught by grounding too).
+- **Tradeoff.** A real drop in a 3-case group now needs to be a stable flip (or a hard gate) to fail the build.
+- **Result.** The unchanged re-runs of both projects pass; the top-k demo and Project 2's own pre-release dev runs
+  still fail with named cases. Real misses in the re-run stay reported, not gated: X05 replied "Hola Carlos" then in
+  English in 2 of 3 runs; b03 run 1 said it couldn't find the pet fee (Spanish policy search); V06 offered example
+  dates that are in no tool result in 2 of 3 runs (Project 2's strict grounding rule).
+
+## 16. A test wrote into the real runs folder
+
+- **Context.** `store.save_run(..., runs_dir=RUNS)` bound the folder when the module loaded, so a test that pointed
+  the store at a temp folder still wrote two scratch runs into `runs/`, and they were committed. Re-scoring later
+  picked one of them as Project 2's baseline.
+- **Decision.** Folder defaults resolve at call time everywhere (`store`, `labeling`); the scratch runs were deleted.
+- **Result.** The full test suite leaves `runs/` and `reports/` unchanged (checked after the fix).

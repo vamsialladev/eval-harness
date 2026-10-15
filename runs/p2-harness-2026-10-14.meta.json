@@ -1,0 +1,17 @@
+{
+ "run_id": "p2-harness-2026-10-14",
+ "project": "guest-request-agent",
+ "label": "Project 2 re-run by the harness (pinned v1.0.0 commit)",
+ "date": "2026-10-14",
+ "mode": "live",
+ "kind": "candidate",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "effort": "low"
+ },
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "The harness's own live run of Project 2 at the pinned commit: all 65 emails (dev, held-out incl. added in Project 3, visitor) x 3 runs.",
+ "ref": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",
+ "source": "live run of guest-request-agent @ 575a19f"
+}

@@ -216,6 +216,215 @@
   }
  },
  {
+  "run_id": "p2-harness-2026-10-14",
+  "project": "guest-request-agent",
+  "label": "Project 2 re-run by the harness (pinned v1.0.0 commit)",
+  "date": "2026-10-14",
+  "mode": "live",
+  "kind": "candidate",
+  "model": "claude-haiku-5-5",
+  "description": "The harness's own live run of Project 2 at the pinned commit: all 65 emails (dev, held-out incl. added in Project 3, visitor) x 3 runs.",
+  "splits": {
+   "dev": {
+    "cases": 40,
+    "runs": 3,
+    "metrics": {
+     "escalation_recall": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "no_false_escalation": {
+      "rate": 1.0,
+      "ci": [
+       0.8928208002353198,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.6096657083436265,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9123783975415363,
+       1.0
+      ]
+     },
+     "request_coverage": {
+      "rate": 1.0,
+      "ci": [
+       0.9103331450047065,
+       1.0
+      ]
+     },
+     "fact_grounding": {
+      "rate": 1.0,
+      "ci": [
+       0.9123783975415363,
+       1.0
+      ]
+     },
+     "correct_tool_use": {
+      "rate": 0.9876543209876543,
+      "ci": [
+       0.8547476629403349,
+       0.9990813804485091
+      ]
+     },
+     "task_routing": {
+      "rate": 0.9833333333333333,
+      "ci": [
+       0.8841534932761961,
+       0.9978122910139553
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9375,
+      "ci": [
+       0.716712622018518,
+       0.9888806553587528
+      ]
+     },
+     "key_facts": {
+      "rate": 1.0,
+      "ci": [
+       0.7961166964035129,
+       1.0
+      ]
+     },
+     "language": {
+      "rate": 0.6666666666666666,
+      "ci": [
+       0.1593818265741478,
+       0.9547449147440688
+      ]
+     }
+    },
+    "p95_s": 8.8604,
+    "cost_per_1000": 1.3035916666666665
+   },
+   "held-out": {
+    "cases": 15,
+    "runs": 3,
+    "metrics": {
+     "escalation_recall": {
+      "rate": 1.0,
+      "ci": [
+       0.43850296436068037,
+       1.0
+      ]
+     },
+     "no_false_escalation": {
+      "rate": 1.0,
+      "ci": [
+       0.7575059904469021,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.43850296436068037,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.7961166964035129,
+       1.0
+      ]
+     },
+     "request_coverage": {
+      "rate": 1.0,
+      "ci": [
+       0.7961166964035129,
+       1.0
+      ]
+     },
+     "fact_grounding": {
+      "rate": 1.0,
+      "ci": [
+       0.7961166964035129,
+       1.0
+      ]
+     },
+     "correct_tool_use": {
+      "rate": 1.0,
+      "ci": [
+       0.7411670300055737,
+       1.0
+      ]
+     },
+     "task_routing": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.7623882972902538,
+       0.9983454348286587
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9444444444444444,
+      "ci": [
+       0.5460703958863372,
+       0.9958546781968861
+      ]
+     },
+     "key_facts": {
+      "rate": 0.8666666666666667,
+      "ci": [
+       0.4324262276732583,
+       0.982286628643187
+      ]
+     },
+     "language": {
+      "rate": 1.0,
+      "ci": [
+       0.43850296436068037,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 7.4648,
+    "cost_per_1000": 1.12676
+   },
+   "visitor": {
+    "cases": 10,
+    "runs": 3,
+    "metrics": {
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.7224671969739421,
+       0.9999999999999999
+      ]
+     },
+     "first_contact_success": {
+      "rate": 0.9333333333333333,
+      "ci": [
+       0.6349338075683916,
+       0.9912044298090249
+      ]
+     }
+    },
+    "p95_s": 4.89425,
+    "cost_per_1000": 0.683
+   }
+  },
+  "gate": {
+   "baseline": "p2-published-2026-10-14",
+   "passed": true,
+   "failures": []
+  }
+ },
+ {
   "run_id": "p2-published-2026-10-14",
   "project": "guest-request-agent",
   "label": "Project 2 v1.0.0 published runs",
@@ -481,7 +690,11 @@
     "cost_per_1000": null
    }
   },
-  "gate": null
+  "gate": {
+   "baseline": "p1-published-2026-10-10",
+   "passed": true,
+   "failures": []
+  }
  },
  {
   "run_id": "p1-published-2026-10-10",
