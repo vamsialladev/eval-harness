@@ -187,3 +187,6 @@ h1, h2, h3 { letter-spacing: -0.01em; }
 /* Step timeline: icons line up, summaries wrap on phones */
 [data-testid="stExpander"] summary p { overflow-wrap: anywhere; }
 @media (max-width: 640px) { .block-container { padding-left: 1rem; padding-right: 1rem; } .gra-email, .gra-draft { padding: .75rem .85rem; } }
+
+/* Eval Harness: keep the demo label clear of Streamlit's top bar on phones */
+@media (max-width: 640px) { .block-container { padding-top: 3.6rem; } }

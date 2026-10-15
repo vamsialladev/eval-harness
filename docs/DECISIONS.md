@@ -176,7 +176,7 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
 ## 17. Judge calibration: 95% agreement, kappa 0, nothing trusted
 
 - **Context.** The owner labelled the 40 stratified items by hand: **all 40 pass**. Rubric v1 agreed on 38 of 40
-  (95%, interval 84–99%) and failed two clarity items the human passed (p1-clarity-05, Project 1's fixed "couldn't
+  (95%, interval 83–99%) and failed two clarity items the human passed (p1-clarity-05, Project 1's fixed "couldn't
   find this, check with a manager" sentence; p2-clarity-06, a draft with a duplicated hand-off sentence). With no
   human failures, Cohen's kappa is 0.00 overall and undefined for completeness and tone: agreement can't be told
   apart from a judge that always says "pass". Precision for "fail" is 0% (0 of 2); recall can't be computed.

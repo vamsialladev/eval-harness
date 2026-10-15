@@ -37,7 +37,9 @@ else:
     df = pd.DataFrame(rows)
     df["kind"] = df["kind"].map(KINDS)
     colors = alt.Scale(domain=list(KINDS.values()), range=["#1E4636", "#5E8C76", "#94702C", "#B42318"])
-    base = alt.Chart(df).encode(x=alt.X("run:N", sort=None, title=None, axis=alt.Axis(labelAngle=-20, labelLimit=220)))
+    base = alt.Chart(df).encode(
+        x=alt.X("run_id:N", sort=None, title=None, axis=alt.Axis(labelAngle=-35, labelLimit=180))
+    )
     bars = base.mark_rule(strokeWidth=2).encode(
         y=alt.Y("low:Q", scale=alt.Scale(domain=[0, 1]), axis=alt.Axis(format="%"), title=metric_label(metric)),
         y2="high:Q",
