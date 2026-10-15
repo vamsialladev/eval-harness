@@ -23,7 +23,7 @@ desk costs money: a wrong fee quoted, a comp a manager has to approve after the 
 | Share the gates catch | 75% | The demo regression was caught; some drops (tone, new topics) aren't gated |
 | Cost of a shipped regression | $3,000 | Staff time, guest recovery, manager escalations, rework |
 | Live runs per month | 2 | Full re-runs of both projects |
-| API cost per full live run | $0.40 | Measured: this project's live runs of both projects (README, API spend) |
+| API cost per full live run | $0.29 | Measured: the harness re-runs of Project 1 ($0.06) and Project 2 ($0.23), 3 runs each |
 | Maintenance per month | 4 h | New cases, label refreshes, rubric reviews |
 
 ## Projected results (per year)
@@ -33,9 +33,9 @@ desk costs money: a wrong fee quoted, a comp a manager has to approve after the 
 | Engineer hours saved | 72 | 240 | 504 |
 | Value of time saved | $6,480 | $21,600 | $45,360 |
 | Regressions avoided (value) | $1,500 | $9,000 | $25,500 |
-| API cost | -$10 | -$10 | -$10 |
+| API cost | -$7 | -$7 | -$7 |
 | Maintenance | -$6,480 | -$4,320 | -$3,240 |
-| **Net value** | **$1,490** | **$26,270** | **$67,610** |
+| **Net value** | **$1,493** | **$26,273** | **$67,613** |
 
 ## Sensitivity
 - **Changes per month** drives most of the value: at 2 a month the harness barely pays for its upkeep.

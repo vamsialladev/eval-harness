@@ -20,7 +20,7 @@ class Assumptions:
     share_caught_by_gates: float = 0.75
     cost_per_regression: float = 3000.0  # staff time, guest recovery (comps), manager escalations, rework
     live_runs_per_month: float = 2  # full live re-runs (both projects, 3 runs each)
-    api_cost_per_live_run: float = 0.40  # measured: harness live runs of both projects (README, API spend)
+    api_cost_per_live_run: float = 0.29  # measured: one harness live run of both projects, 3 runs each ($0.06 + $0.23)
     maintenance_hours_per_month: float = 4.0  # new cases, label refreshes, rubric reviews
 
 

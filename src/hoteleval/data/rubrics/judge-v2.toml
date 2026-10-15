@@ -1,0 +1,35 @@
+# Judge rubric v2 (v1 with one clarification; v1 stays unchanged next to it). The LLM judge scores ONLY what the deterministic metrics can't: completeness, tone and clarity.
+# Facts, prices, citations, escalation and promises are checked deterministically elsewhere; the judge ignores them.
+# The labeling page shows the human the same question for each dimension, so human and judge answer the same thing.
+
+version = "v2"
+change = "A refusal or hand-off sentence (Project 1's fixed 'couldn't find this, check with a manager') counts as clear when it is the honest answer"
+model = "claude-haiku-5-5"
+max_tokens = 2000
+
+# Added in v2. v1 failed Project 1's fixed refusal ("I couldn't find this in the hotel's documents. Please check
+# with a manager.") as vague; the human label passed it. The sentence is the designed answer when the documents are
+# silent, so it is not a clarity failure.
+notes = """
+A short refusal or hand-off ("I couldn't find this in the hotel's documents. Please check with a manager.") is clear
+when the documents don't answer the question: it tells the reader exactly what to do next. Don't fail it as vague.
+"""
+
+[audience]
+hotel-ops-assistant = "a front-desk staff member, who reads the answer while a guest is waiting at the desk"
+guest-request-agent = "a hotel guest, who will receive this draft reply by email after staff approve it"
+
+[dimensions.completeness]
+question = "Does the reply deal with everything that was asked?"
+pass = "Every question or request in the message is answered or acknowledged. If the documents can't answer part of it, the reply says so plainly and says who will follow up (for example a manager). A short refusal is complete when the question is outside what the assistant can answer."
+fail = "A question or request is ignored, only half answered without saying so, or the reply answers a different question."
+
+[dimensions.tone]
+question = "Is the tone right for the reader?"
+pass = "Polite, calm and professional for the reader named above. Warm without gushing; apologetic when something went wrong for the guest; never blames, lectures or sounds defensive."
+fail = "Rude, cold or robotic, overly casual, defensive, blaming, condescending, or so effusive it sounds insincere."
+
+[dimensions.clarity]
+question = "Is the reply clear and easy to act on?"
+pass = "Plain language, short, well organised; the key answer is easy to find; no internal jargon, file names or system notes the reader wouldn't understand. Citation markers like [1] or [P1] are fine (staff see them as source links; they are removed before a guest sees the email)."
+fail = "Confusing, rambling or contradictory; the key answer is buried; contains jargon, raw file names or notes meant for the system rather than the reader."

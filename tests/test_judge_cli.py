@@ -48,6 +48,10 @@ def test_sample_judge_calibrate_flow(judge_env, capsys):
     assert cli.main(["calibrate"]) == 0
     cal = store.read_json(judge_env / "judge" / "calibration.json")
     assert cal["labels"] == 10 and cal["current"] == "v1" and cal["versions"][0]["overall"]["n"] == 10
+    assert cli.main(["judge", "--rubric", "v1", "--repeat", "1", "--live"]) == 0
+    assert cli.main(["calibrate"]) == 0
+    cal = store.read_json(judge_env / "judge" / "calibration.json")
+    assert cal["consistency"]["passes"] == 2 and cal["consistency"]["changed"] == []
     tone = cal["versions"][0]["per_dimension"]["tone"]
     if tone["n"]:
         assert tone["agreement"] == 1.0  # the fake judge fails every tone item, as the fake labels do
@@ -82,6 +86,8 @@ def test_calibration_page_renders(tmp_path, monkeypatch):
         "trust_rule": "kappa >= 0.6",
         "current": "v1",
         "trusted": {"completeness": False, "tone": True, "clarity": False},
+        "consistency": {"passes": 3, "items": 40, "same_every_pass": 39, "changed": ["p1-clarity-04"]},
+        "runs": {"p1-harness": {"completeness": 1.0, "tone": 0.97, "clarity": 0.87}},
         "versions": [
             {
                 "version": "v1",

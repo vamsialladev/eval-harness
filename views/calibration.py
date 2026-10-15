@@ -91,6 +91,29 @@ st.caption(
     "optimistic estimate. Fresh labels are the next step."
 )
 
+cons = cal.get("consistency")
+if cons:
+    st.subheader("The judge against itself")
+    changed = ", ".join(cons["changed"]) or "none"
+    st.markdown(
+        f"The same 40 prompts judged {cons['passes']} times with rubric {cal['current']}: "
+        f"**{cons['same_every_pass']} of {cons['items']}** got the same verdict every time "
+        f"(changed: {ui.esc(changed)}). "
+        "A disagreement that comes and goes on identical input is noise, not a rubric problem."
+    )
+
+if cal.get("runs"):
+    st.subheader("Judge pass rates on the latest runs (not trusted, information only)")
+    ui.table(
+        ["Run", "Completeness", "Tone", "Clarity"],
+        [[run, ui.pct(r["completeness"]), ui.pct(r["tone"]), ui.pct(r["clarity"])] for run, r in cal["runs"].items()],
+        caption="Judge pass rates, run 1 of each run, model-written replies only",
+    )
+    st.caption(
+        "Not trusted, so never a gate. The judge fails more replies on clarity than the human labels did; with no "
+        "human failures in the calibration sample, there is no way yet to say which of the two is right."
+    )
+
 st.subheader("Where the judge and the human disagree")
 dis = [r for r in current["rows"] if r["human"] != r["judge"]]
 if not dis:

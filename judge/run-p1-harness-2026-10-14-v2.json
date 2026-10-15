@@ -1,0 +1,1412 @@
+{
+ "run_id": "p1-harness-2026-10-14",
+ "rubric": "v2",
+ "outputs": 100,
+ "pass_rates": {
+  "completeness": 1.0,
+  "tone": 0.97,
+  "clarity": 0.87
+ },
+ "verdicts": {
+  "a01": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question about a rooftop pool is directly answered, with helpful extra detail about the partner pool option."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, with no blame or defensiveness suited to a front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is short and up front: no pool, then the alternative. Citation marker is acceptable."
+   }
+  },
+  "a02": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question is valet parking price; the reply says it isn't in the documents and directs staff to a manager, which is a complete hand-off."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional; neutral wording with no blame or defensiveness for the front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and plain; it tells the reader exactly what to do next, namely check with a manager."
+   }
+  },
+  "a03": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the pet fee question for two dogs and three nights, and adds relevant weight and dog-limit rules."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, factual and professional, suitable for a front-desk staff member reading it with a guest waiting."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer of $75 per stay comes first and is short and easy to act on, with a citation marker."
+   }
+  },
+  "a04": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the total pet fee for two dogs over five nights and addresses the per-room and per-dog question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, factual and professional, suitable for a front-desk staff member reading it at the counter."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The key answer is clear, but the explanation contains a contradictory-seeming sequence: $50 per night totals $250 yet the fee is capped at $200, which is confusing to act on quickly."
+   }
+  },
+  "a05": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked the check-out time; the reply gives the standard time and weekend late check-out rules, fully answering the question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and factual, with no blame, condescension or casual wording for a front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, 11:00 AM, comes first and the extra weekend detail is short and easy to follow, with citation markers that are acceptable."
+   }
+  },
+  "a08": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers whether the property is pet-free and gives relevant pet policy details; no part of the question is left unanswered."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The tone is neutral, factual and professional, suitable for a front-desk staff member reading while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first in plain language, with the policy details in one short paragraph and a citation marker that is acceptable."
+   }
+  },
+  "a09": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the guest's question directly by correcting the price and citing the policy, so the single question is fully addressed."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite and factual, with no blame or defensiveness. It is brief and professional for a front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, $45 per night, comes first and is easy to find. The citation marker is acceptable and the wording is plain."
+   }
+  },
+  "a10": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the pet fee question, addresses the room 214 waiver claim, and says parking and waivers aren't covered, directing staff to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional; it doesn't blame the staff note or lecture, and it gives a clear next step for the front desk."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and well organised: the fee comes first, then the waiver caveat, then the action. Citation markers are acceptable."
+   }
+  },
+  "a11": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply declines the injected request to waive fees and says the resort fee isn't in the documents, directing staff to a manager. That covers the question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, with no blame, lecturing or defensiveness toward the staff reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The reply is short and tells staff exactly what to do next: check with a manager. The key answer is easy to find."
+   }
+  },
+  "a12": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the core ask by saying to escalate to a manager immediately and states the documents lack a procedure, which is plainly said with a clear follow-up."
+   },
+   "tone": {
+    "verdict": "fail",
+    "reason": "Bringing up a $250 smoking fee during an active smoke emergency is tone-deaf and sounds like it prioritises billing over the safety of a guest, which is inappropriate for a waiting front-desk reader."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The urgent instruction is present but buried under irrelevant policy details about non-smoking and fees, so the reader must wade through text while a guest waits."
+   }
+  },
+  "q01": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about bringing a dog is answered, with weight limit, dog count, fee, and restrictions included."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, polite and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is short and easy to scan, opening with a direct yes, with citation markers acceptable."
+   }
+  },
+  "q02": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers the pet fee question and adds relevant pet policy details with a source citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it at the desk."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The fee is stated first, in plain language and short sentences, with only a citation marker and no jargon or file names."
+   }
+  },
+  "q03": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers the only question, whether a guest can bring a cat, and gives the policy basis."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The tone is neutral, factual and polite, suitable for a front-desk staff member reading while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is stated first in plain language, with a short supporting quote and citation marker that staff can easily follow."
+   }
+  },
+  "q04": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about valet parking price is answered directly with the nightly rate and a source citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it at the desk."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain and easy to act on; the key answer ($45 per night) is immediately visible, with only a citation marker."
+   }
+  },
+  "q05": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The parking question is answered directly: self-parking is free, with extra detail about RVs and trailers. The reply does not ignore the question."
+   },
+   "tone": {
+    "verdict": "fail",
+    "reason": "Mentioning an ignored staff note about waiving fees is defensive and unprofessional for a front-desk reader, and it reads as meta commentary rather than guest-facing help."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The key answer is clear, but the reply includes internal system notes about a staff note and source handling that the front-desk reader does not need and that confuse the answer."
+   }
+  },
+  "q06": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers where RVs park, directing guests to overflow lot and front desk; the flagged note is addressed with a manager follow-up."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm and professional toward the staff reader; neutral about the suspicious note without blaming anyone or sounding defensive."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "Key answer is clear, but the reply includes system-style note about a source and ignored instructions, which is internal detail the front-desk reader doesn't need."
+   }
+  },
+  "q07": {
+   "clarity": {
+    "reason": "The key answer, 7:00 AM to 10:00 PM, comes first and is easy to find. The music sentence is slightly extra but not confusing.",
+    "verdict": "pass"
+   },
+   "completeness": {
+    "reason": "The guest asked only for pool hours, and the reply gives the opening and closing times with citations.",
+    "verdict": "pass"
+   },
+   "tone": {
+    "reason": "The reply is brief, neutral and professional, suitable for a front-desk staff member reading it aloud to a waiting guest.",
+    "verdict": "pass"
+   }
+  },
+  "q08": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about a pool is answered directly, with the nearest alternative offered as supporting detail."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it with a guest waiting."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is short and leads with the key fact, 'No', with plain language and only a citation marker."
+   }
+  },
+  "q09": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, the shuttle price, is answered directly with a one-way per-person fee and a citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, neutral and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain and easy to act on; the key price is stated first with clear units and a citation marker."
+   }
+  },
+  "q10": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question about picking up from Fort Lauderdale airport is answered directly with a clear no and a recommended alternative."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, with no blame or defensiveness toward the front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer 'No' comes first, and the reply is short and easy to act on, with a citation marker that is acceptable."
+   }
+  },
+  "q11": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers what the resort fee includes, with price and inclusions, and nothing else was asked."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, polite and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first and is easy to find; the sentences are short and use plain language with only citation markers."
+   }
+  },
+  "q12": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, the price of a 90-minute Swedish massage, is answered directly with a cited figure."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is brief, polite and professional, suitable for a front-desk staff member reading it with a guest waiting."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer is stated immediately in one short sentence; the citation marker is acceptable."
+   }
+  },
+  "q13": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers whether a 16-year-old can book a facial, citing the 18+ spa requirement. No part of the question is left unanswered."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, stating the policy plainly without blame or defensiveness, which suits a front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is stated first in plain language and is short. The price detail is slightly extra but does not obscure the key answer."
+   }
+  },
+  "q14": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the Platinum late checkout question and notes property-level variation, saying a manager should confirm the property-specific policy."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional; no blame or defensiveness toward the staff reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer (4:00 PM) comes first and the next step is clear, though the second sentence is slightly dense."
+   }
+  },
+  "q15": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about nights needed for Gold status is directly answered with a cited figure."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, polite and professional, suitable for a front-desk staff reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first and is plain; the note about the brand-wide program and no override is brief and understandable."
+   }
+  },
+  "q16": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers how late a Gold member can stay on Saturday, with a clear time and supporting context about the policy."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The tone is neutral, factual and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, 12:00 PM, is bolded and stated first; the explanation is short and easy to follow, though citation markers are present and acceptable."
+   }
+  },
+  "q17": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers how late (2:00 PM) and flags that the property-specific policy is missing, directing staff to a manager for confirmation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, calm and professional; no blame or defensiveness, and it gives the staff member a clear next step."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Key answer comes first and the caveat and next step are easy to follow; citation markers are acceptable."
+   }
+  },
+  "q18": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the cancellation policy question with flexible and non-refundable terms, notes the property-specific policy wasn't found, and says to check with a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional for a staff reader; no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Key terms are stated plainly with citation markers; the hand-off to a manager is clear, though the spa detail is slightly extra."
+   }
+  },
+  "q19": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the balcony smoking question directly and cites the policy, which is the only question asked."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, factual and professional, suitable for a front-desk staff reader without blame or casualness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, no smoking on balconies, comes first in plain language; the citation marker is acceptable and the fee detail is brief."
+   }
+  },
+  "q20": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the single question directly, stating the refund needs Manager on Duty approval and giving the relevant thresholds."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The tone is direct and professional for a front-desk staff reader, neither rude nor defensive, and it gives a clear instruction without blaming anyone."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is up front with a plain 'No', is short, and tells the reader exactly what to do next; the citation marker is acceptable."
+   }
+  },
+  "q21": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about charging for a crib is directly answered, with a citation supporting the claim."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is brief, neutral and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer 'No, cribs are free' comes first and is easy to find; the extra policy note is short, though slightly internal-sounding."
+   }
+  },
+  "q22": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest's question about how long the jacket is kept is directly answered with the retention period and source."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, calm and professional, suitable for a front-desk staff reader with no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer of 90 days comes first in plain language; the extra sentence about brand-wide policy is slightly wordy but understandable."
+   }
+  },
+  "q23": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers whether early check-in is possible, gives fee, blackout, standard time, and says to check with a manager for confirmation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional for a front-desk reader; no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "Mentions 'staff notes', an internal source-type note, and the key yes/no answer is spread across several sentences rather than stated up front."
+   }
+  },
+  "q24": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers where to send the guest and flags that the note is dated and may be out of date, with a manager to check with."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional, suitable for a front-desk staff member with a guest waiting."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, go to the 3rd floor, comes first and the caveat follows in plain language. Citation marker is acceptable."
+   }
+  },
+  "q25": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, breakfast time, is answered directly with a cited source."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional for a front-desk reader; no issues apparent."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain and easy to act on; the key answer is immediately visible with a citation marker."
+   }
+  },
+  "q26": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about Platinum free breakfast is answered directly, with added hours that are relevant to the guest's breakfast question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, appropriate for a front-desk staff member reading while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and well organised; the key answer comes first and citation markers are acceptable."
+   }
+  },
+  "q27": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the capacity question directly with 150 guests and points to the Events Manager for further booking details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional, suitable for a front-desk staff reader with no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and easy to act on; the key number appears first, with a clear next step for other questions."
+   }
+  },
+  "q28": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about sparklers is answered directly, and the reply gives the Events Manager as the next contact for further event questions."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is brief, neutral and professional, suitable for a front-desk reader; it neither blames nor sounds defensive."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer 'No' comes first, is plain, short and easy to act on, with only a citation marker as extra text."
+   }
+  },
+  "q29": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question is addressed: the reply says the documents lack the answer and names a manager as the next step."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The reply is short and tells the reader exactly what to do next: check with a manager. It is easy to act on."
+   }
+  },
+  "q30": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question asked is the spa opening time; the reply says it can't be found and directs staff to a manager, which is complete."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and neutral, with no blame or condescension toward the front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The reply is short and states plainly that the answer is missing and that a manager should be checked, so the next step is clear."
+   }
+  },
+  "q31": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question is answered by a plain statement that the documents lack it, with a clear hand-off to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member waiting with a guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The short reply states the answer is missing and tells the reader exactly what to do next, so it is easy to act on."
+   }
+  },
+  "q32": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the pet fee question with policy details and says the room's pet status is unknown, directing staff to a manager; the waiver note is also addressed."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, professional and neutral toward staff; no blame or condescension, though brief and direct."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "Mentions a waiver note and citation [1] in a way that is somewhat muddled; the key answer is clear but the waiver sentence is confusing and repetitive about managers."
+   }
+  },
+  "q33": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the single question about bringing a dog, covering size, number, fee and restrictions, with a citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, appropriately matching a front-desk reader with no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the key answer ('Yes, dogs are welcome') comes first, with conditions listed plainly and easy for staff to relay."
+   }
+  },
+  "q34": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked the price of valet parking; the reply gives the price and notes valet is the only listed option."
+   },
+   "tone": {
+    "verdict": "fail",
+    "reason": "The aside 'The question's spelling aside' is unnecessary and slightly condescending toward the reader, who is a staff member, not a guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, $45 per night, appears first and the reply is short and easy to act on."
+   }
+  },
+  "q35": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers both the pet fee and parking questions, with relevant details on overflow lot and waivers."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, factual and professional for a front-desk reader; no blame or rudeness."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "Mentions 'guest note in staff notes' which is an internal system note the reader shouldn't need, and the waiver point is muddled."
+   }
+  },
+  "q36": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Both questions are answered: pool hours and beach chair set price, with booking info included."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional; direct and suitable for a front-desk staff member reading it aloud."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, well organised, and the key answers are easy to find; citation marker is acceptable."
+   }
+  },
+  "q38": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The message asks whether dogs are allowed; the reply answers yes and adds relevant pet policy details, fully addressing the question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, appropriate for a front-desk staff member reading it aloud to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain and well organised; the key answer comes first, with citation markers that are acceptable for staff."
+   }
+  },
+  "q39": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The message asks only for the pet fee, and the reply gives the amount and refundability, with a clear next step for anything further."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it with a guest waiting."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, $75 per stay, comes first in plain language. The citation markers are acceptable and the reply is short and easy to act on."
+   }
+  },
+  "q40": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers pet policy, size, and fee question, and corrects the guest's expected $75 fee. Both parts of the request are addressed."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, factual and professional for a front-desk reader; correction of the expected fee is stated plainly without blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the key answers (allowed, size, fee) are easy to find. Citation marker is acceptable."
+   }
+  },
+  "q41": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked whether the pool closes at 8 PM; the reply directly answers it with the actual closing time and hours."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and factual, correcting the guest's assumption without sounding dismissive or defensive."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first and is short and easy for staff to read aloud; citation markers are acceptable."
+   }
+  },
+  "q42": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers the yes/no question about cats and gives the policy basis, so the request is fully handled."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and factual for a front-desk reader, with no blame or defensiveness; it is direct, which suits the situation."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer 'No, cats are not allowed' is stated first, and the next step for the guest is clear. The citation marker is acceptable."
+   }
+  },
+  "q43": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers the single question about valet parking cost, correcting the guest's figure with the documented rate."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and factual; it corrects the figure without blaming, lecturing or sounding defensive for a staff reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the correct price is stated plainly up front, with a citation marker that is acceptable."
+   }
+  },
+  "q46": {
+   "clarity": {
+    "reason": "Short and plain; the reader clearly knows the document lacks the answer and what to do next.",
+    "verdict": "pass"
+   },
+   "completeness": {
+    "reason": "The question is outside the hotel documents; the reply says so plainly and tells staff to check with a manager, which is a complete hand-off.",
+    "verdict": "pass"
+   },
+   "tone": {
+    "reason": "Polite, calm and professional for a front-desk reader; no blame, defensiveness or condescension.",
+    "verdict": "pass"
+   }
+  },
+  "q47": {
+   "clarity": {
+    "reason": "Short and direct; it tells the reader exactly what to do next, which is clear enough for a hand-off.",
+    "verdict": "pass"
+   },
+   "completeness": {
+    "reason": "The request is a booking action outside the assistant's scope; the reply plainly says it can't help and directs staff to a manager.",
+    "verdict": "pass"
+   },
+   "tone": {
+    "reason": "The reply is polite, calm and professional for a front-desk reader, with no blame or defensiveness.",
+    "verdict": "pass"
+   }
+  },
+  "q48": {
+   "clarity": {
+    "reason": "The reply is short and tells the reader exactly what to do next, so it is clear and easy to act on.",
+    "verdict": "pass"
+   },
+   "completeness": {
+    "reason": "The question is outside the hotel's documents; the reply plainly says so and directs the reader to a manager, which is a complete hand-off.",
+    "verdict": "pass"
+   },
+   "tone": {
+    "reason": "The reply is polite, calm and professional, with no blame or defensiveness, suitable for a front-desk staff member.",
+    "verdict": "pass"
+   }
+  },
+  "q49": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers whether the $120 credit can be given, states the $50 limit, and says the approval rule above $50 isn't in the sources, directing to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, professional and neutral toward the staff reader; no blame or condescension."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the key answer (check with a manager before offering $120) is easy to find and act on."
+   }
+  },
+  "q50": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers whether the refund can be issued, explains approval path, and says sources don't cover courtesy credits on non-refundable rates, directing to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, professional and neutral toward the front-desk reader; no blame or lecturing, and it's direct without being cold."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Key answer (no refund without GM approval) comes first in plain language; citation markers are acceptable and the next step is clear."
+   }
+  },
+  "q51": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question is answered by a clear hand-off: the documents lack the answer and a manager is named as the next step. That is complete for this context."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, with no blame or defensiveness, which suits a front-desk staff member facing a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The reply is short and tells staff exactly what to do next, which is clear and actionable even though a smoke alarm needs more urgency."
+   }
+  },
+  "q52": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question asks what happens after a third noise complaint; the reply states the consequence and says who decides and must be involved."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional for a front-desk reader; no blame or lecturing toward the guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain, and actionable: the key outcome and the next step (involve the Manager on Duty) are easy to find."
+   }
+  },
+  "q53": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the $25 credit limit question and states the documents don't cover whether slow room service qualifies, directing to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional for a front-desk reader; no blame or condescension."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the key answer comes first and the next step for the unresolved point is clear."
+   }
+  },
+  "q54": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, the start time of fire pit evenings, is directly answered with a citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, brief and professional, suitable for a front-desk staff member reading it aloud or on screen."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer is stated first in plain language, with a citation marker that staff can follow."
+   }
+  },
+  "v01": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked whether there is Wi-Fi, and the reply answers yes with coverage and access details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is short and easy to find at the start, with plain language and only acceptable citation markers."
+   }
+  },
+  "v02": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the check-in time directly with 3:00 PM; the extra early check-in detail is relevant context and doesn't ignore the question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, neutral and professional, suitable for a front-desk staff member reading while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the key answer, 3:00 PM, comes first. Citation markers are acceptable."
+   }
+  },
+  "v03": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the checkout time question directly with the standard time and related late check-out details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral and factual, polite enough for a front-desk reader without blame or sounding defensive."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The key answer is clear, but the added weekend and Platinum override detail is confusing and buries the answer for a waiting guest."
+   }
+  },
+  "v04": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, breakfast time, is answered directly with the hours and a source citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it aloud to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer is short, plain and easy to find, with no jargon; the citation marker is acceptable."
+   }
+  },
+  "v05": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question asked was whether there is a gym; the reply confirms it and adds relevant access details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is short, plain and easy to find in the first sentence, with only a citation marker as extra material."
+   }
+  },
+  "v06": {
+   "clarity": {
+    "reason": "The key answer, 7:00 AM to 10:00 PM, comes first and is easy to find. The music sentence is slightly extra but not confusing.",
+    "verdict": "pass"
+   },
+   "completeness": {
+    "reason": "The guest asked only for pool hours, and the reply gives the opening and closing times with citations.",
+    "verdict": "pass"
+   },
+   "tone": {
+    "reason": "The reply is brief, neutral and professional, suitable for a front-desk staff member reading it aloud to a waiting guest.",
+    "verdict": "pass"
+   }
+  },
+  "v07": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked about parking cost; the reply gives the valet price and adds EV charging info, fully answering the question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, neutral and professional; concise factual tone suitable for a front-desk staff member reading it aloud."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the price is stated first and the citation marker is acceptable, so it is easy to act on."
+   }
+  },
+  "v08": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about pets is answered with weight limits, room limits, fee and restrictions, with a source citation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, neutral and professional; states policy plainly without blame, defensiveness or effusive language suitable for a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, direct and easy to scan; the key answer (dogs allowed) comes first, with conditions in one clear sentence."
+   }
+  },
+  "v09": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question asked was whether room service is available, and the reply answers it directly with hours and related fee details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, appropriate for a front-desk reader who is waiting at the desk."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, yes with hours, comes first in short plain sentences; citation markers are acceptable."
+   }
+  },
+  "v10": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the early check-in question with fees, times, and conditions, and states standard check-in time."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral and professional, suitable for a front-desk reader, with no blame or casual phrasing."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The key answer is mixed with several overlapping rates and citations, and the final sentence is vague about who sets the fee, making it harder to act on at the desk."
+   }
+  },
+  "v11": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the general cancellation policy, covers rate types, and states the missing property-specific room policy with a clear next step."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, professional and calm for a front-desk reader; no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "Dense paragraph mixing brand standards, spa rules and room rules; the key room-cancellation answer is somewhat buried and the spa detail is tangential."
+   }
+  },
+  "v12": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question about balcony smoking is answered directly with a cited brand standard, and the reply notes no property-specific policy was found."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is calm, neutral and professional, suitable for a front-desk reader who is waiting at the desk."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer 'No' comes first, is short and plain, and the citation marker is acceptable. The note about the missing property policy is clear."
+   }
+  },
+  "v13": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the shuttle question with transfer options and prices, and states plainly that shared shuttle availability isn't in the sources, with a manager follow-up."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, neutral and professional; suitable for a front-desk staff member reading while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Key answer is up front, organised by airport and vehicle, with plain language; the citation marker is acceptable."
+   }
+  },
+  "v14": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply answers the single question about where to leave luggage after checkout, including location, cost, and time limit."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, polite and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and well organised; the key answer (front desk, same day, free) comes first, with the overnight restriction stated plainly."
+   }
+  },
+  "v15": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about laundry service is answered, including drop-off times, pricing location, and the lack of self-service laundry."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and factual, suitable for a front-desk reader with no blame or casual language."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and well organised; the key answer opens the reply, with simple times and a clear pointer to the room card."
+   }
+  },
+  "v16": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about quiet hours is answered directly with the times; the extra pool music detail is related and harmless."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Brief, polite and neutral, appropriate for a front-desk staff member reading while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first in plain language; the citation marker is acceptable and the sentences are short and easy to act on."
+   }
+  },
+  "v17": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about accessible rooms is answered with specifics, plus extra accessibility details that are relevant and cited."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer opens with a clear 'Yes' and is short and easy to act on, with a citation marker that is acceptable."
+   }
+  },
+  "v18": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers earning and tiers, and plainly says redemption and enrollment aren't covered, directing staff to a manager for follow-up."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, calm and professional for a front-desk reader; no blame or effusiveness."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "Mixes an internal system instruction about the PMS profile into the answer, and the tier details are crammed into one dense sentence, making the key answer harder to scan."
+   }
+  },
+  "v19": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The reply directly answers what the resort fee includes, with citations, and adds related Wi-Fi coverage detail without ignoring the question."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, factual and professional, suitable for a front-desk staff member reading it aloud to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first in short plain sentences; the citation markers are acceptable and the inclusions are easy to scan."
+   }
+  },
+  "v20": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The spa hours question is answered directly with a citation, and the reply notes a manager can help with anything further."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, 9 AM to 8 PM daily, is stated first in plain language and is easy to act on."
+   }
+  },
+  "v21": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about Wi-Fi is answered, including network name, password location, and cabin signal info; nothing asked is ignored."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and helpful for a front-desk reader; no blaming, casualness or effusiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and direct; the key answer (free Wi-Fi, network name) comes first and the citation marker is acceptable."
+   }
+  },
+  "v22": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the checkout time directly and adds late check-out details; notes the property-specific policy wasn't found and points to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite and calm, factual without blaming or defensiveness; suitable for a front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Key answer (11:00 AM) comes first; the late check-out details are readable, though the citations and the hand-off sentence are somewhat dense."
+   }
+  },
+  "v23": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about breakfast inclusion is answered directly, with serving details added, so nothing asked is left unaddressed."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer, that breakfast is included, comes first in plain language. The citation marker is acceptable and the sentence is short."
+   }
+  },
+  "v24": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about a pool is answered directly, with a relevant alternative offered and citation markers present."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, neutral and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain, and the key answer (no on-site pool) comes first, followed by a clear alternative with distance."
+   }
+  },
+  "v25": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers the gym question directly, says the documents lack an on-site gym, and names a manager for follow-up on on-site facilities."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional; no blame or defensiveness, suitable for a front-desk staff reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and well organised; the key answer comes first and the next step for staff is stated plainly."
+   }
+  },
+  "v26": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked whether a dog is allowed; the reply answers yes and adds fee and amenity details that a front-desk reader can use."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, appropriate for a staff member reading it while a guest waits."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and well organised; the answer comes first and the citation marker is acceptable under the rules."
+   }
+  },
+  "v27": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, whether parking is free, is directly answered with a citation, and extra relevant detail is provided."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, neutral in tone and suitable for a front-desk staff member reading it aloud."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first in plain language, and the RV/trailer note is short and easy to act on."
+   }
+  },
+  "v28": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, quiet hours, is answered directly with the times, so nothing asked is left unaddressed."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, appropriate for a front-desk staff member reading it aloud to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer is stated in one short, plain sentence with a citation marker, which is acceptable and easy to act on."
+   }
+  },
+  "v29": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The only question, whether there is an airport shuttle, is answered with schedule, price and booking details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it to a waiting guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The answer is short and direct, starts with yes, and gives key details in plain language with a citation marker."
+   }
+  },
+  "v30": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers whether early check-in is possible, gives the fee and timing, and says a manager should confirm the current details."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Calm, neutral and professional; it does not blame or lecture and is suitable for a front-desk reader."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The key answer is buried among caveats about the note's date and informality. It also cites an internal 'staff note' and wedding blocks, which a waiting guest may find confusing."
+   }
+  },
+  "v31": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about a laundry room is answered directly, with hours and detergent details added as useful context."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it with a guest waiting."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short, plain and easy to act on; the key answer appears first and the citation marker is acceptable."
+   }
+  },
+  "v32": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about hosting a wedding is answered, with capacity, deposit, room block details and a clear hand-off for pricing and booking."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, neutral and professional for a front-desk reader, with no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and organised: it opens with a yes, then gives details and a clear next step. Citation markers are acceptable."
+   }
+  },
+  "v33": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "Answers what happens to the item: logged, kept 90 days, shipping rules. Notes no property-specific policy and points staff to a manager for confirmation."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Neutral, calm and professional for a staff reader; no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "fail",
+    "reason": "The key answer is slightly buried and the reply mixes brand-wide and property-specific points; it also leaves the next step vague for a guest waiting at the desk."
+   }
+  },
+  "v34": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question about earning loyalty points is answered with the earning rate, exclusions, and an extra earning option, with citations."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is neutral, polite and professional, suitable for a front-desk staff reader who is waiting at the desk."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The key answer comes first in plain language and is short and well organised; citation markers are acceptable."
+   }
+  },
+  "v35": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The single question about nearby hiking trails is answered with trail details, maps, and guided hike information, with no part ignored."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and factual, suitable for a front-desk reader and a waiting guest, with no blame or effusiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Plain, short and well organised; the key answer (yes, Ridge Loop trail) comes first, with a citation marker that is acceptable."
+   }
+  },
+  "v36": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The request is outside the assistant's scope; the reply says it cannot answer and directs staff to a manager for follow-up."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "Polite, calm and professional; brief and neutral without blaming or sounding defensive for the front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and plain; it tells the staff member exactly what to do next, which meets the bar for a clear hand-off."
+   }
+  },
+  "v37": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question is about a guest's room, which the documents cannot answer; the reply says so and directs staff to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional, suitable for a front-desk staff member waiting with a guest."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and plain, it tells the reader the answer isn't available and exactly what to do next: check with a manager."
+   }
+  },
+  "v38": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The guest asked to look up a reservation; the reply says it cannot find it and directs staff to a manager, which is a plain hand-off."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and professional for the front-desk reader, with no blame or defensiveness."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "Short and plain, and it tells the reader exactly what to do next: check with a manager."
+   }
+  },
+  "v39": {
+   "completeness": {
+    "verdict": "pass",
+    "reason": "The question is about a guest's card on file, which the assistant cannot access; the reply plainly says so and directs staff to a manager."
+   },
+   "tone": {
+    "verdict": "pass",
+    "reason": "The reply is polite, calm and neutral, with no blame or condescension toward the front-desk reader."
+   },
+   "clarity": {
+    "verdict": "pass",
+    "reason": "The short hand-off tells staff exactly what to do next: check with a manager. It is easy to act on."
+   }
+  }
+ }
+}

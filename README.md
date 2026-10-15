@@ -1,36 +1,248 @@
-# Eval Harness
+# 📏 Eval Harness
 
 [![CI](https://github.com/vamsialladev/eval-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/vamsialladev/eval-harness/actions/workflows/ci.yml)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 ![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-261230)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![Coverage 93%](https://img.shields.io/badge/coverage-93%25-brightgreen)
 [![Live dashboard](https://img.shields.io/badge/live%20dashboard-streamlit-FF4B4B)](https://eval-harness.streamlit.app)
 
-**One evaluation system for both of the hotel group's AI assistants: the same case schema, metrics, calibrated LLM
-judge, statistics and regression gates, so a prompt, model or retrieval change can't lower quality without a red
-check.**
+**One evaluation system for both of the hotel group's AI assistants: one case schema, the projects' own metrics
+behind one registry, an LLM judge checked against human labels, honest statistics and regression gates in CI, so a
+prompt, model or retrieval change can't lower quality without a red check.**
 
 > **Project 3 of 5** in my portfolio: one *simulated client engagement* for a fictional hotel group with two
-> properties. All documents, guests, bookings and emails are synthetic. It evaluates
+> properties, a beach resort and a mountain lodge. Documents, guests, bookings and emails are synthetic. It evaluates
 > [Project 1](https://github.com/vamsialladev/hotel-ops-assistant) (staff policy assistant, RAG) and
-> [Project 2](https://github.com/vamsialladev/guest-request-agent) (guest email agent).
+> [Project 2](https://github.com/vamsialladev/guest-request-agent) (guest email agent). Business value is a projection
+> from stated assumptions.
 
-🔗 **[Live dashboard](https://eval-harness.streamlit.app)** (read-only, no API calls) · 🧭 **[Decisions](docs/DECISIONS.md)** · 📋 **[Plan](docs/PLAN.md)**
+🔗 **[Live dashboard](https://eval-harness.streamlit.app)** (read-only, no API calls) · 🎥 **[Demo video](https://vamsialla.com/videos/eval-harness-demo.mp4)** (narrated, captioned) · 📄 **[Case study](https://vamsialla.com/projects/eval-harness.html)** · 💰 **[Business case](docs/BUSINESS_CASE.md)** · 🏗️ **[Architecture](docs/ARCHITECTURE.md)** · 🧭 **[Decisions](docs/DECISIONS.md)**
 <sub>Free hosting: if the app is asleep, click ‘wake up’ and give it about 30 seconds.</sub>
+
+<!-- <p align="center"><img src="docs/images/demo.gif" alt="The live dashboard: overview of both projects' gates, a failing case drill-down, judge calibration and the regression demo" width="760"></p> -->
+
+---
+
+## At a glance
+
+| | |
+|---|---|
+| **Problem** | Two AI assistants, each with its own eval scripts and report format. A cheaper model, a new prompt or a retrieval setting can lower quality, and nothing would say so before staff notice. |
+| **Solution** | An installable harness (`hoteleval`): 181 labelled cases in one schema, the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
+| **Projected value** | ~$26K/yr net for the two assistants (range $1.5K–$68K), mostly engineer time per change ([assumptions](docs/BUSINESS_CASE.md)) |
+| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 40 hand labels: 95% agreement but **kappa 0.00**, so **no judge metric is trusted** or gated. 86 tests, 93% coverage. Whole project's API spend: **$0.38**. |
+
+## Where to start
+
+| If you are a... | Read |
+|---|---|
+| **Recruiter or hiring manager** | [At a glance](#at-a-glance) → [Results](#results) → [What the eval taught me](#what-the-eval-taught-me) → [Case study](https://vamsialla.com/projects/eval-harness.html) |
+| **Hotel manager or operations lead** | [The problem](#the-problem) → [What it does](#what-it-does) → [Business case](docs/BUSINESS_CASE.md) |
+| **Engineer** | [Architecture](#architecture) → [Results](#results) → [Run it locally](#run-it-locally) → [Decision log](docs/DECISIONS.md) |
+
+---
+
+## The problem
+
+The front desk now has two assistants: one answers staff policy questions, the other drafts replies to guest emails.
+Each was measured carefully when it shipped. Then the changes start: a cheaper model, a shorter prompt, "send 2
+passages instead of 5 to save tokens". Each change is reasonable. One of them quietly stops the assistant from
+finding the spa age rule, and a 16-year-old gets booked for a facial. Nobody re-ran the eval because each project
+had its own scripts, its own report format and no gate in CI.
 
 ## What it does
 
-- **One case bank:** 161 labelled cases imported from Projects 1 and 2 at pinned commits without changing their
-  meaning, in three splits (dev, held-out, visitor).
-- **Recorded mode by default:** re-scores saved outputs, with no API call, so CI is free and deterministic. Live mode
-  runs a project's real pipeline at a pinned commit.
-- **Deterministic metrics first:** the projects' own metric code, copied byte for byte at the pins, behind one
-  registry. The harness reproduces both projects' published numbers from the same recordings.
-- **Statistics:** 95% Wilson intervals over distinct cases, run-to-run consistency, flaky cases, per-category rates.
-- **Regression gates:** hard 100% gates (escalation, prompt injection, forbidden promises), floors, a drop below the
-  baseline interval, and stable flips, with failure messages that name the cases.
+- **One case bank:** 181 labelled cases in three splits (dev, held-out, visitor): 103 imported from Project 1 and 58
+  from Project 2 at pinned commits without changing what they test, plus 20 new held-out cases where coverage was
+  thin (cross-property leaks, Spanish, a superseded document, injections, safety wording), marked "added in Project 3".
+- **Recorded mode by default:** saved outputs are re-scored with no API call, so CI is free and deterministic. Live
+  mode runs a project's real pipeline at a pinned commit, exported with `git archive` so the checkout is never touched.
+- **Deterministic metrics first:** the projects' own metric code, copied byte for byte (imports aside) at the pins,
+  behind one registry; every metric has a passing and a failing test.
+- **Statistics:** 95% Wilson intervals over distinct cases, per-run rates, flaky cases, per-category rates.
+- **Gates:** hard 100% (escalation, prompt injection, forbidden promises), floors on groups of 10+ cases, a drop below
+  the baseline interval, and **stable flips** (always passed, now always fails). Failure messages name the cases.
+- **LLM judge, only where code can't judge:** completeness, tone and clarity, Claude Haiku 5.5, versioned rubric,
+  structured output, cached by input hash. Trusted only at Cohen's kappa ≥ 0.6 against the owner's labels.
+- **Read-only dashboard:** Overview, Runs over time, Cases (drill down to the recorded output and every verdict),
+  Judge calibration, How it works, Disclaimer. No input, no API calls, no secrets.
 
-## Run it locally (Windows PowerShell)
+<!--
+| Overview | A failing case | Judge calibration |
+|---|---|---|
+| <img src="docs/images/overview.png" alt="Dashboard overview: both projects' gated metrics with intervals and pass badges" width="300"> | <img src="docs/images/case.png" alt="Case drill-down: q13 in the regression demo, expected passage, recorded answers and failed verdicts" width="300"> | <img src="docs/images/calibration.png" alt="Judge calibration: confusion matrix, kappa 0.00 and no trusted metrics" width="300"> |
+-->
+
+## Business value
+
+A projection from stated assumptions, not a measured saving (`python scripts/business_case.py --scenarios`):
+
+| Per year | Pessimistic | Base | Optimistic |
+|---|---|---|---|
+| Engineer hours saved | 72 | 240 | 504 |
+| Net value | $1,493 | **$26,273** | $67,613 |
+
+Changes per month drive most of the value; the API cost of a full live re-run of both projects is measured ($0.29).
+Details, sensitivity, pilot plan and go / no-go KPIs: [docs/BUSINESS_CASE.md](docs/BUSINESS_CASE.md).
+
+## Architecture
+
+```mermaid
+flowchart LR
+    C[Case bank<br/>181 cases, 3 splits] --> R[Runners<br/>recorded or live at a pin]
+    R --> A[Adapters<br/>one output record]
+    A --> M[Deterministic metrics<br/>projects' own code]
+    A --> J[LLM judge<br/>completeness, tone, clarity]
+    J --> K[Calibration<br/>40 human labels, kappa]
+    M --> S[Statistics<br/>Wilson, runs, flaky]
+    S --> G[Gates<br/>hard, floors, interval, flips]
+    G --> O[Reports, CI, dashboard]
+    K --> O
+```
+
+```mermaid
+sequenceDiagram
+    participant CI as Project CI
+    participant H as hoteleval gate
+    participant M as Metrics
+    participant B as Bundled baseline
+    CI->>H: recorded outputs (+ project tree for Project 1)
+    H->>M: score each output against its case
+    M->>H: verdicts per case and run
+    H->>B: compare on shared cases
+    H-->>CI: PASS, or FAIL naming the metric and the flipped cases
+```
+
+1. A project's CI installs `hoteleval` at tag v1.0.0 (standard library only, seconds).
+2. `hoteleval gate` reads the project's own recorded outputs and converts them with its adapter.
+3. For Project 1, retrieval, the scope check and the escalation rules are recomputed with Project 1's own code (free).
+4. Every output is scored against its labelled case; the case bank and baselines ship inside the package.
+5. The candidate is compared with the baseline on shared cases: hard gates, floors, interval, stable flips.
+6. Any failure prints the metric, the drop and the case IDs, and the job exits 1.
+
+## Tech stack
+
+| Tool | Why |
+|---|---|
+| Python 3.12, standard library core | A project's CI installs the harness in seconds; nothing heavy to audit |
+| Projects' metric code, vendored at pins | One definition of each metric; reproduces the published numbers |
+| Claude Haiku 5.5 (judge) | $0.10 / $0.50 per million tokens; structured output; same model the projects use |
+| Wilson intervals | Honest on small groups (8 must-escalate emails at 100% is 68–100%) |
+| Streamlit | Same look as Projects 1 and 2; free hosting; read-only pages |
+| GitHub Actions | Gates in the harness and in both project repos |
+
+## How it handles messy evaluation data
+
+| Problem | How it's handled |
+|---|---|
+| Two projects, two formats | Adapters to one output record; labelled fields keep their original names |
+| A recording without retrieved passages (Project 1) | Retrieval and escalation recomputed deterministically at the pin |
+| Repeated runs of the same case | Intervals use distinct cases, not cases × runs |
+| A flaky case | Reported as flaky; only a stable flip fails a gate |
+| One miss in a 3-case group | Floors need 10+ cases; hard gates and flips still apply |
+| A grader that misreads a correct answer | Fixed in the harness, logged as a decision, with the exact sentence as a test |
+| Spanish "50 $" | Normalised to "$50" before the fact checks |
+
+## Results
+
+**Reproduction (recorded mode, no API).** From the projects' own recordings: Project 1 answer accuracy 98% (159/162),
+strict retrieval 44/45 per run, refusals 27/27, escalation rules 54/54; Project 2 escalation, injection and
+no-promise 100%, routing 98%, citations 94%, p50 4.6 s, $1.30 per 1,000 emails (`tests/test_reproduce.py`).
+
+**Fresh live re-runs at the pinned commits** (3 runs each, Claude Haiku 5.5, 2026-10-14), both **gate PASS**:
+
+| Metric (95% interval over cases) | Project 1, dev (54) | Project 2, dev (40) |
+|---|---|---|
+| Hard gates: escalation, injection, no forbidden promises | 100% | 100% |
+| Answer accuracy / request coverage | 98% (90–100%) | 100% (91–100%) |
+| Strict retrieval / fact grounding | 98% (88–100%) | 100% (91–100%) |
+| Citation accuracy | 98% (88–100%) | 94% (72–99%) |
+| Same verdict on every metric in all 3 runs | 98% (flaky: q06) | 90% (E12, E18, X05, X08) |
+| Latency p50 / p95 | 1.6 s / 3.3 s | 4.3 s / 8.9 s |
+| Cost per 1,000 | $0.17 | $1.30 |
+
+Visitor sets: Project 1 first-question success 100% (147/147); Project 2 first-email success 93% (28/30, V06 gave
+example dates found in no tool result, Project 2's strict grounding rule).
+
+**Held-out cases added in Project 3 (reported, not gated: no baseline).** Project 1, 13 cases × 3: answer accuracy
+67% (40–86%), injection resistance 6/6. Real gaps: Spanish questions are blocked by the keyword scope check before the
+model (a06, a07), injection text pushed the resort-fee passage out of the top 5 (a11), the safety rule misses "smoke
+coming from under a door" and "incendio" (a12, a13). Project 2, 15 cases × 3: escalation 9/9, injection 9/9, key
+facts 87%.
+
+**The regression it caught.** A throwaway branch lowered Project 1's top-k from 5 to 2 ("send 2 passages instead of
+5 to cut input tokens"). Strict retrieval fell from 98% to 93%, still inside the baseline interval (88–100%), but q13
+and q35 failed in every run after passing in every baseline run. Recorded mode (saved answers, retrieval recomputed):
+**FAIL, 1 gate**. Live mode (3 runs): **FAIL, 4 gates**: answer accuracy, strict retrieval, citation accuracy and
+numeric grounding, naming q13 and q35. The branch was deleted and never pushed or merged
+([reports](reports/p1-demo-topk2-live.md)).
+
+**Judge calibration.** 40 stratified items labelled by hand by the owner: **all 40 pass**. Rubric v1 agreed on 38
+(95%) and failed two clarity items; kappa **0.00**, undefined for completeness and tone. One revision (v2) fixed the
+item it targeted; agreement stayed 95%, kappa 0.00. Three identical v2 passes agreed on 39 of 40 items. **No judge
+metric is trusted, so none is a gate.** On the full re-runs the judge fails 13–17% of replies on clarity: stricter
+than the labels, and only labels with real failures can say who is right ([decision 17](docs/DECISIONS.md)).
+
+<details><summary>Metric definitions</summary>
+
+| Metric | Definition |
+|---|---|
+| Answer accuracy (P1) | Required facts present, wrong facts not asserted, or a correct refusal |
+| Strict retrieval (P1) | The expected phrase is inside a retrieved passage from the expected document |
+| Escalation rules (P1) / recall (P2) | Manager rules fire exactly as labelled / must-escalate emails are escalated |
+| Injection resistance | Planted text is not asserted (P1) / instructions in the email are not followed (P2) |
+| No forbidden promises | No refund, comp, upgrade, cancellation or waiver promised (P2's detector, both projects) |
+| Fact grounding (P2) / numeric grounding (P1) | Every price, date, time and room in the draft is in a tool result / cited passage |
+| First-contact success | A first-time visitor's message gets a useful result |
+| Judge: completeness, tone, clarity | Rubric in `src/hoteleval/data/rubrics/`; trusted only at kappa ≥ 0.6 |
+</details>
+
+### What the eval taught me
+
+- **Agreement isn't evidence.** 95% agreement looked good; kappa 0.00 said the 40 labels held no failures to agree
+  on. Sampling outputs that a deterministic metric flagged gave me wrong facts, not badly written replies.
+- **An interval alone missed a real regression.** Two lost cases out of 45 stay inside the interval; "always passed,
+  now always fails" is what caught it.
+- **Re-running unchanged code failed the gate.** One model miss on a 3-case group broke a 90% floor. Floors now need
+  10+ cases; noise is reported, not gated.
+- **Graders were wrong four times in this project:** a policy description read as a promise, two correct injection
+  rejections, and "50 $". Each is fixed, logged and tested with the exact sentence.
+- **Held-out cases find what tuning hides:** Spanish blocked before the model, safety wording the rules don't know.
+
+## Skills demonstrated
+
+| FDE skill | Where it shows |
+|---|---|
+| Measuring before claiming | Reproduction tests, Wilson intervals, reports re-scored in CI |
+| Finding the measurement bug first | Decisions 9, 13, 15, 16, 18 |
+| LLM-as-judge done honestly | Calibration against human labels, kappa, judge self-consistency, "not trusted" shown |
+| Shipping into existing systems safely | One CI job per project repo; pinned commits; `git archive` exports |
+| Explaining results to non-engineers | Dashboard, case study, business case with ranges |
+
+## Project structure
+
+```
+eval-harness/
+├── app.py                  # read-only dashboard
+├── label_app.py            # local labeling page (never deployed)
+├── src/hoteleval/          # the package: schema, cases, adapters, metrics, stats, gates, judge, calibration, CLI
+│   ├── vendor/             # Projects 1 and 2's metric code at pinned commits (SOURCE.json)
+│   ├── drivers/            # run each project's real pipeline inside its own tree
+│   └── data/               # cases, gates.toml, baselines, rubrics
+├── views/                  # dashboard pages
+├── runs/                   # recorded outputs (one record per output)
+├── reports/                # markdown + JSON per run, index.json
+├── judge/                  # judge cache, verdicts, calibration.json
+├── labels/                 # 40 calibration items and the owner's labels
+├── scripts/                # import, vendor sync, added cases, rescore, business case, video
+├── tests/                  # 86 tests
+└── docs/                   # plan, architecture, decisions, business case, demo script, checklists
+```
+
+## Run it locally
+
+**Windows (PowerShell):**
 
 ```powershell
 cd C:\projects\project1\eval-harness
@@ -40,11 +252,81 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\streamlit run app.py
 ```
 
-Gate a saved run (free, no API):
+**macOS / Linux:** the same with `python3.12 -m venv .venv` and `.venv/bin/...`.
 
-```powershell
-.\.venv\Scripts\hoteleval gate --saved p2-published-2026-10-14
+**Docker (dashboard only):** `docker build -t eval-harness . && docker run -p 8501:8501 eval-harness`
+
+**In another project's CI** (what Projects 1 and 2 run):
+
+```bash
+pip install "hoteleval @ git+https://github.com/vamsialladev/eval-harness@v1.0.0"
+hoteleval gate --project guest-request-agent --recorded eval/recorded/main-final.jsonl eval/recorded/heldout-final.jsonl
 ```
 
+## Configuration
+
+| Setting | Where | Default | Purpose |
+|---|---|---|---|
+| `ANTHROPIC_API_KEY` | `.env` | – | Only for `judge --live` and `run-live` |
+| Pins | `src/hoteleval/pins.py` | P1 `5f9cd91`, P2 `575a19f` | The commits evaluated |
+| Gates | `src/hoteleval/data/gates.toml` | hard + floors | What fails a build |
+| Rubric | `src/hoteleval/data/rubrics/judge-v*.toml` | v2 | Judge wording; never edited after use |
+| Prices | `--price-in` / `--price-out` | – | USD per million tokens for cost per 1,000 |
+
+## Commands reference
+
+| Command | What it does | API |
+|---|---|---|
+| `hoteleval gate --saved RUN_ID` | Gate a run saved in this repo | No |
+| `hoteleval gate --project P --recorded FILE [--project-root .]` | Gate a project's own recording | No |
+| `hoteleval score --run-id ID --baseline BASE` | Report + gate | No |
+| `hoteleval run-live --project P --repo PATH --ref REF --runs 3 --run-id ID` | Real pipeline at a ref | Yes |
+| `hoteleval import-run --project P --native FILE --run-id ID` | Convert a project's recording | No |
+| `hoteleval judge --rubric v2 [--run ID] [--repeat N] --live` | Judge items or a run | Yes |
+| `hoteleval calibrate` | Judge vs labels, every rubric version | No |
+| `python scripts/rescore_all.py` · `check_reports.py` | Re-score everything / prove reports match | No |
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `Port 8502 is not available` for the labeling page | Another Streamlit is on that port; stop it or use `--server.port 8503` |
+| Gate prints `skip ... (0 cases)` | The recording lacks that field (Project 1 retrieval needs `--project-root`) |
+| `ANTHROPIC_API_KEY is not set` | Add it to `.env`; it is never printed |
+| Dashboard asleep | Free hosting: click "wake up", about 30 seconds |
+
+## Deploy (free)
+
+Streamlit Community Cloud: repo `vamsialladev/eval-harness`, branch `main`, main file `app.py`, Python 3.12, no
+secrets. Every push redeploys it.
+
+## Testing and quality
+
+86 tests at 93% coverage: the schema, every metric passing and failing, statistics, kappa, gates, adapters, the
+runner, reports, the judge with a fake client, the CLI and every dashboard page (Streamlit AppTest). CI: ruff lint
+and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of every saved report.
+
+## Security and privacy
+
+Read-only dashboard: no input, no API calls, no secrets, no cookies or analytics. The key lives only in `.env` and
+goes to the live runner's child process through its environment. Full-history secret scans before every push;
+secret scanning and push protection on. [SECURITY.md](SECURITY.md)
+
+## Limitations and roadmap
+
+- The calibration sample held no human failures; the judge is untrusted until labels with real failures exist.
+- I wrote every case, including the held-out ones; cases from front-desk staff are next.
+- Floors don't apply to groups under 10 cases; a real drop there must be a stable flip to fail a build.
+- Project 4: persistent run history, monitoring, sign-in and redaction.
+
+## Documentation
+
+[PLAN](docs/PLAN.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) · [DECISIONS](docs/DECISIONS.md) · [BUSINESS_CASE](docs/BUSINESS_CASE.md) · [DEMO_SCRIPT](docs/DEMO_SCRIPT.md) · [VALIDATION_CHECKLIST](docs/VALIDATION_CHECKLIST.md) · [ENGINEERING_LOG](docs/ENGINEERING_LOG.md) · [RESUME_BULLETS](docs/RESUME_BULLETS.md)
+
+## Author
+
+**Vamsi Alla**, Senior Software Engineer · [vamsialla.com](https://vamsialla.com) · [LinkedIn](https://www.linkedin.com/in/vamsi-alla/) · [GitHub](https://github.com/vamsialladev)
+
 ## License
+
 MIT © Vamsi Alla

@@ -27,12 +27,12 @@ def client_from_env(env_file: Path):
     return anthropic.Anthropic(api_key=key, max_retries=3)
 
 
-def run_items(version: str, items: list[dict], live: bool, env: Path) -> tuple[dict, list[dict]]:
+def run_items(version: str, items: list[dict], live: bool, env: Path, repeat: int = 0) -> tuple[dict, list[dict]]:
     cache = Cache(CACHE_FILE)
     client = client_from_env(env) if live else None
     verdicts, rows, missing = {}, [], 0
     for item in items:
-        row = judge(item, version, cache, client, live)
+        row = judge(item, version, cache, client, live, repeat)
         if row is None:
             missing += 1
             continue
@@ -86,8 +86,9 @@ def cmd_judge(args) -> int:
         )
     else:
         items = [{**i, "ref": i["item_id"]} for i in load_items()]
-        verdicts, rows = run_items(args.rubric, items, args.live, env)
-        store.write_json(JUDGE_DIR / f"items-{args.rubric}.json", verdicts)
+        verdicts, rows = run_items(args.rubric, items, args.live, env, args.repeat)
+        suffix = f"-repeat{args.repeat}" if args.repeat else ""
+        store.write_json(JUDGE_DIR / f"items-{args.rubric}{suffix}.json", verdicts)
         print(f"judged {len(verdicts)}/{len(items)} calibration items with rubric {args.rubric}")
     print(f"judge tokens for these items: ${cost(rows):.4f} at $0.10/$0.50 per million (cached calls cost nothing now)")
     return 0
@@ -95,6 +96,24 @@ def cmd_judge(args) -> int:
 
 def _rate(labels: list[str]) -> float | None:
     return sum(x == "pass" for x in labels) / len(labels) if labels else None
+
+
+def consistency(items: list[dict], version: str) -> dict | None:
+    """The judge against itself: the same prompt judged again (--repeat). Items whose verdict changed are noise."""
+    passes = [JUDGE_DIR / f"items-{version}.json"] + sorted(JUDGE_DIR.glob(f"items-{version}-repeat*.json"))
+    passes = [store.read_json(p) for p in passes if p.exists()]
+    if len(passes) < 2:
+        return None
+    verdicts = {
+        i["item_id"]: [p[i["item_id"]][i["dimension"]]["verdict"] for p in passes if i["item_id"] in p] for i in items
+    }
+    changed = sorted(k for k, v in verdicts.items() if len(set(v)) > 1)
+    return {
+        "passes": len(passes),
+        "items": len(verdicts),
+        "same_every_pass": len(verdicts) - len(changed),
+        "changed": changed,
+    }
 
 
 def cmd_calibrate(args) -> int:
@@ -129,6 +148,11 @@ def cmd_calibrate(args) -> int:
         "current": current["version"],
         "trusted": current["trusted"],
         "versions": results,
+        "consistency": consistency(items, current["version"]),
+        "runs": {
+            p.stem.removeprefix("run-").removesuffix(f"-{current['version']}"): store.read_json(p)["pass_rates"]
+            for p in sorted(JUDGE_DIR.glob(f"run-*-{current['version']}.json"))
+        },
     }
     store.write_json(JUDGE_DIR / "calibration.json", data)
     print(f"wrote judge/calibration.json (current rubric {current['version']})")
@@ -142,6 +166,9 @@ def register(sub) -> None:
     p = sub.add_parser("judge", help="LLM judge on the calibration items or a saved run (cached)")
     p.add_argument("--rubric", default="v1")
     p.add_argument("--run", help="judge run 1 of this saved run instead of the calibration items")
+    p.add_argument(
+        "--repeat", type=int, default=0, help="a fresh, separately cached pass on the same items (consistency)"
+    )
     p.add_argument("--live", action="store_true", help="call the API for items not in the cache")
     p.add_argument("--env", default=".env")
     p.set_defaults(fn=cmd_judge)

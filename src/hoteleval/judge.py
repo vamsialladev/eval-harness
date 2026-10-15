@@ -120,11 +120,11 @@ def call(client, request: dict) -> tuple[dict, dict]:
     return parse(text), usage
 
 
-def judge(item: dict, version: str, cache: Cache, client=None, live: bool = False) -> dict | None:
+def judge(item: dict, version: str, cache: Cache, client=None, live: bool = False, repeat: int = 0) -> dict | None:
     """Verdicts for one item ({ref, project, input, reply}); from the cache, or the API when live."""
     rubric = load_rubric(version)
     request = build_request(rubric, item["project"], item["input"], item["reply"])
-    key = cache_key(request)
+    key = cache_key(request) + (f"#repeat{repeat}" if repeat else "")  # same prompt, a fresh call
     hit = cache.get(key)
     if hit:
         return hit
@@ -135,6 +135,7 @@ def judge(item: dict, version: str, cache: Cache, client=None, live: bool = Fals
         "key": key,
         "ref": item["ref"],
         "rubric": version,
+        "repeat": repeat,
         "model": rubric["model"],
         "verdicts": verdicts,
         "usage": usage,

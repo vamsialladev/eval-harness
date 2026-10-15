@@ -172,3 +172,39 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
   picked one of them as Project 2's baseline.
 - **Decision.** Folder defaults resolve at call time everywhere (`store`, `labeling`); the scratch runs were deleted.
 - **Result.** The full test suite leaves `runs/` and `reports/` unchanged (checked after the fix).
+
+## 17. Judge calibration: 95% agreement, kappa 0, nothing trusted
+
+- **Context.** The owner labelled the 40 stratified items by hand: **all 40 pass**. Rubric v1 agreed on 38 of 40
+  (95%, interval 84–99%) and failed two clarity items the human passed (p1-clarity-05, Project 1's fixed "couldn't
+  find this, check with a manager" sentence; p2-clarity-06, a draft with a duplicated hand-off sentence). With no
+  human failures, Cohen's kappa is 0.00 overall and undefined for completeness and tone: agreement can't be told
+  apart from a judge that always says "pass". Precision for "fail" is 0% (0 of 2); recall can't be computed.
+- **Decision.** No judge metric is trusted (rule: kappa ≥ 0.6), so none is a gate; judge results are shown as "not
+  trusted, information only". One rubric revision (v2): the fixed refusal sentence counts as clear. A second
+  revision wasn't made: with zero human failures in the sample no wording can reach kappa 0.6, and fitting the
+  rubric to these 40 labels would only overfit.
+- **Tradeoff.** No automated tone or clarity score for now. Stratifying the sample on deterministic flags (decision
+  11) produced replies with wrong facts, not badly written ones, so the sample held no quality failures.
+- **Result.** v2 fixed the item it targeted, kept the stable disagreement (p2-clarity-06, failed in every pass) and
+  failed one new item (p1-clarity-04) that then flipped between identical passes (decision 19). Agreement 95%,
+  kappa 0.00 for both versions. On the full re-runs the judge fails 13–17% of replies on clarity, so it is stricter
+  than the human labels; which of the two is right needs labels that contain real failures. Next: seed the sample
+  with known-bad replies (the regression demo's answers, deliberately degraded drafts) and add a second labeler.
+
+## 18. A rubric note in the wrong TOML table
+
+- **Context.** The first v2 file put `notes` after the `[dimensions.clarity]` table, so TOML read it as a clarity
+  field and the judge prompt never included it. v2's requests were byte-identical to v1's and came from the cache.
+- **Decision.** `notes` moved to the top level; the check "v1 and v2 produce different requests" was run before
+  re-judging.
+- **Result.** The v2 numbers in calibration.json come from the corrected file.
+
+## 19. Measure the judge against itself before trusting a rubric change
+
+- **Context.** After v2, a reply that v1 passed (p1-clarity-04) failed. Haiku 5.5 rejects a temperature setting, so
+  the judge's sampling can't be pinned.
+- **Decision.** `hoteleval judge --repeat N` judges the same prompt again with its own cache entry; calibration
+  reports how many items got the same verdict in every pass.
+- **Result.** Three v2 passes: 39 of 40 identical; p1-clarity-04 flipped (fail, fail, pass). A one-item change after
+  a rubric edit is within the judge's own noise. API cost of the three passes: about $0.03.
