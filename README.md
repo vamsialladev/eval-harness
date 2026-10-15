@@ -71,7 +71,7 @@ had its own scripts, its own report format and no gate in CI.
 
 | Overview | A failing case | Judge calibration |
 |---|---|---|
-| <img src="docs/images/overview.png" alt="Dashboard overview: both projects' gated metrics with intervals and pass badges" width="300"> | <img src="docs/images/case.png" alt="Case drill-down: q13 in the regression demo, expected passage, recorded answers and failed verdicts" width="300"> | <img src="docs/images/calibration.png" alt="Judge calibration: confusion matrix, kappa 0.00 and no trusted metrics" width="300"> |
+| <img src="docs/images/overview.png" alt="Dashboard overview: both projects' gated metrics with intervals and pass badges" width="300"> | <img src="docs/images/case.png" alt="Case drill-down: q13 in the regression demo, expected passage, recorded answers and failed verdicts" width="300"> | <img src="docs/images/calibration.png" alt="Judge calibration: 70 hand labels in two rounds, kappa 0.29 with rubric v3, every judge metric not trusted" width="300"> |
 
 ## Business value
 
