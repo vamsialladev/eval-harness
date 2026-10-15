@@ -65,7 +65,7 @@ meta = [f"Split: {SPLIT_LABEL[case.split]}", f"Property: {case.property}", f"Exp
 if case.tags:
     meta.append("Tags: " + ", ".join(case.tags))
 if case.added:
-    meta.append("added in Project 3")
+    meta.append(case.origin.split(" (")[0])
 st.caption(" · ".join(meta))
 left, right = st.columns(2)
 with left:

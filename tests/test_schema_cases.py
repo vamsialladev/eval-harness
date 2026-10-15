@@ -60,7 +60,8 @@ def test_bank_counts_and_every_case_valid():
     assert len([c for c in p1 if not c.added]) == 103  # 54 questions + 49 visitor questions
     assert len([c for c in p2 if not c.added]) == 58  # 40 + 8 held-out + 10 visitor emails
     assert len(p1) + len(p2) >= 100
-    assert len([c for c in p1 + p2 if c.added]) <= 20
+    assert len([c for c in p1 + p2 if c.added]) == 31  # 20 added in Project 3 + 11 in Project 4
+    assert len([c for c in p1 + p2 if c.origin.startswith("added in Project 4")]) == 11
     assert {c.split for c in p2} == {"dev", "held-out", "visitor"}
 
 

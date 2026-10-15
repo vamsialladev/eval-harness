@@ -45,7 +45,7 @@ class Case:
 
     @property
     def added(self) -> bool:
-        return self.origin == ADDED
+        return self.origin.startswith("added in Project")  # Project 3 or Project 4
 
     def text(self) -> str:
         """What the user wrote: the question (Project 1) or the email body (Project 2)."""
