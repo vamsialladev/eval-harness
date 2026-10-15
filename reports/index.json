@@ -559,5 +559,348 @@
    }
   },
   "gate": null
+ },
+ {
+  "run_id": "p1-demo-topk2-live",
+  "project": "hotel-ops-assistant",
+  "label": "Regression demo: top-k 5 → 2, live",
+  "date": "2026-10-14",
+  "mode": "live",
+  "kind": "demo",
+  "model": "claude-haiku-5-5",
+  "description": "DEMO, never merged: a throwaway branch lowered top-k from 5 to 2. Live mode: Project 1's real pipeline on that branch, 54 questions x 3 runs.",
+  "splits": {
+   "dev": {
+    "cases": 54,
+    "runs": 3,
+    "metrics": {
+     "answer_accuracy": {
+      "rate": 0.9382716049382716,
+      "ci": [
+       0.8406533148555095,
+       0.9776755144790381
+      ]
+     },
+     "retrieval_strict": {
+      "rate": 0.9333333333333333,
+      "ci": [
+       0.8214339791946774,
+       0.9770679675793814
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9555555555555556,
+      "ci": [
+       0.8517248911534567,
+       0.987725873403887
+      ]
+     },
+     "numeric_grounding": {
+      "rate": 0.9481481481481482,
+      "ci": [
+       0.841422202316636,
+       0.9843789563129461
+      ]
+     },
+     "correct_refusals": {
+      "rate": 0.9629629629629629,
+      "ci": [
+       0.6517000088710958,
+       0.9972397580483077
+      ]
+     },
+     "escalation_rules": {
+      "rate": 1.0,
+      "ci": [
+       0.933586410930963,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9299533790738349,
+       0.9999999999999999
+      ]
+     }
+    },
+    "p95_s": 3.14043053999776,
+    "cost_per_1000": 0.14510246913580246
+   }
+  },
+  "gate": {
+   "baseline": "p1-published-2026-10-10",
+   "passed": false,
+   "failures": [
+    "Answer accuracy (dev): 2 case(s) passed in every baseline run and now fail: q13, q35",
+    "Citation accuracy (dev): 1 case(s) passed in every baseline run and now fail: q13",
+    "Numeric grounding (dev): 1 case(s) passed in every baseline run and now fail: q13",
+    "Strict retrieval (dev): 2 case(s) passed in every baseline run and now fail: q13, q35"
+   ]
+  }
+ },
+ {
+  "run_id": "p1-demo-topk2-recorded",
+  "project": "hotel-ops-assistant",
+  "label": "Regression demo: top-k 5 → 2, recorded mode",
+  "date": "2026-10-14",
+  "mode": "imported",
+  "kind": "demo",
+  "model": "claude-haiku-5-5",
+  "description": "DEMO, never merged: a throwaway branch lowered top-k from 5 to 2. Recorded mode: the saved answers, with retrieval recomputed on the demo branch (no API).",
+  "splits": {
+   "dev": {
+    "cases": 54,
+    "runs": 3,
+    "metrics": {
+     "answer_accuracy": {
+      "rate": 0.9814814814814815,
+      "ci": [
+       0.9022856241340362,
+       0.9967235123180023
+      ]
+     },
+     "retrieval_strict": {
+      "rate": 0.9333333333333333,
+      "ci": [
+       0.8214339791946774,
+       0.9770679675793814
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "numeric_grounding": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "correct_refusals": {
+      "rate": 1.0,
+      "ci": [
+       0.700854948272956,
+       1.0
+      ]
+     },
+     "escalation_rules": {
+      "rate": 1.0,
+      "ci": [
+       0.933586410930963,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9299533790738349,
+       0.9999999999999999
+      ]
+     }
+    },
+    "p95_s": null,
+    "cost_per_1000": null
+   }
+  },
+  "gate": {
+   "baseline": "p1-published-2026-10-10",
+   "passed": false,
+   "failures": [
+    "Strict retrieval (dev): 2 case(s) passed in every baseline run and now fail: q13, q35"
+   ]
+  }
+ },
+ {
+  "run_id": "p1-harness-2026-10-14",
+  "project": "hotel-ops-assistant",
+  "label": "Project 1 re-run by the harness (keyword-only, pinned v1.5.0 commit)",
+  "date": "2026-10-14",
+  "mode": "live",
+  "kind": "candidate",
+  "model": "claude-haiku-5-5",
+  "description": "The harness's own live run of Project 1 at the pinned commit: all 116 cases (dev, visitor, held-out added in Project 3) x 3 runs, with per-answer timing and tokens.",
+  "splits": {
+   "dev": {
+    "cases": 54,
+    "runs": 3,
+    "metrics": {
+     "answer_accuracy": {
+      "rate": 0.9814814814814815,
+      "ci": [
+       0.9022856241340362,
+       0.9967235123180023
+      ]
+     },
+     "retrieval_strict": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "numeric_grounding": {
+      "rate": 0.9629629629629629,
+      "ci": [
+       0.8622771513388645,
+       0.9908232191462407
+      ]
+     },
+     "correct_refusals": {
+      "rate": 1.0,
+      "ci": [
+       0.700854948272956,
+       1.0
+      ]
+     },
+     "escalation_rules": {
+      "rate": 1.0,
+      "ci": [
+       0.933586410930963,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9299533790738349,
+       0.9999999999999999
+      ]
+     }
+    },
+    "p95_s": 3.3079429599805734,
+    "cost_per_1000": 0.17178395061728396
+   },
+   "held-out": {
+    "cases": 13,
+    "runs": 3,
+    "metrics": {
+     "answer_accuracy": {
+      "rate": 0.6666666666666666,
+      "ci": [
+       0.40032409808546476,
+       0.8569774435372683
+      ]
+     },
+     "retrieval_strict": {
+      "rate": 0.7272727272727273,
+      "ci": [
+       0.4343546966810743,
+       0.9025394078669138
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.6363636363636364,
+      "ci": [
+       0.35380117262012434,
+       0.8483352901086686
+      ]
+     },
+     "numeric_grounding": {
+      "rate": 0.6060606060606061,
+      "ci": [
+       0.328508084645148,
+       0.8287091641439133
+      ]
+     },
+     "correct_refusals": {
+      "rate": 0.8333333333333334,
+      "ci": [
+       0.24078024007683524,
+       0.9874732425595976
+      ]
+     },
+     "escalation_rules": {
+      "rate": 0.8461538461538461,
+      "ci": [
+       0.5776536874893673,
+       0.9567418220347709
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.3423802239546494,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.7224671969739421,
+       0.9999999999999999
+      ]
+     },
+     "language": {
+      "rate": 0.3333333333333333,
+      "ci": [
+       0.06149194402093078,
+       0.7923404011921757
+      ]
+     }
+    },
+    "p95_s": 4.2314087450067746,
+    "cost_per_1000": 0.1914871794871795
+   },
+   "visitor": {
+    "cases": 49,
+    "runs": 3,
+    "metrics": {
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9103331450047065,
+       1.0
+      ]
+     },
+     "first_contact_success": {
+      "rate": 1.0,
+      "ci": [
+       0.9273021797160157,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 3.1181745199835857,
+    "cost_per_1000": 0.14640272108843536
+   }
+  },
+  "gate": {
+   "baseline": "p1-published-2026-10-10",
+   "passed": true,
+   "failures": []
+  }
  }
 ]

@@ -1,0 +1,19 @@
+{
+ "run_id": "p1-harness-2026-10-14",
+ "project": "hotel-ops-assistant",
+ "label": "Project 1 re-run by the harness (keyword-only, pinned v1.5.0 commit)",
+ "date": "2026-10-14",
+ "mode": "live",
+ "kind": "candidate",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "top_k": 5,
+  "retrieval": "keyword",
+  "effort": "default"
+ },
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "The harness's own live run of Project 1 at the pinned commit: all 116 cases (dev, visitor, held-out added in Project 3) x 3 runs, with per-answer timing and tokens.",
+ "ref": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",
+ "source": "live run of hotel-ops-assistant @ 5f9cd91"
+}

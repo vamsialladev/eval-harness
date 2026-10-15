@@ -4,7 +4,7 @@
 
 version = "v1"
 model = "claude-haiku-5-5"
-max_tokens = 400
+max_tokens = 2000
 
 [audience]
 hotel-ops-assistant = "a front-desk staff member, who reads the answer while a guest is waiting at the desk"

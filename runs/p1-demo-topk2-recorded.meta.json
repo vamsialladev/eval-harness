@@ -1,0 +1,19 @@
+{
+ "run_id": "p1-demo-topk2-recorded",
+ "project": "hotel-ops-assistant",
+ "label": "Regression demo: top-k 5 → 2, recorded mode",
+ "date": "2026-10-14",
+ "mode": "imported",
+ "kind": "demo",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "top_k": 2,
+  "retrieval": "keyword",
+  "effort": "default"
+ },
+ "price_in": null,
+ "price_out": null,
+ "description": "DEMO, never merged: a throwaway branch lowered top-k from 5 to 2. Recorded mode: the saved answers, with retrieval recomputed on the demo branch (no API).",
+ "ref": "demo/regression-topk2",
+ "source": "`../hotel-ops-assistant/eval/reports/2026-10-10_2011_bm25_answers_claude-haiku-5-5.jsonl` @ demo/re"
+}

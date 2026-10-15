@@ -41,6 +41,8 @@ select = ["E", "F", "I", "B", "UP"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/hoteleval/metrics.py" = ["E501"]  # the registry reads best as one metric per line
+"scripts/write_added_cases.py" = ["E501"]  # case text reads best unbroken
+"tests/test_metrics.py" = ["E501"]  # the exact sentences a metric got wrong, unbroken
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

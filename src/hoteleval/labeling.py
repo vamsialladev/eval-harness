@@ -105,12 +105,14 @@ def sample_items(runs_dir: Path | None = None, seed: int = SEED) -> list[dict]:
     return items
 
 
-def load_items(path: Path = ITEMS_FILE) -> list[dict]:
-    return store.read_jsonl(path) if Path(path).exists() else []
+def load_items(path: Path | None = None) -> list[dict]:
+    path = Path(path or ITEMS_FILE)
+    return store.read_jsonl(path) if path.exists() else []
 
 
-def load_labels(path: Path = LABELS_FILE) -> dict[str, dict]:
+def load_labels(path: Path | None = None) -> dict[str, dict]:
     """item_id -> latest label line."""
+    path = path or LABELS_FILE
     latest: dict[str, dict] = {}
     if Path(path).exists():
         for line in Path(path).read_text(encoding="utf-8").splitlines():
@@ -120,7 +122,7 @@ def load_labels(path: Path = LABELS_FILE) -> dict[str, dict]:
     return latest
 
 
-def append_label(item_id: str, label: str, reason: str = "", path: Path = LABELS_FILE) -> dict:
+def append_label(item_id: str, label: str, reason: str = "", path: Path | None = None) -> dict:
     """Called only by the labeling page, on the owner's click."""
     if label not in ("pass", "fail"):
         raise ValueError("label must be pass or fail")
@@ -131,6 +133,7 @@ def append_label(item_id: str, label: str, reason: str = "", path: Path = LABELS
         "labeled_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "labeler": "Vamsi Alla",
     }
+    path = path or LABELS_FILE
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     with Path(path).open("a", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps(row, ensure_ascii=False) + "\n")
