@@ -1,0 +1,23 @@
+# White-label branding for the dashboard. The "Demo · synthetic data · no live API calls" label is fixed in code.
+
+[product]
+name = "Eval Harness"
+tagline = "One evaluation system for the hotel group's AI assistants: the same cases, metrics, judge and gates for both."
+hotel_group = "Hotel Group"
+logo = "assets/logo.svg"
+icon = "assets/favicon.png"
+
+[colors]
+primary = "#1E4636"
+accent = "#94702C"
+primary_dark = "#8CC7AA"
+accent_dark = "#DDB874"
+
+[links]
+case_study = "https://vamsialla.com/projects/eval-harness.html"
+github = "https://github.com/vamsialladev/eval-harness"
+decisions = "https://github.com/vamsialladev/eval-harness/blob/main/docs/DECISIONS.md"
+project1 = "https://hotel-ops-assistant.streamlit.app"
+project2 = "https://guest-request-agent.streamlit.app"
+linkedin = "https://www.linkedin.com/in/vamsi-alla/"
+author = "Vamsi Alla"
