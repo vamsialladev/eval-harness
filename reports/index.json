@@ -1,0 +1,563 @@
+[
+ {
+  "run_id": "p2-dev-2026-10-14",
+  "project": "guest-request-agent",
+  "label": "Project 2 development run (dev)",
+  "date": "2026-10-14",
+  "mode": "imported",
+  "kind": "history",
+  "model": "claude-haiku-5-5",
+  "description": "Project 2's recorded dev run, before the guard and policy-search fixes (decisions 14-16 in Project 2).",
+  "splits": {
+   "dev": {
+    "cases": 40,
+    "runs": 1,
+    "metrics": {
+     "escalation_recall": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "no_false_escalation": {
+      "rate": 1.0,
+      "ci": [
+       0.8928208002353198,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.6096657083436265,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9123783975415363,
+       1.0
+      ]
+     },
+     "request_coverage": {
+      "rate": 0.9230769230769231,
+      "ci": [
+       0.7967892870242645,
+       0.9734926049027948
+      ]
+     },
+     "fact_grounding": {
+      "rate": 0.875,
+      "ci": [
+       0.7388788003201471,
+       0.9454049978360052
+      ]
+     },
+     "correct_tool_use": {
+      "rate": 0.9629629629629629,
+      "ci": [
+       0.8171653389987218,
+       0.9934318540919532
+      ]
+     },
+     "task_routing": {
+      "rate": 0.975,
+      "ci": [
+       0.8711863091181636,
+       0.9955731685462955
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.875,
+      "ci": [
+       0.6397717251782153,
+       0.9650225125737311
+      ]
+     },
+     "key_facts": {
+      "rate": 0.9333333333333333,
+      "ci": [
+       0.7018346989112435,
+       0.9881331046384677
+      ]
+     },
+     "language": {
+      "rate": 1.0,
+      "ci": [
+       0.3423802239546494,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 8.11195,
+    "cost_per_1000": 1.164245
+   }
+  },
+  "gate": {
+   "baseline": "p2-published-2026-10-14",
+   "passed": false,
+   "failures": [
+    "Citation accuracy (dev): 2 case(s) passed in every baseline run and now fail: E01, X09",
+    "Correct tool use (dev): 1 case(s) passed in every baseline run and now fail: X09",
+    "Fact grounding (dev) 88% is below its 90% floor",
+    "Fact grounding (dev) dropped 100% → 88%, below the baseline interval (91%–100%)",
+    "Fact grounding (dev): 5 case(s) passed in every baseline run and now fail: E07, E16, E24, E26, E30",
+    "Key facts (dev): 1 case(s) passed in every baseline run and now fail: E01",
+    "Request coverage (dev): 3 case(s) passed in every baseline run and now fail: E03, E17, E25"
+   ]
+  }
+ },
+ {
+  "run_id": "p2-dev2-2026-10-14",
+  "project": "guest-request-agent",
+  "label": "Project 2 development run (dev2)",
+  "date": "2026-10-14",
+  "mode": "imported",
+  "kind": "history",
+  "model": "claude-haiku-5-5",
+  "description": "Project 2's recorded dev2 run, before the guard and policy-search fixes (decisions 14-16 in Project 2).",
+  "splits": {
+   "dev": {
+    "cases": 40,
+    "runs": 1,
+    "metrics": {
+     "escalation_recall": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "no_false_escalation": {
+      "rate": 1.0,
+      "ci": [
+       0.8928208002353198,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.6096657083436265,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9123783975415363,
+       1.0
+      ]
+     },
+     "request_coverage": {
+      "rate": 1.0,
+      "ci": [
+       0.9103331450047065,
+       1.0
+      ]
+     },
+     "fact_grounding": {
+      "rate": 0.975,
+      "ci": [
+       0.8711863091181636,
+       0.9955731685462955
+      ]
+     },
+     "correct_tool_use": {
+      "rate": 1.0,
+      "ci": [
+       0.8754449685379289,
+       1.0
+      ]
+     },
+     "task_routing": {
+      "rate": 0.975,
+      "ci": [
+       0.8711863091181636,
+       0.9955731685462955
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9375,
+      "ci": [
+       0.716712622018518,
+       0.9888806553587528
+      ]
+     },
+     "key_facts": {
+      "rate": 0.9333333333333333,
+      "ci": [
+       0.7018346989112435,
+       0.9881331046384677
+      ]
+     },
+     "language": {
+      "rate": 1.0,
+      "ci": [
+       0.3423802239546494,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 9.100150000000001,
+    "cost_per_1000": 1.276775
+   }
+  },
+  "gate": {
+   "baseline": "p2-published-2026-10-14",
+   "passed": false,
+   "failures": [
+    "Citation accuracy (dev): 1 case(s) passed in every baseline run and now fail: E28",
+    "Fact grounding (dev): 1 case(s) passed in every baseline run and now fail: E10",
+    "Key facts (dev): 1 case(s) passed in every baseline run and now fail: E28"
+   ]
+  }
+ },
+ {
+  "run_id": "p2-published-2026-10-14",
+  "project": "guest-request-agent",
+  "label": "Project 2 v1.0.0 published runs",
+  "date": "2026-10-14",
+  "mode": "imported",
+  "kind": "baseline",
+  "model": "claude-haiku-5-5",
+  "description": "Project 2's own recorded final (40 emails x 3), held-out (8 x 1) and visitor (10 x 1) runs behind its published numbers.",
+  "splits": {
+   "dev": {
+    "cases": 40,
+    "runs": 3,
+    "metrics": {
+     "escalation_recall": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "no_false_escalation": {
+      "rate": 1.0,
+      "ci": [
+       0.8928208002353198,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.6096657083436265,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9123783975415363,
+       1.0
+      ]
+     },
+     "request_coverage": {
+      "rate": 1.0,
+      "ci": [
+       0.9103331450047065,
+       1.0
+      ]
+     },
+     "fact_grounding": {
+      "rate": 1.0,
+      "ci": [
+       0.9123783975415363,
+       1.0
+      ]
+     },
+     "correct_tool_use": {
+      "rate": 0.9629629629629629,
+      "ci": [
+       0.8171653389987218,
+       0.9934318540919532
+      ]
+     },
+     "task_routing": {
+      "rate": 0.975,
+      "ci": [
+       0.8711863091181636,
+       0.9955731685462955
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9375,
+      "ci": [
+       0.716712622018518,
+       0.9888806553587528
+      ]
+     },
+     "key_facts": {
+      "rate": 1.0,
+      "ci": [
+       0.7961166964035129,
+       1.0
+      ]
+     },
+     "language": {
+      "rate": 1.0,
+      "ci": [
+       0.3423802239546494,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 8.44635,
+    "cost_per_1000": 1.3030825000000004
+   },
+   "held-out": {
+    "cases": 8,
+    "runs": 1,
+    "metrics": {
+     "escalation_recall": {
+      "rate": 1.0,
+      "ci": [
+       0.3423802239546494,
+       1.0
+      ]
+     },
+     "no_false_escalation": {
+      "rate": 1.0,
+      "ci": [
+       0.6096657083436265,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "request_coverage": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "fact_grounding": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "correct_tool_use": {
+      "rate": 1.0,
+      "ci": [
+       0.6096657083436265,
+       1.0
+      ]
+     },
+     "task_routing": {
+      "rate": 1.0,
+      "ci": [
+       0.6755924316585924,
+       1.0
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 1.0,
+      "ci": [
+       0.3423802239546494,
+       1.0
+      ]
+     },
+     "key_facts": {
+      "rate": 1.0,
+      "ci": [
+       0.43850296436068037,
+       1.0
+      ]
+     },
+     "language": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 7.4973,
+    "cost_per_1000": 1.109475
+   },
+   "visitor": {
+    "cases": 10,
+    "runs": 1,
+    "metrics": {
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.7224671969739421,
+       0.9999999999999999
+      ]
+     },
+     "first_contact_success": {
+      "rate": 1.0,
+      "ci": [
+       0.7224671969739421,
+       0.9999999999999999
+      ]
+     }
+    },
+    "p95_s": 4.63235,
+    "cost_per_1000": 0.74248
+   }
+  },
+  "gate": null
+ },
+ {
+  "run_id": "p1-model-comparison-haiku-4-5",
+  "project": "hotel-ops-assistant",
+  "label": "Project 1 model comparison: Haiku 4.5, hybrid",
+  "date": "2026-10-10",
+  "mode": "imported",
+  "kind": "history",
+  "model": "claude-haiku-4-5-20251001",
+  "description": "Project 1's recorded model-comparison run (Haiku 4.5, hybrid retrieval, 3 runs). Retrieval not recomputed: hybrid needs embeddings.",
+  "splits": {
+   "dev": {
+    "cases": 54,
+    "runs": 3,
+    "metrics": {
+     "answer_accuracy": {
+      "rate": 0.9753086419753086,
+      "ci": [
+       0.8927924565938671,
+       0.9946909216985297
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "numeric_grounding": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "correct_refusals": {
+      "rate": 1.0,
+      "ci": [
+       0.700854948272956,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9312077628655455,
+       1.0
+      ]
+     }
+    },
+    "p95_s": null,
+    "cost_per_1000": null
+   }
+  },
+  "gate": null
+ },
+ {
+  "run_id": "p1-published-2026-10-10",
+  "project": "hotel-ops-assistant",
+  "label": "Project 1 v1.5.0 published run (keyword-only)",
+  "date": "2026-10-10",
+  "mode": "imported",
+  "kind": "baseline",
+  "model": "claude-haiku-5-5",
+  "description": "Project 1's own recorded 54-question run (3 runs) behind its published numbers; retrieval and escalation recomputed at the pin (no API).",
+  "splits": {
+   "dev": {
+    "cases": 54,
+    "runs": 3,
+    "metrics": {
+     "answer_accuracy": {
+      "rate": 0.9814814814814815,
+      "ci": [
+       0.9022856241340362,
+       0.9967235123180023
+      ]
+     },
+     "retrieval_strict": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "citation_accuracy": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "numeric_grounding": {
+      "rate": 0.9777777777777777,
+      "ci": [
+       0.8843331811799517,
+       0.9960664011606768
+      ]
+     },
+     "correct_refusals": {
+      "rate": 1.0,
+      "ci": [
+       0.700854948272956,
+       1.0
+      ]
+     },
+     "escalation_rules": {
+      "rate": 1.0,
+      "ci": [
+       0.933586410930963,
+       1.0
+      ]
+     },
+     "injection_resistance": {
+      "rate": 1.0,
+      "ci": [
+       0.2065493117918027,
+       1.0
+      ]
+     },
+     "no_forbidden_promises": {
+      "rate": 1.0,
+      "ci": [
+       0.9299533790738349,
+       0.9999999999999999
+      ]
+     }
+    },
+    "p95_s": null,
+    "cost_per_1000": null
+   }
+  },
+  "gate": null
+ }
+]

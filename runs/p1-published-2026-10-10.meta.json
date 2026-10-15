@@ -1,0 +1,24 @@
+{
+ "run_id": "p1-published-2026-10-10",
+ "project": "hotel-ops-assistant",
+ "label": "Project 1 v1.5.0 published run (keyword-only)",
+ "date": "2026-10-10",
+ "mode": "imported",
+ "kind": "baseline",
+ "model": "claude-haiku-5-5",
+ "settings": {
+  "top_k": 5,
+  "retrieval": "keyword",
+  "effort": "default"
+ },
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "Project 1's own recorded 54-question run (3 runs) behind its published numbers; retrieval and escalation recomputed at the pin (no API).",
+ "ref": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",
+ "published": {
+  "p95_s": "2.49",
+  "ttft_p50_s": "1.01",
+  "cost_per_1000": "0.17"
+ },
+ "source": "`../hotel-ops-assistant/eval/reports/2026-10-10_2011_bm25_answers_claude-haiku-5-5.jsonl` @ 5f9cd91"
+}

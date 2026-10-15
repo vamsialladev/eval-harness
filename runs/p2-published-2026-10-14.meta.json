@@ -1,0 +1,15 @@
+{
+ "run_id": "p2-published-2026-10-14",
+ "project": "guest-request-agent",
+ "label": "Project 2 v1.0.0 published runs",
+ "date": "2026-10-14",
+ "mode": "imported",
+ "kind": "baseline",
+ "model": "claude-haiku-5-5",
+ "settings": {},
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "Project 2's own recorded final (40 emails x 3), held-out (8 x 1) and visitor (10 x 1) runs behind its published numbers.",
+ "ref": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",
+ "source": "`../guest-request-agent/eval/recorded/main-final.jsonl`, `../guest-request-agent/eval/recorded/heldout-final.jsonl`, `../guest-request-agent/eval/recorded/visitor-before.jsonl` @ 575a19f"
+}

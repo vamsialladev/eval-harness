@@ -1,0 +1,15 @@
+{
+ "run_id": "p2-dev-2026-10-14",
+ "project": "guest-request-agent",
+ "label": "Project 2 development run (dev)",
+ "date": "2026-10-14",
+ "mode": "imported",
+ "kind": "history",
+ "model": "claude-haiku-5-5",
+ "settings": {},
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": "Project 2's recorded dev run, before the guard and policy-search fixes (decisions 14-16 in Project 2).",
+ "ref": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",
+ "source": "`../guest-request-agent/eval/recorded/main-dev.jsonl` @ 575a19f"
+}

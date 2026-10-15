@@ -1,0 +1,15 @@
+{
+ "run_id": "p1-model-comparison-haiku-4-5",
+ "project": "hotel-ops-assistant",
+ "label": "Project 1 model comparison: Haiku 4.5, hybrid",
+ "date": "2026-10-10",
+ "mode": "imported",
+ "kind": "history",
+ "model": "claude-haiku-4-5-20251001",
+ "settings": {},
+ "price_in": null,
+ "price_out": null,
+ "description": "Project 1's recorded model-comparison run (Haiku 4.5, hybrid retrieval, 3 runs). Retrieval not recomputed: hybrid needs embeddings.",
+ "ref": "5f9cd91d16ab768748f6ed2329a7fb45403288eb",
+ "source": "`../hotel-ops-assistant/eval/reports/2026-10-10_2108_hybrid_answers_claude-haiku-4-5-20251001.jsonl` @ 5f9cd91"
+}

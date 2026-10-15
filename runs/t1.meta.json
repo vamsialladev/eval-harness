@@ -1,0 +1,18 @@
+{
+ "run_id": "t1",
+ "project": "guest-request-agent",
+ "label": "t1",
+ "date": "2026-10-14",
+ "mode": "imported",
+ "kind": "baseline",
+ "model": null,
+ "settings": {},
+ "price_in": 0.1,
+ "price_out": 0.5,
+ "description": null,
+ "ref": "575a19f5b40f640d9a04f8cdec9cc4dc797b6ac3",
+ "published": {
+  "p95_s": "8.4"
+ },
+ "source": "`C:/Users/Vamsi/AppData/Local/Temp/pytest-of-Vamsi/pytest-111/test_cli_import_score_baseline0/p2.jsonl` @ 575a19f"
+}
