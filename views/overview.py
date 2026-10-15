@@ -22,7 +22,8 @@ for project, title in ui.PROJECT_NAMES.items():
         continue
     summary = ui.report(entry["run_id"])
     rows = gated_rows(summary)
-    fails = sum(r["status"] == "fail" for r in rows)
+    gated = [r for r in rows if r["status"] in ("pass", "fail")]
+    fails = sum(r["status"] == "fail" for r in gated)
     dev = summary["splits"].get("dev") or next(iter(summary["splits"].values()))
     st.subheader(title)
     gate = summary.get("gate")
@@ -36,7 +37,7 @@ for project, title in ui.PROJECT_NAMES.items():
     cases = sum(s["cases"] for s in summary["splits"].values())
     ui.tiles(
         [
-            (f"{len(rows) - fails}/{len(rows)}", "Gated checks passing", "hard gates at 100% plus regression gates"),
+            (f"{len(gated) - fails}/{len(gated)}", "Gated checks passing", "hard gates at 100% plus regression gates"),
             (
                 str(cases),
                 "Cases scored",

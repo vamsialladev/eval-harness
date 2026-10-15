@@ -18,11 +18,13 @@ def latest(index: list[dict], project: str) -> dict | None:
 
 
 def gate_status(name: str, rate, project: str, gate: dict | None, split: str, gates: dict | None = None) -> str:
-    """pass | fail for one gated metric. With a gate result, its verdict; without (a baseline), the floor check."""
+    """pass | fail for one gated metric. With a gate result, its verdict, or "reported" when the gate didn't check
+    it (a split with no baseline cases, such as the cases added in Project 3); without one (a baseline), the floor."""
     if gate:
         for ch in gate["checks"]:
             if ch["metric"] == name and ch["split"] == split:
                 return ch["status"]
+        return "reported"
     config = (gates or load_gates())[project]
     if rate is None:
         return "skipped"

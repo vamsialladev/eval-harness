@@ -39,6 +39,11 @@ def test_gated_rows_and_status():
     assert D.gate_status("escalation_rules", 0.99, "hotel-ops-assistant", None, "dev") == "fail"
     assert D.gate_status("language", 0.1, "hotel-ops-assistant", None, "dev") == "pass"
     assert D.gate_status("answer_accuracy", None, "hotel-ops-assistant", None, "dev") == "skipped"
+    gate = {"checks": [{"metric": "answer_accuracy", "split": "dev", "status": "pass"}]}
+    assert D.gate_status("answer_accuracy", 0.67, "hotel-ops-assistant", gate, "held-out") == "reported"
+    harness = store.read_json(store.REPORTS / "p1-harness-2026-10-14.json")
+    held = [r for r in D.gated_rows(harness) if r["split"] == "held-out"]
+    assert held and all(r["status"] == "reported" for r in held)  # added cases have no baseline: never "fail"
 
 
 def test_trend_case_and_verdict_rows(index):

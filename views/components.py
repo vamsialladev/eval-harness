@@ -117,6 +117,7 @@ BADGE = {
     "fail": ("error", "Fail"),
     "skipped": ("muted", "Not recorded"),
     "mixed": ("warn", "Mixed"),
+    "reported": ("muted", "Reported, not gated"),
 }
 
 
