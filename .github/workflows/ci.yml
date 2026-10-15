@@ -1,0 +1,34 @@
+name: CI
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: "Install (dashboard + judge client + test tools; the harness core itself needs nothing)"
+        run: |
+          pip install -r requirements-judge.txt "pytest~=9.1" "pytest-cov~=7.1" "ruff==0.16.10" "pip-audit~=2.10"
+          pip install -e .
+      - name: Lint and format check
+        run: |
+          ruff check .
+          ruff format --check .
+      - name: Dependency audit (fails on any known vulnerability)
+        run: pip-audit -r requirements-judge.txt --progress-spinner off
+      - name: Unit tests with coverage (gate 90%)
+        run: python -m pytest -q --cov --cov-report=term-missing --cov-fail-under=90
+      - name: "Gates, recorded mode (no API): both projects' saved runs against their baselines"
+        run: |
+          hoteleval gate --saved p1-published-2026-10-10
+          hoteleval gate --saved p2-published-2026-10-14
+      - name: "Every saved report re-scores to the same numbers (no API)"
+        run: python scripts/check_reports.py
