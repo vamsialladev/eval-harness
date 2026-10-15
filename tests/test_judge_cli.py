@@ -28,6 +28,7 @@ def judge_env(tmp_path, monkeypatch):
     monkeypatch.setattr(judge_cli, "CACHE_FILE", tmp_path / "judge" / "cache.jsonl")
     monkeypatch.setattr(labeling, "ITEMS_FILE", tmp_path / "labels" / "items.jsonl")
     monkeypatch.setattr(labeling, "LABELS_FILE", tmp_path / "labels" / "human-labels.jsonl")
+    monkeypatch.setattr(labeling, "LABELS_DIR", tmp_path / "labels")  # never read the real round-2 labels
     client = fake_client(verdict_json("tone"))
     monkeypatch.setattr(judge_cli, "client_from_env", lambda env: client)
     return tmp_path
@@ -55,6 +56,27 @@ def test_sample_judge_calibrate_flow(judge_env, capsys):
     tone = cal["versions"][0]["per_dimension"]["tone"]
     if tone["n"]:
         assert tone["agreement"] == 1.0  # the fake judge fails every tone item, as the fake labels do
+
+
+def test_two_rounds_are_reported_separately_and_together(judge_env, monkeypatch):
+    monkeypatch.setattr(labeling, "LABELS_DIR", judge_env / "labels")
+    assert cli.main(["sample-labels"]) == 0
+    r1 = labeling.load_items()
+    r2 = [{**r1[i], "item_id": f"r2-{i:02d}", "origin": "synthetic degraded variant"} for i in range(4)]
+    store.write_jsonl(judge_env / "labels" / "items-round2.jsonl", r2)
+    for item in r1[:5]:
+        labeling.append_label(item["item_id"], "pass")
+    for item in r2:
+        labeling.append_label(item["item_id"], "fail", path=judge_env / "labels" / "human-labels-round2.jsonl")
+    assert cli.main(["judge", "--rubric", "v1", "--live"]) == 0
+    assert cli.main(["calibrate"]) == 2  # round 2 is labelled but not judged yet
+    assert cli.main(["judge", "--rubric", "v1", "--round", "2", "--live"]) == 0
+    assert cli.main(["calibrate"]) == 0
+    cal = store.read_json(judge_env / "judge" / "calibration.json")
+    v1 = cal["versions"][0]
+    assert set(v1["rounds"]) == {"round 1", "round 2"} and cal["labels"] == 9
+    assert v1["rounds"]["round 2"]["overall"]["n"] == 4 and v1["overall"]["n"] == 9
+    assert "round 2" in cal["rounds"] and "enriched" in cal["rounds"]["round 2"]
 
 
 def test_judge_a_saved_run(judge_env, capsys):

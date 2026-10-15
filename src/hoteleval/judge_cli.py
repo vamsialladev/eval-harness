@@ -85,11 +85,12 @@ def cmd_judge(args) -> int:
             + ", ".join(f"{d} {r:.0%}" for d, r in rates.items() if r is not None)
         )
     else:
-        items = [{**i, "ref": i["item_id"]} for i in load_items()]
+        items_file, _ = round_files(args.round)
+        items = [{**i, "ref": i["item_id"]} for i in load_items(items_file)]
         verdicts, rows = run_items(args.rubric, items, args.live, env, args.repeat)
-        suffix = f"-repeat{args.repeat}" if args.repeat else ""
+        suffix = ("" if args.round == 1 else f"-round{args.round}") + (f"-repeat{args.repeat}" if args.repeat else "")
         store.write_json(JUDGE_DIR / f"items-{args.rubric}{suffix}.json", verdicts)
-        print(f"judged {len(verdicts)}/{len(items)} calibration items with rubric {args.rubric}")
+        print(f"judged {len(verdicts)}/{len(items)} round-{args.round} calibration items with rubric {args.rubric}")
     print(f"judge tokens for these items: ${cost(rows):.4f} at $0.10/$0.50 per million (cached calls cost nothing now)")
     return 0
 
@@ -116,39 +117,85 @@ def consistency(items: list[dict], version: str) -> dict | None:
     }
 
 
+ROUNDS = {
+    1: "Round 1: 40 stratified items (sampled from deterministic flags)",
+    2: "Round 2: 30 items enriched with failures (15 judge-failed real replies + 15 synthetic degraded variants)",
+}
+
+
+def round_files(n: int) -> tuple:
+    """(items file, labels file) for a calibration round."""
+    if n == 1:
+        return labeling.ITEMS_FILE, labeling.LABELS_FILE
+    return labeling.LABELS_DIR / f"items-round{n}.jsonl", labeling.LABELS_DIR / f"human-labels-round{n}.jsonl"
+
+
+def verdict_file(version: str, n: int):
+    return JUDGE_DIR / (f"items-{version}.json" if n == 1 else f"items-{version}-round{n}.json")
+
+
+def _kappa(x) -> str:
+    return "undefined" if x is None else f"{x:.2f}"
+
+
+def latest_consistency(items: list[dict], versions_measured: list[str]) -> dict | None:
+    """Consistency for the newest rubric version that has repeat passes (repeats aren't re-run for every version)."""
+    for version in reversed(versions_measured):
+        found = consistency(items, version)
+        if found:
+            return {**found, "version": version}
+    return None
+
+
 def cmd_calibrate(args) -> int:
-    items, labels = load_items(), load_labels()
-    labelled = sum(1 for i in items if i["item_id"] in labels)
-    if not labelled:
+    """Per rubric version: each round on its own and all rounds together. Trust is decided on all labels together,
+    per quality (decision 20); round 2 is enriched with failures, which every report says next to its kappa."""
+    rounds = {}
+    for n in ROUNDS:
+        items_file, labels_file = round_files(n)
+        items, labels = load_items(items_file), load_labels(labels_file)
+        if items and any(i["item_id"] in labels for i in items):
+            rounds[n] = (items, labels)
+    if not rounds:
         print("No human labels yet: run the labeling page first (make label).")
         return 2
     results = []
     for version in versions():
-        path = JUDGE_DIR / f"items-{version}.json"
-        if not path.exists():
+        if not all(verdict_file(version, n).exists() for n in rounds):
             continue
-        cal = calibrate(items, labels, store.read_json(path))
+        per_round, all_items, all_labels, all_verdicts = {}, [], {}, {}
+        for n, (items, labels) in rounds.items():
+            verdicts = store.read_json(verdict_file(version, n))
+            per_round[f"round {n}"] = calibrate(items, labels, verdicts)
+            all_items += items
+            all_labels.update(labels)
+            all_verdicts.update(verdicts)
+        combined = calibrate(all_items, all_labels, all_verdicts)
         rubric = load_rubric(version)
-        results.append({"version": version, "change": rubric.get("change", ""), **cal})
-        o = cal["overall"]
-        kappa = "undefined" if o["kappa"] is None else f"{o['kappa']:.2f}"
+        results.append({"version": version, "change": rubric.get("change", ""), **combined, "rounds": per_round})
+        line = " · ".join(
+            f"{name} n={c['overall']['n']} kappa {_kappa(c['overall']['kappa'])}" for name, c in per_round.items()
+        )
         print(
-            f"{version}: n={o['n']} agreement {o['agreement']:.0%} kappa {kappa} · trusted: "
-            + (", ".join(d for d, t in cal["trusted"].items() if t) or "none")
+            f"{version}: {line} · all n={combined['overall']['n']} agreement {combined['overall']['agreement']:.0%} "
+            f"kappa {_kappa(combined['overall']['kappa'])} · trusted: "
+            + (", ".join(d for d, t in combined["trusted"].items() if t) or "none")
         )
     if not results:
-        print("No judge verdicts yet: run `hoteleval judge --rubric v1 --live`.")
+        print("No judge verdicts for every labelled round yet: run `hoteleval judge --rubric v1 --round N --live`.")
         return 2
     current = results[-1]
+    items1 = rounds.get(1, ([], {}))[0]
     data = {
-        "labels": labelled,
-        "items": len(items),
+        "labels": sum(sum(1 for i in items if i["item_id"] in labels) for items, labels in rounds.values()),
+        "items": sum(len(items) for items, _ in rounds.values()),
+        "rounds": {f"round {n}": ROUNDS[n] for n in rounds},
         "labeler": "Vamsi Alla",
-        "trust_rule": f"kappa >= {TRUST_KAPPA}",
+        "trust_rule": f"kappa >= {TRUST_KAPPA} on all labels together, per quality",
         "current": current["version"],
         "trusted": current["trusted"],
         "versions": results,
-        "consistency": consistency(items, current["version"]),
+        "consistency": latest_consistency(items1, [v["version"] for v in results]) if items1 else None,
         "runs": {
             p.stem.removeprefix("run-").removesuffix(f"-{current['version']}"): store.read_json(p)["pass_rates"]
             for p in sorted(JUDGE_DIR.glob(f"run-*-{current['version']}.json"))
@@ -169,6 +216,7 @@ def register(sub) -> None:
     p.add_argument(
         "--repeat", type=int, default=0, help="a fresh, separately cached pass on the same items (consistency)"
     )
+    p.add_argument("--round", type=int, default=1, choices=sorted(ROUNDS), help="which calibration round's items")
     p.add_argument("--live", action="store_true", help="call the API for items not in the cache")
     p.add_argument("--env", default=".env")
     p.set_defaults(fn=cmd_judge)

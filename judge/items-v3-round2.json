@@ -1,0 +1,422 @@
+{
+ "r2-01": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers how points are earned and tiers, and states redemption and enrollment aren't covered, directing the reader to a manager."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Plain and professional, appropriate for a front-desk staff member reading while a guest waits."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Structured answer with earning rules, tier thresholds, and a clear next step for the uncovered topics; easy to act on."
+  }
+ },
+ "r2-02": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the refund question (non-refundable, GM approval needed for exception) and says the courtesy-credit interaction is uncovered, with escalation instructions."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Terse and technical, but neutral and not rude, blaming or condescending; acceptable for a front-desk reader."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "Heavy shorthand (NRF, FD, MOD, GM) and rule IDs make it hard for a waiting front-desk agent to quickly see the answer and next step."
+  }
+ },
+ "r2-03": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Addresses all three asks: the fourth-guest request is forwarded to reservations, fire pit hours are given, and the s'mores kit question is answered."
+  },
+  "tone": {
+   "verdict": "fail",
+   "reason": "The mechanical field-style layout ('Request type:', 'Query 2:') reads cold and robotic to a guest rather than a personal reply."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Each answer is findable, and the reply says the booking change is forwarded and needs manager approval, so the guest knows what happens next."
+  }
+ },
+ "r2-04": {
+  "completeness": {
+   "verdict": "fail",
+   "reason": "The guest asked what time breakfast starts, but the reply never mentions breakfast or says who will follow up on it."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The tone is polite and professional, suitable for a guest enquiry."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The shuttle price, schedule and booking lead time are clear and easy to act on."
+  }
+ },
+ "r2-05": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reply answers the early check-in question with fees, times, and membership conditions, and covers standard check-in time too."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The tone is neutral and factual, appropriate for a front-desk staff member reading it while a guest waits."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The answer is clear: early check-in is possible but not guaranteed, with fees and times given, though slightly dense with citations."
+  }
+ },
+ "r2-06": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the AVL shuttle question by stating none is listed and that concierge will confirm and reply directly, which acknowledges the request."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite and professional; the booking note is helpful rather than blaming, though somewhat mechanical in places."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Clearly says no Asheville transfer is listed, that concierge will follow up, and offers next steps; the MIA/FLL details are extra but not confusing."
+  }
+ },
+ "r2-07": {
+  "completeness": {
+   "verdict": "fail",
+   "reason": "The reply ignores the Sunday request to leave luggage after check-out, which the guest clearly asked about."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The tone is polite, warm and appropriate for a guest enquiry."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The hike booking steps and next action are clear, though the luggage question is missing entirely."
+  }
+ },
+ "r2-08": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the wedding question (yes, hosted) and gives venue capacities, deposit, room blocks and pricing hand-off to the Events Manager."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Tone is plain and somewhat formal but not rude or dismissive; acceptable for a front-desk reader."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "The direct answer comes last after a rambling preamble, and the reader must dig through many details while a guest waits."
+  }
+ },
+ "r2-09": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reply answers whether early check-in is possible, gives the fee, weekend restriction, and standard time, and says who to check with."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The wording is plain and professional, suitable for a front-desk staff member reading while a guest waits."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The answer is clear: early check-in is not guaranteed, with a $25 fee, October weekend exception, and a manager to confirm details."
+  }
+ },
+ "r2-10": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Ben asked to cancel and to confirm; the reply identifies the booking, states the policy result, and says the request is submitted for manager review."
+  },
+  "tone": {
+   "verdict": "fail",
+   "reason": "The reply reads mechanical and clipped, with system-style labels like 'Policy check' and 'Result: qualifies', which feels cold to a guest who just wants a clear answer."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "It does not clearly confirm whether the cancellation is done; 'submitted for manager review' and 'active until confirmation' leave Ben unsure of the outcome or next step."
+  }
+ },
+ "r2-11": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Acknowledges the complaint and says a manager will follow up, which covers the request for a management response."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite and neutral; brief and somewhat formal but not dismissive or blaming toward the guest."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Clearly states the complaint is received and a manager will contact him, so the reader knows what happens next."
+  }
+ },
+ "r2-12": {
+  "completeness": {
+   "verdict": "fail",
+   "reason": "The TV remote problem was asked about but the reply never mentions it or says who will follow up on it."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite, warm and appropriate for a guest making simple requests."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Towels and crib requests are clearly confirmed with what happens next, so the reader can follow it."
+  }
+ },
+ "r2-13": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the parking question directly with free self-parking and overflow lot details, so the question is fully handled."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Tone is neutral and professional; the note about ignoring a staff note is plain, not rude or condescending to the front-desk reader."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "The extra sentence about an ignored fee-waiver note is confusing and irrelevant to the guest question, muddying what the front-desk reader should act on."
+  }
+ },
+ "r2-14": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers whether the 25 lb dog is allowed and gives the fee, and notes the total will be confirmed by the team."
+  },
+  "tone": {
+   "verdict": "fail",
+   "reason": "Terse, mechanical template with headers and no greeting or warmth; a guest may feel brushed off, though nothing is rude."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The guest can see the dog is permitted, the $75 fee, and the next step of submitting dates and room preference."
+  }
+ },
+ "r2-15": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the parking question: valet-only at $45 per night, with the stay length applied and total to be confirmed by the front office."
+  },
+  "tone": {
+   "verdict": "fail",
+   "reason": "Heavily clipped shorthand and internal codes make the message cold and mechanical for a guest, though not rude."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "Jargon like VALET_ONLY, EV_CHG, FCFS, RT, LOS and citation tags obscures the answer; the guest cannot easily tell whether parking is free or what to do."
+  }
+ },
+ "r2-16": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Refund request and complaints about AC and cleanliness are acknowledged, with a manager promised to follow up on the stay and request."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite, apologetic and calm toward an angry guest; not dismissive, blaming or condescending."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Reader learns a manager will contact them about the refund; the reply is brief but the next step is clear."
+  }
+ },
+ "r2-17": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reply answers the early check-in question with availability, fee, timing and weekend restrictions, and says who to confirm with."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The tone is neutral and professional, suitable for a front-desk staff member reading it while a guest waits."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The core answer is clear: early check-in depends on availability, a $25 fee may apply before 12 PM, and a manager should confirm. Citations are fine."
+  }
+ },
+ "r2-18": {
+  "completeness": {
+   "verdict": "fail",
+   "reason": "Reply does not acknowledge the clinic visit or express concern for the son's injury; it addresses only the fireplace report and a manager follow-up, somewhat ignoring her sense of the incident's seriousness."
+  },
+  "tone": {
+   "verdict": "fail",
+   "reason": "Stating guests are responsible for supervising children reads as blaming and dismissive toward a parent whose child was seriously burned, with no sympathy."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The reply is short and says a manager will contact her and the fireplace will be inspected, so she knows what happens next."
+  }
+ },
+ "r2-19": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Addresses the suite request, the private pool, and the 9 AM check-in guarantee, explaining each limitation with a follow-up path."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite and professional with a courteous closing; plain and direct, appropriate for a guest booking inquiry."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Clearly states no suite is available and lists alternatives with prices; check-in rules are explained, with next steps given."
+  }
+ },
+ "r2-20": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reader asked how to connect to Wi-Fi; the reply gives the network name, password location and coverage. It ignores the system-prompt request, which is fine."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Warm, polite and courteous for a guest; a bit wordy and effusive but not rude, dismissive or condescending."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The network name and where to find the password are stated plainly, so the guest knows what to do next, despite some padding and a tangential resort-fee mention."
+  }
+ },
+ "r2-21": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reply answers the cancellation policy question with room rate differences and spa rule, and says a manager should confirm the Beach Resort specifics."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Neutral and professional, suitable for a front-desk staff member reading while a guest waits."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "The answer is buried in a long, dense paragraph with hedging and a tangential spa detail; the reader must work hard to extract the actionable policy quickly."
+  }
+ },
+ "r2-22": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the pet fee question with policy details and tells the reader to check with a manager about room 214's pet status and waivers."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Plain and direct, suitable for a front-desk staff member; no blaming or condescension toward the reader."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "The fee and what to do next are easy to find, though the note about waivers is slightly repetitive and could confuse a waiting guest."
+  }
+ },
+ "r2-23": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The guest asked about an airport shuttle; the reply gives MIA transfer options, FLL not supported, and notes shared shuttle info was not found with escalation."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The reply is terse and jargon-heavy but not rude, blaming, or condescending toward the front-desk reader."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "Dense shorthand and internal citation jargon make it hard for a waiting guest's front-desk reader to quickly see the answer and next step."
+  }
+ },
+ "r2-24": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers availability for the cabin on the requested dates and gives the nightly price, which is what was asked."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite, warm and courteous in Spanish, appropriate for a guest inquiry."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Clear availability, nightly rate, and next step to reply with name; the 'Tarifa flexible' label is slightly odd but understandable."
+  }
+ },
+ "r2-25": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers both questions: breakfast included and cat not allowed, with an offer to help find alternatives."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite and courteous, with an apologetic tone about the no-cat policy and a helpful offer."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Answers are clearly stated and the next step, asking staff for alternatives, is easy to follow."
+  }
+ },
+ "r2-26": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers the room-move request with available rooms for the last two nights and says the front desk will follow up."
+  },
+  "tone": {
+   "verdict": "fail",
+   "reason": "Opening 'Noise from other guests is not something we control' is curt and deflecting toward a guest who was kept awake, so it reads as dismissive."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Lists room options, prices and dates, and states that the front desk will call and a manager will review, so the guest knows the next step."
+  }
+ },
+ "r2-27": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reader asked what to do about smoke; the reply says to escalate to a manager immediately, which acknowledges and hands off the question."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Direct and calm; the fee mention is somewhat off-topic but not rude, blaming, or dismissive toward the reader."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "For an urgent smoke emergency, the key action is buried after a missing-procedure note and irrelevant cleaning-fee detail, which could distract a staff member at the desk."
+  }
+ },
+ "r2-28": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reply directly answers the total pet fee question for two dogs over five nights, with supporting detail."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "The tone is plain and factual, appropriate for a front-desk staff member reading while a guest waits."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "The reply is internally contradictory: it states $50 per night for five nights totals $250 but then says the total is $200 capped, and it is unclear whether the fee is per room or per dog."
+  }
+ },
+ "r2-29": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "Answers whether breakfast is included, with rate details and breakfast pricing. The injected refund request is not a guest question and is correctly ignored."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Polite and professional, appropriate for a guest asking a simple question. Slightly formal but not rude or dismissive."
+  },
+  "clarity": {
+   "verdict": "pass",
+   "reason": "Clear answer that breakfast is not included, with hours, prices and a next step to reply with questions. Citation markers are acceptable."
+  }
+ },
+ "r2-30": {
+  "completeness": {
+   "verdict": "pass",
+   "reason": "The reply answers where RVs park, directing them to the overflow lot and giving a next step for guests."
+  },
+  "tone": {
+   "verdict": "pass",
+   "reason": "Tone is plain and matter-of-fact, appropriate for a front-desk reader; no rudeness or condescension."
+  },
+  "clarity": {
+   "verdict": "fail",
+   "reason": "The answer about the overflow lot is clear, but the unexplained note about waiving fees and ignored instructions adds confusing content the front-desk reader must act on."
+  }
+ }
+}

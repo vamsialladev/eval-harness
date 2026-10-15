@@ -1,9 +1,13 @@
 {
- "labels": 40,
- "items": 40,
+ "labels": 70,
+ "items": 70,
+ "rounds": {
+  "round 1": "Round 1: 40 stratified items (sampled from deterministic flags)",
+  "round 2": "Round 2: 30 items enriched with failures (15 judge-failed real replies + 15 synthetic degraded variants)"
+ },
  "labeler": "Vamsi Alla",
- "trust_rule": "kappa >= 0.6",
- "current": "v2",
+ "trust_rule": "kappa >= 0.6 on all labels together, per quality",
+ "current": "v3",
  "trusted": {
   "completeness": false,
   "tone": false,
@@ -14,125 +18,125 @@
    "version": "v1",
    "change": "",
    "overall": {
-    "n": 40,
-    "agreement": 0.95,
+    "n": 70,
+    "agreement": 0.6571428571428571,
     "agreement_ci": [
-     0.8349612250489412,
-     0.9861793327384413
+     0.5403954960407292,
+     0.7575401126715274
     ],
-    "kappa": 0.0,
-    "precision_fail": 0.0,
-    "recall_fail": null,
-    "human_fail": 0,
-    "judge_fail": 2,
+    "kappa": 0.22222222222222232,
+    "precision_fail": 0.2,
+    "recall_fail": 1.0,
+    "human_fail": 6,
+    "judge_fail": 30,
     "confusion": {
-     "tp": 0,
-     "fp": 2,
+     "tp": 6,
+     "fp": 24,
      "fn": 0,
-     "tn": 38
+     "tn": 40
     },
     "trusted": false
    },
    "per_dimension": {
     "completeness": {
-     "n": 14,
-     "agreement": 1.0,
+     "n": 18,
+     "agreement": 0.7777777777777778,
      "agreement_ci": [
-      0.7846891945970195,
-      0.9999999999999999
+      0.5478541549399641,
+      0.9099907195415445
      ],
-     "kappa": null,
-     "precision_fail": null,
+     "kappa": 0.0,
+     "precision_fail": 0.0,
      "recall_fail": null,
      "human_fail": 0,
-     "judge_fail": 0,
+     "judge_fail": 4,
      "confusion": {
       "tp": 0,
-      "fp": 0,
+      "fp": 4,
       "fn": 0,
       "tn": 14
      },
      "trusted": false
     },
     "tone": {
-     "n": 14,
-     "agreement": 1.0,
+     "n": 22,
+     "agreement": 0.7272727272727273,
      "agreement_ci": [
-      0.7846891945970195,
-      0.9999999999999999
+      0.5184826582032107,
+      0.8684923978853596
      ],
-     "kappa": null,
-     "precision_fail": null,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 0,
+     "kappa": 0.297872340425532,
+     "precision_fail": 0.25,
+     "recall_fail": 1.0,
+     "human_fail": 2,
+     "judge_fail": 8,
      "confusion": {
-      "tp": 0,
-      "fp": 0,
+      "tp": 2,
+      "fp": 6,
       "fn": 0,
       "tn": 14
      },
      "trusted": false
     },
     "clarity": {
-     "n": 12,
-     "agreement": 0.8333333333333334,
+     "n": 30,
+     "agreement": 0.5333333333333333,
      "agreement_ci": [
-      0.5519691353881888,
-      0.9530348582430792
+      0.3614229949695976,
+      0.6976761120463056
      ],
-     "kappa": 0.0,
-     "precision_fail": 0.0,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 2,
+     "kappa": 0.18604651162790695,
+     "precision_fail": 0.2222222222222222,
+     "recall_fail": 1.0,
+     "human_fail": 4,
+     "judge_fail": 18,
      "confusion": {
-      "tp": 0,
-      "fp": 2,
+      "tp": 4,
+      "fp": 14,
       "fn": 0,
-      "tn": 10
+      "tn": 12
      },
      "trusted": false
     }
    },
    "per_project": {
     "guest-request-agent": {
-     "n": 20,
-     "agreement": 0.95,
+     "n": 37,
+     "agreement": 0.6486486486486487,
      "agreement_ci": [
-      0.7638688045357189,
-      0.9911185512976646
+      0.4875902299651824,
+      0.7817439295214081
      ],
-     "kappa": 0.0,
-     "precision_fail": 0.0,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 1,
+     "kappa": 0.24960998439937604,
+     "precision_fail": 0.23529411764705882,
+     "recall_fail": 1.0,
+     "human_fail": 4,
+     "judge_fail": 17,
      "confusion": {
-      "tp": 0,
-      "fp": 1,
+      "tp": 4,
+      "fp": 13,
       "fn": 0,
-      "tn": 19
+      "tn": 20
      },
      "trusted": false
     },
     "hotel-ops-assistant": {
-     "n": 20,
-     "agreement": 0.95,
+     "n": 33,
+     "agreement": 0.6666666666666666,
      "agreement_ci": [
-      0.7638688045357189,
-      0.9911185512976646
+      0.4960789429360725,
+      0.8024977240586366
      ],
-     "kappa": 0.0,
-     "precision_fail": 0.0,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 1,
+     "kappa": 0.18058690744920977,
+     "precision_fail": 0.15384615384615385,
+     "recall_fail": 1.0,
+     "human_fail": 2,
+     "judge_fail": 13,
      "confusion": {
-      "tp": 0,
-      "fp": 1,
+      "tp": 2,
+      "fp": 11,
       "fn": 0,
-      "tn": 19
+      "tn": 20
      },
      "trusted": false
     }
@@ -502,27 +506,1195 @@
      "human_reason": "",
      "judge": "pass",
      "judge_reason": "Short and well organised; the request for the question is easy to find and act on, with clear examples given."
+    },
+    {
+     "item_id": "r2-01",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Includes an internal system instruction about checking the PMS profile mixed into a loyalty overview, and the tier benefits are vague, making the answer less clear."
+    },
+    {
+     "item_id": "r2-02",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Uses abbreviations (NRF, FD, MOD, GM) and internal rule names like nonrefundable_exception; the direct answer is buried in shorthand a busy desk agent may not parse quickly."
+    },
+    {
+     "item_id": "r2-03",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Reads like a system log, cold and robotic rather than warm and personal for a guest; no greeting warmth or courtesy beyond the name."
+    },
+    {
+     "item_id": "r2-04",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The guest asked about breakfast start time, but the reply never mentions breakfast or says whether the documents cover it."
+    },
+    {
+     "item_id": "r2-05",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Facts are run together in one paragraph, the key answer is buried, and the final sentence is vague about the fee and earliest time, which makes it harder to act on quickly."
+    },
+    {
+     "item_id": "r2-06",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Leads with irrelevant Miami and Fort Lauderdale pricing details, burying the key answer about Asheville, which the guest asked about."
+    },
+    {
+     "item_id": "r2-07",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The luggage-storage request for Sunday after check-out is not addressed at all, so half the message is ignored."
+    },
+    {
+     "item_id": "r2-08",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The direct answer 'yes, we host weddings' is buried at the end after a rambling preamble, and the key facts are mixed together in one dense paragraph hard to scan while a guest waits."
+    },
+    {
+     "item_id": "r2-09",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Key answer is somewhat buried in a dense paragraph, and 'staff notes' wording reads as internal source material rather than plain guidance."
+    },
+    {
+     "item_id": "r2-10",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Cold, robotic internal-style report with no greeting warmth or courtesy; reads like a system log rather than a guest-facing message."
+    },
+    {
+     "item_id": "r2-11",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Cold and terse; no apology for the wife being humiliated, sounds robotic given a serious racism complaint."
+    },
+    {
+     "item_id": "r2-12",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The TV remote problem is not mentioned or acknowledged at all, so one of three requests is ignored."
+    },
+    {
+     "item_id": "r2-13",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mentioning ignoring a staff note about waiving fees is odd and self-referential, sounding defensive and unsuited to a front-desk reader."
+    },
+    {
+     "item_id": "r2-14",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Terse, robotic template style with labels and 'End of response'; cold rather than warm and polite toward the guest."
+    },
+    {
+     "item_id": "r2-15",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Full of jargon and codes (RT, LOS, PMS folio, EV_CHG, FCFS, raw source tags), so a guest cannot easily understand the key answer."
+    },
+    {
+     "item_id": "r2-16",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Reply acknowledges the complaint and says a manager will follow up, but doesn't address the AC, cleanliness, or refund request specifically; it's a generic holding reply."
+    },
+    {
+     "item_id": "r2-17",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Key answer is buried behind policy hedging; the reply mentions an informal, dated staff note, which is system-style commentary rather than something the reader can act on directly."
+    },
+    {
+     "item_id": "r2-18",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Blames the guest by stating guests are responsible for supervising children; no apology for the injury, which sounds defensive and cold."
+    },
+    {
+     "item_id": "r2-19",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer on 9 AM check-in is spread across several sentences, and the pool and room-availability answers are split up, making it harder to act on quickly."
+    },
+    {
+     "item_id": "r2-20",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer is buried under a long preamble about the resort fee and beach photos; the sentences are wordy and rambling, though the content is plain."
+    },
+    {
+     "item_id": "r2-21",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Dense run-on paragraph; the key answer is buried, and the spa rule is an unrequested tangent that makes the answer harder to act on at the desk."
+    },
+    {
+     "item_id": "r2-22",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The waiver note is muddled: it says the note is not policy, then tells staff to check a manager before waiving, which contradicts itself and buries the key answer."
+    },
+    {
+     "item_id": "r2-23",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Dense jargon such as BM25 rank, chunk, SOP REFUSED rule and 'no source hit' is internal system notes the staff member wouldn't need, burying the key answer."
+    },
+    {
+     "item_id": "r2-24",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mixes Spanish with an English-only room name and labels like 'Tarifa flexible' without explaining; the cabin price is somewhat buried among alternatives and the 'no es una reserva' note is a bit confusing."
+    },
+    {
+     "item_id": "r2-25",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Includes internal reservation code 'ML-2021' and room details, and the 'P1'/'P4' source markers are acceptable, but the mention of 'somos adecuados para perros' is unnecessary; the key answer is mostly clear but the reply leaks system-style detail."
+    },
+    {
+     "item_id": "r2-26",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Opens with 'Noise from other guests is not something we control', which is cold and defensive, and gives no apology for the disturbed night."
+    },
+    {
+     "item_id": "r2-27",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Tone is calm but the cleaning-fee note is out of place for an urgent safety situation, sounding detached and bureaucratic rather than urgent and caring."
+    },
+    {
+     "item_id": "r2-28",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The key answer ($200) comes first and the cap and per-room explanation follow in plain language, though the cap logic is slightly dense."
+    },
+    {
+     "item_id": "r2-29",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Short and organised; the key answer (not included) appears early, though the 'team will confirm' line is a bit vague and the citation markers are acceptable."
+    },
+    {
+     "item_id": "r2-30",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mixes the parking answer with an internal note about a source and ignored instructions, which is system-facing and distracts from the key answer."
     }
-   ]
+   ],
+   "rounds": {
+    "round 1": {
+     "overall": {
+      "n": 40,
+      "agreement": 0.95,
+      "agreement_ci": [
+       0.8349612250489412,
+       0.9861793327384413
+      ],
+      "kappa": 0.0,
+      "precision_fail": 0.0,
+      "recall_fail": null,
+      "human_fail": 0,
+      "judge_fail": 2,
+      "confusion": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 0,
+       "tn": 38
+      },
+      "trusted": false
+     },
+     "per_dimension": {
+      "completeness": {
+       "n": 14,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7846891945970195,
+        0.9999999999999999
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 14
+       },
+       "trusted": false
+      },
+      "tone": {
+       "n": 14,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7846891945970195,
+        0.9999999999999999
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 14
+       },
+       "trusted": false
+      },
+      "clarity": {
+       "n": 12,
+       "agreement": 0.8333333333333334,
+       "agreement_ci": [
+        0.5519691353881888,
+        0.9530348582430792
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 2,
+       "confusion": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "tn": 10
+       },
+       "trusted": false
+      }
+     },
+     "per_project": {
+      "guest-request-agent": {
+       "n": 20,
+       "agreement": 0.95,
+       "agreement_ci": [
+        0.7638688045357189,
+        0.9911185512976646
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 1,
+       "confusion": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "tn": 19
+       },
+       "trusted": false
+      },
+      "hotel-ops-assistant": {
+       "n": 20,
+       "agreement": 0.95,
+       "agreement_ci": [
+        0.7638688045357189,
+        0.9911185512976646
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 1,
+       "confusion": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "tn": 19
+       },
+       "trusted": false
+      }
+     },
+     "trusted": {
+      "completeness": false,
+      "tone": false,
+      "clarity": false
+     },
+     "rows": [
+      {
+       "item_id": "p2-tone-07",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional; no blame or defensiveness, and the tone suits a guest enquiry."
+      },
+      {
+       "item_id": "p1-clarity-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short, plain and easy to act on; the key answer comes first, and the citation markers are acceptable."
+      },
+      {
+       "item_id": "p1-clarity-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "It is brief but vague: it does not say what couldn't be found or what the staff member should do next, so it is hard to act on."
+      },
+      {
+       "item_id": "p2-tone-01",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional; does not blame the guest and asks for member number neutrally."
+      },
+      {
+       "item_id": "p2-completeness-05",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the date change request, confirms the room type and availability, and says the manager will confirm the change and rate difference."
+      },
+      {
+       "item_id": "p2-tone-02",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, warm and professional without gushing. Nothing blames or lectures the guest, and the closing is courteous."
+      },
+      {
+       "item_id": "p1-tone-07",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Calm, neutral and professional, directing staff to the right person without blaming or lecturing the reader."
+      },
+      {
+       "item_id": "p2-tone-04",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, warm and professional with no blame or defensiveness; the tone suits a guest asking for an extension."
+      },
+      {
+       "item_id": "p1-clarity-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and direct; the key answer (open until 10 PM) is stated up front with plain language and only acceptable citation markers."
+      },
+      {
+       "item_id": "p2-clarity-06",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The sentence about passing the request to a manager is duplicated, which reads as sloppy and repetitive. The key next step is still easy to find."
+      },
+      {
+       "item_id": "p1-completeness-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the late checkout limit for Gold members and says the sources lack a property-specific limit, directing staff to a manager."
+      },
+      {
+       "item_id": "p2-clarity-03",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised with the key answers easy to find; citation markers are acceptable and no jargon appears."
+      },
+      {
+       "item_id": "p2-completeness-01",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the dog booking, policy and fee, and the waiver request by saying a manager will review it, which is a plain follow-up."
+      },
+      {
+       "item_id": "p2-completeness-03",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the dropping Wi-Fi, the work-call need, and asks what can be done; says maintenance will check and someone will call back."
+      },
+      {
+       "item_id": "p2-tone-03",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional throughout, with no blame or defensiveness and an appropriate sign-off for a guest."
+      },
+      {
+       "item_id": "p1-tone-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is polite, calm and professional, appropriate for a front-desk staff member reading it with a guest waiting."
+      },
+      {
+       "item_id": "p1-tone-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and factual for front-desk staff; no blame, defensiveness or casualness in the wording."
+      },
+      {
+       "item_id": "p1-completeness-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Weather is outside what the assistant can answer; the reply plainly says it isn't in the documents and points to a manager."
+      },
+      {
+       "item_id": "p2-completeness-02",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses pet fee, early check-in request, and shuttle booking, and says staff will follow up on the early check-in and shuttle."
+      },
+      {
+       "item_id": "p1-clarity-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The key answer is stated first in plain language, short and easy to act on; the citation marker is acceptable."
+      },
+      {
+       "item_id": "p2-clarity-04",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised; the refusal and next step are easy to find, with no jargon or system notes."
+      },
+      {
+       "item_id": "p1-completeness-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the retention period question directly; the extra shipping details are plausible context and do not leave the core question unanswered."
+      },
+      {
+       "item_id": "p2-completeness-07",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses all three questions: rollaway bed with team follow-up, Wi-Fi cost, and breakfast time, with a stated next step for the bed."
+      },
+      {
+       "item_id": "p2-clarity-02",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised with the answers easy to find; the [P1] citation marker is acceptable per the rules."
+      },
+      {
+       "item_id": "p2-completeness-06",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked whether they can bring a dog; the reply directly answers yes with conditions, fee, and service animal note."
+      },
+      {
+       "item_id": "p1-clarity-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is two short, plain sentences and the key answer, that it is not available, is easy to find."
+      },
+      {
+       "item_id": "p2-tone-05",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional, with no blame or defensiveness. The warm sign-off suits a guest enquiry."
+      },
+      {
+       "item_id": "p1-clarity-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The key answer comes first and the next step is clear. Citation markers are acceptable, though the gap between the $50 and $200 limits is unexplained."
+      },
+      {
+       "item_id": "p1-completeness-07",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The single question about nights needed for Gold status is directly answered with a cited figure; nothing else was asked."
+      },
+      {
+       "item_id": "p2-clarity-05",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised; the check-in time is up front and the next step for the room question is clear."
+      },
+      {
+       "item_id": "p1-tone-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is polite, calm and factual, suitable for a staff member reading it at the desk."
+      },
+      {
+       "item_id": "p1-completeness-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked about valet parking price; the reply gives the nightly rate and in/out privileges, fully answering the question."
+      },
+      {
+       "item_id": "p2-completeness-04",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers both pool opening time and whether kids need an adult; the extra beach chair and fitness center details are harmless additions."
+      },
+      {
+       "item_id": "p1-completeness-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply answers whether the $25 credit is allowed and adds relevant guidance about checking fees before crediting, addressing the single question asked."
+      },
+      {
+       "item_id": "p2-tone-06",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Opens with empathy, stays calm and professional, and does not blame or lecture the guest."
+      },
+      {
+       "item_id": "p1-tone-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is neutral, polite and professional, suitable for a front-desk staff member reading it to a waiting guest."
+      },
+      {
+       "item_id": "p1-completeness-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked whether dogs are allowed; the reply says the documents lack this and names a manager for follow-up, which is complete."
+      },
+      {
+       "item_id": "p1-tone-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is polite, calm and professional, suitable for a front-desk staff member reading it at the counter."
+      },
+      {
+       "item_id": "p1-tone-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, neutral and professional, suitable for a front-desk staff member reading while a guest waits."
+      },
+      {
+       "item_id": "p2-clarity-01",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised; the request for the question is easy to find and act on, with clear examples given."
+      }
+     ]
+    },
+    "round 2": {
+     "overall": {
+      "n": 30,
+      "agreement": 0.26666666666666666,
+      "agreement_ci": [
+       0.14182663247581012,
+       0.4444796184128676
+      ],
+      "kappa": 0.035087719298245584,
+      "precision_fail": 0.21428571428571427,
+      "recall_fail": 1.0,
+      "human_fail": 6,
+      "judge_fail": 28,
+      "confusion": {
+       "tp": 6,
+       "fp": 22,
+       "fn": 0,
+       "tn": 2
+      },
+      "trusted": false
+     },
+     "per_dimension": {
+      "completeness": {
+       "n": 4,
+       "agreement": 0.0,
+       "agreement_ci": [
+        0.0,
+        0.4898908403969213
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 4,
+       "confusion": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      },
+      "tone": {
+       "n": 8,
+       "agreement": 0.25,
+       "agreement_ci": [
+        0.07147921209795555,
+        0.5907245720727483
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.25,
+       "recall_fail": 1.0,
+       "human_fail": 2,
+       "judge_fail": 8,
+       "confusion": {
+        "tp": 2,
+        "fp": 6,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      },
+      "clarity": {
+       "n": 18,
+       "agreement": 0.3333333333333333,
+       "agreement_ci": [
+        0.16278774656229916,
+        0.5625053287487956
+       ],
+       "kappa": 0.0689655172413793,
+       "precision_fail": 0.25,
+       "recall_fail": 1.0,
+       "human_fail": 4,
+       "judge_fail": 16,
+       "confusion": {
+        "tp": 4,
+        "fp": 12,
+        "fn": 0,
+        "tn": 2
+       },
+       "trusted": false
+      }
+     },
+     "per_project": {
+      "guest-request-agent": {
+       "n": 17,
+       "agreement": 0.29411764705882354,
+       "agreement_ci": [
+        0.1327998952626943,
+        0.5313311024822815
+       ],
+       "kappa": 0.03773584905660382,
+       "precision_fail": 0.25,
+       "recall_fail": 1.0,
+       "human_fail": 4,
+       "judge_fail": 16,
+       "confusion": {
+        "tp": 4,
+        "fp": 12,
+        "fn": 0,
+        "tn": 1
+       },
+       "trusted": false
+      },
+      "hotel-ops-assistant": {
+       "n": 13,
+       "agreement": 0.23076923076923078,
+       "agreement_ci": [
+        0.08179528654269594,
+        0.5025637616051964
+       ],
+       "kappa": 0.029850746268656726,
+       "precision_fail": 0.16666666666666666,
+       "recall_fail": 1.0,
+       "human_fail": 2,
+       "judge_fail": 12,
+       "confusion": {
+        "tp": 2,
+        "fp": 10,
+        "fn": 0,
+        "tn": 1
+       },
+       "trusted": false
+      }
+     },
+     "trusted": {
+      "completeness": false,
+      "tone": false,
+      "clarity": false
+     },
+     "rows": [
+      {
+       "item_id": "r2-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Includes an internal system instruction about checking the PMS profile mixed into a loyalty overview, and the tier benefits are vague, making the answer less clear."
+      },
+      {
+       "item_id": "r2-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Uses abbreviations (NRF, FD, MOD, GM) and internal rule names like nonrefundable_exception; the direct answer is buried in shorthand a busy desk agent may not parse quickly."
+      },
+      {
+       "item_id": "r2-03",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Reads like a system log, cold and robotic rather than warm and personal for a guest; no greeting warmth or courtesy beyond the name."
+      },
+      {
+       "item_id": "r2-04",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The guest asked about breakfast start time, but the reply never mentions breakfast or says whether the documents cover it."
+      },
+      {
+       "item_id": "r2-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Facts are run together in one paragraph, the key answer is buried, and the final sentence is vague about the fee and earliest time, which makes it harder to act on quickly."
+      },
+      {
+       "item_id": "r2-06",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Leads with irrelevant Miami and Fort Lauderdale pricing details, burying the key answer about Asheville, which the guest asked about."
+      },
+      {
+       "item_id": "r2-07",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The luggage-storage request for Sunday after check-out is not addressed at all, so half the message is ignored."
+      },
+      {
+       "item_id": "r2-08",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The direct answer 'yes, we host weddings' is buried at the end after a rambling preamble, and the key facts are mixed together in one dense paragraph hard to scan while a guest waits."
+      },
+      {
+       "item_id": "r2-09",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Key answer is somewhat buried in a dense paragraph, and 'staff notes' wording reads as internal source material rather than plain guidance."
+      },
+      {
+       "item_id": "r2-10",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Cold, robotic internal-style report with no greeting warmth or courtesy; reads like a system log rather than a guest-facing message."
+      },
+      {
+       "item_id": "r2-11",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Cold and terse; no apology for the wife being humiliated, sounds robotic given a serious racism complaint."
+      },
+      {
+       "item_id": "r2-12",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The TV remote problem is not mentioned or acknowledged at all, so one of three requests is ignored."
+      },
+      {
+       "item_id": "r2-13",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mentioning ignoring a staff note about waiving fees is odd and self-referential, sounding defensive and unsuited to a front-desk reader."
+      },
+      {
+       "item_id": "r2-14",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Terse, robotic template style with labels and 'End of response'; cold rather than warm and polite toward the guest."
+      },
+      {
+       "item_id": "r2-15",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Full of jargon and codes (RT, LOS, PMS folio, EV_CHG, FCFS, raw source tags), so a guest cannot easily understand the key answer."
+      },
+      {
+       "item_id": "r2-16",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Reply acknowledges the complaint and says a manager will follow up, but doesn't address the AC, cleanliness, or refund request specifically; it's a generic holding reply."
+      },
+      {
+       "item_id": "r2-17",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Key answer is buried behind policy hedging; the reply mentions an informal, dated staff note, which is system-style commentary rather than something the reader can act on directly."
+      },
+      {
+       "item_id": "r2-18",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Blames the guest by stating guests are responsible for supervising children; no apology for the injury, which sounds defensive and cold."
+      },
+      {
+       "item_id": "r2-19",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer on 9 AM check-in is spread across several sentences, and the pool and room-availability answers are split up, making it harder to act on quickly."
+      },
+      {
+       "item_id": "r2-20",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer is buried under a long preamble about the resort fee and beach photos; the sentences are wordy and rambling, though the content is plain."
+      },
+      {
+       "item_id": "r2-21",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Dense run-on paragraph; the key answer is buried, and the spa rule is an unrequested tangent that makes the answer harder to act on at the desk."
+      },
+      {
+       "item_id": "r2-22",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The waiver note is muddled: it says the note is not policy, then tells staff to check a manager before waiving, which contradicts itself and buries the key answer."
+      },
+      {
+       "item_id": "r2-23",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Dense jargon such as BM25 rank, chunk, SOP REFUSED rule and 'no source hit' is internal system notes the staff member wouldn't need, burying the key answer."
+      },
+      {
+       "item_id": "r2-24",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mixes Spanish with an English-only room name and labels like 'Tarifa flexible' without explaining; the cabin price is somewhat buried among alternatives and the 'no es una reserva' note is a bit confusing."
+      },
+      {
+       "item_id": "r2-25",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Includes internal reservation code 'ML-2021' and room details, and the 'P1'/'P4' source markers are acceptable, but the mention of 'somos adecuados para perros' is unnecessary; the key answer is mostly clear but the reply leaks system-style detail."
+      },
+      {
+       "item_id": "r2-26",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Opens with 'Noise from other guests is not something we control', which is cold and defensive, and gives no apology for the disturbed night."
+      },
+      {
+       "item_id": "r2-27",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Tone is calm but the cleaning-fee note is out of place for an urgent safety situation, sounding detached and bureaucratic rather than urgent and caring."
+      },
+      {
+       "item_id": "r2-28",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The key answer ($200) comes first and the cap and per-room explanation follow in plain language, though the cap logic is slightly dense."
+      },
+      {
+       "item_id": "r2-29",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and organised; the key answer (not included) appears early, though the 'team will confirm' line is a bit vague and the citation markers are acceptable."
+      },
+      {
+       "item_id": "r2-30",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mixes the parking answer with an internal note about a source and ignored instructions, which is system-facing and distracts from the key answer."
+      }
+     ]
+    }
+   }
   },
   {
    "version": "v2",
    "change": "A refusal or hand-off sentence (Project 1's fixed 'couldn't find this, check with a manager') counts as clear when it is the honest answer",
    "overall": {
-    "n": 40,
-    "agreement": 0.95,
+    "n": 70,
+    "agreement": 0.6285714285714286,
     "agreement_ci": [
-     0.8349612250489412,
-     0.9861793327384413
+     0.5114720106556132,
+     0.7322934873816878
     ],
-    "kappa": 0.0,
-    "precision_fail": 0.0,
-    "recall_fail": null,
-    "human_fail": 0,
-    "judge_fail": 2,
+    "kappa": 0.20035149384885764,
+    "precision_fail": 0.1875,
+    "recall_fail": 1.0,
+    "human_fail": 6,
+    "judge_fail": 32,
     "confusion": {
-     "tp": 0,
-     "fp": 2,
+     "tp": 6,
+     "fp": 26,
      "fn": 0,
      "tn": 38
     },
@@ -530,60 +1702,60 @@
    },
    "per_dimension": {
     "completeness": {
-     "n": 14,
-     "agreement": 1.0,
+     "n": 18,
+     "agreement": 0.7777777777777778,
      "agreement_ci": [
-      0.7846891945970195,
-      0.9999999999999999
+      0.5478541549399641,
+      0.9099907195415445
      ],
-     "kappa": null,
-     "precision_fail": null,
+     "kappa": 0.0,
+     "precision_fail": 0.0,
      "recall_fail": null,
      "human_fail": 0,
-     "judge_fail": 0,
+     "judge_fail": 4,
      "confusion": {
       "tp": 0,
-      "fp": 0,
+      "fp": 4,
       "fn": 0,
       "tn": 14
      },
      "trusted": false
     },
     "tone": {
-     "n": 14,
-     "agreement": 1.0,
+     "n": 22,
+     "agreement": 0.7272727272727273,
      "agreement_ci": [
-      0.7846891945970195,
-      0.9999999999999999
+      0.5184826582032107,
+      0.8684923978853596
      ],
-     "kappa": null,
-     "precision_fail": null,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 0,
+     "kappa": 0.297872340425532,
+     "precision_fail": 0.25,
+     "recall_fail": 1.0,
+     "human_fail": 2,
+     "judge_fail": 8,
      "confusion": {
-      "tp": 0,
-      "fp": 0,
+      "tp": 2,
+      "fp": 6,
       "fn": 0,
       "tn": 14
      },
      "trusted": false
     },
     "clarity": {
-     "n": 12,
-     "agreement": 0.8333333333333334,
+     "n": 30,
+     "agreement": 0.4666666666666667,
      "agreement_ci": [
-      0.5519691353881888,
-      0.9530348582430792
+      0.30232388795369436,
+      0.6385770050304025
      ],
-     "kappa": 0.0,
-     "precision_fail": 0.0,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 2,
+     "kappa": 0.14285714285714288,
+     "precision_fail": 0.2,
+     "recall_fail": 1.0,
+     "human_fail": 4,
+     "judge_fail": 20,
      "confusion": {
-      "tp": 0,
-      "fp": 2,
+      "tp": 4,
+      "fp": 16,
       "fn": 0,
       "tn": 10
      },
@@ -592,40 +1764,40 @@
    },
    "per_project": {
     "guest-request-agent": {
-     "n": 20,
-     "agreement": 0.95,
+     "n": 37,
+     "agreement": 0.6216216216216216,
      "agreement_ci": [
-      0.7638688045357189,
-      0.9911185512976646
+      0.46100430315639773,
+      0.7593600091508126
      ],
-     "kappa": 0.0,
-     "precision_fail": 0.0,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 1,
+     "kappa": 0.22686567164179106,
+     "precision_fail": 0.2222222222222222,
+     "recall_fail": 1.0,
+     "human_fail": 4,
+     "judge_fail": 18,
      "confusion": {
-      "tp": 0,
-      "fp": 1,
+      "tp": 4,
+      "fp": 14,
       "fn": 0,
       "tn": 19
      },
      "trusted": false
     },
     "hotel-ops-assistant": {
-     "n": 20,
-     "agreement": 0.95,
+     "n": 33,
+     "agreement": 0.6363636363636364,
      "agreement_ci": [
-      0.7638688045357189,
-      0.9911185512976646
+      0.46616178171050116,
+      0.7781282185578974
      ],
-     "kappa": 0.0,
-     "precision_fail": 0.0,
-     "recall_fail": null,
-     "human_fail": 0,
-     "judge_fail": 1,
+     "kappa": 0.1610169491525423,
+     "precision_fail": 0.14285714285714285,
+     "recall_fail": 1.0,
+     "human_fail": 2,
+     "judge_fail": 14,
      "confusion": {
-      "tp": 0,
-      "fp": 1,
+      "tp": 2,
+      "fp": 12,
       "fn": 0,
       "tn": 19
      },
@@ -997,8 +2169,2839 @@
      "human_reason": "",
      "judge": "pass",
      "judge_reason": "Short and well organised; it clearly asks the guest for their question and explains what happens next, with no jargon."
+    },
+    {
+     "item_id": "r2-01",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mixes an internal system instruction about the PMS profile into the answer, and the tier details are crammed into one dense sentence, making the key answer harder to scan."
+    },
+    {
+     "item_id": "r2-02",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Heavy unexplained jargon and abbreviations (NRF, FD, MOD, GM) plus rule IDs; the bottom-line answer is buried and the action is not stated plainly."
+    },
+    {
+     "item_id": "r2-03",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Robotic, system-style phrasing like 'Request type' and 'Query 2' feels cold and mechanical rather than warm and personal to a guest."
+    },
+    {
+     "item_id": "r2-04",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The guest asked about breakfast start time, but the reply never mentions breakfast at all, leaving that question unanswered and unacknowledged."
+    },
+    {
+     "item_id": "r2-05",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer is mixed with several overlapping rates and citations, and the final sentence is vague about who sets the fee, making it harder to act on at the desk."
+    },
+    {
+     "item_id": "r2-06",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Leads with Miami and Fort Lauderdale details irrelevant to an Asheville guest, burying the key answer that Asheville is unconfirmed and concierge will reply."
+    },
+    {
+     "item_id": "r2-07",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The luggage storage request for Sunday after check-out is not addressed at all, so half the message is ignored."
+    },
+    {
+     "item_id": "r2-08",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer (yes, weddings are hosted) is buried at the end after lengthy hedging; the reply is rambling and hard to scan quickly at a desk."
+    },
+    {
+     "item_id": "r2-09",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mentions 'staff notes', an internal source-type note, and the key yes/no answer is spread across several sentences rather than stated up front."
+    },
+    {
+     "item_id": "r2-10",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The reply is cold and robotic, reading like a system log rather than a warm, personal response to a guest."
+    },
+    {
+     "item_id": "r2-11",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Cold and brief; no apology or acknowledgment of the humiliation and alleged racist remark his wife experienced."
+    },
+    {
+     "item_id": "r2-12",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The TV remote problem is never acknowledged or addressed; the reply covers only towels and the crib."
+    },
+    {
+     "item_id": "r2-13",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mentioning an ignored staff note about waiving fees is defensive and unprofessional for a front-desk reader, and it reads as meta commentary rather than guest-facing help."
+    },
+    {
+     "item_id": "r2-14",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Telegraphic, clipped style with labels like 'Status: permitted' and 'End of response' reads robotic and cold rather than warm and personal to a guest."
+    },
+    {
+     "item_id": "r2-15",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Dense jargon and codes (VALET_ONLY, EV_CHG, FCFS, RT, PMS folio, src: policies.md, chunk P1) that a guest cannot understand; key answer is buried."
+    },
+    {
+     "item_id": "r2-16",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The reply ignores the AC outage, the filthy room and the refund request details; it only says a manager will contact him, without acknowledging specifics or stating what can be answered."
+    },
+    {
+     "item_id": "r2-17",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer is buried among caveats about the note's date and informality. It also cites an internal 'staff note' and wedding blocks, which a waiting guest may find confusing."
+    },
+    {
+     "item_id": "r2-18",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Blames the guest by stating guests are responsible for supervision and offers no apology for the injury, sounding defensive and cold."
+    },
+    {
+     "item_id": "r2-19",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Key answers are present but the plunge pool answer is vague ('please check with our team') and the check-in section is somewhat tangled with citation markers, though these are acceptable."
+    },
+    {
+     "item_id": "r2-20",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer is buried in a long opening paragraph about the resort fee, which is not what was asked; the rambling structure hurts clarity."
+    },
+    {
+     "item_id": "r2-21",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Long, rambling sentences bury the key answer; the spa rule is an unrequested tangent, and the rate-by-rate terms are hard to scan while a guest waits."
+    },
+    {
+     "item_id": "r2-22",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mentions a waiver note and citation [1] in a way that is somewhat muddled; the key answer is clear but the waiver sentence is confusing and repetitive about managers."
+    },
+    {
+     "item_id": "r2-23",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Leads with internal system notes (BM25 rank, chunk, policy file name) and jargon; the direct answer is buried and the escalation instruction is unclear."
+    },
+    {
+     "item_id": "r2-24",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Mixes English room names (Standard Queen, Suite) into a Spanish reply and the 'Tarifa flexible' label is unexplained jargon; the key answer is clear but the wording is somewhat confusing."
+    },
+    {
+     "item_id": "r2-25",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Contains internal booking reference and citation-like notes; the 'aunque sí somos adecuados para perros' phrasing is awkward and the reply is in English-leaning sign-off mixed with Spanish, but key answers are findable."
+    },
+    {
+     "item_id": "r2-26",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Opens with a flat, defensive line that noise is not controlled, with no apology for the disturbed night, so it sounds cold rather than empathetic."
+    },
+    {
+     "item_id": "r2-27",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Bringing up a $250 smoking fee during an active smoke emergency is tone-deaf and sounds like it prioritises billing over the safety of a guest, which is inappropriate for a waiting front-desk reader."
+    },
+    {
+     "item_id": "r2-28",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The key answer is clear, but the explanation contains a contradictory-seeming sequence: $50 per night totals $250 yet the fee is capped at $200, which is confusing to act on quickly."
+    },
+    {
+     "item_id": "r2-29",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Key answer is buried in the second paragraph; the vague 'team will confirm rate details' lacks who to contact, and citation markers are acceptable but the structure is somewhat rambling."
+    },
+    {
+     "item_id": "r2-30",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Key answer is clear, but the reply includes system-style note about a source and ignored instructions, which is internal detail the front-desk reader doesn't need."
     }
-   ]
+   ],
+   "rounds": {
+    "round 1": {
+     "overall": {
+      "n": 40,
+      "agreement": 0.95,
+      "agreement_ci": [
+       0.8349612250489412,
+       0.9861793327384413
+      ],
+      "kappa": 0.0,
+      "precision_fail": 0.0,
+      "recall_fail": null,
+      "human_fail": 0,
+      "judge_fail": 2,
+      "confusion": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 0,
+       "tn": 38
+      },
+      "trusted": false
+     },
+     "per_dimension": {
+      "completeness": {
+       "n": 14,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7846891945970195,
+        0.9999999999999999
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 14
+       },
+       "trusted": false
+      },
+      "tone": {
+       "n": 14,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7846891945970195,
+        0.9999999999999999
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 14
+       },
+       "trusted": false
+      },
+      "clarity": {
+       "n": 12,
+       "agreement": 0.8333333333333334,
+       "agreement_ci": [
+        0.5519691353881888,
+        0.9530348582430792
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 2,
+       "confusion": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "tn": 10
+       },
+       "trusted": false
+      }
+     },
+     "per_project": {
+      "guest-request-agent": {
+       "n": 20,
+       "agreement": 0.95,
+       "agreement_ci": [
+        0.7638688045357189,
+        0.9911185512976646
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 1,
+       "confusion": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "tn": 19
+       },
+       "trusted": false
+      },
+      "hotel-ops-assistant": {
+       "n": 20,
+       "agreement": 0.95,
+       "agreement_ci": [
+        0.7638688045357189,
+        0.9911185512976646
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 1,
+       "confusion": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "tn": 19
+       },
+       "trusted": false
+      }
+     },
+     "trusted": {
+      "completeness": false,
+      "tone": false,
+      "clarity": false
+     },
+     "rows": [
+      {
+       "item_id": "p2-tone-07",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional, with a courteous close and no blame or gushing."
+      },
+      {
+       "item_id": "p1-clarity-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The key answer, $75 per stay, comes first in plain language; citation markers are acceptable."
+      },
+      {
+       "item_id": "p1-clarity-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and direct; it tells the reader exactly what to do next, which is clear enough for a hand-off."
+      },
+      {
+       "item_id": "p2-tone-01",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional; it neither blames the guest nor sounds defensive when it explains the tier mismatch."
+      },
+      {
+       "item_id": "p2-completeness-05",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the date change request, confirms the room type and availability, and states a manager will confirm the change and rate difference."
+      },
+      {
+       "item_id": "p2-tone-02",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, warm and professional without gushing or blaming; appropriate for a guest's routine requests."
+      },
+      {
+       "item_id": "p1-tone-07",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is calm, professional and neutral toward staff and the guest, with no blame or condescension."
+      },
+      {
+       "item_id": "p2-tone-04",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional, with a clear sign-off suited to a guest."
+      },
+      {
+       "item_id": "p1-clarity-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The answer is stated first and is short and plain; the bracketed citation markers are acceptable under the rules."
+      },
+      {
+       "item_id": "p2-clarity-06",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The manager hand-off sentence is repeated almost word for word, which is redundant and reads as sloppy."
+      },
+      {
+       "item_id": "p1-completeness-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the late checkout question with a time limit and notes the missing property-specific detail, directing staff to a manager for follow-up."
+      },
+      {
+       "item_id": "p2-clarity-03",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised with each answer easy to find; citation markers are acceptable and no jargon appears."
+      },
+      {
+       "item_id": "p2-completeness-01",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the dog booking, pet policy, fee, and the waiver request by stating it cannot confirm and a manager will reply."
+      },
+      {
+       "item_id": "p2-completeness-03",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the dropping Wi-Fi, the work-call need and the request for help, with a maintenance check and a callback promised."
+      },
+      {
+       "item_id": "p2-tone-03",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional, with a warm sign-off and no blaming or over-effusive language."
+      },
+      {
+       "item_id": "p1-tone-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is brief, neutral and professional, suitable for a front-desk staff member reading it aloud to a waiting guest."
+      },
+      {
+       "item_id": "p1-tone-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and factual for a front-desk reader; no blame or defensiveness."
+      },
+      {
+       "item_id": "p1-completeness-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The question is outside the hotel's documents; the reply plainly says so and directs the reader to a manager, which is a complete hand-off."
+      },
+      {
+       "item_id": "p2-completeness-02",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses pet fee, early check-in request, and shuttle booking, and states that the front desk and team will follow up on the uncertain parts."
+      },
+      {
+       "item_id": "p1-clarity-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short, plain and well organised; the key fee answer comes first with a citation marker that staff can follow."
+      },
+      {
+       "item_id": "p2-clarity-04",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised; the refusal and the next step are easy to find and act on."
+      },
+      {
+       "item_id": "p1-completeness-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the retention question directly and adds relevant shipping details; nothing asked is ignored."
+      },
+      {
+       "item_id": "p2-completeness-07",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers all three asks: rollaway bed (with housekeeping follow-up for availability), Wi-Fi cost, and breakfast time."
+      },
+      {
+       "item_id": "p2-clarity-02",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised, with each answer easy to find. The citation marker is acceptable under the rules."
+      },
+      {
+       "item_id": "p2-completeness-06",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the single question about bringing a dog, with conditions, fee, and next steps for booking; nothing asked is left unaddressed."
+      },
+      {
+       "item_id": "p1-clarity-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and plain; the reader clearly knows the document lacks the answer and what to do next."
+      },
+      {
+       "item_id": "p2-tone-05",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional with a warm sign-off; no blame or defensiveness toward the guest."
+      },
+      {
+       "item_id": "p1-clarity-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer is clear, but it contradicts itself on approval thresholds: it says courtesy credits up to $50 need no approval and over $200 needs approval, leaving the $50-$200 range unexplained."
+      },
+      {
+       "item_id": "p1-completeness-07",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The only question, nights needed for Gold status, is answered directly with a citation, so nothing asked is left unanswered."
+      },
+      {
+       "item_id": "p2-clarity-05",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Plain, short and well organised; key check-in time is up front and the request for booking reference is easy to act on."
+      },
+      {
+       "item_id": "p1-tone-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and factual; neutral tone suitable for a front-desk staff member reading while a guest waits."
+      },
+      {
+       "item_id": "p1-completeness-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked the price of valet parking; the reply gives the nightly rate with a citation, fully answering the question."
+      },
+      {
+       "item_id": "p2-completeness-04",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers both questions: pool opening hours and whether the kids need an adult. Extra details are additional, not missing answers."
+      },
+      {
+       "item_id": "p1-completeness-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply answers whether the $25 credit can be issued and adds relevant fee context; the question is addressed directly."
+      },
+      {
+       "item_id": "p2-tone-06",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Opens with sympathy, stays calm and professional, and does not blame the guest for choosing the non-refundable rate."
+      },
+      {
+       "item_id": "p1-tone-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is brief, neutral and professional, suitable for a front-desk staff member reading it aloud to a waiting guest."
+      },
+      {
+       "item_id": "p1-completeness-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The only question, whether dogs are allowed, is addressed; the reply says the documents lack it and directs staff to a manager."
+      },
+      {
+       "item_id": "p1-tone-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Neutral, polite and professional, suitable for a front-desk staff member reading while a guest waits."
+      },
+      {
+       "item_id": "p1-tone-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, calm and professional, appropriate for a front-desk staff member reading while a guest waits."
+      },
+      {
+       "item_id": "p2-clarity-01",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Short and well organised; it clearly asks the guest for their question and explains what happens next, with no jargon."
+      }
+     ]
+    },
+    "round 2": {
+     "overall": {
+      "n": 30,
+      "agreement": 0.2,
+      "agreement_ci": [
+       0.09505107121882947,
+       0.3730569656380418
+      ],
+      "kappa": 0.0,
+      "precision_fail": 0.2,
+      "recall_fail": 1.0,
+      "human_fail": 6,
+      "judge_fail": 30,
+      "confusion": {
+       "tp": 6,
+       "fp": 24,
+       "fn": 0,
+       "tn": 0
+      },
+      "trusted": false
+     },
+     "per_dimension": {
+      "completeness": {
+       "n": 4,
+       "agreement": 0.0,
+       "agreement_ci": [
+        0.0,
+        0.4898908403969213
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 4,
+       "confusion": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      },
+      "tone": {
+       "n": 8,
+       "agreement": 0.25,
+       "agreement_ci": [
+        0.07147921209795555,
+        0.5907245720727483
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.25,
+       "recall_fail": 1.0,
+       "human_fail": 2,
+       "judge_fail": 8,
+       "confusion": {
+        "tp": 2,
+        "fp": 6,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      },
+      "clarity": {
+       "n": 18,
+       "agreement": 0.2222222222222222,
+       "agreement_ci": [
+        0.09000928045845544,
+        0.45214584506003586
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.2222222222222222,
+       "recall_fail": 1.0,
+       "human_fail": 4,
+       "judge_fail": 18,
+       "confusion": {
+        "tp": 4,
+        "fp": 14,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      }
+     },
+     "per_project": {
+      "guest-request-agent": {
+       "n": 17,
+       "agreement": 0.23529411764705882,
+       "agreement_ci": [
+        0.09555044255436917,
+        0.4726179831177426
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.23529411764705882,
+       "recall_fail": 1.0,
+       "human_fail": 4,
+       "judge_fail": 17,
+       "confusion": {
+        "tp": 4,
+        "fp": 13,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      },
+      "hotel-ops-assistant": {
+       "n": 13,
+       "agreement": 0.15384615384615385,
+       "agreement_ci": [
+        0.04325817796522907,
+        0.4223463125106327
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.15384615384615385,
+       "recall_fail": 1.0,
+       "human_fail": 2,
+       "judge_fail": 13,
+       "confusion": {
+        "tp": 2,
+        "fp": 11,
+        "fn": 0,
+        "tn": 0
+       },
+       "trusted": false
+      }
+     },
+     "trusted": {
+      "completeness": false,
+      "tone": false,
+      "clarity": false
+     },
+     "rows": [
+      {
+       "item_id": "r2-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mixes an internal system instruction about the PMS profile into the answer, and the tier details are crammed into one dense sentence, making the key answer harder to scan."
+      },
+      {
+       "item_id": "r2-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Heavy unexplained jargon and abbreviations (NRF, FD, MOD, GM) plus rule IDs; the bottom-line answer is buried and the action is not stated plainly."
+      },
+      {
+       "item_id": "r2-03",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Robotic, system-style phrasing like 'Request type' and 'Query 2' feels cold and mechanical rather than warm and personal to a guest."
+      },
+      {
+       "item_id": "r2-04",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The guest asked about breakfast start time, but the reply never mentions breakfast at all, leaving that question unanswered and unacknowledged."
+      },
+      {
+       "item_id": "r2-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer is mixed with several overlapping rates and citations, and the final sentence is vague about who sets the fee, making it harder to act on at the desk."
+      },
+      {
+       "item_id": "r2-06",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Leads with Miami and Fort Lauderdale details irrelevant to an Asheville guest, burying the key answer that Asheville is unconfirmed and concierge will reply."
+      },
+      {
+       "item_id": "r2-07",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The luggage storage request for Sunday after check-out is not addressed at all, so half the message is ignored."
+      },
+      {
+       "item_id": "r2-08",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer (yes, weddings are hosted) is buried at the end after lengthy hedging; the reply is rambling and hard to scan quickly at a desk."
+      },
+      {
+       "item_id": "r2-09",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mentions 'staff notes', an internal source-type note, and the key yes/no answer is spread across several sentences rather than stated up front."
+      },
+      {
+       "item_id": "r2-10",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The reply is cold and robotic, reading like a system log rather than a warm, personal response to a guest."
+      },
+      {
+       "item_id": "r2-11",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Cold and brief; no apology or acknowledgment of the humiliation and alleged racist remark his wife experienced."
+      },
+      {
+       "item_id": "r2-12",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The TV remote problem is never acknowledged or addressed; the reply covers only towels and the crib."
+      },
+      {
+       "item_id": "r2-13",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mentioning an ignored staff note about waiving fees is defensive and unprofessional for a front-desk reader, and it reads as meta commentary rather than guest-facing help."
+      },
+      {
+       "item_id": "r2-14",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Telegraphic, clipped style with labels like 'Status: permitted' and 'End of response' reads robotic and cold rather than warm and personal to a guest."
+      },
+      {
+       "item_id": "r2-15",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Dense jargon and codes (VALET_ONLY, EV_CHG, FCFS, RT, PMS folio, src: policies.md, chunk P1) that a guest cannot understand; key answer is buried."
+      },
+      {
+       "item_id": "r2-16",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The reply ignores the AC outage, the filthy room and the refund request details; it only says a manager will contact him, without acknowledging specifics or stating what can be answered."
+      },
+      {
+       "item_id": "r2-17",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer is buried among caveats about the note's date and informality. It also cites an internal 'staff note' and wedding blocks, which a waiting guest may find confusing."
+      },
+      {
+       "item_id": "r2-18",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Blames the guest by stating guests are responsible for supervision and offers no apology for the injury, sounding defensive and cold."
+      },
+      {
+       "item_id": "r2-19",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Key answers are present but the plunge pool answer is vague ('please check with our team') and the check-in section is somewhat tangled with citation markers, though these are acceptable."
+      },
+      {
+       "item_id": "r2-20",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer is buried in a long opening paragraph about the resort fee, which is not what was asked; the rambling structure hurts clarity."
+      },
+      {
+       "item_id": "r2-21",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Long, rambling sentences bury the key answer; the spa rule is an unrequested tangent, and the rate-by-rate terms are hard to scan while a guest waits."
+      },
+      {
+       "item_id": "r2-22",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mentions a waiver note and citation [1] in a way that is somewhat muddled; the key answer is clear but the waiver sentence is confusing and repetitive about managers."
+      },
+      {
+       "item_id": "r2-23",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Leads with internal system notes (BM25 rank, chunk, policy file name) and jargon; the direct answer is buried and the escalation instruction is unclear."
+      },
+      {
+       "item_id": "r2-24",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Mixes English room names (Standard Queen, Suite) into a Spanish reply and the 'Tarifa flexible' label is unexplained jargon; the key answer is clear but the wording is somewhat confusing."
+      },
+      {
+       "item_id": "r2-25",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Contains internal booking reference and citation-like notes; the 'aunque sí somos adecuados para perros' phrasing is awkward and the reply is in English-leaning sign-off mixed with Spanish, but key answers are findable."
+      },
+      {
+       "item_id": "r2-26",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Opens with a flat, defensive line that noise is not controlled, with no apology for the disturbed night, so it sounds cold rather than empathetic."
+      },
+      {
+       "item_id": "r2-27",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Bringing up a $250 smoking fee during an active smoke emergency is tone-deaf and sounds like it prioritises billing over the safety of a guest, which is inappropriate for a waiting front-desk reader."
+      },
+      {
+       "item_id": "r2-28",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The key answer is clear, but the explanation contains a contradictory-seeming sequence: $50 per night totals $250 yet the fee is capped at $200, which is confusing to act on quickly."
+      },
+      {
+       "item_id": "r2-29",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Key answer is buried in the second paragraph; the vague 'team will confirm rate details' lacks who to contact, and citation markers are acceptable but the structure is somewhat rambling."
+      },
+      {
+       "item_id": "r2-30",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Key answer is clear, but the reply includes system-style note about a source and ignored instructions, which is internal detail the front-desk reader doesn't need."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "version": "v3",
+   "change": "Higher bar for fail: only when the reader would be confused, misled, left without an answer they asked for, or put off; style imperfections pass",
+   "overall": {
+    "n": 70,
+    "agreement": 0.8142857142857143,
+    "agreement_ci": [
+     0.707744216991479,
+     0.8881270004330345
+    ],
+    "kappa": 0.2945736434108528,
+    "precision_fail": 0.26666666666666666,
+    "recall_fail": 0.6666666666666666,
+    "human_fail": 6,
+    "judge_fail": 15,
+    "confusion": {
+     "tp": 4,
+     "fp": 11,
+     "fn": 2,
+     "tn": 53
+    },
+    "trusted": false
+   },
+   "per_dimension": {
+    "completeness": {
+     "n": 18,
+     "agreement": 0.8333333333333334,
+     "agreement_ci": [
+      0.6077796169796655,
+      0.9416342323981449
+     ],
+     "kappa": 0.0,
+     "precision_fail": 0.0,
+     "recall_fail": null,
+     "human_fail": 0,
+     "judge_fail": 3,
+     "confusion": {
+      "tp": 0,
+      "fp": 3,
+      "fn": 0,
+      "tn": 15
+     },
+     "trusted": false
+    },
+    "tone": {
+     "n": 22,
+     "agreement": 0.8636363636363636,
+     "agreement_ci": [
+      0.6666501265111675,
+      0.9525099632305449
+     ],
+     "kappa": 0.5074626865671642,
+     "precision_fail": 0.4,
+     "recall_fail": 1.0,
+     "human_fail": 2,
+     "judge_fail": 5,
+     "confusion": {
+      "tp": 2,
+      "fp": 3,
+      "fn": 0,
+      "tn": 17
+     },
+     "trusted": false
+    },
+    "clarity": {
+     "n": 30,
+     "agreement": 0.7666666666666667,
+     "agreement_ci": [
+      0.5907167369328042,
+      0.8820761191944214
+     ],
+     "kappa": 0.2335766423357665,
+     "precision_fail": 0.2857142857142857,
+     "recall_fail": 0.5,
+     "human_fail": 4,
+     "judge_fail": 7,
+     "confusion": {
+      "tp": 2,
+      "fp": 5,
+      "fn": 2,
+      "tn": 21
+     },
+     "trusted": false
+    }
+   },
+   "per_project": {
+    "guest-request-agent": {
+     "n": 37,
+     "agreement": 0.8108108108108109,
+     "agreement_ci": [
+      0.6579530293509931,
+      0.9052002132118778
+     ],
+     "kappa": 0.3667481662591689,
+     "precision_fail": 0.3333333333333333,
+     "recall_fail": 0.75,
+     "human_fail": 4,
+     "judge_fail": 9,
+     "confusion": {
+      "tp": 3,
+      "fp": 6,
+      "fn": 1,
+      "tn": 27
+     },
+     "trusted": false
+    },
+    "hotel-ops-assistant": {
+     "n": 33,
+     "agreement": 0.8181818181818182,
+     "agreement_ci": [
+      0.6561176822135057,
+      0.9138923184127576
+     ],
+     "kappa": 0.17499999999999985,
+     "precision_fail": 0.16666666666666666,
+     "recall_fail": 0.5,
+     "human_fail": 2,
+     "judge_fail": 6,
+     "confusion": {
+      "tp": 1,
+      "fp": 5,
+      "fn": 1,
+      "tn": 26
+     },
+     "trusted": false
+    }
+   },
+   "trusted": {
+    "completeness": false,
+    "tone": false,
+    "clarity": false
+   },
+   "rows": [
+    {
+     "item_id": "p2-tone-07",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Polite, professional and helpful for a guest; no rudeness or condescension."
+    },
+    {
+     "item_id": "p1-clarity-03",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The fee amount and refundability are stated directly, so the reader can answer the guest immediately."
+    },
+    {
+     "item_id": "p1-clarity-05",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reader understands the request was not handled and knows to check with a manager, which is a clear next step."
+    },
+    {
+     "item_id": "p2-tone-01",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Polite and professional, acknowledges her membership claim without blaming her, and asks for her member number helpfully."
+    },
+    {
+     "item_id": "p2-completeness-05",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Addresses the date change request, states availability, and says the manager will confirm the change and rate difference."
+    },
+    {
+     "item_id": "p2-tone-02",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Warm, polite and appropriate for a guest planning a stay."
+    },
+    {
+     "item_id": "p1-tone-07",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The tone is neutral and direct, appropriate for a staff member reading while a guest waits."
+    },
+    {
+     "item_id": "p2-tone-04",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Friendly and professional, appropriate for a guest making a simple request."
+    },
+    {
+     "item_id": "p1-clarity-01",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The answer is clear: pool open 7 AM to 10 PM, with citations. The reader can answer the guest immediately."
+    },
+    {
+     "item_id": "p2-clarity-06",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The guest can see the request was passed to a manager and what to send; the duplicated sentence is a minor flaw."
+    },
+    {
+     "item_id": "p1-completeness-06",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers the late checkout question with a time limit and notes the missing property-specific detail, pointing to a manager for confirmation."
+    },
+    {
+     "item_id": "p2-clarity-03",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Each question has a clear answer or next step; the resort fee follow-up is explicit, though citation markers are present and acceptable."
+    },
+    {
+     "item_id": "p2-completeness-01",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers the dog-stay question with policy and fees, and acknowledges the waiver request with a manager follow-up."
+    },
+    {
+     "item_id": "p2-completeness-03",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Addresses the dropping Wi-Fi, says maintenance will check and a team member will call, and offers an alternative spot for calls."
+    },
+    {
+     "item_id": "p2-tone-03",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Polite, warm and professional, suitable for a guest asking about a booking."
+    },
+    {
+     "item_id": "p1-tone-02",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The tone is plain and neutral, which suits a front-desk staff member reading it while a guest waits."
+    },
+    {
+     "item_id": "p1-tone-06",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reply is neutral and factual, suitable for a front-desk staff member reading it to a guest."
+    },
+    {
+     "item_id": "p1-completeness-03",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The question is outside the assistant's scope, and the short refusal with a hand-off to a manager is complete."
+    },
+    {
+     "item_id": "p2-completeness-02",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers the pet fee, addresses early check-in with hand-off to front desk, and handles the shuttle booking with confirmation by team."
+    },
+    {
+     "item_id": "p1-clarity-02",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The fee is stated plainly in the first sentence, and the reader can quickly find the answer and relay it."
+    },
+    {
+     "item_id": "p2-clarity-04",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The refusal is plain and the reader is told exactly what to do: have Ms. Marsh contact the hotel directly from her booking email."
+    },
+    {
+     "item_id": "p1-completeness-04",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reply answers the retention period question directly, and the extra shipping detail does not leave the asked question unanswered."
+    },
+    {
+     "item_id": "p2-completeness-07",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers all three asks: rollaway bed (passed to housekeeping for confirmation), free Wi-Fi, and breakfast hours."
+    },
+    {
+     "item_id": "p2-clarity-02",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers are easy to find and stated directly, with citation markers that are acceptable."
+    },
+    {
+     "item_id": "p2-completeness-06",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The guest asked whether they can bring a dog; the reply answers yes with conditions, fee, and rules, and offers a next step for booking."
+    },
+    {
+     "item_id": "p1-clarity-06",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reader knows the answer isn't available and that they should check with a manager next."
+    },
+    {
+     "item_id": "p2-tone-05",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Polite, warm and appropriate for a guest asking about a lost item."
+    },
+    {
+     "item_id": "p1-clarity-04",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The answer is stated first as No, with clear next step to escalate to a manager; the thresholds are a little dense but easy to follow."
+    },
+    {
+     "item_id": "p1-completeness-07",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reply directly answers the only question asked, the nights needed for Gold status, with a citation."
+    },
+    {
+     "item_id": "p2-clarity-05",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Check-in time is stated clearly, and the reader is told exactly what to send (booking email and reference) to get the room confirmed."
+    },
+    {
+     "item_id": "p1-tone-05",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The tone is neutral and helpful, suitable for a front-desk staff member reading it to a waiting guest."
+    },
+    {
+     "item_id": "p1-completeness-05",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The guest asked the valet parking price and the reply gives the nightly rate with in/out privileges, which answers the question."
+    },
+    {
+     "item_id": "p2-completeness-04",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers both pool opening time and whether kids need an adult, with the adult requirement clearly stated."
+    },
+    {
+     "item_id": "p1-completeness-01",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reply answers whether a $25 courtesy credit is allowed and adds relevant fee context, so the question is addressed."
+    },
+    {
+     "item_id": "p2-tone-06",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Empathetic opening and courteous closing; the policy statement is factual rather than blaming or dismissive."
+    },
+    {
+     "item_id": "p1-tone-01",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The tone is neutral and factual, appropriate for a front-desk staff member reading it aloud or relaying it to a guest."
+    },
+    {
+     "item_id": "p1-completeness-02",
+     "project": "hotel-ops-assistant",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The guest asked whether dogs are allowed; the reply acknowledges it cannot find the answer and directs the reader to a manager."
+    },
+    {
+     "item_id": "p1-tone-04",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Plain, polite and appropriate for a front-desk staff member reading it while a guest waits."
+    },
+    {
+     "item_id": "p1-tone-03",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Plain, polite, and appropriate for a front-desk staff member reading it aloud to a guest."
+    },
+    {
+     "item_id": "p2-clarity-01",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The reply clearly states what it needs from Ben and what happens next, with useful examples of the question types."
+    },
+    {
+     "item_id": "r2-01",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Structured answer with earning rules, tier thresholds, and a clear next step for the uncovered topics; easy to act on."
+    },
+    {
+     "item_id": "r2-02",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Heavy shorthand (NRF, FD, MOD, GM) and rule IDs make it hard for a waiting front-desk agent to quickly see the answer and next step."
+    },
+    {
+     "item_id": "r2-03",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The mechanical field-style layout ('Request type:', 'Query 2:') reads cold and robotic to a guest rather than a personal reply."
+    },
+    {
+     "item_id": "r2-04",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The guest asked what time breakfast starts, but the reply never mentions breakfast or says who will follow up on it."
+    },
+    {
+     "item_id": "r2-05",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The answer is clear: early check-in is possible but not guaranteed, with fees and times given, though slightly dense with citations."
+    },
+    {
+     "item_id": "r2-06",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Clearly says no Asheville transfer is listed, that concierge will follow up, and offers next steps; the MIA/FLL details are extra but not confusing."
+    },
+    {
+     "item_id": "r2-07",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The reply ignores the Sunday request to leave luggage after check-out, which the guest clearly asked about."
+    },
+    {
+     "item_id": "r2-08",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The direct answer comes last after a rambling preamble, and the reader must dig through many details while a guest waits."
+    },
+    {
+     "item_id": "r2-09",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The answer is clear: early check-in is not guaranteed, with a $25 fee, October weekend exception, and a manager to confirm details."
+    },
+    {
+     "item_id": "r2-10",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The reply reads mechanical and clipped, with system-style labels like 'Policy check' and 'Result: qualifies', which feels cold to a guest who just wants a clear answer."
+    },
+    {
+     "item_id": "r2-11",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Polite and neutral; brief and somewhat formal but not dismissive or blaming toward the guest."
+    },
+    {
+     "item_id": "r2-12",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The TV remote problem was asked about but the reply never mentions it or says who will follow up on it."
+    },
+    {
+     "item_id": "r2-13",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Tone is neutral and professional; the note about ignoring a staff note is plain, not rude or condescending to the front-desk reader."
+    },
+    {
+     "item_id": "r2-14",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Terse, mechanical template with headers and no greeting or warmth; a guest may feel brushed off, though nothing is rude."
+    },
+    {
+     "item_id": "r2-15",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Jargon like VALET_ONLY, EV_CHG, FCFS, RT, LOS and citation tags obscures the answer; the guest cannot easily tell whether parking is free or what to do."
+    },
+    {
+     "item_id": "r2-16",
+     "project": "guest-request-agent",
+     "dimension": "completeness",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Refund request and complaints about AC and cleanliness are acknowledged, with a manager promised to follow up on the stay and request."
+    },
+    {
+     "item_id": "r2-17",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The core answer is clear: early check-in depends on availability, a $25 fee may apply before 12 PM, and a manager should confirm. Citations are fine."
+    },
+    {
+     "item_id": "r2-18",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Stating guests are responsible for supervising children reads as blaming and dismissive toward a parent whose child was seriously burned, with no sympathy."
+    },
+    {
+     "item_id": "r2-19",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Clearly states no suite is available and lists alternatives with prices; check-in rules are explained, with next steps given."
+    },
+    {
+     "item_id": "r2-20",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The network name and where to find the password are stated plainly, so the guest knows what to do next, despite some padding and a tangential resort-fee mention."
+    },
+    {
+     "item_id": "r2-21",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The answer is buried in a long, dense paragraph with hedging and a tangential spa detail; the reader must work hard to extract the actionable policy quickly."
+    },
+    {
+     "item_id": "r2-22",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "The fee and what to do next are easy to find, though the note about waivers is slightly repetitive and could confuse a waiting guest."
+    },
+    {
+     "item_id": "r2-23",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Dense shorthand and internal citation jargon make it hard for a waiting guest's front-desk reader to quickly see the answer and next step."
+    },
+    {
+     "item_id": "r2-24",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Clear availability, nightly rate, and next step to reply with name; the 'Tarifa flexible' label is slightly odd but understandable."
+    },
+    {
+     "item_id": "r2-25",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Answers are clearly stated and the next step, asking staff for alternatives, is easy to follow."
+    },
+    {
+     "item_id": "r2-26",
+     "project": "guest-request-agent",
+     "dimension": "tone",
+     "human": "fail",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "Opening 'Noise from other guests is not something we control' is curt and deflecting toward a guest who was kept awake, so it reads as dismissive."
+    },
+    {
+     "item_id": "r2-27",
+     "project": "hotel-ops-assistant",
+     "dimension": "tone",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Direct and calm; the fee mention is somewhat off-topic but not rude, blaming, or dismissive toward the reader."
+    },
+    {
+     "item_id": "r2-28",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The reply is internally contradictory: it states $50 per night for five nights totals $250 but then says the total is $200 capped, and it is unclear whether the fee is per room or per dog."
+    },
+    {
+     "item_id": "r2-29",
+     "project": "guest-request-agent",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "pass",
+     "judge_reason": "Clear answer that breakfast is not included, with hours, prices and a next step to reply with questions. Citation markers are acceptable."
+    },
+    {
+     "item_id": "r2-30",
+     "project": "hotel-ops-assistant",
+     "dimension": "clarity",
+     "human": "pass",
+     "human_reason": "",
+     "judge": "fail",
+     "judge_reason": "The answer about the overflow lot is clear, but the unexplained note about waiving fees and ignored instructions adds confusing content the front-desk reader must act on."
+    }
+   ],
+   "rounds": {
+    "round 1": {
+     "overall": {
+      "n": 40,
+      "agreement": 1.0,
+      "agreement_ci": [
+       0.9123783975415363,
+       1.0
+      ],
+      "kappa": null,
+      "precision_fail": null,
+      "recall_fail": null,
+      "human_fail": 0,
+      "judge_fail": 0,
+      "confusion": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 40
+      },
+      "trusted": false
+     },
+     "per_dimension": {
+      "completeness": {
+       "n": 14,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7846891945970195,
+        0.9999999999999999
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 14
+       },
+       "trusted": false
+      },
+      "tone": {
+       "n": 14,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7846891945970195,
+        0.9999999999999999
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 14
+       },
+       "trusted": false
+      },
+      "clarity": {
+       "n": 12,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.7575059904469021,
+        1.0
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 12
+       },
+       "trusted": false
+      }
+     },
+     "per_project": {
+      "guest-request-agent": {
+       "n": 20,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.8388748398148705,
+        1.0
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 20
+       },
+       "trusted": false
+      },
+      "hotel-ops-assistant": {
+       "n": 20,
+       "agreement": 1.0,
+       "agreement_ci": [
+        0.8388748398148705,
+        1.0
+       ],
+       "kappa": null,
+       "precision_fail": null,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 0,
+       "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 20
+       },
+       "trusted": false
+      }
+     },
+     "trusted": {
+      "completeness": false,
+      "tone": false,
+      "clarity": false
+     },
+     "rows": [
+      {
+       "item_id": "p2-tone-07",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, professional and helpful for a guest; no rudeness or condescension."
+      },
+      {
+       "item_id": "p1-clarity-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The fee amount and refundability are stated directly, so the reader can answer the guest immediately."
+      },
+      {
+       "item_id": "p1-clarity-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reader understands the request was not handled and knows to check with a manager, which is a clear next step."
+      },
+      {
+       "item_id": "p2-tone-01",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite and professional, acknowledges her membership claim without blaming her, and asks for her member number helpfully."
+      },
+      {
+       "item_id": "p2-completeness-05",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the date change request, states availability, and says the manager will confirm the change and rate difference."
+      },
+      {
+       "item_id": "p2-tone-02",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Warm, polite and appropriate for a guest planning a stay."
+      },
+      {
+       "item_id": "p1-tone-07",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The tone is neutral and direct, appropriate for a staff member reading while a guest waits."
+      },
+      {
+       "item_id": "p2-tone-04",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Friendly and professional, appropriate for a guest making a simple request."
+      },
+      {
+       "item_id": "p1-clarity-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The answer is clear: pool open 7 AM to 10 PM, with citations. The reader can answer the guest immediately."
+      },
+      {
+       "item_id": "p2-clarity-06",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest can see the request was passed to a manager and what to send; the duplicated sentence is a minor flaw."
+      },
+      {
+       "item_id": "p1-completeness-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the late checkout question with a time limit and notes the missing property-specific detail, pointing to a manager for confirmation."
+      },
+      {
+       "item_id": "p2-clarity-03",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Each question has a clear answer or next step; the resort fee follow-up is explicit, though citation markers are present and acceptable."
+      },
+      {
+       "item_id": "p2-completeness-01",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the dog-stay question with policy and fees, and acknowledges the waiver request with a manager follow-up."
+      },
+      {
+       "item_id": "p2-completeness-03",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Addresses the dropping Wi-Fi, says maintenance will check and a team member will call, and offers an alternative spot for calls."
+      },
+      {
+       "item_id": "p2-tone-03",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, warm and professional, suitable for a guest asking about a booking."
+      },
+      {
+       "item_id": "p1-tone-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The tone is plain and neutral, which suits a front-desk staff member reading it while a guest waits."
+      },
+      {
+       "item_id": "p1-tone-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply is neutral and factual, suitable for a front-desk staff member reading it to a guest."
+      },
+      {
+       "item_id": "p1-completeness-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The question is outside the assistant's scope, and the short refusal with a hand-off to a manager is complete."
+      },
+      {
+       "item_id": "p2-completeness-02",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers the pet fee, addresses early check-in with hand-off to front desk, and handles the shuttle booking with confirmation by team."
+      },
+      {
+       "item_id": "p1-clarity-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The fee is stated plainly in the first sentence, and the reader can quickly find the answer and relay it."
+      },
+      {
+       "item_id": "p2-clarity-04",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The refusal is plain and the reader is told exactly what to do: have Ms. Marsh contact the hotel directly from her booking email."
+      },
+      {
+       "item_id": "p1-completeness-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply answers the retention period question directly, and the extra shipping detail does not leave the asked question unanswered."
+      },
+      {
+       "item_id": "p2-completeness-07",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers all three asks: rollaway bed (passed to housekeeping for confirmation), free Wi-Fi, and breakfast hours."
+      },
+      {
+       "item_id": "p2-clarity-02",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers are easy to find and stated directly, with citation markers that are acceptable."
+      },
+      {
+       "item_id": "p2-completeness-06",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked whether they can bring a dog; the reply answers yes with conditions, fee, and rules, and offers a next step for booking."
+      },
+      {
+       "item_id": "p1-clarity-06",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reader knows the answer isn't available and that they should check with a manager next."
+      },
+      {
+       "item_id": "p2-tone-05",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite, warm and appropriate for a guest asking about a lost item."
+      },
+      {
+       "item_id": "p1-clarity-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The answer is stated first as No, with clear next step to escalate to a manager; the thresholds are a little dense but easy to follow."
+      },
+      {
+       "item_id": "p1-completeness-07",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply directly answers the only question asked, the nights needed for Gold status, with a citation."
+      },
+      {
+       "item_id": "p2-clarity-05",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Check-in time is stated clearly, and the reader is told exactly what to send (booking email and reference) to get the room confirmed."
+      },
+      {
+       "item_id": "p1-tone-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The tone is neutral and helpful, suitable for a front-desk staff member reading it to a waiting guest."
+      },
+      {
+       "item_id": "p1-completeness-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked the valet parking price and the reply gives the nightly rate with in/out privileges, which answers the question."
+      },
+      {
+       "item_id": "p2-completeness-04",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers both pool opening time and whether kids need an adult, with the adult requirement clearly stated."
+      },
+      {
+       "item_id": "p1-completeness-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply answers whether a $25 courtesy credit is allowed and adds relevant fee context, so the question is addressed."
+      },
+      {
+       "item_id": "p2-tone-06",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Empathetic opening and courteous closing; the policy statement is factual rather than blaming or dismissive."
+      },
+      {
+       "item_id": "p1-tone-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The tone is neutral and factual, appropriate for a front-desk staff member reading it aloud or relaying it to a guest."
+      },
+      {
+       "item_id": "p1-completeness-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The guest asked whether dogs are allowed; the reply acknowledges it cannot find the answer and directs the reader to a manager."
+      },
+      {
+       "item_id": "p1-tone-04",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Plain, polite and appropriate for a front-desk staff member reading it while a guest waits."
+      },
+      {
+       "item_id": "p1-tone-03",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Plain, polite, and appropriate for a front-desk staff member reading it aloud to a guest."
+      },
+      {
+       "item_id": "p2-clarity-01",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The reply clearly states what it needs from Ben and what happens next, with useful examples of the question types."
+      }
+     ]
+    },
+    "round 2": {
+     "overall": {
+      "n": 30,
+      "agreement": 0.5666666666666667,
+      "agreement_ci": [
+       0.39197306873128,
+       0.7262251453005263
+      ],
+      "kappa": 0.1333333333333333,
+      "precision_fail": 0.26666666666666666,
+      "recall_fail": 0.6666666666666666,
+      "human_fail": 6,
+      "judge_fail": 15,
+      "confusion": {
+       "tp": 4,
+       "fp": 11,
+       "fn": 2,
+       "tn": 13
+      },
+      "trusted": false
+     },
+     "per_dimension": {
+      "completeness": {
+       "n": 4,
+       "agreement": 0.25,
+       "agreement_ci": [
+        0.04558726029536886,
+        0.6993581599030918
+       ],
+       "kappa": 0.0,
+       "precision_fail": 0.0,
+       "recall_fail": null,
+       "human_fail": 0,
+       "judge_fail": 3,
+       "confusion": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "tn": 1
+       },
+       "trusted": false
+      },
+      "tone": {
+       "n": 8,
+       "agreement": 0.625,
+       "agreement_ci": [
+        0.30574239265377096,
+        0.8631557152608771
+       ],
+       "kappa": 0.3333333333333333,
+       "precision_fail": 0.4,
+       "recall_fail": 1.0,
+       "human_fail": 2,
+       "judge_fail": 5,
+       "confusion": {
+        "tp": 2,
+        "fp": 3,
+        "fn": 0,
+        "tn": 3
+       },
+       "trusted": false
+      },
+      "clarity": {
+       "n": 18,
+       "agreement": 0.6111111111111112,
+       "agreement_ci": [
+        0.38619041442114627,
+        0.7969475353714572
+       ],
+       "kappa": 0.11267605633802817,
+       "precision_fail": 0.2857142857142857,
+       "recall_fail": 0.5,
+       "human_fail": 4,
+       "judge_fail": 7,
+       "confusion": {
+        "tp": 2,
+        "fp": 5,
+        "fn": 2,
+        "tn": 9
+       },
+       "trusted": false
+      }
+     },
+     "per_project": {
+      "guest-request-agent": {
+       "n": 17,
+       "agreement": 0.5882352941176471,
+       "agreement_ci": [
+        0.3600544248492146,
+        0.7838894332600814
+       ],
+       "kappa": 0.2013422818791947,
+       "precision_fail": 0.3333333333333333,
+       "recall_fail": 0.75,
+       "human_fail": 4,
+       "judge_fail": 9,
+       "confusion": {
+        "tp": 3,
+        "fp": 6,
+        "fn": 1,
+        "tn": 7
+       },
+       "trusted": false
+      },
+      "hotel-ops-assistant": {
+       "n": 13,
+       "agreement": 0.5384615384615384,
+       "agreement_ci": [
+        0.29143795558562896,
+        0.7679393232503864
+       ],
+       "kappa": 0.024999999999999894,
+       "precision_fail": 0.16666666666666666,
+       "recall_fail": 0.5,
+       "human_fail": 2,
+       "judge_fail": 6,
+       "confusion": {
+        "tp": 1,
+        "fp": 5,
+        "fn": 1,
+        "tn": 6
+       },
+       "trusted": false
+      }
+     },
+     "trusted": {
+      "completeness": false,
+      "tone": false,
+      "clarity": false
+     },
+     "rows": [
+      {
+       "item_id": "r2-01",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Structured answer with earning rules, tier thresholds, and a clear next step for the uncovered topics; easy to act on."
+      },
+      {
+       "item_id": "r2-02",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Heavy shorthand (NRF, FD, MOD, GM) and rule IDs make it hard for a waiting front-desk agent to quickly see the answer and next step."
+      },
+      {
+       "item_id": "r2-03",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The mechanical field-style layout ('Request type:', 'Query 2:') reads cold and robotic to a guest rather than a personal reply."
+      },
+      {
+       "item_id": "r2-04",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The guest asked what time breakfast starts, but the reply never mentions breakfast or says who will follow up on it."
+      },
+      {
+       "item_id": "r2-05",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The answer is clear: early check-in is possible but not guaranteed, with fees and times given, though slightly dense with citations."
+      },
+      {
+       "item_id": "r2-06",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Clearly says no Asheville transfer is listed, that concierge will follow up, and offers next steps; the MIA/FLL details are extra but not confusing."
+      },
+      {
+       "item_id": "r2-07",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The reply ignores the Sunday request to leave luggage after check-out, which the guest clearly asked about."
+      },
+      {
+       "item_id": "r2-08",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The direct answer comes last after a rambling preamble, and the reader must dig through many details while a guest waits."
+      },
+      {
+       "item_id": "r2-09",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The answer is clear: early check-in is not guaranteed, with a $25 fee, October weekend exception, and a manager to confirm details."
+      },
+      {
+       "item_id": "r2-10",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The reply reads mechanical and clipped, with system-style labels like 'Policy check' and 'Result: qualifies', which feels cold to a guest who just wants a clear answer."
+      },
+      {
+       "item_id": "r2-11",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Polite and neutral; brief and somewhat formal but not dismissive or blaming toward the guest."
+      },
+      {
+       "item_id": "r2-12",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The TV remote problem was asked about but the reply never mentions it or says who will follow up on it."
+      },
+      {
+       "item_id": "r2-13",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Tone is neutral and professional; the note about ignoring a staff note is plain, not rude or condescending to the front-desk reader."
+      },
+      {
+       "item_id": "r2-14",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Terse, mechanical template with headers and no greeting or warmth; a guest may feel brushed off, though nothing is rude."
+      },
+      {
+       "item_id": "r2-15",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Jargon like VALET_ONLY, EV_CHG, FCFS, RT, LOS and citation tags obscures the answer; the guest cannot easily tell whether parking is free or what to do."
+      },
+      {
+       "item_id": "r2-16",
+       "project": "guest-request-agent",
+       "dimension": "completeness",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Refund request and complaints about AC and cleanliness are acknowledged, with a manager promised to follow up on the stay and request."
+      },
+      {
+       "item_id": "r2-17",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The core answer is clear: early check-in depends on availability, a $25 fee may apply before 12 PM, and a manager should confirm. Citations are fine."
+      },
+      {
+       "item_id": "r2-18",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Stating guests are responsible for supervising children reads as blaming and dismissive toward a parent whose child was seriously burned, with no sympathy."
+      },
+      {
+       "item_id": "r2-19",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Clearly states no suite is available and lists alternatives with prices; check-in rules are explained, with next steps given."
+      },
+      {
+       "item_id": "r2-20",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The network name and where to find the password are stated plainly, so the guest knows what to do next, despite some padding and a tangential resort-fee mention."
+      },
+      {
+       "item_id": "r2-21",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The answer is buried in a long, dense paragraph with hedging and a tangential spa detail; the reader must work hard to extract the actionable policy quickly."
+      },
+      {
+       "item_id": "r2-22",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "The fee and what to do next are easy to find, though the note about waivers is slightly repetitive and could confuse a waiting guest."
+      },
+      {
+       "item_id": "r2-23",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Dense shorthand and internal citation jargon make it hard for a waiting guest's front-desk reader to quickly see the answer and next step."
+      },
+      {
+       "item_id": "r2-24",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Clear availability, nightly rate, and next step to reply with name; the 'Tarifa flexible' label is slightly odd but understandable."
+      },
+      {
+       "item_id": "r2-25",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Answers are clearly stated and the next step, asking staff for alternatives, is easy to follow."
+      },
+      {
+       "item_id": "r2-26",
+       "project": "guest-request-agent",
+       "dimension": "tone",
+       "human": "fail",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "Opening 'Noise from other guests is not something we control' is curt and deflecting toward a guest who was kept awake, so it reads as dismissive."
+      },
+      {
+       "item_id": "r2-27",
+       "project": "hotel-ops-assistant",
+       "dimension": "tone",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Direct and calm; the fee mention is somewhat off-topic but not rude, blaming, or dismissive toward the reader."
+      },
+      {
+       "item_id": "r2-28",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The reply is internally contradictory: it states $50 per night for five nights totals $250 but then says the total is $200 capped, and it is unclear whether the fee is per room or per dog."
+      },
+      {
+       "item_id": "r2-29",
+       "project": "guest-request-agent",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "pass",
+       "judge_reason": "Clear answer that breakfast is not included, with hours, prices and a next step to reply with questions. Citation markers are acceptable."
+      },
+      {
+       "item_id": "r2-30",
+       "project": "hotel-ops-assistant",
+       "dimension": "clarity",
+       "human": "pass",
+       "human_reason": "",
+       "judge": "fail",
+       "judge_reason": "The answer about the overflow lot is clear, but the unexplained note about waiving fees and ignored instructions adds confusing content the front-desk reader must act on."
+      }
+     ]
+    }
+   }
   }
  ],
  "consistency": {
@@ -1007,18 +5010,8 @@
   "same_every_pass": 39,
   "changed": [
    "p1-clarity-04"
-  ]
+  ],
+  "version": "v2"
  },
- "runs": {
-  "p1-harness-2026-10-14": {
-   "completeness": 1.0,
-   "tone": 0.97,
-   "clarity": 0.87
-  },
-  "p2-harness-2026-10-14": {
-   "completeness": 0.9682539682539683,
-   "tone": 0.9841269841269841,
-   "clarity": 0.8253968253968254
-  }
- }
+ "runs": {}
 }
