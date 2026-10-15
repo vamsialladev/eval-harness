@@ -16,7 +16,7 @@ jobs:
           cache: pip
       - name: "Install (dashboard + judge client + test tools; the harness core itself needs nothing)"
         run: |
-          pip install -r requirements-judge.txt "pytest~=9.1" "pytest-cov~=7.1" "ruff==0.16.10" "pip-audit~=2.10"
+          pip install -r requirements-judge.txt "pytest~=9.1" "pytest-cov~=7.1" "ruff==0.17.0" "pip-audit~=2.10"
           pip install -e .
       - name: Lint and format check
         run: |
