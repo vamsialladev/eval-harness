@@ -472,9 +472,19 @@ def web_copy(src: Path, dest: Path):
 
 
 def linkedin_copy(dest: Path):
-    """A copy with the narration captions burned in (LinkedIn autoplays muted) and a 1280x720 thumbnail."""
+    """A copy with the narration captions burned in at the top (LinkedIn autoplays muted; the step captions stay in
+    the band at the bottom) and a 1200x627 thumbnail. The captions go through SRT because libass misplaces the
+    WebVTT position hints; Alignment=6 is top-centre in the legacy numbering libass uses for SRT."""
     dest.parent.mkdir(parents=True, exist_ok=True)
-    style = "FontName=Arial,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H99000000,BorderStyle=4,MarginV=18"
+    cues = narration_cues(json.loads((WORK / "timeline.json").read_text(encoding="utf-8")))
+    srt = "".join(
+        f"{i}\n{vtt_time(a).replace('.', ',')} --> {vtt_time(b).replace('.', ',')}\n{text}\n\n"
+        for i, (a, b, text) in enumerate(cues, 1)
+    )
+    (OUT / "demo.srt").write_text(srt, encoding="utf-8")
+    style = (
+        "FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H99000000,BorderStyle=4,Alignment=6,MarginV=14"
+    )
     subprocess.run(
         [
             "ffmpeg",
@@ -485,7 +495,7 @@ def linkedin_copy(dest: Path):
             "-i",
             "demo.mp4",
             "-vf",
-            f"subtitles=demo.vtt:force_style='{style}'",
+            f"subtitles=demo.srt:force_style='{style}'",
             "-c:v",
             "libx264",
             "-crf",
@@ -499,7 +509,11 @@ def linkedin_copy(dest: Path):
         check=True,
         cwd=OUT,
     )
-    shutil.copy(WORK / "title.png", dest.with_name("thumbnail.png"))
+    card = Image.open(WORK / "title.png").convert("RGB")
+    width = round(card.height * 1200 / 627)
+    left = (card.width - width) // 2
+    thumb = card.crop((left, 0, left + width, card.height)).resize((1200, 627))
+    thumb.save(dest.with_name("thumbnail.jpg"), quality=88)
 
 
 def main():
@@ -528,7 +542,7 @@ def main():
         print(f"saved {args.web_out} with its .jpg poster and .vtt captions")
     if args.linkedin_out and voice:
         linkedin_copy(args.linkedin_out.resolve())
-        print(f"saved {args.linkedin_out} and thumbnail.png")
+        print(f"saved {args.linkedin_out} and thumbnail.jpg")
 
 
 if __name__ == "__main__":
