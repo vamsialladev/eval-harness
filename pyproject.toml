@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hoteleval"
+version = "1.0.0"
+description = "One evaluation harness for the hotel group's AI projects: shared case schema, deterministic metrics, a calibrated LLM judge, statistics and regression gates."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Vamsi Alla" }]
+# The core (cases, metrics, statistics, gates, reports) is standard library only, so a project's CI installs it in
+# seconds. The judge and the dashboard add their own dependencies.
+dependencies = []
+
+[project.optional-dependencies]
+judge = ["anthropic~=1.12", "python-dotenv~=1.2"]
+
+[project.scripts]
+hoteleval = "hoteleval.cli:main"
+
+[project.urls]
+Homepage = "https://vamsialla.com/projects/eval-harness.html"
+Repository = "https://github.com/vamsialladev/eval-harness"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hoteleval = ["data/*.toml", "data/cases/*.jsonl", "data/baselines/*.json", "data/rubrics/*.toml", "vendor/SOURCE.json"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+# Copied byte-for-byte from Projects 1 and 2 at pinned commits (scripts/sync_vendor.py --check); formatted there.
+extend-exclude = ["src/hoteleval/vendor", ".work"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/hoteleval/metrics.py" = ["E501"]  # the registry reads best as one metric per line
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+
+[tool.coverage.run]
+# Product code only. The vendored metric code is tested in Projects 1 and 2 (and exercised here through every
+# metric's pass/fail tests); the drivers run inside the project trees and are exercised by live runs.
+source = ["src/hoteleval", "views", "dashboard"]
+omit = ["src/hoteleval/vendor/*", "src/hoteleval/drivers/*"]
