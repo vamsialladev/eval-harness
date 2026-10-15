@@ -20,7 +20,8 @@ prompt, model or retrieval change can't lower quality without a red check.**
 🔗 **[Live dashboard](https://eval-harness.streamlit.app)** (read-only, no API calls) · 🎥 **[Demo video](https://vamsialla.com/videos/eval-harness-demo.mp4)** (narrated, captioned) · 📄 **[Case study](https://vamsialla.com/projects/eval-harness.html)** · 💰 **[Business case](docs/BUSINESS_CASE.md)** · 🏗️ **[Architecture](docs/ARCHITECTURE.md)** · 🧭 **[Decisions](docs/DECISIONS.md)**
 <sub>Free hosting: if the app is asleep, click ‘wake up’ and give it about 30 seconds.</sub>
 
-<!-- <p align="center"><img src="docs/images/demo.gif" alt="The live dashboard: overview of both projects' gates, a failing case drill-down, judge calibration and the regression demo" width="760"></p> -->
+<p align="center"><img src="docs/images/demo.gif" alt="On the live dashboard: the Cases page filtered to the regression demo run, and q13 drilled down to its expected passage, three refused answers and failed verdicts" width="760"></p>
+<p align="center"><strong><a href="https://vamsialla.com/projects/eval-harness.html#demo">▶ Watch the demo (with narration)</a></strong> · <strong><a href="https://eval-harness.streamlit.app">Open the live dashboard</a></strong> (read-only, no sign-in)</p>
 
 ---
 
@@ -68,11 +69,9 @@ had its own scripts, its own report format and no gate in CI.
 - **Read-only dashboard:** Overview, Runs over time, Cases (drill down to the recorded output and every verdict),
   Judge calibration, How it works, Disclaimer. No input, no API calls, no secrets.
 
-<!--
 | Overview | A failing case | Judge calibration |
 |---|---|---|
 | <img src="docs/images/overview.png" alt="Dashboard overview: both projects' gated metrics with intervals and pass badges" width="300"> | <img src="docs/images/case.png" alt="Case drill-down: q13 in the regression demo, expected passage, recorded answers and failed verdicts" width="300"> | <img src="docs/images/calibration.png" alt="Judge calibration: confusion matrix, kappa 0.00 and no trusted metrics" width="300"> |
--->
 
 ## Business value
 
@@ -178,11 +177,22 @@ and q35 failed in every run after passing in every baseline run. Recorded mode (
 numeric grounding, naming q13 and q35. The branch was deleted and never pushed or merged
 ([reports](reports/p1-demo-topk2-live.md)).
 
+<details><summary>The gate output (real)</summary>
+
+<img src="docs/images/gate-fail.png" alt="hoteleval gate on the regression demo run: FAIL, 4 gate failures, each naming q13 and q35" width="760">
+<img src="docs/images/gate-pass.png" alt="hoteleval gate on the fresh Project 2 re-run: PASS, every gated check ok" width="760">
+</details>
+
 **Judge calibration.** 40 stratified items labelled by hand by the owner: **all 40 pass**. Rubric v1 agreed on 38
 (95%) and failed two clarity items; kappa **0.00**, undefined for completeness and tone. One revision (v2) fixed the
 item it targeted; agreement stayed 95%, kappa 0.00. Three identical v2 passes agreed on 39 of 40 items. **No judge
 metric is trusted, so none is a gate.** On the full re-runs the judge fails 13–17% of replies on clarity: stricter
 than the labels, and only labels with real failures can say who is right ([decision 17](docs/DECISIONS.md)).
+
+<details><summary>Calibration output (real)</summary>
+
+<img src="docs/images/calibrate.png" alt="hoteleval calibrate: v1 and v2 both at 40 items, agreement 95%, kappa 0.00, trusted: none" width="760">
+</details>
 
 <details><summary>Metric definitions</summary>
 
@@ -305,6 +315,11 @@ secrets. Every push redeploys it.
 86 tests at 93% coverage: the schema, every metric passing and failing, statistics, kappa, gates, adapters, the
 runner, reports, the judge with a fake client, the CLI and every dashboard page (Streamlit AppTest). CI: ruff lint
 and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of every saved report.
+
+<details><summary>Test run (real)</summary>
+
+<img src="docs/images/tests.png" alt="pytest: 86 passed, total coverage 93%" width="760">
+</details>
 
 ## Security and privacy
 
