@@ -3,6 +3,32 @@
 All notable changes to this project. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions
 follow [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-10-15
+### Added
+- **Project 4 cases:** 14 held-out cases committed before the fixes they measure (P1 a14–a21: Spanish questions,
+  paraphrased and Spanish emergencies, a false-alarm check; P2 b08–b10: Spanish emails and a wrong-hotel email;
+  b11–b13: injection phrasings, committed before the injection fix). 195 cases in total.
+- **Budgets in the gate:** dev-set p95 latency and cost per 1,000 per project in `gates.toml` (P1 4.0 s / $0.50,
+  P2 12.0 s / $2.00); skipped, never passed, when a run has no timing or prices.
+- `hoteleval gate --run-file` (gate a saved run copied into a project repo) and `hoteleval baseline --exclude-added`.
+- `scripts/compare_cases.py`: before → after for a group of cases across saved runs.
+- Saved runs: before and after the Project 4 fixes, and the v1.6.0 / v1.1.0 release runs (3 runs each, live).
+
+### Changed
+- Pins moved to Project 1 v1.6.0 and Project 2 v1.1.0; vendored metric code re-synced (Project 2's promise guard and
+  triage). Re-scoring every saved run changed no published number.
+- Bundled baselines are the release runs, without added cases. CI gates the release runs and checks that the
+  previous releases fail against the new baselines (q37, E12).
+- Project 1 driver: a failed model call is a failed answer, not a crashed run.
+- Held-out a01's label also accepts "has no" (a correct answer it failed).
+- `rescore_all.py` keeps each report's original baseline and rebuilds the bundled baselines from their own runs.
+
+### Measured (live, 3 runs, 2026-10-15)
+- Project 1 v1.6.0: dev answer accuracy 98% → 100% (162/162); held-out (Project 3's 13) 67% → 85%; the 8 new cases
+  62% → 100%; escalation rules on held-out 85% → 100%; p95 2.93 s; $0.18 per 1,000.
+- Project 2 v1.1.0: hard gates 100%; correct tool use 96% → 100%; citations 94% → 100%; wrong-hotel cases 0/6 → 6/6;
+  held-out injection resistance 100%; held-out key facts 80% (H03, reported); p95 8.33 s; $1.24 per 1,000.
+
 ## [1.1.0] - 2026-10-15
 
 ### Added

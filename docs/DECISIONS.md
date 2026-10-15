@@ -239,3 +239,45 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
 - **Result.** The open question is the standard itself: the owner passed 11 of 15 deliberately degraded replies. A
   second labeler, written pass/fail examples for each quality, and fresh labels come before any judge metric gates
   or reports.
+
+## 22. Latency and cost budgets in the gate; saved runs gated by file; one label widened (Project 4)
+
+- **Context.** Project 4 needed explicit latency and cost budgets checked in CI. The apps' CI could only gate their
+  own recordings, which have no prices. During the Project 4 re-run, held-out a01 failed on a correct answer:
+  "Mountain Lodge has no on-site pool" — the label only accepted "not" or "doesn't".
+- **Decision.** `gates.toml` gets a `budgets` table per project (Project 1: dev-set p95 ≤ 4.0 s and ≤ $0.50 per
+  1,000; Project 2: ≤ 12.0 s and ≤ $2.00), the same numbers as the apps' `BUDGET_*` defaults. A budget fails when the
+  measured value is over it and is **skipped, not passed**, when a run has no timing or prices. `hoteleval gate
+  --run-file` gates a saved run (outputs + meta, with prices) copied into a project repo. a01's label also accepts
+  "has no"; the old run's score is unchanged (67%) because no old answer used that wording.
+- **Tradeoff.** Budgets are checked on saved live runs, not on every commit's fresh latency (that would need the API in
+  CI). Widening a label after seeing an answer is a judgement call; it is recorded here with the exact sentence.
+- **Result.** Tests show each budget passing, failing with a clear reason, and skipping; the Project 4 runs pass
+  (Project 1 p95 2.93 s, $0.18 per 1,000).
+
+## 23. A failed model call is a failed answer, never a crashed run (Project 4)
+
+- **Context.** Project 1's new 30-second timeout fired mid-stream on q19 during the Project 4 live run, and the
+  Project 1 driver had no error handling, so the whole run stopped after 18 questions.
+- **Decision.** The driver records a failed call as an empty answer (it fails answer accuracy honestly) and carries on.
+- **Tradeoff.** A run during an outage now finishes with bad numbers instead of stopping; the report shows the
+  failures and the log line names each one.
+- **Result.** The re-run completed with 0 failed calls; the partial run's ~18 calls are in the API spend.
+
+## 24. New pins and baselines at the Project 4 releases; added cases still reported, not gated (Project 4)
+
+- **Context.** Projects 1 and 2 shipped v1.6.0 and v1.1.0. The bundled baselines were the 2026-10-10 / 2026-10-14
+  runs, and the vendored metric code was Project 2's guard from before its fix for policy statements (held-out b06).
+- **Decision.** Pins move to the release commits; the vendored files are re-synced (byte for byte, SHA in
+  `SOURCE.json`) and every saved report is re-scored with them. New baselines are the Project 4 live runs, bundled with
+  `hoteleval baseline --exclude-added`, so cases added after a project shipped (Project 3's and Project 4's) stay
+  reported, not gated (decision 14). Fourteen Project 4 cases were committed **before** the fixes they measure
+  (a14–a21, b08–b10 first; b11–b13 before the injection fix).
+- **Tradeoff.** Re-scoring old runs with the fixed guard changes some old numbers; each change is listed in the
+  changelog with its cause.
+- **Result.** Both release runs pass against the new baselines (Project 1: 12 checks, p95 2.93 s, $0.18 per 1,000;
+  Project 2: 24 checks, p95 8.33 s, $1.24). The previous releases now **fail** against them (q37 and E12 are stable
+  flips), which CI checks on purpose: the gate would catch a rollback. Against its old baseline, Project 2 v1.1.0 has
+  one failure, recorded in its report and accepted: H03's key fact (decision 20 in that repo). All 16 saved reports
+  re-score to the same numbers; re-scoring the old runs with the re-synced metrics changed no published number. The
+  apps' CI keeps the v1.0.0 recorded-mode job and adds a v1.2.0 job that gates the release's saved live run.

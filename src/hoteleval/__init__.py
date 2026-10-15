@@ -3,4 +3,4 @@
 Recorded mode (the default, and what CI runs) re-scores saved outputs without any API call.
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
