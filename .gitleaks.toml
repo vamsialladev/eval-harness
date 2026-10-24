@@ -1,0 +1,8 @@
+# Default gitleaks rules, plus one allowlist: the judge cache's "key" field is a SHA-256 of the judge input
+# (hoteleval.judge cache), not a credential. Every other file is scanned with the default rules.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Judge cache keys are SHA-256 input hashes"
+paths = ['''^judge/cache\.jsonl$''']
