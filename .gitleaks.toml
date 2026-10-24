@@ -3,6 +3,6 @@
 [extend]
 useDefault = true
 
-[[allowlists]]
+[allowlist]
 description = "Judge cache keys are SHA-256 input hashes"
 paths = ['''^judge/cache\.jsonl$''']
