@@ -281,3 +281,13 @@ Each decision: context, decision, tradeoff, result. Numbers come from saved runs
   one failure, recorded in its report and accepted: H03's key fact (decision 20 in that repo). All 16 saved reports
   re-score to the same numbers; re-scoring the old runs with the re-synced metrics changed no published number. The
   apps' CI keeps the v1.0.0 recorded-mode job and adds a v1.2.0 job that gates the release's saved live run.
+
+## 25. No AI voice in the demo video; my own voice instead (2026-10-24)
+**Context:** The demo video had an AI narration (Piper), labelled as such. Viewers said an AI voice makes a portfolio
+demo feel less personal.
+**Decision:** `scripts/record_demo.py` no longer synthesizes or mixes a voice; it records the live dashboard with
+Playwright and burns in the step captions. I record my own voice from `docs/VIDEO_SCRIPT.md`; captions of my voice
+come from `scripts/make_captions.py` (faster-whisper, local). `piper-tts` removed from `requirements-dev.txt`.
+**Tradeoff:** A new video needs me to record it.
+**Result:** The README has a `<!-- DEMO-VIDEO -->` slot for the new video; the GIF stays (it never had sound).
+

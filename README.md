@@ -11,17 +11,19 @@
 behind one registry, an LLM judge checked against human labels, honest statistics and regression gates in CI, so a
 prompt, model or retrieval change can't lower quality without a red check.**
 
-> **Project 3 of 5** in my portfolio: one *simulated client engagement* for a fictional hotel group with two
-> properties, a beach resort and a mountain lodge. Documents, guests, bookings and emails are synthetic. It evaluates
-> [Project 1](https://github.com/vamsialladev/hotel-ops-assistant) (staff policy assistant, RAG) and
-> [Project 2](https://github.com/vamsialladev/guest-request-agent) (guest email agent). Business value is a projection
-> from stated assumptions.
+> **Stage 3 of a simulated client engagement** for a fictional hotel group with two properties, a beach resort and a
+> mountain lodge. Documents, guests, bookings and emails are synthetic. It evaluates
+> [stage 1](https://github.com/vamsialladev/hotel-ops-assistant) (staff policy assistant, RAG) and
+> [stage 2](https://github.com/vamsialladev/guest-request-agent) (guest email agent). Business value is a projection
+> from stated assumptions. Discovery and scoping (stage 0): [hotel-ai-discovery](https://github.com/vamsialladev/hotel-ai-discovery).
 
-🔗 **[Live dashboard](https://eval-harness.streamlit.app)** (read-only, no API calls) · 🎥 **[Demo video](https://vamsialla.com/videos/eval-harness-demo.mp4)** (narrated, captioned) · 📄 **[Case study](https://vamsialla.com/projects/eval-harness.html)** · 💰 **[Business case](docs/BUSINESS_CASE.md)** · 🏗️ **[Architecture](docs/ARCHITECTURE.md)** · 🧭 **[Decisions](docs/DECISIONS.md)**
-<sub>Free hosting: if the app is asleep, click ‘wake up’ and give it about 30 seconds.</sub>
+<!-- DEMO-VIDEO -->
 
 <p align="center"><img src="docs/images/demo.gif" alt="On the live dashboard: the Cases page filtered to the regression demo run, and q13 drilled down to its expected passage, three refused answers and failed verdicts" width="760"></p>
-<p align="center"><strong><a href="https://vamsialla.com/projects/eval-harness.html#demo">▶ Watch the demo (with narration)</a></strong> · <strong><a href="https://eval-harness.streamlit.app">Open the live dashboard</a></strong> (read-only, no sign-in)</p>
+
+**▶ Try it live: [eval-harness.streamlit.app](https://eval-harness.streamlit.app)** (read-only dashboard, no sign-in, no API calls). Free hosting: may take ~30 s to wake.
+
+📄 **[Case study](https://vamsialla.com/projects/eval-harness.html)** · 💰 **[Business case](docs/BUSINESS_CASE.md)** · 🏗️ **[Architecture](docs/ARCHITECTURE.md)** · 🧭 **[Decisions](docs/DECISIONS.md)**
 
 ---
 
@@ -30,9 +32,10 @@ prompt, model or retrieval change can't lower quality without a red check.**
 | | |
 |---|---|
 | **Problem** | Two AI assistants, each with its own eval scripts and report format. A cheaper model, a new prompt or a retrieval setting can lower quality, and nothing would say so before staff notice. |
-| **Solution** | An installable harness (`hoteleval`): 195 labelled cases in one schema (181 in Project 3, 14 added in Project 4), the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
+| **Solution** | An installable harness (`hoteleval`): 195 labelled cases in one schema (181 in stage 3, 14 added in stage 4), the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
+| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 70 hand labels in two blind rounds (round 2 enriched with failures): best **kappa 0.29** overall (tone 0.51, clarity 0.23, completeness 0.00), so **no judge metric is trusted**, reported as a score or gated. **v1.2.0 (stage 4):** latency and cost budgets gated in CI; the harness measured the four backlog fixes before → after (stage 1 held-out 67% → 85%, stage 2 wrong-hotel 0/6 → 6/6) and gates the new releases; the previous releases fail against the new baselines. 92 tests, 93% coverage. |
+| **Cost (measured)** | The dashboard and CI gates make no API calls ($0). A full live re-run of both projects: $0.29. Whole stage 3 API spend: $0.41. |
 | **Projected value** | ~$26K/yr net for the two assistants (range $1.5K–$68K), mostly engineer time per change ([assumptions](docs/BUSINESS_CASE.md)) |
-| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 70 hand labels in two blind rounds (round 2 enriched with failures): best **kappa 0.29** overall (tone 0.51, clarity 0.23, completeness 0.00), so **no judge metric is trusted**, reported as a score or gated. 87 tests, 93% coverage. Whole project's API spend: **$0.41**. **Project 4 (v1.2.0):** latency and cost budgets gated in CI; the harness measured the four backlog fixes before → after (Project 1 held-out 67% → 85%, Project 2 wrong-hotel 0/6 → 6/6) and gates the new releases; the previous releases fail against the new baselines. |
 
 ## Where to start
 
@@ -81,6 +84,8 @@ A projection from stated assumptions, not a measured saving (`python scripts/bus
 |---|---|---|---|
 | Engineer hours saved | 72 | 240 | 504 |
 | Net value | $1,493 | **$26,273** | $67,613 |
+
+**Who benefits:** the engineer making changes (a re-run and a verdict instead of a manual check), the client owner (a red check before a worse release reaches staff). **How a pilot would measure it:** engineer hours per change before and after, regressions caught in CI vs. reported by staff.
 
 Changes per month drive most of the value; the API cost of a full live re-run of both projects is measured ($0.29).
 Details, sensitivity, pilot plan and go / no-go KPIs: [docs/BUSINESS_CASE.md](docs/BUSINESS_CASE.md).
@@ -231,6 +236,18 @@ the standard itself needs written examples and a second labeler ([decisions 17, 
 - **Graders were wrong four times in this project:** a policy description read as a promise, two correct injection
   rejections, and "50 $". Each is fixed, logged and tested with the exact sentence.
 - **Held-out cases find what tuning hides:** Spanish blocked before the model, safety wording the rules don't know.
+
+## Design at scale
+
+What exists today is marked **Built**; anything else is **Roadmap**.
+
+| Topic | Design |
+|---|---|
+| **Model choice and why** | **Built:** the harness itself needs no model: every gated metric is deterministic code from the projects. The optional judge is Claude Haiku 5.5 (effort low, structured output, cached by input hash so a re-run costs nothing). It's cheap enough to run on every reply, but it agreed with my labels only at kappa 0.29, so it's reported for calibration only. **Roadmap:** a written labelling standard and a second labeler before any judge metric is trusted; a larger judge model only if it measurably agrees better. |
+| **PII and tenant isolation** | **Built:** every case and saved output is synthetic; the dashboard is read-only, holds no secrets and calls no API. Each project's cases, pins and baselines are separate files. **Roadmap:** for a real client, eval cases sampled from production would go through the same redaction as the apps' request logs (`src/pii.py` in both apps) before they're saved, and each client's cases would live in its own repo or bucket. |
+| **10K → 1M users** | **What breaks first:** a live re-run costs time and money in proportion to cases × runs, and saved runs grow as JSONL files in git that the dashboard reads into memory. **Built:** recorded mode re-scores saved outputs with no API calls (that's what CI runs); the judge cache. **Roadmap:** a nightly live run on a stratified sample instead of every case; saved runs in object storage or a database with an index; production traffic sampled into new labelled cases each week. |
+| **Monitoring, alerting, hallucination and off-brand detection** | **Built:** gates on every push in both apps' CI: hard 100% gates (escalation, injection, no promises), floors on groups of 10+ cases, "below the baseline's Wilson interval", stable flips (a case that fails in every run), p95 latency and cost budgets. Hallucination checks are the projects' deterministic metrics (strict retrieval, citation accuracy, numeric and fact grounding). CI re-scores every saved report so a metric fix can't silently change old numbers. **Roadmap:** off-brand tone gated by the judge, once calibrated. |
+| **Failure modes and rollback** | **Built:** a failed model call is recorded as a failed answer, never a crashed run; budgets are "skipped", never "passed", when a run has no timing; baselines are pinned to releases, and CI checks the previous releases fail against the new baselines. Rollback: gate a change against the last release's baseline; revert the app commit that failed. |
 
 ## Skills demonstrated
 

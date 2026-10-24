@@ -3,6 +3,15 @@
 All notable changes to this project. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions
 follow [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+### Changed
+- README first screen: value line, demo video slot, "Try it live" with the wake note, At a glance with a cost row;
+  new "Design at scale" section; Business value names who benefits and how a pilot would measure it; tests 92.
+- `scripts/record_demo.py` records a captioned screen recording with no AI voice (decision 25); `piper-tts` removed.
+- streamlit 1.66.1 with a Pillow 13 floor (pip-audit: 37 CVEs in Pillow 12.3).
+### Added
+- CI: lychee link check on the README and docs; gitleaks secret scan (CI and pre-commit).
+
 ## [1.2.0] - 2026-10-15
 ### Added
 - **Project 4 cases:** 14 held-out cases committed before the fixes they measure (P1 a14–a21: Spanish questions,
