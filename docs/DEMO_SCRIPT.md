@@ -1,7 +1,8 @@
 # Demo script (about 90 seconds, live dashboard)
 
 Recorded by `python scripts/record_demo.py` from https://eval-harness.streamlit.app (read-only, no API calls).
-Narration: an AI voice (Piper `en_US-lessac-high`, open source, offline), labelled "Narration: AI voice".
+No voice (decision 25): burned-in captions only. The "Narration" column is what each step shows; the video I
+record in my own voice follows `docs/VIDEO_SCRIPT.md`.
 
 | Time | Screen | Narration |
 |---|---|---|

@@ -37,7 +37,7 @@ calibrate:      ## judge vs human labels: agreement, kappa, confusion matrix (fr
 index:          ## rebuild reports/index.json for the dashboard
 	python -m hoteleval.cli index
 
-video:          ## record the narrated demo video from the live dashboard
+video:          ## record the captioned demo video (no voice) from the live dashboard
 	python scripts/record_demo.py
 
 screenshots:    ## README screenshots (dashboard must be running)

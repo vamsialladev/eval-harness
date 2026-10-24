@@ -1,8 +1,7 @@
-"""Record the narrated, captioned demo video from the LIVE dashboard: real saved results, nothing staged.
+"""Record the captioned demo video from the LIVE dashboard: real saved results, nothing staged.
 
 python scripts/record_demo.py                       # record + build docs/video/demo.mp4, docs/images/demo.gif
 python scripts/record_demo.py --rebuild             # rebuild from the last recording
-python scripts/record_demo.py --no-voice            # captions only, no narration
 python scripts/record_demo.py --web-out ../vamsi-portfolio/videos/eval-harness-demo.mp4   # + web copy
 python scripts/record_demo.py --app http://localhost:8501/                                # rehearse locally
 
@@ -11,20 +10,18 @@ failure reasons, a failing case (q13 in the demo run) drilled down to its verdic
 dashboard is read-only and calls no API, so recording costs nothing. Also saves README screenshots
 (docs/images/overview.png, case.png, calibration.png) from the same session.
 
-Narration: an AI voice from Piper (open source, offline, no voice cloning), timed to each step. Mixed to about
--16 LUFS, AAC. Writes a WebVTT captions track, the narration text and a burned-in-captions copy for LinkedIn
-(--linkedin-out). Reuses Project 2's downloaded voice model when it is there.
+No narration: the video is a silent screen recording with burned-in step captions. I record my own voice
+over it from docs/VIDEO_SCRIPT.md (no AI voice); scripts/make_captions.py then captions my voice.
+Also writes a WebVTT track of the captions and a LinkedIn copy (--linkedin-out).
 
-Dev-only: needs Playwright, piper-tts (requirements-dev.txt) and ffmpeg on PATH. docs/video/ is git-ignored.
+Dev-only: needs Playwright (requirements-dev.txt) and ffmpeg on PATH. docs/video/ is git-ignored.
 """
 
 import argparse
 import json
-import re
 import shutil
 import subprocess
 import time
-import wave
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -32,9 +29,6 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "video"
 WORK = OUT / "work"
-VOICES = OUT / "voices"
-SHARED_VOICES = ROOT.parent / "guest-request-agent" / "docs" / "video" / "voices"
-VOICE = "en_US-lessac-high"
 IMAGES = ROOT / "docs" / "images"
 GIF = IMAGES / "demo.gif"
 APP = "https://eval-harness.streamlit.app/~/+/"  # the app itself, without Streamlit Cloud's frame
@@ -51,26 +45,8 @@ TITLE = "Eval Harness"
 SUBTITLE = "Simulated client engagement · synthetic data · no live API calls"
 TITLE_SECONDS = 3
 LEAD, GAP = 0.4, 0.35
-SPEED = 1.08
 GIF_STEP = "case"
 
-NARRATION = {
-    "title": "Eval Harness: a simulated client project, part three of five.",
-    "overview": "One harness now checks both of the hotel group's assistants the same way: the same cases, metrics "
-    "and gates, with ninety-five percent intervals on every rate.",
-    "gates": "It reproduces both projects' published numbers from their own recordings, and fresh re-runs at the "
-    "pinned versions pass every gate.",
-    "demo": "Then I made a realistic bad change on a throwaway branch: two passages instead of five, to save tokens. "
-    "Retrieval only fell from ninety-eight to ninety-three percent, inside the interval.",
-    "caught": "The gate still failed, because two questions that always passed now always fail. The message names "
-    "them. The branch was never merged.",
-    "case": "Here is one: a spa question about a sixteen-year-old. The right passage dropped out, and every metric "
-    "shows it.",
-    "judge": "An AI judge rates tone and clarity. I labelled seventy replies by hand, in two blind rounds, the second "
-    "one full of failures on purpose. Its best kappa was point two nine, well under the bar of point six. So no "
-    "judge score is trusted, and none is a gate.",
-    "end": "The code, the reports and every decision are linked on screen.",
-}
 CAPTIONS = {
     "overview": "Both assistants, one harness: same cases, metrics and gates.",
     "gates": "Published numbers reproduced; fresh re-runs pass every gate.",
@@ -81,43 +57,9 @@ CAPTIONS = {
 }
 
 
-# ---------------------------------------------------------------- narration
-def voice_model() -> Path:
-    model = VOICES / f"{VOICE}.onnx"
-    if not model.exists():
-        VOICES.mkdir(parents=True, exist_ok=True)
-        shared = SHARED_VOICES / f"{VOICE}.onnx"
-        if shared.exists():
-            for f in SHARED_VOICES.glob(f"{VOICE}.onnx*"):
-                shutil.copy(f, VOICES / f.name)
-        else:
-            subprocess.run(["python", "-m", "piper.download_voices", VOICE, "--download-dir", str(VOICES)], check=True)
-    return model
-
-
-def wav_seconds(path: Path) -> float:
-    with wave.open(str(path), "rb") as w:
-        return w.getnframes() / w.getframerate()
-
-
-def synthesize(lines: dict, folder: Path) -> dict:
-    from piper import PiperVoice, SynthesisConfig
-
-    voice = PiperVoice.load(str(voice_model()))
-    config = SynthesisConfig(length_scale=SPEED)
-    folder.mkdir(parents=True, exist_ok=True)
-    durations = {}
-    for key, text in lines.items():
-        path = folder / f"{key}.wav"
-        with wave.open(str(path), "wb") as w:
-            voice.synthesize_wav(text, w, syn_config=config)
-        durations[key] = round(wav_seconds(path), 2)
-    return durations
-
-
 # ---------------------------------------------------------------- recording
 class Recorder:
-    """Keeps the screen and the narration in step. Times are video seconds (after the title card)."""
+    """Times each step. Times are video seconds (after the title card)."""
 
     def __init__(self, page, durations: dict):
         self.page, self.t0, self.steps, self.durations = page, time.monotonic(), [], durations
@@ -289,7 +231,7 @@ def title_card(path: Path):
     img.save(path)
 
 
-def end_card(path: Path, narrated: bool = True):
+def end_card(path: Path):
     img = Image.new("RGB", SIZE, GREEN)
     d = ImageDraw.Draw(img)
     d.rectangle([0, SIZE[1] - 14, SIZE[0], SIZE[1]], fill=BRASS)
@@ -299,8 +241,6 @@ def end_card(path: Path, narrated: bool = True):
         y = 260 + i * 90
         centered(d, y, label.upper(), label_font, "#E8D9B5")
         centered(d, y + 34, url, link_font, INK)
-    if narrated:
-        centered(d, 600, "Narration: AI voice (Piper, open source)", font("arial.ttf", 22), CREAM)
     img.save(path)
 
 
@@ -338,21 +278,14 @@ def captions(timeline: dict, offset: float) -> str:
     return head + "\n".join(lines) + "\n"
 
 
-def narration_cues(timeline: dict) -> list[tuple[float, float, str]]:
-    """(start, end, text) for every spoken line, in video time, split into sentences (timed by length)."""
-    durations = timeline["durations"]
-    lines = [(LEAD, "title")] + [(s["audio"], s["key"]) for s in timeline["steps"]]
-    if timeline.get("end_audio") is not None:
-        lines.append((timeline["end_audio"], "end"))
-    cues = []
-    for start, key in lines:
-        text, length = NARRATION[key], durations.get(key, 0)
-        sentences = [s for s in re.split(r"(?<=[.:?!])\s+(?=[A-Z])", text) if s]  # not after "p.m. checkout"
-        total, t = sum(len(s) for s in sentences), start
-        for s in sentences:
-            span = length * len(s) / total
-            cues.append((round(t, 2), round(t + span, 2), s))
-            t += span
+def caption_cues(timeline: dict, offset: float) -> list[tuple[float, float, str]]:
+    """(start, end, caption) per step in video time: the same words as the burned-in captions, for the web
+    copy's WebVTT track."""
+    steps, cues = timeline["steps"], []
+    for i, step in enumerate(steps):
+        start = step["start"] - timeline["trim"] + offset
+        stop = (steps[i + 1]["start"] if i + 1 < len(steps) else timeline["end"]) - timeline["trim"] + offset
+        cues.append((round(start, 2), round(stop - 0.05, 2), step["caption"]))
     return cues
 
 
@@ -363,58 +296,16 @@ def webvtt(cues) -> str:
     return "WEBVTT\n\n" + "\n".join(f"{vtt_time(a)} --> {vtt_time(b)} {VTT_POSITION}\n{text}\n" for a, b, text in cues)
 
 
-def script_text(cues) -> str:
-    out = [
-        f"{TITLE}: demo narration (exact words, with start times in the video).",
-        "Read these lines over docs/video/demo.mp4 to record your own voice version.",
-        "",
-    ]
-    out += [f"[{int(a // 60)}:{a % 60:04.1f}] {text}" for a, _, text in cues]
-    return "\n".join(out) + "\n"
-
-
 def ffmpeg(*args: str):
     subprocess.run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", *args], check=True, cwd=WORK)
 
 
-def mix_narration(timeline: dict, total: float) -> Path:
-    """Place each line at its time, then normalise loudness to about -16 LUFS (true peak -1.5 dB), AAC."""
-    clips = [("title", LEAD)] + [(s["key"], s["audio"]) for s in timeline["steps"]] + [("end", timeline["end_audio"])]
-    inputs, chains = [], []
-    for i, (key, at) in enumerate(clips):
-        inputs += ["-i", f"voice/{key}.wav"]
-        ms = int(at * 1000)
-        chains.append(f"[{i}:a]adelay={ms}|{ms},aresample=48000[a{i}]")
-    graph = ";".join(chains) + ";" + "".join(f"[a{i}]" for i in range(len(clips)))
-    graph += f"amix=inputs={len(clips)}:normalize=0,apad=whole_dur={total:.2f},loudnorm=I=-16:TP=-1.5:LRA=11[out]"
-    ffmpeg(
-        *inputs,
-        "-filter_complex",
-        graph,
-        "-map",
-        "[out]",
-        "-t",
-        f"{total:.2f}",
-        "-c:a",
-        "aac",
-        "-b:a",
-        "160k",
-        "-ar",
-        "48000",
-        "narration.m4a",
-    )
-    return WORK / "narration.m4a"
-
-
-def build(timeline: dict, voice: bool) -> Path:
+def build(timeline: dict) -> Path:
     length = timeline["end"] - timeline["trim"]
-    durations = timeline["durations"]
-    end_audio = TITLE_SECONDS + length + LEAD if voice else None
-    end_seconds = max(6.0, (durations.get("end", 0) + LEAD + 1.2) if voice else 6.0)
-    timeline["end_audio"] = end_audio
+    end_seconds = 6.0
     total = TITLE_SECONDS + length + end_seconds
     title_card(WORK / "title.png")
-    end_card(WORK / "end.png", narrated=voice)
+    end_card(WORK / "end.png")
     (WORK / "captions.ass").write_text(captions(timeline, TITLE_SECONDS), encoding="utf-8")
     scale = f"scale={SIZE[0]}:{SIZE[1]},fps={FPS},format=yuv420p,setsar=1"
     band = f"scale={VIEW[0]}:{VIEW[1]},pad={SIZE[0]}:{SIZE[1]}:0:0:color=0x111111,fps={FPS},format=yuv420p,setsar=1"
@@ -426,22 +317,16 @@ def build(timeline: dict, voice: bool) -> Path:
     )
     OUT.mkdir(parents=True, exist_ok=True)
     out = OUT / "demo.mp4"
-    audio = ["-i", str(mix_narration(timeline, total)), "-map", "3:a", "-c:a", "copy"] if voice else []
     ffmpeg(
         *("-loop", "1", "-t", str(TITLE_SECONDS), "-i", "title.png"),
         *("-ss", f"{timeline['trim']:.2f}", "-t", f"{length:.2f}", "-i", "raw.webm"),
         *("-loop", "1", "-t", f"{end_seconds:.2f}", "-i", "end.png"),
-        *audio[:2],
         *("-filter_complex", graph, "-map", "[v]"),
-        *audio[2:],
         *("-c:v", "libx264", "-preset", "slow", "-crf", "22", "-pix_fmt", "yuv420p", "-movflags", "+faststart"),
         *("-t", f"{total:.2f}"),
         str(out),
     )
-    if voice:
-        cues = narration_cues(timeline)
-        (OUT / "demo.vtt").write_text(webvtt(cues), encoding="utf-8")
-        (OUT / "narration-script.txt").write_text(script_text(cues), encoding="utf-8")
+    (OUT / "demo.vtt").write_text(webvtt(caption_cues(timeline, TITLE_SECONDS)), encoding="utf-8")
     (WORK / "timeline.json").write_text(json.dumps(timeline, indent=2), encoding="utf-8")
     return out
 
@@ -460,11 +345,11 @@ def gif(timeline: dict, step_key: str = GIF_STEP):
 
 def web_copy(src: Path, dest: Path):
     """Smaller H.264 + AAC copy for the portfolio site (starts playing at once), a poster from the title card,
-    and the narration captions track."""
+    and the captions track."""
     dest.parent.mkdir(parents=True, exist_ok=True)
     ffmpeg(
         *("-i", str(src), "-c:v", "libx264", "-preset", "slow", "-crf", "27", "-profile:v", "high"),
-        *("-c:a", "aac", "-b:a", "128k", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dest)),
+        *("-an", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dest)),
     )
     ffmpeg("-ss", "1.5", "-i", str(src), "-frames:v", "1", "-q:v", "3", str(dest.with_suffix(".jpg")))
     if (OUT / "demo.vtt").exists():
@@ -472,43 +357,9 @@ def web_copy(src: Path, dest: Path):
 
 
 def linkedin_copy(dest: Path):
-    """A copy with the narration captions burned in at the top (LinkedIn autoplays muted; the step captions stay in
-    the band at the bottom) and a 1200x627 thumbnail. The captions go through SRT because libass misplaces the
-    WebVTT position hints; Alignment=6 is top-centre in the legacy numbering libass uses for SRT."""
+    """A copy for LinkedIn (it autoplays muted; the step captions are burned in) and a 1200x627 thumbnail."""
     dest.parent.mkdir(parents=True, exist_ok=True)
-    cues = narration_cues(json.loads((WORK / "timeline.json").read_text(encoding="utf-8")))
-    srt = "".join(
-        f"{i}\n{vtt_time(a).replace('.', ',')} --> {vtt_time(b).replace('.', ',')}\n{text}\n\n"
-        for i, (a, b, text) in enumerate(cues, 1)
-    )
-    (OUT / "demo.srt").write_text(srt, encoding="utf-8")
-    style = (
-        "FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H99000000,BorderStyle=4,Alignment=6,MarginV=14"
-    )
-    subprocess.run(
-        [
-            "ffmpeg",
-            "-y",
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-i",
-            "demo.mp4",
-            "-vf",
-            f"subtitles=demo.srt:force_style='{style}'",
-            "-c:v",
-            "libx264",
-            "-crf",
-            "22",
-            "-c:a",
-            "copy",
-            "-movflags",
-            "+faststart",
-            str(dest),
-        ],
-        check=True,
-        cwd=OUT,
-    )
+    shutil.copy(OUT / "demo.mp4", dest)  # the step captions are already burned in
     card = Image.open(WORK / "title.png").convert("RGB")
     width = round(card.height * 1200 / 627)
     left = (card.width - width) // 2
@@ -518,29 +369,26 @@ def linkedin_copy(dest: Path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--rebuild", action="store_true", help="reuse the last recording and narration")
-    parser.add_argument("--no-voice", action="store_true", help="captions only, no narration")
+    parser.add_argument("--rebuild", action="store_true", help="reuse the last recording")
     parser.add_argument("--web-out", type=Path, help="also write a web copy (+ .jpg poster and .vtt) here")
-    parser.add_argument("--linkedin-out", type=Path, help="also write a burned-in-captions copy here")
+    parser.add_argument("--linkedin-out", type=Path, help="also write a LinkedIn copy and thumbnail here")
     parser.add_argument("--app", default=APP, help="dashboard URL to record (default: the live app)")
     args = parser.parse_args()
     if not shutil.which("ffmpeg"):
         raise SystemExit("ffmpeg not found. Install it (winget install Gyan.FFmpeg) and open a new terminal.")
-    voice = not args.no_voice
     if args.rebuild:
         timeline = json.loads((WORK / "timeline.json").read_text(encoding="utf-8"))
     else:
         shutil.rmtree(WORK, ignore_errors=True)
         WORK.mkdir(parents=True)
-        durations = synthesize(NARRATION, WORK / "voice") if voice else {}
-        timeline = record(durations, args.app)
-    out = build(timeline, voice)
+        timeline = record({}, args.app)
+    out = build(timeline)
     gif(timeline)
     print(f"saved {out.relative_to(ROOT)} and {GIF.relative_to(ROOT)}")
     if args.web_out:
         web_copy(out, args.web_out.resolve())
         print(f"saved {args.web_out} with its .jpg poster and .vtt captions")
-    if args.linkedin_out and voice:
+    if args.linkedin_out:
         linkedin_copy(args.linkedin_out.resolve())
         print(f"saved {args.linkedin_out} and thumbnail.jpg")
 
