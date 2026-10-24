@@ -30,7 +30,7 @@ This is an eval tool, not a chatbot, so the shots are adapted: the "action" is a
 | 3 | Cases | Switch the run to the P1 v1.6.0 release run, same case |
 | 4 | Judge calibration | Scroll to the agreement table |
 
-Tested 2026-10-24: the live dashboard answered (Streamlit status: up). The pages and runs above are saved data, so
+Checked 2026-10-24: the dashboard URL responds. The pages and runs above are saved data, so
 they don't change; check them once before recording.
 
 Proof points from the saved reports: the regression demo failed its gate in recorded and live mode (q13, q35 stable
