@@ -1,3 +1,4 @@
 # Dashboard runtime: what Streamlit Community Cloud installs. The dashboard reads saved results only (no API).
 # "~=" allows bug-fix updates only, so installs are reproducible. Dependabot proposes upgrades.
-streamlit~=1.65.0
+streamlit~=1.66.1
+pillow~=13.0  # security floor: pip-audit found 37 CVEs fixed in Pillow 13.0.0 (streamlit installs Pillow)
