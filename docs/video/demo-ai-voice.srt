@@ -1,0 +1,71 @@
+1
+00:00:03,000 --> 00:00:05,752
+I had two AI assistants for a hotel group,
+
+2
+00:00:06,602 --> 00:00:09,759
+and nothing told me when a change made either one worse.
+
+3
+00:00:10,609 --> 00:00:12,828
+So I built one eval harness for both.
+
+4
+00:00:13,678 --> 00:00:16,601
+It's a simulated client, with synthetic data.
+
+5
+00:00:17,219 --> 00:00:19,416
+Here's a bad change I made on purpose.
+
+6
+00:00:20,266 --> 00:00:22,784
+I cut the search from five passages to two.
+
+7
+00:00:23,634 --> 00:00:25,212
+The average barely moved,
+
+8
+00:00:26,062 --> 00:00:29,177
+but the gate failed, and it names the cases that broke.
+
+9
+00:00:29,797 --> 00:00:31,034
+This is one of them.
+
+10
+00:00:31,884 --> 00:00:35,788
+The question needs a passage the smaller search no longer finds.
+
+11
+00:00:36,638 --> 00:00:38,900
+You can see the expected policy text,
+
+12
+00:00:39,750 --> 00:00:42,331
+and the answers, wrong the same way every run.
+
+13
+00:00:42,937 --> 00:00:44,857
+I also tried an AI judge,
+
+14
+00:00:45,707 --> 00:00:47,606
+and checked it against my own labels.
+
+15
+00:00:48,456 --> 00:00:51,528
+The agreement was too low, a kappa of about point three,
+
+16
+00:00:52,378 --> 00:00:54,042
+so nothing is gated on it.
+
+17
+00:00:54,656 --> 00:00:56,192
+It's live and read-only.
+
+18
+00:00:57,042 --> 00:00:58,813
+The link and the code are below.
