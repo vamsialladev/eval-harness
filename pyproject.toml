@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hoteleval"
-version = "1.2.0"
+version = "1.3.0"
 description = "One evaluation harness for the hotel group's AI projects: shared case schema, deterministic metrics, an LLM judge checked against human labels, statistics and regression gates."
 readme = "README.md"
 requires-python = ">=3.12"

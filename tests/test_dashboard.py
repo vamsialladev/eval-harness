@@ -93,3 +93,11 @@ def test_sidebar_links_to_the_demo_video_github_and_portfolio():
     text = " ".join(h.value for h in at.get("html"))
     assert 'href="https://vamsialla.com/projects/eval-harness.html#demo"' in text and ">Watch the demo<" in text
     assert ">GitHub<" in text and 'href="https://vamsialla.com"' in text
+
+
+def test_keep_awake_visit_only_loads_the_page():
+    at = AppTest.from_file(str(ROOT / "app.py"), default_timeout=60)
+    at.query_params["source"] = "keepawake"
+    at.run()
+    assert not at.exception and [c.value for c in at.caption] == ["Awake."]
+
