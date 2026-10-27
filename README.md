@@ -38,7 +38,7 @@ prompt, model or retrieval change can't lower quality without a red check.**
 |---|---|
 | **Problem** | Two AI assistants, each with its own eval scripts and report format. A cheaper model, a new prompt or a retrieval setting can lower quality, and nothing would say so before staff notice. |
 | **Solution** | An installable harness (`hoteleval`): 195 labelled cases in one schema (181 in stage 3, 14 added in stage 4), the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
-| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 70 hand labels in two blind rounds (round 2 enriched with failures): best **kappa 0.29** overall (tone 0.51, clarity 0.23, completeness 0.00), so **no judge metric is trusted**, reported as a score or gated. **v1.2.0 (stage 4):** latency and cost budgets gated in CI; the harness measured the four backlog fixes before → after (stage 1 held-out 67% → 85%, stage 2 wrong-hotel 0/6 → 6/6) and gates the new releases; the previous releases fail against the new baselines. 92 tests, 93% coverage. |
+| **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 70 hand labels in two blind rounds (round 2 enriched with failures): best **kappa 0.29** overall (tone 0.51, clarity 0.23, completeness 0.00), so **no judge metric is trusted**, reported as a score or gated. **v1.2.0 (stage 4):** latency and cost budgets gated in CI; the harness measured the four backlog fixes before → after (stage 1 held-out 67% → 85%, stage 2 wrong-hotel 0/6 → 6/6) and gates the new releases; the previous releases fail against the new baselines. 101 tests, 93% coverage. |
 | **Cost (measured)** | The dashboard and CI gates make no API calls ($0). A full live re-run of both projects: $0.29. Whole stage 3 API spend: $0.41. |
 | **Projected value** | ~$26K/yr net for the two assistants (range $1.5K–$68K), mostly engineer time per change ([assumptions](docs/BUSINESS_CASE.md)) |
 
@@ -257,6 +257,14 @@ What exists today is marked **Built**; anything else is **Roadmap**.
 | **Monitoring, alerting, hallucination and off-brand detection** | **Built:** gates on every push in both apps' CI: hard 100% gates (escalation, injection, no promises), floors on groups of 10+ cases, "below the baseline's Wilson interval", stable flips (a case that fails in every run), p95 latency and cost budgets. Hallucination checks are the projects' deterministic metrics (strict retrieval, citation accuracy, numeric and fact grounding). CI re-scores every saved report so a metric fix can't silently change old numbers. The live dashboard writes the same JSON startup lines as every hotel app, and keep-awake visits (`?source=keepawake`) only load the page. **Roadmap:** off-brand tone gated by the judge, once calibrated. |
 | **Failure modes and rollback** | **Built:** a failed model call is recorded as a failed answer, never a crashed run; budgets are "skipped", never "passed", when a run has no timing; baselines are pinned to releases, and CI checks the previous releases fail against the new baselines. Rollback: gate a change against the last release's baseline; revert the app commit that failed. |
 
+## Security & guardrails
+
+Read-only dashboard: no input, no API calls, no secrets, no cookies or analytics. The key lives only in `.env` and
+goes to the live runner's child process through its environment. Full-history secret scans before every push;
+secret scanning and push protection on. [SECURITY.md](SECURITY.md)
+
+**Red team:** [docs/RED_TEAM.md](docs/RED_TEAM.md).
+
 ## Run locally
 
 **Windows (PowerShell):**
@@ -357,7 +365,7 @@ secrets. Every push redeploys it.
 
 ## Testing and quality
 
-87 tests at 93% coverage: the schema, every metric passing and failing, statistics, kappa, gates, adapters, the
+101 tests at 93% coverage: the schema, every metric passing and failing, statistics, kappa, gates, adapters, the
 runner, reports, the judge with a fake client, the CLI and every dashboard page (Streamlit AppTest). CI: ruff lint
 and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of every saved report.
 
@@ -365,12 +373,6 @@ and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of e
 
 <img src="docs/images/tests.png" alt="pytest: 87 passed, total coverage 93%" width="760">
 </details>
-
-## Security and privacy
-
-Read-only dashboard: no input, no API calls, no secrets, no cookies or analytics. The key lives only in `.env` and
-goes to the live runner's child process through its environment. Full-history secret scans before every push;
-secret scanning and push protection on. [SECURITY.md](SECURITY.md)
 
 ## Documentation
 
