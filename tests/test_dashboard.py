@@ -100,4 +100,3 @@ def test_keep_awake_visit_only_loads_the_page():
     at.query_params["source"] = "keepawake"
     at.run()
     assert not at.exception and [c.value for c in at.caption] == ["Awake."]
-
