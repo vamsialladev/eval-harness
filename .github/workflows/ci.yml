@@ -16,7 +16,7 @@ jobs:
           cache: pip
       - name: "Install (dashboard + judge client + test tools; the harness core itself needs nothing)"
         run: |
-          pip install -r requirements-judge.txt "pytest~=9.1" "pytest-cov~=7.1" "ruff==0.17.0" "pip-audit~=2.10"
+          pip install -r requirements-judge.txt "pytest~=9.1" "pytest-cov~=7.1" "ruff==0.17.0" "pip-audit~=2.10" "cyclonedx-bom~=7.1"
           pip install -e .
       - name: Lint and format check
         run: |
@@ -24,6 +24,12 @@ jobs:
           ruff format --check .
       - name: Dependency audit (fails on any known vulnerability)
         run: pip-audit -r requirements-judge.txt --progress-spinner off
+      - name: SBOM (CycloneDX)
+        run: cyclonedx-py environment --output-format JSON --output-file sbom.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sbom
+          path: sbom.json
       - name: Unit tests with coverage (gate 90%)
         run: python -m pytest -q --cov --cov-report=term-missing --cov-fail-under=90
       - name: "Gates, recorded mode (no API): both projects' release runs against their baselines, budgets included"
