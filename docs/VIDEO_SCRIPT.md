@@ -1,6 +1,6 @@
 # Video script: Eval Harness (about 80 seconds)
 
-I record this myself, in my own voice, over a screen recording of the live dashboard. No AI voice. Setup and tips:
+I record this myself, in my own voice, over a screen recording of the live dashboard. Until I do, the AI-narrated version is in `docs/video/demo-ai-voice.mp4` (narration at the end of this file). Setup and tips:
 `RECORDING_GUIDE.md` in my portfolio folder. Read it twice, then talk from the bullets. `/` marks a natural pause.
 Aim for 140–160 words a minute.
 
@@ -40,3 +40,15 @@ flips); judge vs 70 hand labels, best kappa 0.29.
 
 I built one eval harness for two AI assistants, and the most useful thing it did was fail a change whose average
 score looked fine.
+
+## AI narration (used in docs/video/demo-ai-voice.mp4)
+
+Until I record my own voice, the demo video (0:59) is narrated by an AI voice (Kokoro `af_heart`, local) and labelled "AI-narrated" on screen and here. It was recorded from the live app with Playwright; the captions are the narration, timed to the voice. `/` marks a pause.
+
+| Step | Narration |
+|---|---|
+| problem | I had two AI assistants for a hotel group, / and nothing told me when a change made either one worse. / So I built one eval harness for both. / It's a simulated client, with synthetic data. |
+| gate | Here's a bad change I made on purpose. / I cut the search from five passages to two. / The average barely moved, / but the gate failed, and it names the cases that broke. |
+| case | This is one of them. / The question needs a passage the smaller search no longer finds. / You can see the expected policy text, / and the answers, wrong the same way every run. |
+| judge | I also tried an AI judge, / and checked it against my own labels. / The agreement was too low, a kappa of about point three, / so nothing is gated on it. |
+| live | It's live and read-only. / The link and the code are below. |

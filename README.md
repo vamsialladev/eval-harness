@@ -18,6 +18,11 @@ prompt, model or retrieval change can't lower quality without a red check.**
 > from stated assumptions. Discovery and scoping (stage 0): [hotel-ai-discovery](https://github.com/vamsialladev/hotel-ai-discovery).
 
 <!-- DEMO-VIDEO -->
+<!-- AI-NARRATED-DEMO:START -->
+<a href="https://vamsialla.com/projects/eval-harness.html#demo"><img src="docs/video/demo-ai-voice.jpg" alt="Demo video, AI-narrated: a deliberate regression caught by the gate, the failing case with its expected passage, and the judge calibration page" width="720"></a>
+
+**Demo video (0:59, AI-narrated):** [watch it with sound on vamsialla.com](https://vamsialla.com/projects/eval-harness.html#demo) (GitHub can't play MP4 files from a repo) · [download the MP4](docs/video/demo-ai-voice.mp4) · captions burned in ([text](docs/video/demo-ai-voice.srt)). The narrator is an AI voice (Kokoro); my own-voice version will replace it.
+<!-- AI-NARRATED-DEMO:END -->
 
 <p align="center"><img src="docs/images/demo.gif" alt="On the live dashboard: the Cases page filtered to the regression demo run, and q13 drilled down to its expected passage, three refused answers and failed verdicts" width="760"></p>
 
@@ -43,7 +48,7 @@ prompt, model or retrieval change can't lower quality without a red check.**
 |---|---|
 | **Recruiter or hiring manager** | [At a glance](#at-a-glance) → [Results](#results) → [What the eval taught me](#what-the-eval-taught-me) → [Case study](https://vamsialla.com/projects/eval-harness.html) |
 | **Hotel manager or operations lead** | [The problem](#the-problem) → [What it does](#what-it-does) → [Business case](docs/BUSINESS_CASE.md) |
-| **Engineer** | [Architecture](#architecture) → [Results](#results) → [Run it locally](#run-it-locally) → [Decision log](docs/DECISIONS.md) |
+| **Engineer** | [Architecture](#architecture) → [Results](#results) → [Run it locally](#run-locally) → [Decision log](docs/DECISIONS.md) |
 
 ---
 
@@ -54,6 +59,8 @@ Each was measured carefully when it shipped. Then the changes start: a cheaper m
 passages instead of 5 to save tokens". Each change is reasonable. One of them quietly stops the assistant from
 finding the spa age rule, and a 16-year-old gets booked for a facial. Nobody re-ran the eval because each project
 had its own scripts, its own report format and no gate in CI.
+
+I built this because I had two assistants in front of a client and nothing that told me when a change made either one worse. An average that barely moves can hide the two questions that broke.
 
 ## What it does
 
@@ -76,20 +83,6 @@ had its own scripts, its own report format and no gate in CI.
 |---|---|---|
 | <img src="docs/images/overview.png" alt="Dashboard overview: both projects' gated metrics with intervals and pass badges" width="300"> | <img src="docs/images/case.png" alt="Case drill-down: q13 in the regression demo, expected passage, recorded answers and failed verdicts" width="300"> | <img src="docs/images/calibration.png" alt="Judge calibration: 70 hand labels in two rounds, kappa 0.29 with rubric v3, every judge metric not trusted" width="300"> |
 
-## Business value
-
-A projection from stated assumptions, not a measured saving (`python scripts/business_case.py --scenarios`):
-
-| Per year | Pessimistic | Base | Optimistic |
-|---|---|---|---|
-| Engineer hours saved | 72 | 240 | 504 |
-| Net value | $1,493 | **$26,273** | $67,613 |
-
-**Who benefits:** the engineer making changes (a re-run and a verdict instead of a manual check), the client owner (a red check before a worse release reaches staff). **How a pilot would measure it:** engineer hours per change before and after, regressions caught in CI vs. reported by staff.
-
-Changes per month drive most of the value; the API cost of a full live re-run of both projects is measured ($0.29).
-Details, sensitivity, pilot plan and go / no-go KPIs: [docs/BUSINESS_CASE.md](docs/BUSINESS_CASE.md).
-
 ## Architecture
 
 ```mermaid
@@ -100,7 +93,7 @@ flowchart LR
     A --> J[LLM judge<br/>completeness, tone, clarity]
     J --> K[Calibration<br/>70 human labels, kappa]
     M --> S[Statistics<br/>Wilson, runs, flaky]
-    S --> G[Gates<br/>hard, floors, interval, flips]
+    S --> G[Gates<br/>hard, floors, interval, flips,<br/>latency and cost budgets]
     G --> O[Reports, CI, dashboard]
     K --> O
 ```
@@ -115,14 +108,15 @@ sequenceDiagram
     H->>M: score each output against its case
     M->>H: verdicts per case and run
     H->>B: compare on shared cases
+    H->>H: budgets: dev p95 latency, cost per 1,000
     H-->>CI: PASS, or FAIL naming the metric and the flipped cases
 ```
 
-1. A project's CI installs `hoteleval` at tag v1.0.0 (standard library only, seconds).
+1. A project's CI installs `hoteleval` (standard library only, seconds): v1.0.0 for the recorded-output job, v1.2.0 for the release-run gate with budgets.
 2. `hoteleval gate` reads the project's own recorded outputs and converts them with its adapter.
 3. For Project 1, retrieval, the scope check and the escalation rules are recomputed with Project 1's own code (free).
 4. Every output is scored against its labelled case; the case bank and baselines ship inside the package.
-5. The candidate is compared with the baseline on shared cases: hard gates, floors, interval, stable flips.
+5. The candidate is compared with the baseline on shared cases: hard gates, floors, interval, stable flips, and the project's latency and cost budgets (skipped, never passed, when a run has no timing or prices).
 6. Any failure prints the metric, the drop and the case IDs, and the job exits 1.
 
 ## Tech stack
@@ -237,6 +231,20 @@ the standard itself needs written examples and a second labeler ([decisions 17, 
   rejections, and "50 $". Each is fixed, logged and tested with the exact sentence.
 - **Held-out cases find what tuning hides:** Spanish blocked before the model, safety wording the rules don't know.
 
+## Business value
+
+A projection from stated assumptions, not a measured saving (`python scripts/business_case.py --scenarios`):
+
+| Per year | Pessimistic | Base | Optimistic |
+|---|---|---|---|
+| Engineer hours saved | 72 | 240 | 504 |
+| Net value | $1,493 | **$26,273** | $67,613 |
+
+**Who benefits:** the engineer making changes (a re-run and a verdict instead of a manual check), the client owner (a red check before a worse release reaches staff). **How a pilot would measure it:** engineer hours per change before and after, regressions caught in CI vs. reported by staff.
+
+Changes per month drive most of the value; the API cost of a full live re-run of both projects is measured ($0.29).
+Details, sensitivity, pilot plan and go / no-go KPIs: [docs/BUSINESS_CASE.md](docs/BUSINESS_CASE.md).
+
 ## Design at scale
 
 What exists today is marked **Built**; anything else is **Roadmap**.
@@ -248,6 +256,37 @@ What exists today is marked **Built**; anything else is **Roadmap**.
 | **10K → 1M users** | **What breaks first:** a live re-run costs time and money in proportion to cases × runs, and saved runs grow as JSONL files in git that the dashboard reads into memory. **Built:** recorded mode re-scores saved outputs with no API calls (that's what CI runs); the judge cache. **Roadmap:** a nightly live run on a stratified sample instead of every case; saved runs in object storage or a database with an index; production traffic sampled into new labelled cases each week. |
 | **Monitoring, alerting, hallucination and off-brand detection** | **Built:** gates on every push in both apps' CI: hard 100% gates (escalation, injection, no promises), floors on groups of 10+ cases, "below the baseline's Wilson interval", stable flips (a case that fails in every run), p95 latency and cost budgets. Hallucination checks are the projects' deterministic metrics (strict retrieval, citation accuracy, numeric and fact grounding). CI re-scores every saved report so a metric fix can't silently change old numbers. **Roadmap:** off-brand tone gated by the judge, once calibrated. |
 | **Failure modes and rollback** | **Built:** a failed model call is recorded as a failed answer, never a crashed run; budgets are "skipped", never "passed", when a run has no timing; baselines are pinned to releases, and CI checks the previous releases fail against the new baselines. Rollback: gate a change against the last release's baseline; revert the app commit that failed. |
+
+## Run locally
+
+**Windows (PowerShell):**
+
+```powershell
+cd C:\projects\project1\eval-harness
+py -3.12 -m venv .venv
+.\.venv\Scripts\pip install -r requirements-dev.txt
+.\.venv\Scripts\pip install -e .
+.\.venv\Scripts\streamlit run app.py
+```
+
+**macOS / Linux:** the same with `python3.12 -m venv .venv` and `.venv/bin/...`.
+
+**Docker (dashboard only):** `docker build -t eval-harness . && docker run -p 8501:8501 eval-harness`
+
+**In another project's CI** (what Projects 1 and 2 run):
+
+```bash
+pip install "hoteleval @ git+https://github.com/vamsialladev/eval-harness@v1.0.0"
+hoteleval gate --project guest-request-agent --recorded eval/recorded/main-final.jsonl eval/recorded/heldout-final.jsonl
+```
+
+## Limitations and roadmap
+
+- The judge is untrusted (best kappa 0.29 on 70 labels); next: written pass/fail examples per quality, a second
+  labeler and fresh labels.
+- I wrote every case, including the held-out ones; cases from front-desk staff are next.
+- Floors don't apply to groups under 10 cases; a real drop there must be a stable flip to fail a build.
+- Project 4: persistent run history, monitoring, sign-in and redaction.
 
 ## Skills demonstrated
 
@@ -277,29 +316,6 @@ eval-harness/
 ├── scripts/                # import, vendor sync, added cases, rescore, business case, video
 ├── tests/                  # 87 tests
 └── docs/                   # plan, architecture, decisions, business case, demo script, checklists
-```
-
-## Run it locally
-
-**Windows (PowerShell):**
-
-```powershell
-cd C:\projects\project1\eval-harness
-py -3.12 -m venv .venv
-.\.venv\Scripts\pip install -r requirements-dev.txt
-.\.venv\Scripts\pip install -e .
-.\.venv\Scripts\streamlit run app.py
-```
-
-**macOS / Linux:** the same with `python3.12 -m venv .venv` and `.venv/bin/...`.
-
-**Docker (dashboard only):** `docker build -t eval-harness . && docker run -p 8501:8501 eval-harness`
-
-**In another project's CI** (what Projects 1 and 2 run):
-
-```bash
-pip install "hoteleval @ git+https://github.com/vamsialladev/eval-harness@v1.0.0"
-hoteleval gate --project guest-request-agent --recorded eval/recorded/main-final.jsonl eval/recorded/heldout-final.jsonl
 ```
 
 ## Configuration
@@ -355,14 +371,6 @@ and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of e
 Read-only dashboard: no input, no API calls, no secrets, no cookies or analytics. The key lives only in `.env` and
 goes to the live runner's child process through its environment. Full-history secret scans before every push;
 secret scanning and push protection on. [SECURITY.md](SECURITY.md)
-
-## Limitations and roadmap
-
-- The judge is untrusted (best kappa 0.29 on 70 labels); next: written pass/fail examples per quality, a second
-  labeler and fresh labels.
-- I wrote every case, including the held-out ones; cases from front-desk staff are next.
-- Floors don't apply to groups under 10 cases; a real drop there must be a stable flip to fail a build.
-- Project 4: persistent run history, monitoring, sign-in and redaction.
 
 ## Documentation
 
