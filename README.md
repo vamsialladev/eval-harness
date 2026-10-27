@@ -257,6 +257,14 @@ What exists today is marked **Built**; anything else is **Roadmap**.
 | **Monitoring, alerting, hallucination and off-brand detection** | **Built:** gates on every push in both apps' CI: hard 100% gates (escalation, injection, no promises), floors on groups of 10+ cases, "below the baseline's Wilson interval", stable flips (a case that fails in every run), p95 latency and cost budgets. Hallucination checks are the projects' deterministic metrics (strict retrieval, citation accuracy, numeric and fact grounding). CI re-scores every saved report so a metric fix can't silently change old numbers. The live dashboard writes the same JSON startup lines as every hotel app, and keep-awake visits (`?source=keepawake`) only load the page. **Roadmap:** off-brand tone gated by the judge, once calibrated. |
 | **Failure modes and rollback** | **Built:** a failed model call is recorded as a failed answer, never a crashed run; budgets are "skipped", never "passed", when a run has no timing; baselines are pinned to releases, and CI checks the previous releases fail against the new baselines. Rollback: gate a change against the last release's baseline; revert the app commit that failed. |
 
+## Security & guardrails
+
+Read-only dashboard: no input, no API calls, no secrets, no cookies or analytics. The key lives only in `.env` and
+goes to the live runner's child process through its environment. Full-history secret scans before every push;
+secret scanning and push protection on. [SECURITY.md](SECURITY.md)
+
+**Red team:** [docs/RED_TEAM.md](docs/RED_TEAM.md).
+
 ## Run locally
 
 **Windows (PowerShell):**
@@ -365,12 +373,6 @@ and format, pip-audit, coverage ≥ 90%, recorded-mode gates and a re-score of e
 
 <img src="docs/images/tests.png" alt="pytest: 87 passed, total coverage 93%" width="760">
 </details>
-
-## Security and privacy
-
-Read-only dashboard: no input, no API calls, no secrets, no cookies or analytics. The key lives only in `.env` and
-goes to the live runner's child process through its environment. Full-history secret scans before every push;
-secret scanning and push protection on. [SECURITY.md](SECURITY.md)
 
 ## Documentation
 
