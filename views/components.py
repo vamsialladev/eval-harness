@@ -172,6 +172,19 @@ def link_row() -> str:
     )
 
 
+def sidebar_links():
+    """Sidebar: the demo video, the code and the portfolio, one tap away (new tab)."""
+    links = brand().get("links", {})
+    items = [("demo", "Watch the demo"), ("github", "GitHub"), ("portfolio", "Portfolio")]
+    row = " · ".join(
+        f'<a href="{esc(links[k])}" target="_blank" rel="noopener noreferrer">{esc(label)}</a>'
+        for k, label in items
+        if links.get(k)
+    )
+    if row:
+        st.sidebar.html(f'<p class="gra-side-links">{row}</p>')
+
+
 def footer():
     author = brand().get("links", {}).get("author", "Vamsi Alla")
     st.html(

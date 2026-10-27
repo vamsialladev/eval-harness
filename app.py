@@ -11,11 +11,30 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
 
 import streamlit as st  # noqa: E402
+from hotelplatform import bots, jsonlog, version  # noqa: E402
 
 from views import components as ui  # noqa: E402
 
 name = ui.brand().get("product", {}).get("name", "Eval Harness")
 st.set_page_config(page_title=name, page_icon=str(ROOT / "assets" / "favicon.png"), layout="wide")
+
+if bots.is_bot(st.query_params):  # streamlit-keep-awake: loading the page keeps the app awake; nothing else to do
+    st.caption("Awake.")
+    st.stop()
+
+
+@st.cache_resource(show_spinner=False)
+def startup_log() -> bool:
+    """Once per server start, the JSON lines every hotel app writes (hotel-ai-platform jsonlog). This dashboard has no
+    secrets, no model and no database, so there's nothing else to report."""
+    jsonlog.configure("eval-harness", version.version_string("1.3.0", ROOT))
+    jsonlog.app_start(app_version="1.3.0")
+    jsonlog.config_loaded([], reads="saved reports only")
+    jsonlog.dependency_health({"model": "not used", "database": "not used", "saved reports": "bundled"})
+    return True
+
+
+startup_log()
 ui.inject_css()
 st.logo(str(ROOT / "assets" / "logo.svg"), icon_image=str(ROOT / "assets" / "logo-icon.svg"), size="large")
 
@@ -33,6 +52,7 @@ pages += [
     st.Page("views/about.py", title="Disclaimer", icon=":material/policy:", url_path="disclaimer"),
 ]
 page = st.navigation(pages)
+ui.sidebar_links()
 try:
     page.run()
 except Exception:  # never show a traceback to a visitor
