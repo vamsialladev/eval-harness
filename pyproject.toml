@@ -15,7 +15,7 @@ authors = [{ name = "Vamsi Alla" }]
 dependencies = []
 
 [project.optional-dependencies]
-judge = ["anthropic~=1.12", "python-dotenv~=1.2"]
+judge = ["anthropic>=1.12,<3.0", "python-dotenv~=1.2"]
 
 [project.scripts]
 hoteleval = "hoteleval.cli:main"

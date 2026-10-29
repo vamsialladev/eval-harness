@@ -1,4 +1,4 @@
 # Optional: the LLM judge and live project runs (uses the API; never needed by the dashboard or CI).
 -r requirements.txt
-anthropic~=1.12
+anthropic>=1.12,<3.0
 python-dotenv~=1.2
