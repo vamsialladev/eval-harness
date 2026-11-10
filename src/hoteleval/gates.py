@@ -89,7 +89,7 @@ def check_metric(name: str, split: str, base: dict, cand: dict, hard: bool, floo
 
 
 def metric_label(name: str) -> str:
-    for project in ("hotel-ops-assistant", "guest-request-agent"):
+    for project in ("hotel-ops-assistant", "guest-request-agent", "loyalty-support-modernization"):
         try:
             return metric_info(project, name).label
         except StopIteration:

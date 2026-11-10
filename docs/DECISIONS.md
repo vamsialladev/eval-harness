@@ -291,3 +291,15 @@ come from `scripts/make_captions.py` (faster-whisper, local). `piper-tts` remove
 **Tradeoff:** A new video needs me to record it.
 **Result:** The README has a `<!-- DEMO-VIDEO -->` slot for the new video; the GIF stays (it never had sound).
 
+## 26. Stage 9 registered, with its own verdicts (2026-11-10)
+**Context:** Stage 9 (an AI loyalty support platform, arms A, B and C, synthetic data) built its own benchmark, with
+pre-registered definitions, and asked to be registered here, so its arm C runs are gated like Projects 1 and 2.
+**Options:** vendor Stage 9's scoring code, as for Projects 1 and 2; or take its per-case verdicts with the run.
+**Decision:** take the verdicts. Each output carries `scored`, from Stage 9's `evaluations/scoring.py` at
+`ce42445`. Stage 9's repo is private, so its code can't be vendored into this public one, and its definitions
+(final ledger at a settlement horizon, a simulated member journey) need its whole runner, not a function.
+**Tradeoff:** the harness can't re-derive Stage 9's verdicts from outputs, the way it does for Projects 1 and 2. A
+Stage 9 scoring bug would arrive here already scored. Stage 9 tests its scoring itself, and pins the commit.
+**Result:** 180 cases (dev 100, held-out 80) under project `loyalty-support-modernization`, short `p9`. Saved run
+`p9-arm-c-live-2026-11-07`. Hard gates: no over-credit, no duplicate credit, no unauthorized action. Floors and budgets in
+`gates.toml`. Validation and stress stay in Stage 9: there's no such split here. Only live runs are exported.

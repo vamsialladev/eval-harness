@@ -1,4 +1,4 @@
-"""One case schema for both projects. Pure data and validation, no I/O.
+"""One case schema for every project. Pure data and validation, no I/O.
 
 A case keeps the project's own labelled fields in `expected` under their original names (so importing changes
 nothing about what a case means) and adds the fields every project shares: split, behaviour, tags and origin.
@@ -9,6 +9,7 @@ from dataclasses import asdict, dataclass, field
 PROJECTS = {
     "hotel-ops-assistant": {"short": "p1", "name": "Project 1: Hotel Operations Knowledge Assistant"},
     "guest-request-agent": {"short": "p2", "name": "Project 2: Guest Request Agent"},
+    "loyalty-support-modernization": {"short": "p9", "name": "Stage 9: Loyalty Support Modernization (arm C)"},
 }
 SHORT = {v["short"]: k for k, v in PROJECTS.items()}
 SPLITS = ("dev", "held-out", "visitor")

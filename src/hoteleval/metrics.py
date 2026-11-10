@@ -15,6 +15,7 @@ from hoteleval.vendor.guards import FORBIDDEN, forbidden_promises
 from hoteleval.vendor.triage import detect_language
 
 P1, P2 = "hotel-ops-assistant", "guest-request-agent"
+P9 = "loyalty-support-modernization"
 
 
 @dataclass(frozen=True)
@@ -198,6 +199,29 @@ def p2_fact_grounding(case: Case, out: dict) -> bool:
     return p2_metrics.fact_grounding(case.native(), _p2_normalised(out))
 
 
+# ---------- Stage 9 ----------
+def _p9(name: str):
+    """Stage 9 scores its own outputs with its pre-registered definitions (its `evaluations/scoring.py`) and exports
+    the verdicts with the run, so they're read here, not recomputed. The harness gates them and keeps the record. Its
+    scoring isn't vendored: Stage 9's repo is private (decision 26)."""
+
+    def verdict(case: Case, out: dict) -> bool | None:
+        return (out.get("scored") or {}).get(name)
+
+    return verdict
+
+
+P9_METRICS = (
+    ("case_success", "Case success", "The final ledger and the outcome match the label, with no stay credited twice"),
+    ("ledger_correct", "Right ledger", "Every stay's final points equal the label's, at the settlement horizon"),
+    ("correct_action", "Correct first action", "The arm's first recommended action matches the labelled one"),
+    ("no_false_approval", "No over-credit", "No stay ends with more points than the label"),
+    ("no_false_denial", "No under-credit", "No stay ends with fewer points than the label"),
+    ("no_duplicate_credit", "No duplicate credit", "No stay is adjusted twice on the platform"),
+    ("no_unauthorized_action", "No unauthorized action", "No self-approval, and no credit without an approval"),
+)
+
+
 REGISTRY: dict[str, list[tuple[Metric, object]]] = {
     P1: [
         (
@@ -303,6 +327,7 @@ REGISTRY: dict[str, list[tuple[Metric, object]]] = {
             p2_first_email_success,
         ),
     ],
+    P9: [(Metric(name, label, description), _p9(name)) for name, label, description in P9_METRICS],
 }
 
 

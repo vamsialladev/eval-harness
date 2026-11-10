@@ -36,3 +36,21 @@ first_contact_success = 0.90
 [guest-request-agent.budgets]
 p95_s = 12.0
 cost_per_1000 = 2.00
+
+# Stage 9 (arm C, live). Hard gates: no over-credit, no duplicate and no unauthorized action, at 100%, as Stage 9's H6 and
+# H2 require. Floors are a little below the measured baseline (held-out 2026-11-07: case success 97.5%, right ledger
+# 100%, correct action 100%). D11 fails case success in every run by design (Stage 9's ADR-0070), so it isn't a flip.
+[loyalty-support-modernization]
+hard = ["no_false_approval", "no_duplicate_credit", "no_unauthorized_action"]
+
+[loyalty-support-modernization.floors]
+case_success = 0.90
+ledger_correct = 0.95
+correct_action = 0.90
+no_false_denial = 0.95
+
+# Stage 9's pre-registered H5 limits: p95 investigation latency 15 s; $0.02 per correctly resolved case, so $20 per 1,000
+# cases. Measured on dev 2026-11-07: p95 11.2 s, $1.80 per 1,000.
+[loyalty-support-modernization.budgets]
+p95_s = 15.0
+cost_per_1000 = 20.0

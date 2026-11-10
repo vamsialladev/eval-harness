@@ -7,7 +7,7 @@ from pathlib import Path
 from hoteleval.schema import Case, check_unique, validate
 
 CASES_DIR = Path(__file__).resolve().parent / "data" / "cases"
-FILES = ("p1.jsonl", "p2.jsonl", "added.jsonl")
+FILES = ("p1.jsonl", "p2.jsonl", "added.jsonl", "p9.jsonl")
 
 
 def read_jsonl(path: Path) -> list[dict]:

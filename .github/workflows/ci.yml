@@ -30,6 +30,7 @@ jobs:
         run: |
           hoteleval gate --saved p1-v1.6.0-2026-10-15
           hoteleval gate --saved p2-v1.1.0-2026-10-15
+          hoteleval gate --saved p9-arm-c-live-2026-11-07
       - name: "The gate catches a rollback: the previous releases fail against the new baselines (no API)"
         run: |
           for run in p1-published-2026-10-10 p2-published-2026-10-14; do
