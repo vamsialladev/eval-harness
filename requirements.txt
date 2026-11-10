@@ -2,3 +2,4 @@
 # "~=" allows bug-fix updates only, so installs are reproducible. Dependabot proposes upgrades.
 streamlit~=1.66.1
 pillow~=13.0  # security floor: pip-audit found 37 CVEs fixed in Pillow 13.0.0 (streamlit installs Pillow)
+hotel-ai-platform @ https://github.com/vamsialladev/hotel-ai-platform/archive/refs/tags/v0.1.3.zip  # keep-awake check and JSON startup logs (standard library only)

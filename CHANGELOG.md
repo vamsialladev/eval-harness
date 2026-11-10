@@ -3,6 +3,14 @@
 All notable changes to this project. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions
 follow [Semantic Versioning](https://semver.org/).
 
+
+## [1.3.0] - 2026-10-25
+### Added
+- Keep-awake visits (`?source=keepawake`, the shared check from
+  [hotel-ai-platform](https://github.com/vamsialladev/hotel-ai-platform)) only load the page.
+- The same structured JSON startup lines as every hotel app (app start with version, settings, dependencies).
+- docs/RED_TEAM.md: why a red team doesn't apply to a read-only dashboard, and what does.
+
 ## [Unreleased]
 ### Added
 - **Stage 9 registered** (loyalty-support-modernization, arm C): 180 synthetic cases (100 dev, 80 held-out) and its
