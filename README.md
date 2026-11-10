@@ -32,7 +32,7 @@ prompt, model or retrieval change can't lower quality without a red check.**
 | | |
 |---|---|
 | **Problem** | Two AI assistants, each with its own eval scripts and report format. A cheaper model, a new prompt or a retrieval setting can lower quality, and nothing would say so before staff notice. |
-| **Solution** | An installable harness (`hoteleval`): 195 labelled cases in one schema (181 in stage 3, 14 added in stage 4), the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
+| **Solution** | An installable harness (`hoteleval`): 195 labelled cases in one schema (181 in stage 3, 14 added in stage 4), plus Stage 9's 180, the projects' own metric code at pinned commits, Wilson intervals, run consistency, regression gates in both projects' CI, a judge calibrated against human labels, and a read-only dashboard. |
 | **Quality (measured)** | Reproduces both projects' published numbers from their recordings. Fresh re-runs at the pinned commits pass their gates. A realistic bad change (top-k 5 → 2) was **caught** in recorded and live mode, naming q13 and q35. Judge vs 70 hand labels in two blind rounds (round 2 enriched with failures): best **kappa 0.29** overall (tone 0.51, clarity 0.23, completeness 0.00), so **no judge metric is trusted**, reported as a score or gated. **v1.2.0 (stage 4):** latency and cost budgets gated in CI; the harness measured the four backlog fixes before → after (stage 1 held-out 67% → 85%, stage 2 wrong-hotel 0/6 → 6/6) and gates the new releases; the previous releases fail against the new baselines. 92 tests, 93% coverage. |
 | **Cost (measured)** | The dashboard and CI gates make no API calls ($0). A full live re-run of both projects: $0.29. Whole stage 3 API spend: $0.41. |
 | **Projected value** | ~$26K/yr net for the two assistants (range $1.5K–$68K), mostly engineer time per change ([assumptions](docs/BUSINESS_CASE.md)) |
@@ -57,7 +57,7 @@ had its own scripts, its own report format and no gate in CI.
 
 ## What it does
 
-- **One case bank:** 195 labelled cases (181 in Project 3; 14 added in Project 4, each committed before the fix it measures) in three splits (dev, held-out, visitor): 103 imported from Project 1 and 58
+- **One case bank:** 195 labelled cases for Projects 1 and 2 (181 in Project 3; 14 added in Project 4, each committed before the fix it measures), and 180 synthetic cases from Stage 9 (decision 26), in three splits (dev, held-out, visitor): 103 imported from Project 1 and 58
   from Project 2 at pinned commits without changing what they test, plus 20 new held-out cases where coverage was
   thin (cross-property leaks, Spanish, a superseded document, injections, safety wording), marked "added in Project 3".
 - **Recorded mode by default:** saved outputs are re-scored with no API call, so CI is free and deterministic. Live
@@ -94,7 +94,7 @@ Details, sensitivity, pilot plan and go / no-go KPIs: [docs/BUSINESS_CASE.md](do
 
 ```mermaid
 flowchart LR
-    C[Case bank<br/>195 cases, 3 splits] --> R[Runners<br/>recorded or live at a pin]
+    C[Case bank<br/>375 cases, 3 splits] --> R[Runners<br/>recorded or live at a pin]
     R --> A[Adapters<br/>one output record]
     A --> M[Deterministic metrics<br/>projects' own code]
     A --> J[LLM judge<br/>completeness, tone, clarity]

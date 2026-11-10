@@ -1,0 +1,5998 @@
+{
+ "meta": {
+  "run_id": "p9-arm-c-live-2026-11-07",
+  "project": "loyalty-support-modernization",
+  "label": "Stage 9 arm C, live (Milestone 10)",
+  "date": "2026-11-07",
+  "mode": "live",
+  "kind": "candidate",
+  "model": "claude-haiku-5-5",
+  "settings": {
+   "arm": "C",
+   "configuration": "frozen at 50b69f6"
+  },
+  "price_in": 0.1,
+  "price_out": 0.5,
+  "description": "Arm C on dev (1 run) and held-out (3 runs). Verdicts from Stage 9's own scoring. SYNTHETIC.",
+  "ref": "1ee95c3, dd7ecb7",
+  "source": "live runs of loyalty-support-modernization @ 1ee95c3, dd7ecb7"
+ },
+ "splits": {
+  "dev": {
+   "cases": 100,
+   "runs": 1,
+   "outputs": 100,
+   "metrics": {
+    "case_success": {
+     "rate": 0.96,
+     "passed": 96,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9016292850152788,
+      0.9843366961172447
+     ],
+     "per_run": [
+      0.96
+     ],
+     "min": 0.96,
+     "max": 0.96,
+     "failing_cases": [
+      "DV-007",
+      "DV-031",
+      "DV-053",
+      "DV-089"
+     ],
+     "flaky_cases": []
+    },
+    "ledger_correct": {
+     "rate": 1.0,
+     "passed": 100,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9630065012310038,
+      1.0
+     ],
+     "per_run": [
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "correct_action": {
+     "rate": 0.98,
+     "passed": 98,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9299882086824253,
+      0.9944980324993383
+     ],
+     "per_run": [
+      0.98
+     ],
+     "min": 0.98,
+     "max": 0.98,
+     "failing_cases": [
+      "DV-007",
+      "DV-053"
+     ],
+     "flaky_cases": []
+    },
+    "no_false_approval": {
+     "rate": 1.0,
+     "passed": 100,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9630065012310038,
+      1.0
+     ],
+     "per_run": [
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_false_denial": {
+     "rate": 1.0,
+     "passed": 100,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9630065012310038,
+      1.0
+     ],
+     "per_run": [
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_duplicate_credit": {
+     "rate": 1.0,
+     "passed": 100,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9630065012310038,
+      1.0
+     ],
+     "per_run": [
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_unauthorized_action": {
+     "rate": 1.0,
+     "passed": 100,
+     "total": 100,
+     "cases": 100,
+     "ci": [
+      0.9630065012310038,
+      1.0
+     ],
+     "per_run": [
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    }
+   },
+   "categories": {
+    "B01": {
+     "case_success": 0.0,
+     "ledger_correct": 1.0,
+     "correct_action": 0.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "B02": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D01": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D02": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D03": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D04": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D05": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D06": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D07": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D08": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D09": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D10": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D11": {
+     "case_success": 0.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D12": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D13": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D15": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D16": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D17": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D18": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D19": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D20": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D21": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D22": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D23": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D24": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D25": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K01": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K02": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K03": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K04": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K05": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K06": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    }
+   },
+   "consistency": {
+    "runs": 1,
+    "consistent": null,
+    "flaky": []
+   },
+   "latency": {
+    "p50_s": 7.5,
+    "p95_s": 11.1868,
+    "ttft_p50_s": null,
+    "ttft_p95_s": null,
+    "timed": 100
+   },
+   "cost_per_1000": 1.8025660000000003,
+   "tokens": {
+    "in": 997291,
+    "out": 161055
+   }
+  },
+  "held-out": {
+   "cases": 80,
+   "runs": 3,
+   "outputs": 240,
+   "metrics": {
+    "case_success": {
+     "rate": 0.975,
+     "passed": 234,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9133556694270627,
+      0.9931171068589743
+     ],
+     "per_run": [
+      0.975,
+      0.975,
+      0.975
+     ],
+     "min": 0.975,
+     "max": 0.975,
+     "failing_cases": [
+      "HO-058",
+      "HO-080"
+     ],
+     "flaky_cases": []
+    },
+    "ledger_correct": {
+     "rate": 1.0,
+     "passed": 240,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9541818697747756,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "correct_action": {
+     "rate": 1.0,
+     "passed": 240,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9541818697747756,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_false_approval": {
+     "rate": 1.0,
+     "passed": 240,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9541818697747756,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_false_denial": {
+     "rate": 1.0,
+     "passed": 240,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9541818697747756,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_duplicate_credit": {
+     "rate": 1.0,
+     "passed": 240,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9541818697747756,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    },
+    "no_unauthorized_action": {
+     "rate": 1.0,
+     "passed": 240,
+     "total": 240,
+     "cases": 80,
+     "ci": [
+      0.9541818697747756,
+      0.9999999999999999
+     ],
+     "per_run": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "min": 1.0,
+     "max": 1.0,
+     "failing_cases": [],
+     "flaky_cases": []
+    }
+   },
+   "categories": {
+    "D01": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D02": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D03": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D04": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D05": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D06": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D07": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D08": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D09": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D10": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D11": {
+     "case_success": 0.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D12": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D13": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D15": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D16": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D17": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D18": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D19": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D20": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D21": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D22": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D23": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D24": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "D25": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K01": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K02": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K03": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K04": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K05": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    },
+    "K06": {
+     "case_success": 1.0,
+     "ledger_correct": 1.0,
+     "correct_action": 1.0,
+     "no_false_approval": 1.0,
+     "no_false_denial": 1.0,
+     "no_duplicate_credit": 1.0,
+     "no_unauthorized_action": 1.0
+    }
+   },
+   "consistency": {
+    "runs": 3,
+    "consistent": 1.0,
+    "flaky": []
+   },
+   "latency": {
+    "p50_s": 7.741499999999999,
+    "p95_s": 11.50385,
+    "ttft_p50_s": null,
+    "ttft_p95_s": null,
+    "timed": 240
+   },
+   "cost_per_1000": 1.6989975000000002,
+   "tokens": {
+    "in": 2298324,
+    "out": 355854
+   }
+  }
+ },
+ "verdicts": [
+  {
+   "case_id": "DV-001",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-002",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-003",
+   "run": 1,
+   "split": "dev",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-004",
+   "run": 1,
+   "split": "dev",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-005",
+   "run": 1,
+   "split": "dev",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-006",
+   "run": 1,
+   "split": "dev",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-007",
+   "run": 1,
+   "split": "dev",
+   "category": "B01",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": false,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-008",
+   "run": 1,
+   "split": "dev",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-009",
+   "run": 1,
+   "split": "dev",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-010",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-011",
+   "run": 1,
+   "split": "dev",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-012",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-013",
+   "run": 1,
+   "split": "dev",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-014",
+   "run": 1,
+   "split": "dev",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-015",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-016",
+   "run": 1,
+   "split": "dev",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-017",
+   "run": 1,
+   "split": "dev",
+   "category": "B02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-018",
+   "run": 1,
+   "split": "dev",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-019",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-020",
+   "run": 1,
+   "split": "dev",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-021",
+   "run": 1,
+   "split": "dev",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-022",
+   "run": 1,
+   "split": "dev",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-023",
+   "run": 1,
+   "split": "dev",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-024",
+   "run": 1,
+   "split": "dev",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-025",
+   "run": 1,
+   "split": "dev",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-026",
+   "run": 1,
+   "split": "dev",
+   "category": "B02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-027",
+   "run": 1,
+   "split": "dev",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-028",
+   "run": 1,
+   "split": "dev",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-029",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-030",
+   "run": 1,
+   "split": "dev",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-031",
+   "run": 1,
+   "split": "dev",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-032",
+   "run": 1,
+   "split": "dev",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-033",
+   "run": 1,
+   "split": "dev",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-034",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-035",
+   "run": 1,
+   "split": "dev",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-036",
+   "run": 1,
+   "split": "dev",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-037",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-038",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-039",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-040",
+   "run": 1,
+   "split": "dev",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-041",
+   "run": 1,
+   "split": "dev",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-042",
+   "run": 1,
+   "split": "dev",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-043",
+   "run": 1,
+   "split": "dev",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-044",
+   "run": 1,
+   "split": "dev",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-045",
+   "run": 1,
+   "split": "dev",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-046",
+   "run": 1,
+   "split": "dev",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-047",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-048",
+   "run": 1,
+   "split": "dev",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-049",
+   "run": 1,
+   "split": "dev",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-050",
+   "run": 1,
+   "split": "dev",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-051",
+   "run": 1,
+   "split": "dev",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-052",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-053",
+   "run": 1,
+   "split": "dev",
+   "category": "B01",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": false,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-054",
+   "run": 1,
+   "split": "dev",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-055",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-056",
+   "run": 1,
+   "split": "dev",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-057",
+   "run": 1,
+   "split": "dev",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-058",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-059",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-060",
+   "run": 1,
+   "split": "dev",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-061",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-062",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-063",
+   "run": 1,
+   "split": "dev",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-064",
+   "run": 1,
+   "split": "dev",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-065",
+   "run": 1,
+   "split": "dev",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-066",
+   "run": 1,
+   "split": "dev",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-067",
+   "run": 1,
+   "split": "dev",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-068",
+   "run": 1,
+   "split": "dev",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-069",
+   "run": 1,
+   "split": "dev",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-070",
+   "run": 1,
+   "split": "dev",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-071",
+   "run": 1,
+   "split": "dev",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-072",
+   "run": 1,
+   "split": "dev",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-073",
+   "run": 1,
+   "split": "dev",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-074",
+   "run": 1,
+   "split": "dev",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-075",
+   "run": 1,
+   "split": "dev",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-076",
+   "run": 1,
+   "split": "dev",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-077",
+   "run": 1,
+   "split": "dev",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-078",
+   "run": 1,
+   "split": "dev",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-079",
+   "run": 1,
+   "split": "dev",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-080",
+   "run": 1,
+   "split": "dev",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-081",
+   "run": 1,
+   "split": "dev",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-082",
+   "run": 1,
+   "split": "dev",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-083",
+   "run": 1,
+   "split": "dev",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-084",
+   "run": 1,
+   "split": "dev",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-085",
+   "run": 1,
+   "split": "dev",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-086",
+   "run": 1,
+   "split": "dev",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-087",
+   "run": 1,
+   "split": "dev",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-088",
+   "run": 1,
+   "split": "dev",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-089",
+   "run": 1,
+   "split": "dev",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-090",
+   "run": 1,
+   "split": "dev",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-091",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-092",
+   "run": 1,
+   "split": "dev",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-093",
+   "run": 1,
+   "split": "dev",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-094",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-095",
+   "run": 1,
+   "split": "dev",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-096",
+   "run": 1,
+   "split": "dev",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-097",
+   "run": 1,
+   "split": "dev",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-098",
+   "run": 1,
+   "split": "dev",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-099",
+   "run": 1,
+   "split": "dev",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "DV-100",
+   "run": 1,
+   "split": "dev",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-001",
+   "run": 1,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-002",
+   "run": 1,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-003",
+   "run": 1,
+   "split": "held-out",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-004",
+   "run": 1,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-005",
+   "run": 1,
+   "split": "held-out",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-006",
+   "run": 1,
+   "split": "held-out",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-007",
+   "run": 1,
+   "split": "held-out",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-008",
+   "run": 1,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-009",
+   "run": 1,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-010",
+   "run": 1,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-011",
+   "run": 1,
+   "split": "held-out",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-012",
+   "run": 1,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-013",
+   "run": 1,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-014",
+   "run": 1,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-015",
+   "run": 1,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-016",
+   "run": 1,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-017",
+   "run": 1,
+   "split": "held-out",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-018",
+   "run": 1,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-019",
+   "run": 1,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-020",
+   "run": 1,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-021",
+   "run": 1,
+   "split": "held-out",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-022",
+   "run": 1,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-023",
+   "run": 1,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-024",
+   "run": 1,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-025",
+   "run": 1,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-026",
+   "run": 1,
+   "split": "held-out",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-027",
+   "run": 1,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-028",
+   "run": 1,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-029",
+   "run": 1,
+   "split": "held-out",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-030",
+   "run": 1,
+   "split": "held-out",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-031",
+   "run": 1,
+   "split": "held-out",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-032",
+   "run": 1,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-033",
+   "run": 1,
+   "split": "held-out",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-034",
+   "run": 1,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-035",
+   "run": 1,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-036",
+   "run": 1,
+   "split": "held-out",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-037",
+   "run": 1,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-038",
+   "run": 1,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-039",
+   "run": 1,
+   "split": "held-out",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-040",
+   "run": 1,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-041",
+   "run": 1,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-042",
+   "run": 1,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-043",
+   "run": 1,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-044",
+   "run": 1,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-045",
+   "run": 1,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-046",
+   "run": 1,
+   "split": "held-out",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-047",
+   "run": 1,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-048",
+   "run": 1,
+   "split": "held-out",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-049",
+   "run": 1,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-050",
+   "run": 1,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-051",
+   "run": 1,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-052",
+   "run": 1,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-053",
+   "run": 1,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-054",
+   "run": 1,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-055",
+   "run": 1,
+   "split": "held-out",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-056",
+   "run": 1,
+   "split": "held-out",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-057",
+   "run": 1,
+   "split": "held-out",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-058",
+   "run": 1,
+   "split": "held-out",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-059",
+   "run": 1,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-060",
+   "run": 1,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-061",
+   "run": 1,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-062",
+   "run": 1,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-063",
+   "run": 1,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-064",
+   "run": 1,
+   "split": "held-out",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-065",
+   "run": 1,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-066",
+   "run": 1,
+   "split": "held-out",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-067",
+   "run": 1,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-068",
+   "run": 1,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-069",
+   "run": 1,
+   "split": "held-out",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-070",
+   "run": 1,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-071",
+   "run": 1,
+   "split": "held-out",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-072",
+   "run": 1,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-073",
+   "run": 1,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-074",
+   "run": 1,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-075",
+   "run": 1,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-076",
+   "run": 1,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-077",
+   "run": 1,
+   "split": "held-out",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-078",
+   "run": 1,
+   "split": "held-out",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-079",
+   "run": 1,
+   "split": "held-out",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-080",
+   "run": 1,
+   "split": "held-out",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-001",
+   "run": 2,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-002",
+   "run": 2,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-003",
+   "run": 2,
+   "split": "held-out",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-004",
+   "run": 2,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-005",
+   "run": 2,
+   "split": "held-out",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-006",
+   "run": 2,
+   "split": "held-out",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-007",
+   "run": 2,
+   "split": "held-out",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-008",
+   "run": 2,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-009",
+   "run": 2,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-010",
+   "run": 2,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-011",
+   "run": 2,
+   "split": "held-out",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-012",
+   "run": 2,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-013",
+   "run": 2,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-014",
+   "run": 2,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-015",
+   "run": 2,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-016",
+   "run": 2,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-017",
+   "run": 2,
+   "split": "held-out",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-018",
+   "run": 2,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-019",
+   "run": 2,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-020",
+   "run": 2,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-021",
+   "run": 2,
+   "split": "held-out",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-022",
+   "run": 2,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-023",
+   "run": 2,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-024",
+   "run": 2,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-025",
+   "run": 2,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-026",
+   "run": 2,
+   "split": "held-out",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-027",
+   "run": 2,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-028",
+   "run": 2,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-029",
+   "run": 2,
+   "split": "held-out",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-030",
+   "run": 2,
+   "split": "held-out",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-031",
+   "run": 2,
+   "split": "held-out",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-032",
+   "run": 2,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-033",
+   "run": 2,
+   "split": "held-out",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-034",
+   "run": 2,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-035",
+   "run": 2,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-036",
+   "run": 2,
+   "split": "held-out",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-037",
+   "run": 2,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-038",
+   "run": 2,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-039",
+   "run": 2,
+   "split": "held-out",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-040",
+   "run": 2,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-041",
+   "run": 2,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-042",
+   "run": 2,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-043",
+   "run": 2,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-044",
+   "run": 2,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-045",
+   "run": 2,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-046",
+   "run": 2,
+   "split": "held-out",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-047",
+   "run": 2,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-048",
+   "run": 2,
+   "split": "held-out",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-049",
+   "run": 2,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-050",
+   "run": 2,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-051",
+   "run": 2,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-052",
+   "run": 2,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-053",
+   "run": 2,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-054",
+   "run": 2,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-055",
+   "run": 2,
+   "split": "held-out",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-056",
+   "run": 2,
+   "split": "held-out",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-057",
+   "run": 2,
+   "split": "held-out",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-058",
+   "run": 2,
+   "split": "held-out",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-059",
+   "run": 2,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-060",
+   "run": 2,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-061",
+   "run": 2,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-062",
+   "run": 2,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-063",
+   "run": 2,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-064",
+   "run": 2,
+   "split": "held-out",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-065",
+   "run": 2,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-066",
+   "run": 2,
+   "split": "held-out",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-067",
+   "run": 2,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-068",
+   "run": 2,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-069",
+   "run": 2,
+   "split": "held-out",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-070",
+   "run": 2,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-071",
+   "run": 2,
+   "split": "held-out",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-072",
+   "run": 2,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-073",
+   "run": 2,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-074",
+   "run": 2,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-075",
+   "run": 2,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-076",
+   "run": 2,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-077",
+   "run": 2,
+   "split": "held-out",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-078",
+   "run": 2,
+   "split": "held-out",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-079",
+   "run": 2,
+   "split": "held-out",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-080",
+   "run": 2,
+   "split": "held-out",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-001",
+   "run": 3,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-002",
+   "run": 3,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-003",
+   "run": 3,
+   "split": "held-out",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-004",
+   "run": 3,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-005",
+   "run": 3,
+   "split": "held-out",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-006",
+   "run": 3,
+   "split": "held-out",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-007",
+   "run": 3,
+   "split": "held-out",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-008",
+   "run": 3,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-009",
+   "run": 3,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-010",
+   "run": 3,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-011",
+   "run": 3,
+   "split": "held-out",
+   "category": "D21",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-012",
+   "run": 3,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-013",
+   "run": 3,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-014",
+   "run": 3,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-015",
+   "run": 3,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-016",
+   "run": 3,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-017",
+   "run": 3,
+   "split": "held-out",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-018",
+   "run": 3,
+   "split": "held-out",
+   "category": "D20",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-019",
+   "run": 3,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-020",
+   "run": 3,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-021",
+   "run": 3,
+   "split": "held-out",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-022",
+   "run": 3,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-023",
+   "run": 3,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-024",
+   "run": 3,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-025",
+   "run": 3,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-026",
+   "run": 3,
+   "split": "held-out",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-027",
+   "run": 3,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-028",
+   "run": 3,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-029",
+   "run": 3,
+   "split": "held-out",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-030",
+   "run": 3,
+   "split": "held-out",
+   "category": "D05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-031",
+   "run": 3,
+   "split": "held-out",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-032",
+   "run": 3,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-033",
+   "run": 3,
+   "split": "held-out",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-034",
+   "run": 3,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-035",
+   "run": 3,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-036",
+   "run": 3,
+   "split": "held-out",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-037",
+   "run": 3,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-038",
+   "run": 3,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-039",
+   "run": 3,
+   "split": "held-out",
+   "category": "K06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-040",
+   "run": 3,
+   "split": "held-out",
+   "category": "K04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-041",
+   "run": 3,
+   "split": "held-out",
+   "category": "D25",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-042",
+   "run": 3,
+   "split": "held-out",
+   "category": "D06",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-043",
+   "run": 3,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-044",
+   "run": 3,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-045",
+   "run": 3,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-046",
+   "run": 3,
+   "split": "held-out",
+   "category": "D04",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-047",
+   "run": 3,
+   "split": "held-out",
+   "category": "D23",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-048",
+   "run": 3,
+   "split": "held-out",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-049",
+   "run": 3,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-050",
+   "run": 3,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-051",
+   "run": 3,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-052",
+   "run": 3,
+   "split": "held-out",
+   "category": "D17",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-053",
+   "run": 3,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-054",
+   "run": 3,
+   "split": "held-out",
+   "category": "D13",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-055",
+   "run": 3,
+   "split": "held-out",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-056",
+   "run": 3,
+   "split": "held-out",
+   "category": "D09",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-057",
+   "run": 3,
+   "split": "held-out",
+   "category": "D02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-058",
+   "run": 3,
+   "split": "held-out",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-059",
+   "run": 3,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-060",
+   "run": 3,
+   "split": "held-out",
+   "category": "K01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-061",
+   "run": 3,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-062",
+   "run": 3,
+   "split": "held-out",
+   "category": "D19",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-063",
+   "run": 3,
+   "split": "held-out",
+   "category": "D16",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-064",
+   "run": 3,
+   "split": "held-out",
+   "category": "D10",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-065",
+   "run": 3,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-066",
+   "run": 3,
+   "split": "held-out",
+   "category": "K05",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-067",
+   "run": 3,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-068",
+   "run": 3,
+   "split": "held-out",
+   "category": "D03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-069",
+   "run": 3,
+   "split": "held-out",
+   "category": "D18",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-070",
+   "run": 3,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-071",
+   "run": 3,
+   "split": "held-out",
+   "category": "D08",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-072",
+   "run": 3,
+   "split": "held-out",
+   "category": "K02",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-073",
+   "run": 3,
+   "split": "held-out",
+   "category": "K03",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-074",
+   "run": 3,
+   "split": "held-out",
+   "category": "D24",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-075",
+   "run": 3,
+   "split": "held-out",
+   "category": "D22",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-076",
+   "run": 3,
+   "split": "held-out",
+   "category": "D12",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-077",
+   "run": 3,
+   "split": "held-out",
+   "category": "D01",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-078",
+   "run": 3,
+   "split": "held-out",
+   "category": "D15",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-079",
+   "run": 3,
+   "split": "held-out",
+   "category": "D07",
+   "metrics": {
+    "case_success": true,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  },
+  {
+   "case_id": "HO-080",
+   "run": 3,
+   "split": "held-out",
+   "category": "D11",
+   "metrics": {
+    "case_success": false,
+    "ledger_correct": true,
+    "correct_action": true,
+    "no_false_approval": true,
+    "no_false_denial": true,
+    "no_duplicate_credit": true,
+    "no_unauthorized_action": true
+   }
+  }
+ ],
+ "unknown_cases": []
+}

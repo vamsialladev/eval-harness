@@ -4,6 +4,10 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+### Added
+- **Stage 9 registered** (loyalty-support-modernization, arm C): 180 synthetic cases (100 dev, 80 held-out) and its
+  Milestone 10 live run (dev once, held-out three times), gated in CI with hard gates on over-credit, duplicate credit
+  and unauthorized action, floors and budgets (decision 26). Verdicts come from Stage 9's own scoring, not vendored.
 ### Changed
 - README first screen: value line, demo video slot, "Try it live" with the wake note, At a glance with a cost row;
   new "Design at scale" section; Business value names who benefits and how a pilot would measure it; tests 92.

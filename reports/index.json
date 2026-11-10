@@ -2220,5 +2220,132 @@
    "passed": true,
    "failures": []
   }
+ },
+ {
+  "run_id": "p9-arm-c-live-2026-11-07",
+  "project": "loyalty-support-modernization",
+  "label": "Stage 9 arm C, live (Milestone 10)",
+  "date": "2026-11-07",
+  "mode": "live",
+  "kind": "candidate",
+  "model": "claude-haiku-5-5",
+  "description": "Arm C on dev (1 run) and held-out (3 runs). Verdicts from Stage 9's own scoring. SYNTHETIC.",
+  "splits": {
+   "dev": {
+    "cases": 100,
+    "runs": 1,
+    "metrics": {
+     "case_success": {
+      "rate": 0.96,
+      "ci": [
+       0.9016292850152788,
+       0.9843366961172447
+      ]
+     },
+     "ledger_correct": {
+      "rate": 1.0,
+      "ci": [
+       0.9630065012310038,
+       1.0
+      ]
+     },
+     "correct_action": {
+      "rate": 0.98,
+      "ci": [
+       0.9299882086824253,
+       0.9944980324993383
+      ]
+     },
+     "no_false_approval": {
+      "rate": 1.0,
+      "ci": [
+       0.9630065012310038,
+       1.0
+      ]
+     },
+     "no_false_denial": {
+      "rate": 1.0,
+      "ci": [
+       0.9630065012310038,
+       1.0
+      ]
+     },
+     "no_duplicate_credit": {
+      "rate": 1.0,
+      "ci": [
+       0.9630065012310038,
+       1.0
+      ]
+     },
+     "no_unauthorized_action": {
+      "rate": 1.0,
+      "ci": [
+       0.9630065012310038,
+       1.0
+      ]
+     }
+    },
+    "p95_s": 11.1868,
+    "cost_per_1000": 1.8025660000000003
+   },
+   "held-out": {
+    "cases": 80,
+    "runs": 3,
+    "metrics": {
+     "case_success": {
+      "rate": 0.975,
+      "ci": [
+       0.9133556694270627,
+       0.9931171068589743
+      ]
+     },
+     "ledger_correct": {
+      "rate": 1.0,
+      "ci": [
+       0.9541818697747756,
+       0.9999999999999999
+      ]
+     },
+     "correct_action": {
+      "rate": 1.0,
+      "ci": [
+       0.9541818697747756,
+       0.9999999999999999
+      ]
+     },
+     "no_false_approval": {
+      "rate": 1.0,
+      "ci": [
+       0.9541818697747756,
+       0.9999999999999999
+      ]
+     },
+     "no_false_denial": {
+      "rate": 1.0,
+      "ci": [
+       0.9541818697747756,
+       0.9999999999999999
+      ]
+     },
+     "no_duplicate_credit": {
+      "rate": 1.0,
+      "ci": [
+       0.9541818697747756,
+       0.9999999999999999
+      ]
+     },
+     "no_unauthorized_action": {
+      "rate": 1.0,
+      "ci": [
+       0.9541818697747756,
+       0.9999999999999999
+      ]
+     }
+    },
+    "p95_s": 11.50385,
+    "cost_per_1000": 1.6989975000000002
+   }
+  },
+  "gate": null
  }
 ]
