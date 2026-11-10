@@ -86,3 +86,10 @@ def test_runs_page_switches_metric():
     at.selectbox[0].set_value("guest-request-agent").run()
     at.selectbox[2].set_value("visitor").run()
     assert not at.exception
+
+
+def test_sidebar_links_to_the_demo_video_github_and_portfolio():
+    at = AppTest.from_file(str(ROOT / "app.py"), default_timeout=60).run()
+    text = " ".join(h.value for h in at.get("html"))
+    assert 'href="https://vamsialla.com/projects/eval-harness.html#demo"' in text and ">Watch the demo<" in text
+    assert ">GitHub<" in text and 'href="https://vamsialla.com"' in text

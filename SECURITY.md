@@ -39,5 +39,22 @@ no admin page and no request log because there is nothing to log (docs/DECISIONS
 | Published numbers drift from the code | CI re-scores every saved report and fails on any difference | `scripts/check_reports.py` |
 | XSS through recorded text on the dashboard | Every dynamic value is escaped before HTML; outputs are shown in code blocks | `views/components.py` |
 
+## OWASP Top 10 for LLM applications (2025)
+
+The harness calls a model only as a judge and in live runs; the dashboard calls none.
+
+| ID | Risk | How this project handles it |
+|---|---|---|
+| LLM01 | Prompt injection | Case and reply are wrapped as data in the judge prompt; structured output only (verdict and a short reason); injection cases in both projects are hard 100% gates |
+| LLM02 | Sensitive information disclosure | Synthetic cases only; no visitor data is ever recorded; the API key is passed by environment and never written |
+| LLM03 | Supply chain | Standard-library core, pinned extras, pip-audit in CI, Dependabot, secret scanning and push protection |
+| LLM04 | Data and model poisoning | Cases are imported at pinned commits (`src/hoteleval/pins.py`); CI re-scores every saved report and fails on any difference |
+| LLM05 | Improper output handling | Recorded text is escaped before display on the dashboard |
+| LLM06 | Excessive agency | The harness has no tools and takes no actions; live runs use a `git archive` export, never the project's checkout |
+| LLM07 | System prompt leakage | No secrets in prompts; rubrics are in the repository |
+| LLM08 | Vector and embedding weaknesses | Not applicable: the harness indexes nothing; it measures the projects' retrieval |
+| LLM09 | Misinformation | Deterministic metrics, each with a passing and a failing test; the judge is never gated until kappa ≥ 0.6 against human labels (it reached 0.29) |
+| LLM10 | Unbounded consumption | The judge caches by input hash; live runs are run by hand with prices as flags; the dashboard makes no API calls |
+
 ## Reporting a vulnerability
 Email vamsialla.dev@gmail.com. Please don't open a public issue for security problems.

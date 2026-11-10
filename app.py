@@ -33,6 +33,7 @@ pages += [
     st.Page("views/about.py", title="Disclaimer", icon=":material/policy:", url_path="disclaimer"),
 ]
 page = st.navigation(pages)
+ui.sidebar_links()
 try:
     page.run()
 except Exception:  # never show a traceback to a visitor
